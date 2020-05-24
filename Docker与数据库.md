@@ -39,13 +39,12 @@ docker exec -it 容器id bash
 mysql -u root -p
 
 ```
-输入刚才设置的密码
 
 ![](http://cdn.hurra.ltd/img/20200515202434.png)
 ### 3.2 设置允许远程登录
 
-```
-grant all privileges on *.* to 'root'@'%' identified by 'MYSQL密码';
+```s
+grant all privileges on *.* to 'root'@'%' identified by '刚设置的MYSQL密码';
 
 flush privileges;
 ```
@@ -66,3 +65,28 @@ flush privileges;
 如果设置了目录映射的话就能在宿主机中看见了
 
 ![](http://cdn.hurra.ltd/img/20200515234144.png)
+
+## 4.常见问题
+
+### 4.1 中文乱码问题
+进入容器内,执行
+```sh
+echo "character-set-server=utf8" >> /etc/mysql/mysql.conf.d/mysqld.cnf
+
+service mysql restart
+```
+
+### 4.2 降低MySQL容器占用内存
+进入容器内,执行
+```
+vim /etc/mysql/mysql.conf.d/mysqld.cnf
+```
+在该文件的最后追加
+```s
+performance_schema_max_table_instances=400
+
+table_definition_cache=400
+
+table_open_cache=256
+```
+最后重启容器或者重启MySQL服务即可
