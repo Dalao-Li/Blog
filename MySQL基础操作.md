@@ -1,3 +1,5 @@
+
+
 # 一、MySQL基础操作
 
 # 1. 新建
@@ -32,6 +34,7 @@ mysql -u 用户名 -p
 
 # 二、权限操作
 # 1. 授权
+
 ```sql
 grant all privileges on *.* to '用户名'@'%' identified by '密码';
 ```
@@ -48,7 +51,7 @@ grant all privileges on *.* to '用户名'@'%' identified by '密码';
 授权操作只有root用户才有权限操作
 
 ![](http://cdn.hurra.ltd/img/20200516003253.png)
-<center>我们授予dalao用户对所有数据库所有表的所有操作权限</center>
+<center>授予dalao用户对所有数据库所有表的所有操作权限</center>
 
 # 2. 查看
 
@@ -66,7 +69,7 @@ show grants for '用户名'@'%';
 # 3.示例
 
 ## 3.1 新建用户user_test,仅授予select权限
-```
+```sql
 create user 'user_test'@'%'identified by '999';
 
 grant select on *.* to 'user_test'@'%';
@@ -80,12 +83,12 @@ create database test_db;
 ```
 ![](http://cdn.hurra.ltd/img/20200516004259.png)
 <center>可以发现被拒绝了</center>
+## 3.3 使用user_test用户，尝试查询
 
-## 3.3 尝试查询
 ![](http://cdn.hurra.ltd/img/20200516004447.png)
 <center>可以发现查询是没问题的</center>
-
 ## 3.4 新建用户test_4，授予select,create权限
+
 ```sql
 create user 'test_4'@'%' identified by '999';
 
@@ -100,5 +103,4 @@ create database test_db;
 ```
 ![](http://cdn.hurra.ltd/img/20200516084301.png)
 <center>可以发现是没问题的</center>
-
 

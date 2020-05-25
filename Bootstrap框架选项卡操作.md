@@ -8,7 +8,7 @@
 
 # 3. 代码实现
 
-## 3.1 head部分
+## 3.1. head部分
 ```javascript
 <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
 <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
@@ -17,7 +17,7 @@
 ```
 引入相关的库
 
-## 3.1 选项卡部分
+## 3.2. 选项卡部分
 ```html
 <nav class="navbar nav-tabs" role="navigation">
     <ul class="nav nav-tabs">
@@ -37,7 +37,7 @@
 > - href 后跟选项卡对应页面的id
 > - data-toggle="tab" 用以绑定触发事件,即点击不同选项卡时切换页面
 
-## 3.2 页面部分
+## 3.3. 页面部分
 ```html
 <div class="tab-content">
 
@@ -120,7 +120,7 @@
 ```
 
 
-# 3.3 全部代码
+# 4. 全部代码
 ```html
 <!DOCTYPE html>
 <html lang="zh-CN">

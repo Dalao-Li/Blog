@@ -24,7 +24,7 @@ docker run -itd -p 主机端口:3306 -v 宿主机目录:/var/lib/mysql -e MYSQL_
 
 ![](http://cdn.hurra.ltd/img/20200515201929.png)
 
-这样就容器内的 **/var/lib/mysql** 目录映射到了宿主机的**D:/volume/mysql**目录上,容器没了数据还在
+这样容器内的 **/var/lib/mysql** 目录映射到了宿主机的**D:/volume/mysql**目录上,容器没了数据还在
 
 ![](http://cdn.hurra.ltd/img/20200515202929.png)
 
@@ -33,17 +33,16 @@ docker run -itd -p 主机端口:3306 -v 宿主机目录:/var/lib/mysql -e MYSQL_
 ## 3. 远程连接
 
 ### 3.1 登录MySQL
-```
+```shell
 docker exec -it 容器id bash
 
 mysql -u root -p
-
 ```
 
 ![](http://cdn.hurra.ltd/img/20200515202434.png)
 ### 3.2 设置允许远程登录
 
-```s
+```shell
 grant all privileges on *.* to 'root'@'%' identified by '刚设置的MYSQL密码';
 
 flush privileges;
@@ -52,10 +51,7 @@ flush privileges;
 
 ![](http://cdn.hurra.ltd/img/20200515202734.png)
 
-### 3.3 使用软件连接
-![](http://cdn.hurra.ltd/img/20200515202850.png)
-
-### 3.4 测试
+### 3.3 测试
 
 新建一个数据库Test
 
@@ -69,6 +65,7 @@ flush privileges;
 ## 4.常见问题
 
 ### 4.1 中文乱码问题
+
 进入容器内,执行
 ```sh
 echo "character-set-server=utf8" >> /etc/mysql/mysql.conf.d/mysqld.cnf
@@ -78,15 +75,15 @@ service mysql restart
 
 ### 4.2 降低MySQL容器占用内存
 进入容器内,执行
-```
+```shell
 vim /etc/mysql/mysql.conf.d/mysqld.cnf
 ```
-在该文件的最后追加
-```s
+在mysqld.cnf文件的最后追加：
+```shell
 performance_schema_max_table_instances=400
 
 table_definition_cache=400
 
 table_open_cache=256
 ```
-最后重启容器或者重启MySQL服务即可
+重启容器或者重启MySQL服务即可
