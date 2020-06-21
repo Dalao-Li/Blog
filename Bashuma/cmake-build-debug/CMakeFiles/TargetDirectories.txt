@@ -1,0 +1,3 @@
+C:/Users/DaLao/Desktop/Bashuma/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/DaLao/Desktop/Bashuma/cmake-build-debug/CMakeFiles/Bashuma.dir
+C:/Users/DaLao/Desktop/Bashuma/cmake-build-debug/CMakeFiles/rebuild_cache.dir
