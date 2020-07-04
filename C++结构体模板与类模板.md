@@ -1,0 +1,166 @@
+# 一、实验目的
+掌握C++函数模板、结构体模板与类模板的使用
+
+# 二、实验过程
+
+## 2.1 函数模板
+写一个求和函数,返回两个输入值的和
+```c
+template <class T>
+T add(T a,T b) {
+	return a+b;
+}
+
+```
+测试代码
+```c
+#include <iostream>
+using namespace std;
+
+template <class T>
+T add(T a,T b) {
+	return a+b;
+}
+
+int main() {
+	cout<<add<int>(1,2)<<endl;
+	cout<<add(2.4,3.5)<<endl;
+	cout<<add<string>("I am ","a student.")<<endl;
+	return 0;
+}
+```
+运行结果
+
+![](http://cdn.hurra.ltd/img/20200625230350.png)
+## 2.2 结构体模板
+结构体定义
+```c
+template<class T>
+struct Node {
+	T data;
+	Node<T> *next;
+};
+```
+
+测试代码
+```c
+#include<iostream>
+using namespace std;
+
+template<class T>
+struct Node {
+	T data;
+	Node<T> *next;
+};
+
+template<class T>
+void init(Node<T> *head,int n) {
+	//起始头指针与尾指针在一起
+	Node<T> *tail = head;
+	cout<<"输入:";
+	for(int i = 0; i < n; i++) {
+		Node<T> *p = new Node<T>;
+		cin>>p->data;
+		p->next = NULL;
+		//新节点位于尾指针的后边
+		tail->next = p;
+		//更新尾指针的位置
+		tail = p;
+	}
+
+	Node<T> *p = head->next;
+	cout<<"输出:";
+	while(p) {
+		cout<<p->data<<" ";
+		p = p->next;
+	}
+	cout<<endl<<endl;
+}
+
+
+int main() {
+	Node<int> *head_int = new Node<int>; 
+	
+	Node<double> *head_double = new Node<double>;
+	
+	Node<string> *head_string = new Node<string>;
+    //显式调用
+	init<int>(head_int,5);
+    //隐式调用
+	init(head_double,5);
+	init<string>(head_string,5);
+}
+```
+运行结果
+![](http://cdn.hurra.ltd/img/20200625224721.png)
+
+## 2.3 类模板
+类定义
+```c
+template <class T>
+class Com {
+	public:
+		Com(T a, T b) {
+			x = a;
+			y = b;
+		}
+		T max();
+		T min();
+		void display();
+
+	private:
+		T x;
+		T y;
+};
+
+```
+
+测试代码
+```c
+#include <iostream>
+using namespace std;
+template <class T>
+class Com {
+	public:
+		Com(T a, T b) {
+			x = a;
+			y = b;
+		}
+		T max();
+		T min();
+		void display();
+
+	private:
+		T x;
+		T y;
+};
+
+template<class T>
+T Com<T>::max() {
+	return x > y ? x : y;
+}
+
+template<class T>
+T Com<T>::min() {
+	return x < y ? x : y;
+}
+
+template<class T>
+void Com<T>::display() {
+	cout << max() << " " << min() << endl;
+
+}
+int main() {
+	Com<int> cmp1(3, 7);
+    cmp1.display();
+	Com<double> cmp2(3.333, 7.777);
+	cmp2.display();
+	Com<char> cmp3('a', 'A');
+	cmp3.display();
+	return 0;
+}
+```
+
+运行结果
+
+![](http://cdn.hurra.ltd/img/20200625230433.png)
