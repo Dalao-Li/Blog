@@ -1,10 +1,10 @@
-# 一、实验目的
+# 一、目的
 CentOS安装Python3,并对pip3并换源
 
 
-# 二、实验过程
+# 二、过程
 
-## 2.1 安装Python3
+## 2.1 安装
 
 安装编译Python所需的依赖
 ```shell
@@ -43,7 +43,7 @@ make && make install
 
 ![](http://cdn.hurra.ltd/img/20200628170422.png)
 
-## 2.2 设置Python3
+## 2.2 设置
 
 查看python的默认版本
 

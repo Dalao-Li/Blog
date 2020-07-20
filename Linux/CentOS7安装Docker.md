@@ -1,7 +1,7 @@
-# 一、实验目的
+# 一、目的
 在CentOS7上安装Docker并换源
 
-# 二、教程过程
+# 二、过程
 
 ## 2.1 更新源
 ```
@@ -17,6 +17,7 @@ yum install -y lvm2
 ```
 
 ## 2.3 设置yum源
+
 这里是阿里源
 ```
 yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
@@ -27,12 +28,12 @@ yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/d
 yum list docker-ce --showduplicates | sort -r
 ```
 ![](http://cdn.hurra.ltd/img/20200623102007.png)
-## 2.4 安装指定版本
+## 2.4 安装
 ```
 yum install docker-ce-18.03.1.ce
 ```
 
-## 2.5 启动Docker
+## 2.5 启动
 ```
 systemctl start docker
 
