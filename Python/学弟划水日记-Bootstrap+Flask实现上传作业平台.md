@@ -1,71 +1,84 @@
-> - 项目地址  
-> git@code.aliyun.com:dalao/submit_homework.git
+**项目地址**
+
+>**git@code.aliyun.com:dalao/submit_homework.git**
+
+ **Docker**
+
+ >docker run -itd -p 80:8080 registry.cn-beijing.aliyuncs.com/liyuanhao/homework:v3
+
+
+# 前言
+
+>博主最近小学期，每天得收三十多份报告;原采用QQ发送形式,但效率太低，很多时间都花在收发和修改命名格式上，因而博主打算写个提交作业平台,部署于阿里云,每个同学均可通过它上传当日作业,最后博主统一上交  
 >
-> - Docker仓库  
-> docker pull registry.cn-beijing.aliyuncs.com/liyuanhao/homework:v3  
-> docker run -itd -p 宿主机端口:8080 镜像id
+>PS:由于开发周期只有一天半，所以有些地方可能存有BUG，恳请指正
 
 
-
-# 问题引入
-
-博主最近小学期，每天得收三十多份进度报告,原本采用QQ发送形式,但效率太低，很多时间都花在收发和修改命名格式上，因而博主打算写一个提交作业平台,每个同学均可通过它上传自己当日作业,最后我统一下载就行
-
-# 运行结果
+# 结果
 主页面
 
-![](http://cdn.hurra.ltd/img/20200703114100.png)
+![](https://imgconvert.csdnimg.cn/aHR0cDovL2Nkbi5odXJyYS5sdGQvaW1nLzIwMjAwNzA4MTgyOTQyLnBuZw?x-oss-process=image/format,png)
 
-上传页面
-![](http://cdn.hurra.ltd/img/20200703114225.png)
+上传页面,点击可上传自己的作业文件
+
+![](https://imgconvert.csdnimg.cn/aHR0cDovL2Nkbi5odXJyYS5sdGQvaW1nLzIwMjAwNzAzMTE0MjI1LnBuZw?x-oss-process=image/format,png)
+
+文件为空时提示
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200705235242855.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDUyOTM3,size_16,color_FFFFFF,t_70)
+
+上传成功时提示
+
+![](https://imgconvert.csdnimg.cn/aHR0cDovL2Nkbi5odXJyYS5sdGQvaW1nLzIwMjAwNzA4MTgzMDQ1LnBuZw?x-oss-process=image/format,png)
+
+---
 
 # 一、需求分析
 
 ## 1.1 上传
-同学将每天的作业(Word文档)上传到博主的服务器上
+同学将每天的作业(Word文档)上传到该平台
 
 ## 1.2 重命名
 
 按老师要求的格式给每份文件命名
 
-# 二、系统设计
+## 1.3 打包
+将收齐的word文件放入一个文件夹内，压缩并下载
 
-## 2.1 概要设计
+# 二、设计
+## 2.1 技术
 
 该系统采取C/S架构
 
 > - 部署环境 : CentOS7 
 >
-> - 前端 : Bootstrap + Jquery
+> - 前端 : Bootstrap + Jquery+SweetAlert2
 >
 > - WEB框架 : Flask
 
-## 2.2 存储设计
+## 2.2 存储
 
-博主将上传文件存到了项目中文件夹内,所以此处无需使用絮聚奎
+博主将上传文件存到了项目中文件夹内,所以此处没有使用数据库
 
-# 三、实验过程
-项目结构
+# 三、过程
 
-![](http://cdn.hurra.ltd/img/20200703130018.png)
+项目结构  
+![](https://imgconvert.csdnimg.cn/aHR0cDovL2Nkbi5odXJyYS5sdGQvaW1nLzIwMjAwNzAzMTMwMDE4LnBuZw?x-oss-process=image/format,png)
 
-> - index.html为主页面
-> - 信1701-3班-报告文件夹存储上传文件
-> - modles.py 存储学生学号信息
 
-## 3.1 前端index.html
 
-### 3.1.1 信息表格
+## 3.1 前端
+
+### 3.1.1 表格
 主页面初始时显示一个提交表格,内容为每位同学的提交状态、学号、姓名、提交时间以及操作按钮.
 图示
-![](http://cdn.hurra.ltd/img/20200703115113.png)
+![](https://imgconvert.csdnimg.cn/aHR0cDovL2Nkbi5odXJyYS5sdGQvaW1nLzIwMjAwNzAzMTE1MTEzLnBuZw?x-oss-process=image/format,png)
 
-实现代码:
 
 > - data是后端传来的一个列表,内含每个学生信息的字典
 ```html
 <!--提交信息的表格-->
-<table class="table table-hover">
+<table class="table table-hover" id="stuInfoTable">
     <thead>
     <tr>
         <th>提交状态</th>
@@ -113,7 +126,7 @@
 ```
 
 ### 3.1.2 提交框
-![](http://cdn.hurra.ltd/img/20200703121252.png)
+![](https://imgconvert.csdnimg.cn/aHR0cDovL2Nkbi5odXJyYS5sdGQvaW1nLzIwMjAwNzAzMTIxMjUyLnBuZw?x-oss-process=image/format,png)
 ```html
 <!--上传文件弹出框-->
 <div class="modal fade" id="stu_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -169,169 +182,16 @@
 ```
 
 
-### 3.1.3 JS事件
+### 3.1.3 JS
 ```js
- //显示模态框
-    function display_form(data) {
-        //模态框显示事件
-        $('#stu_modal').modal('show')
-        //自动给姓名与学号控件赋值
-        $('#name').val(data['name'])
-        $('#num').val(data['num'])
-    }
-
-    //提交表格
-    function submit_form() {
-        var name = $('#name').val()
-        var num = $('#num').val()
-        //用户名为2-5个汉字
-        var name_reg = /^[\u4e00-\u9fa5]{2,5}$/
-        //学号为8位数字
-        var num_reg = /^\d{8}$/
-        if (!name_reg.test(name)) {
-            alert("用户名错误!")
-            return
-        }
-        if (!num_reg.test(num)) {
-            alert("学号错误!")
-            return
-        }
-        //判断文件是否为空
-        var fileInput = $('#file').get(0).files[0];
-        if (!fileInput) {
-            alert("请选择上传文件！")
-            return
-        }
-        $('#upload').submit();
-    }
-```
-
-### 3.1.4 完整代码
-```html
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <title>上传平台</title>
-    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
-    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
-</head>
-
-<body>
-<div style="text-align: center;">
-    <h2>信1701-3班操作系统小学期七月三日报告上传</h2>
-    <p>
-        <strong style="color:green;">已交{{ num1 }}人</strong>
-        /
-        <strong style="color:red;">未交{{ 37-num1 }}人</strong>
-    </p>
-</div>
-
-<!--提交信息的表格-->
-<table class="table table-hover">
-    <thead>
-    <tr>
-        <th>提交状态</th>
-        <th>学号</th>
-        <th>姓名</th>
-        <th>上传时间</th>
-        <th>操作</th>
-    </tr>
-    </thead>
-    <tbody>
-    {% for i in data %}
-        <tr>
-            {% if i['status'] == 'yes' %}
-                <td style="color: green">
-                    <strong>已提交</strong>
-                </td>
-            {% else %}
-                <td style="color: red">
-                    <strong>未提交</strong>
-                </td>
-            {% endif %}
-            <td>{{ i['num'] }}</td>
-            <td>{{ i['name'] }}</td>
-            <td>{{ i['time'] }}</td>
-            <!--已经提交则提交按钮为不可操作状态-->
-            {% if i['status'] == 'yes' %}
-                <td>
-                    <button class="btn btn-primary" disabled="disabled">
-                        已上传
-                    </button>
-                </td>
-
-            {% else %}
-                <!--否则当点击上传按钮时将字典i的值传给对应函数-->
-                <td>
-                    <button class="btn btn-primary btn-lg" data-toggle="modal" onclick="display_form({{ i }})">
-                        文件上传
-                    </button>
-                </td>
-            {% endif %}
-        </tr>
-    {% endfor %}
-    </tbody>
-</table>
-
-
-<!--上传文件弹出框-->
-<div class="modal fade" id="stu_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="myModalLabel">
-                    操作系统每日报告上传
-                </h4>
-            </div>
-            <div class="modal-body">
-                <!--上传信息表格-->
-                <form id="upload" action="/upload" enctype='multipart/form-data' method='POST'>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">姓名</span>
-                        </div>
-                        <label for="name"></label>
-                        <input type="text" class="form-control" id="name" name="name">
-                    </div>
-
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">学号</span>
-                        </div>
-                        <label for="num"></label>
-                        <input type="text" class="form-control" id="num" name="num">
-                    </div>
-
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">班级</span>
-                        </div>
-                        <select class="form-control" name="classes" disabled>
-                            <option value="1701_1">信1701-1班</option>
-                            <option value="1701_2">信1701-2班</option>
-                            <!--默认值-->
-                            <option value="1701_3" selected>信1701-3班</option>
-                        </select>
-
-                    </div>
-                    <!--上传文件的控件-->
-                    <input id='file' class="btn btn-info" name="file" type="file">
-                    <div class="modal-footer">
-                        <button type="button" onclick="submit_form()" class="btn btn-primary">提交</button>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">关闭</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-</body>
-
-<script>
+ <script>
+ 	//实现表格信息的分页操作
+	$('#stuInfoTable').bootstrapTable({
+        pagination: true,   //是否显示分页条
+        pageSize: 5,   //一页显示的行数
+        paginationLoop: false,   //是否开启分页条无限循环，最后一页时点击下一页是否转到第一页
+        pageList: [5, 10, 20]   //选择每页显示多少行，数据过少时可能会没有效果
+    })
     //显示模态框
     function display_form(data) {
         //模态框显示事件
@@ -343,36 +203,61 @@
 
     //提交表格
     function submit_form() {
-        var name = $('#name').val()
-        var num = $('#num').val()
+        var form = document.getElementById("upload");
+        var formData = new FormData(form);
+        var name = formData.get("name")
+        var num = formData.get("num")
         //用户名为2-5个汉字
         var name_reg = /^[\u4e00-\u9fa5]{2,5}$/
         //学号为8位数字
         var num_reg = /^\d{8}$/
         if (!name_reg.test(name)) {
-            alert("用户名错误!")
+            swal("用户名错误!", "", "warning")
             return
         }
         if (!num_reg.test(num)) {
-            alert("学号错误!")
+            swal("学号错误!", "", "warning")
             return
         }
         //判断文件是否为空
+        //var file = formData.get("file")
         var fileInput = $('#file').get(0).files[0];
         if (!fileInput) {
-            alert("请选择上传文件！")
+            swal("请选择上传文件！", "", "warning")
             return
         }
-        $('#upload').submit();
+        //发送ajax请求
+        $.ajax({
+            async: false,
+            type: "POST",
+            url: "/upload",
+            data: formData,
+            dataType: "JSON",
+            mimeType: "multipart/form-data",
+            contentType: false,
+            cache: false,
+            processData: false,
+            success: function () {
+                swal({
+                    title: "上传成功",
+                    text: "",
+                    type: "success",
+                    timer: 2000
+                }, function () {
+                    location.reload()
+                })
+            },
+            error: function () {
+                alert("网络异常，请稍后重试")
+            }
+        })
     }
 </script>
-</html>
 ```
 
+
 ## 3.2 后端
-
 app.py
-
 ```py
 import os
 import time
@@ -384,12 +269,14 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
+	#上交作业的情况信息
     data = get_upload_info()
+    #已经上交的份数
     num1 = len(get_stu_num())
     return render_template('index.html', data=data, num1=num1)
 
 
-# 存储上传的文件
+# 上传
 @app.route('/upload', methods=['POST', 'GET'])
 def upload_file():
     if request.method == 'POST':
@@ -406,8 +293,27 @@ def upload_file():
         # 将路径转换为绝对路径
         upload_path = os.path.abspath(upload_path)
         f.save(upload_path)
-        return redirect(url_for('hello_world'))
+        return json.dumps({"result": 1})
 
+# 下载文件
+@app.route('/download/', methods=['GET'])
+def download():
+    zip_file()
+    path = os.path.join(os.getcwd())
+    return send_from_directory(path, dir + '.zip', as_attachment=True)
+
+#压缩文件
+def zip_file():
+    # 压缩文件夹
+    startdir = os.path.join(os.getcwd(), dir)
+    file_news = dir + '.zip'
+    z = zipfile.ZipFile(file_news, 'w', zipfile.ZIP_DEFLATED)  # 参数一：文件夹名
+    for dirpath, dirnames, filenames in os.walk(startdir):
+        fpath = dirpath.replace(startdir, '')  # 这一句很重要，不replace的话，就从根目录开始复制
+        fpath = fpath and fpath + os.sep or ''
+        for filename in filenames:
+            z.write(os.path.join(dirpath, filename), fpath + filename)
+    z.close()
 
 # 根据学号获取文件路径
 def get_file_path(num):
@@ -436,7 +342,7 @@ def get_stu_num():
             data.append(num)
     return data
 
-
+# 获取上传情况
 def get_upload_info():
     data2 = []
     num_info = get_stu_num()
@@ -471,4 +377,4 @@ stu_info = [
 ]
 ```
 
-![](http://cdn.hurra.ltd/img/赞赏码.png)
+![](https://imgconvert.csdnimg.cn/aHR0cDovL2Nkbi5odXJyYS5sdGQvaW1nLyVFOCVCNSU5RSVFOCVCNSU4RiVFNyVBMCU4MS5wbmc?x-oss-process=image/format,png)

@@ -1,10 +1,19 @@
+## Git命令流程
+
+![](http://cdn.hurra.ltd/img/20200720231600.png)
+
+
+
+---
+
+
 本地新建文件夹demo,进入
 
 ## 建立本地仓库
 
 > - 初始化一个文件夹为本地仓库
 
-```
+```shell
 git init
 ```
 ![](http://cdn.hurra.ltd/img/20200717225442.png)
@@ -14,7 +23,7 @@ git init
 
 ## 查看状态
 
-```
+```shell
 git status
 ```
 ![](http://cdn.hurra.ltd/img/20200717225623.png)
@@ -29,7 +38,7 @@ git status
 
 ## 添加到暂存区
 
-```
+```shell
 git add .
 ```
 > - 此处 `.` 指所有文件,也可具体指定文件
@@ -54,14 +63,14 @@ git reset HEAD <filename>
 
 > - 将暂存区里的改动给提交到本地的版本库
 
-```
+```shell
 git commit -m "提交的注释信息"
 ```
 ![](http://cdn.hurra.ltd/img/20200717230921.png)
 
 ## 查看提交记录
 
-```
+```shell
 git log
 ```
 ![](http://cdn.hurra.ltd/img/20200717232555.png)
@@ -154,5 +163,36 @@ git branch -d <branch name>
 删除second分支
 
 ![](http://cdn.hurra.ltd/img/20200718112414.png)
+
+## 合并分支
+
+合并某分支到当前分支
+```shell
+git merge <branch name>
+```
+
+### 无冲突
+master分支下新建master.txt文件;commit
+
+![](http://cdn.hurra.ltd/img/20200720210124.png)
+
+![](http://cdn.hurra.ltd/img/20200720214732.png)
+
+新建second分支,切换,再新建second.txt文件;commit
+
+![](http://cdn.hurra.ltd/img/20200720213807.png)
+
+![](http://cdn.hurra.ltd/img/20200720214816.png)
+
+合并second分支到master分支
+```shell
+git merge second
+```
+![](http://cdn.hurra.ltd/img/20200720215610.png)
+可以看到master分支下已经出现了second.txt
+
+
+
+
 
 ![](http://cdn.hurra.ltd/img/赞赏码.png)
