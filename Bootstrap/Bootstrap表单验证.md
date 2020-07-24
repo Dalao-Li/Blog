@@ -1,21 +1,32 @@
-# 实验源代码下载
+- [源码](#源码)
+  - [1.百度云](#1百度云)
+  - [2.code.aliyun](#2codealiyun)
+- [一、 目的](#一-目的)
+- [二、 过程](#二-过程)
+  - [2.1 效果](#21-效果)
+  - [2.2 项目结构](#22-项目结构)
+  - [2.3 head部分](#23-head部分)
+  - [2.4 body部分](#24-body部分)
+  - [2.4 JS部分](#24-js部分)
+
+# 源码
 
 ## 1.百度云  
 [提取码 : jn2w](https://pan.baidu.com/s/1hOuL-fgn_e6sVAbhq0Z8vw)  
 
 ## 2.code.aliyun
-```
-git clone git@code.aliyun.com:dalao/BootstrapvalidatorDemo.git
+```s
+git@code.aliyun.com:dalao/BootstrapvalidatorDemo.git
 ```
 
-# 一、 实验目的
+# 一、 目的
 使用Bootstrapvalidator插件完成对表达的验证
 
 
-# 二、 实验过程
+# 二、 过程
 
 
-## 2.1 最终效果
+## 2.1 效果
 ![](http://cdn.hurra.ltd/img/20200526231712.png)
 ![](http://cdn.hurra.ltd/img/20200526231734.png)
 ![](http://cdn.hurra.ltd/img/20200526231855.png)
@@ -224,4 +235,4 @@ git clone git@code.aliyun.com:dalao/BootstrapvalidatorDemo.git
     </script>
 ```
 
-
+![](http://cdn.hurra.ltd/img/赞赏码.png)

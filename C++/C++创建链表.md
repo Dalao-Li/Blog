@@ -1,12 +1,13 @@
-# 一、实验目的
+# 一、目的
 使用C++采取后插法创建链表
 
-# 二、实验环境
+# 二、环境
 gcc 4.9.2
 
-# 三、实验过程
+# 三、过程
 
 ## 3.1 数据定义
+
 ```c++
 typedef struct Node {
 	int data;
@@ -100,5 +101,7 @@ int main(void){
 }
 ```
 运行结果
+
 ![](http://cdn.hurra.ltd/img/20200620130329.png)
 
+![](http://cdn.hurra.ltd/img/赞赏码.png)

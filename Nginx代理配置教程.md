@@ -1,32 +1,45 @@
-# Docker+Nginx操作简要教程
+- [一、目的](#一目的)
+- [二、环境](#二环境)
+- [三、设计](#三设计)
+  - [1.端口映射](#1端口映射)
+  - [2.新建容器](#2新建容器)
+  - [3.修改配置文件](#3修改配置文件)
+    - [3.1 默认代理](#31-默认代理)
+    - [3.2 自定义页面代理](#32-自定义页面代理)
+    - [3.3 ip代理](#33-ip代理)
+  - [4. 重新加载配置文件](#4-重新加载配置文件)
+- [四、结果](#四结果)
+- [五、问题](#五问题)
+  - [5.1 分析](#51-分析)
+  - [5.2 解决](#52-解决)
 
 # 一、目的
-使用Nginx进行最基本的反向代理操作,实现  
+使用Nginx实现:
 > - 对默认页面的代理配置  
 > - 对html文件的反向代理配置  
 > - 实现对ip地址的反向代理配置
 
-
-# 二、实验环境
+# 二、环境
 > - 系统 : winsows10  
 > - 软件 : Docker for Desktop
 
 
-# 三、详细设计
+# 三、设计
 
-## 1.端口映射规则
+## 1.端口映射
 
-| **宿主机**端口  | **容器**端口 | 
+| `宿主机`端口  | `容器`端口 | 
 | :-----:         | :----:   |
 | 8080            | 80       | 
-| 8081       | 81       | 
-| 8082       | 82       | 
+| 8081            | 81       | 
+| 8082            | 82       | 
 
->访问**宿主机**的8080端口，相当于访问 **容器** 的80端口(即Nginx的默认端口);
+>访问`宿主机`的`8080`端口，相当于访问 `容器*`的`80`端口(即Nginx的默认端口);
 >其它以此类推。  
 
 
 ## 2.新建容器
+
 ```s
 docker run -itd -p 8080:80 -p 8081:81 -p 8082:82 nginx
 ```
@@ -39,10 +52,10 @@ docker run -itd -p 8080:80 -p 8081:81 -p 8082:82 nginx
 ![](https://imgconvert.csdnimg.cn/aHR0cDovL2Nkbi5odXJyYS5sdGQvaW1nLzIwMjAwNTE0MDkzMDUwNDYxLnBuZw?x-oss-process=image/format,png)
 ![](https://imgconvert.csdnimg.cn/aHR0cDovL2Nkbi5odXJyYS5sdGQvaW1nLzIwMjAwNTE0MDk0MDE0MjIwLnBuZw?x-oss-process=image/format,png)
 
->在配置文件最后一行的意思是使用默认的配置文件，此处将其**注释**掉，以使用自己的配置
+>在配置文件最后一行的意思是使用默认的配置文件，此处将其`注释`掉，以使用自己的配置
 
 
-### 3.1Nginx的默认代理配置
+### 3.1 默认代理
 
 在nginx.conf文件的**http**块中添加入以下代码
 
@@ -65,7 +78,7 @@ server{
 ```
 >配置容器80端口，实现访问宿主机 **http://127.0.0.1:8080**访问到Nginx的默认欢迎界面  
 
-### 3.2自定义的html页面的代理配置
+### 3.2 自定义页面代理
 在/home目录下新建demo文件夹，创建a.html文件,修改其内容为
 ```html
 <p>Successfully implemented the proxy to the HTML file<p>
@@ -90,7 +103,7 @@ server{
 ```
 >配置容器81端口，实现访问宿主机 **http://127.0.0.1:8081** 而通过Nginx反向代理访问自定义的页面
 
-### 3.3对ip的代理配置
+### 3.3 ip代理
 
 
 即实现**127.0.0.1:8082**通过Nginx被**反向代理**到**127.0.0.1:5000**
@@ -136,7 +149,7 @@ nginx -s reload
 
 ![](https://imgconvert.csdnimg.cn/aHR0cDovL2Nkbi5odXJyYS5sdGQvaW1nLzIwMjAwNTE0MTAxMzQxMTM5LnBuZw?x-oss-process=image/format,png)
 
-# 四、运行结果
+# 四、结果
 
 ![](https://imgconvert.csdnimg.cn/aHR0cDovL2Nkbi5odXJyYS5sdGQvaW1nLzIwMjAwNTE0MTAyNTMxMjAzLnBuZw?x-oss-process=image/format,png)
 <center>成功实现了对默认页面的访问</center>
@@ -148,17 +161,17 @@ nginx -s reload
 <center>出现了问题，反向代理失败</center>  
 
 
-# 五、问题处理
+# 五、问题
 
-## 1.分析问题
+## 5.1 分析
 
 ![](https://imgconvert.csdnimg.cn/aHR0cDovL2Nkbi5odXJyYS5sdGQvaW1nLzIwMjAwNTE0MTAzMTI4ODE3LnBuZw?x-oss-process=image/format,png)
 
-这路本意是将**http://127.0.0.1:82**转发到宿主机的**http://127.0.0.1:5000**，但Nginx处于Linux环境中，所以此处localhost实际上指的是**容器**内的localhost而并非**宿主机**内的localhost，因此出现错误情况。
+这路本意是将**http://127.0.0.1:82**转发到宿主机的**http://127.0.0.1:5000**，但Nginx处于Linux环境中，所以此处localhost实际上指的是`容器`内的localhost而并非`宿主机`内的localhost，因此出现错误情况。
 
-## 2. 解决方法
+## 5.2 解决
 
-在windows环境下可使用**host.docker.internal**指代宿主机的localhost地址  
+在windows环境下可使用`host.docker.internal`指代宿主机的localhost地址  
 
 修改后配置文件为
 ```shell
@@ -174,3 +187,7 @@ server{
 
 ![](https://imgconvert.csdnimg.cn/aHR0cDovL2Nkbi5odXJyYS5sdGQvaW1nLzIwMjAwNTE0MTA0MzQ3NDI5LnBuZw?x-oss-process=image/format,png)
 <center>成功实现了将http://127.0.0.1:8082通过Nginx代理到http://127.0.0.1:5000</center>  
+
+---
+
+![](http://cdn.hurra.ltd/img/赞赏码.png)

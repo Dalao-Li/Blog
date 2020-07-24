@@ -1,19 +1,33 @@
+
+
 >[uwsgi部署Flask](https://blog.csdn.net/qq_41452937/article/details/107284032)  
 >[gunicorn部署Flask](https://blog.csdn.net/qq_41452937/article/details/104660945)
 
-# 环境配置
+
+- [环境](#环境)
+- [一、目的](#一目的)
+- [二、过程](#二过程)
+  - [2.1 编写Flask应用](#21-编写flask应用)
+  - [2.2 编写uwsgi配置文件](#22-编写uwsgi配置文件)
+  - [2.3 编写Dockerfile](#23-编写dockerfile)
+  - [2.4 构建容器](#24-构建容器)
+  - [2.5 启动镜像](#25-启动镜像)
+- [三、总结](#三总结)
+  
+
+# 环境
 
 > - 运行环境 : CentOS7
 > - Python版本 : Python3.7
 > - Docker版本 :  Docker 19.03.12
 > - 内网IP : 192.168.3.20
 
-# 一、实验目的
+# 一、目的
 
 使用Docker将本地Flask应用打包,并完成部署
 
 
-# 二、实验过程
+# 二、过程
 
 ## 2.1 编写Flask应用
 
@@ -49,7 +63,8 @@ buffer-size = 32768
 ```
 
 ## 2.3 编写Dockerfile
-新建Dockerfile文件,内容为:
+
+新建Dockerfile,内容为:
 ```docker
 # 所采用的基础镜像
 FROM python:3.7
@@ -79,7 +94,7 @@ docker build -t mydemo .
 ```
 
 > - -t : 指定镜像名称,此处为mydemo 
-> - . 指定创建时的目录
+> - `.` 指定创建时的目录
 
 ![](http://cdn.hurra.ltd/img/20200712113859.png)
 

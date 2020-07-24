@@ -1,11 +1,20 @@
-# 一、实验配置
+## 目录
+- [一、环境](#一环境)
+- [二、过程](#二过程)
+  - [2.1 建立虚拟环境](#21-建立虚拟环境)
+  - [2.2 安装Flask](#22-安装flask)
+  - [2.3 安装uswgi](#23-安装uswgi)
+  - [2.4 部署](#24-部署)
 
-> - 实验环境 : Ubunttu20.04
+
+# 一、环境
+
+> - 实验环境 : Ubuntu20.04
 > - Python版本 : Python3.7
 
-# 二、实验过程
+# 二、过程
 
-## 2.1 建立Python虚拟环境
+## 2.1 建立虚拟环境
 创建demo文件夹并进入
 ```shell
 mkdir demo
@@ -82,7 +91,7 @@ uwsgi --http :8080 --plugin python --wsgi-file test.py
 ![](http://cdn.hurra.ltd/img/20200711123744.png)
 ![](http://cdn.hurra.ltd/img/20200711123908.png)
 
-## 2.4 使用uwsgi部署Flask
+## 2.4 部署
 新建config.ini文件,并写入以下内容
 ```ini
 [uwsgi]
@@ -109,5 +118,6 @@ uwsgi config.ini
 ![](http://cdn.hurra.ltd/img/20200711130654.png)
 ![](http://cdn.hurra.ltd/img/20200711135506.png)
 
+---
 
 ![](http://cdn.hurra.ltd/img/赞赏码.png)

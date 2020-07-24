@@ -1,5 +1,12 @@
 
-
+- [1. 新建](#1-新建)
+  - [1.1 新建用户](#11-新建用户)
+  - [1.2 查看用户](#12-查看用户)
+  - [1.3 登录](#13-登录)
+- [2. 权限操作](#2-权限操作)
+  - [2.1 授权](#21-授权)
+  - [2.2 查看](#22-查看)
+- [3. 示例](#3-示例)
 
 
 # 1. 新建
@@ -32,7 +39,7 @@ mysql -u 用户名 -p
 
 ---
 
-# 2.权限操作
+# 2. 权限操作
 
 ## 2.1 授权
 
@@ -67,7 +74,7 @@ show grants for '用户名'@'%';
 ```
 ![](http://cdn.hurra.ltd/img/20200516003557.png)
 
-# 3.示例
+# 3. 示例
 
 1. 新建用户user_test,仅授予select权限
 ```sql
@@ -84,11 +91,14 @@ create database test_db;
 ```
 ![](http://cdn.hurra.ltd/img/20200516004259.png)
 <center>可以发现被拒绝了</center>
-## 3.3 使用user_test用户，尝试查询
+
+
+3. 使用user_test用户，尝试查询
 
 ![](http://cdn.hurra.ltd/img/20200516004447.png)
 <center>可以发现查询是没问题的</center>
-## 3.4 新建用户test_4，授予select,create权限
+
+4. 新建用户test_4，授予select,create权限
 
 ```sql
 create user 'test_4'@'%' identified by '999';
@@ -98,7 +108,7 @@ grant select,create on *.* to 'test_4'@'%';
 ```
 ![](http://cdn.hurra.ltd/img/20200516084018.png)
 
-3. 使用test_4登录,尝试创建数据库test_db
+5. 使用test_4登录,尝试创建数据库test_db
 ```sql
 create database test_db;
 ```

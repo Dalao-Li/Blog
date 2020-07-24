@@ -1,7 +1,7 @@
 # 1. 目的
 使用Bootstrap框架编制一个选项卡页面
 
-# 2. 效果预览
+# 2. 效果
 
 ![](http://cdn.hurra.ltd/img/20200524194114.png)
 ![](http://cdn.hurra.ltd/img/20200524194134.png)
@@ -242,6 +242,6 @@
 </div>
 </body>
 </html>
-
-
 ```
+
+![](http://cdn.hurra.ltd/img/赞赏码.png)

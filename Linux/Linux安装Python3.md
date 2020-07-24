@@ -1,4 +1,13 @@
+## 目录
+
+- [一、目的](#一目的)
+- [二、过程](#二过程)
+  - [2.1 安装](#21-安装)
+  - [2.2 设置](#22-设置)
+  - [2.3 pip3换源](#23-pip3换源)
+
 # 一、目的
+
 CentOS安装Python3,并对pip3并换源
 
 
@@ -7,12 +16,12 @@ CentOS安装Python3,并对pip3并换源
 ## 2.1 安装
 
 安装编译Python所需的依赖
-```shell
+```s
 yum -y install gcc zlib* libffi-devel
 ```
 下载Python3
 
-```shell
+```s
 wget https://www.python.org/ftp/python/3.8.0/Python-3.8.0.tar.xz
 ```
 
@@ -20,23 +29,23 @@ wget https://www.python.org/ftp/python/3.8.0/Python-3.8.0.tar.xz
 
 
 解压文件到指定路径
-```shell
+```s
 tar -xvf Python-3.8.0.tar.xz -C /usr/bin
 ```
 进入路径中
-```
+```s
 cd /usr/bin/Python-3.8.0
 ```
 
 输入以下命令
-```
+```s
 ./configure --prefix=/usr/bin/python3
 ```
 > -  ./configure用来检测依赖
 > -  prefix定义Python3安装的位置
 
 编译安装
-```
+```s
 make && make install 
 ```
 最终结果
@@ -81,19 +90,19 @@ python3 -V
 ## 2.3 pip3换源
 
 进入python3的bin目录
-```shell
+```s
 cd /usr/bin/python3/bin
 ```
 创建文件夹
-```shell
+```s
 mkdir ~/.pip
 ```
 编辑文件
-```shell
+```s
 vim ~/.pip/pip.conf
 ```
 写入以下内容
-```shell
+```s
 [global]
 
 index-url = https://pypi.tuna.tsinghua.edu.cn/simple
@@ -102,6 +111,6 @@ index-url = https://pypi.tuna.tsinghua.edu.cn/simple
 
 ![](http://cdn.hurra.ltd/img/20200628190234.png)
 
-
+---
 
 ![](http://cdn.hurra.ltd/img/赞赏码.png)

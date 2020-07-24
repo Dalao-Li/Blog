@@ -1,5 +1,12 @@
+- [启用Linux子系统](#启用linux子系统)
+- [切换到WSL2](#切换到wsl2)
+- [添加Docker源](#添加docker源)
+- [安装Docker](#安装docker)
+- [启动Docker daemon](#启动docker-daemon)
+- [权限](#权限)
+- [关闭WSL](#关闭wsl)
 
-## 更新 Win10 到2004版本
+更新 Win10 到2004版本
 
 
 ## 启用Linux子系统
@@ -62,13 +69,13 @@ newgrp docker
 ![](http://cdn.hurra.ltd/img/20200721210744.png)
 
 
-## 关闭虚拟机
+## 关闭WSL
 
 ![](http://cdn.hurra.ltd/img/20200721211633.png)
 
-该进程是虚拟机的进程。它比较占内存。不使用WSL2的时候我们可以关闭它以节省内存。关闭WSL2 Linux的方法如下。使用管理员打开CMD，运行：
+该进程是WSL的进程。它比较占内存,不使用WSL2的时候可关闭,方法如下,使用管理员打开CMD，运行：
 
-```shell
+```s
 wsl --shutdown
 ```
 

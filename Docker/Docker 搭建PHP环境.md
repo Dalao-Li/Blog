@@ -1,10 +1,18 @@
-# 一、实验目的
+- [一、目的](#一目的)
+- [二、环境](#二环境)
+- [三、过程](#三过程)
+  - [3.1 拉取PHP镜像](#31-拉取php镜像)
+  - [3.2 拉取Nginx镜像](#32-拉取nginx镜像)
+  - [3.3 文件夹映射](#33-文件夹映射)
+  - [3.4 实例化容器](#34-实例化容器)
+
+# 一、目的
 使用Docker搭建PHP开发环境
 
-# 二、实验环境
+# 二、环境
 CentOS7
 
-# 三、实验过程
+# 三、过程
 
 ## 3.1 拉取PHP镜像
 ```s
@@ -14,7 +22,7 @@ docker pull php:7.1.30-fpm
 ```
 docker pull nginx
 ```
-## 3.3 建立文件夹映射
+## 3.3 文件夹映射
 
 新建文件夹，用来映射网站根目录、Nginx配置文件与日志文件
 ```s
@@ -25,6 +33,7 @@ mkdir -p ~/nginx/www ~/nginx/logs ~/nginx/conf
 <?php
    phpinfo();
 ?>
+
 ```
 进入/nginx/conf,新建test-php.conf
 ```s
@@ -53,12 +62,12 @@ server {
 
 ## 3.4 实例化容器
 实例化PHP容器
-```
+```s
 docker run -itd --name demo_php -v ~/nginx/www:/www php:7.1.30-fpm
 ```
 实例化Nginx容器
 
-```
+```s
 docker run -itd -p 80:80 -v ~/nginx/www:/usr/share/nginx/html -v ~/nginx/conf:/etc/nginx/conf.d --link demo_php:php nginx
 ```
 ![](http://cdn.hurra.ltd/img/20200710113713.png)
@@ -67,5 +76,6 @@ docker run -itd -p 80:80 -v ~/nginx/www:/usr/share/nginx/html -v ~/nginx/conf:/e
 
 ![](http://cdn.hurra.ltd/img/20200710113759.png)
 
+---
 
 ![](http://cdn.hurra.ltd/img/赞赏码.png)

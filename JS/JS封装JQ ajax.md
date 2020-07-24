@@ -1,4 +1,9 @@
-## 使用原生JS函数封装JQ的ajax方法
+- [JS封装JQ的ajax方法](#js封装jq的ajax方法)
+- [实例](#实例)
+  - [1. 回调函数](#1-回调函数)
+  - [2. 登录函数](#2-登录函数)
+
+## JS封装JQ的ajax方法
 >参数说明
 > - type : 请求方式
 > - url : 发送的位置
@@ -28,9 +33,9 @@ function send_ajax(type,url,param, callback) {
 }
 ```
 ---
-## 实例：用户登录函数user_login()
+## 实例
 
-### 1. 登录的回调函数
+### 1. 回调函数
 ```javascript
 function login_callback(value) {
     switch (value) {
