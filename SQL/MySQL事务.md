@@ -1,10 +1,24 @@
+## 目录
+- [一、概念](#一概念)
+  - [1.1 特性](#11-特性)
+    - [原子性(Atomic)](#原子性atomic)
+    - [一致性(Consistency)](#一致性consistency)
+    - [隔离性(Isolation)](#隔离性isolation)
+    - [持久性(Durability)](#持久性durability)
+  - [1.2 事务控制](#12-事务控制)
+- [二、实例](#二实例)
+  - [2.1 建表](#21-建表)
+  - [2.2 提交](#22-提交)
+  - [2.3 回滚](#23-回滚)
+
+
 # 一、概念
 
 > - 只有使用Innodb数据库引擎的数据库或表才支持事务
 > - 事务处理可以用来维护数据库的完整性,保证SQL语句要么全执行,要么全不执行
 > - 事务用来管理 INSERT、UPDATE、DELETE 语句
 
-## 1.1 事务的特性
+## 1.1 特性
 
 ### 原子性(Atomic)
 
@@ -31,11 +45,10 @@
 
 # 二、实例
 
-以操作Sqlite3为例
+**以操作Sqlite3为例**
 
 
-
-## 2.1 建立表
+## 2.1 建表
 ```sql
 /*
  Navicat Premium Data Transfer
@@ -67,7 +80,7 @@ CREATE TABLE "info" (
 PRAGMA foreign_keys = true;
 ```
 
-## 2.2 提交事务
+## 2.2 提交
 
 ```sql
 BEGIN;
@@ -79,7 +92,7 @@ COMMIT;
 ![](http://cdn.hurra.ltd/img/20200712233125.png)
 
 
-## 2.3 回滚事务
+## 2.3 回滚
 
 1. 假设插入新用户,然后撤回的情况
 ```sql

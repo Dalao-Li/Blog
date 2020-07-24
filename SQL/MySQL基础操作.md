@@ -1,6 +1,6 @@
 
 
-# 一、MySQL基础操作
+
 
 # 1. 新建
 
@@ -16,7 +16,7 @@ create user '用户名'@'host' identified by '密码';
 
 这样我就创建了一个名为dalao的用户,并且它可以从任意ip登录
 
-## 1.2 查看所有用户
+## 1.2 查看用户
 
 ```sql
  select host,user,authentication_string from mysql.user;
@@ -32,8 +32,9 @@ mysql -u 用户名 -p
 
 ---
 
-# 二、权限操作
-# 1. 授权
+# 2.权限操作
+
+## 2.1 授权
 
 ```sql
 grant all privileges on *.* to '用户名'@'%' identified by '密码';
@@ -53,13 +54,13 @@ grant all privileges on *.* to '用户名'@'%' identified by '密码';
 ![](http://cdn.hurra.ltd/img/20200516003253.png)
 <center>授予dalao用户对所有数据库所有表的所有操作权限</center>
 
-# 2. 查看
+## 2.2 查看
 
-## 2.1 查看所有用户权限
+1. 查看所有用户权限
 ```sql
 show grants;
 ```
-## 2.2 查看指定用户权限
+2. 查看指定用户权限
 
 ```sql
 show grants for '用户名'@'%';
@@ -68,7 +69,7 @@ show grants for '用户名'@'%';
 
 # 3.示例
 
-## 3.1 新建用户user_test,仅授予select权限
+1. 新建用户user_test,仅授予select权限
 ```sql
 create user 'user_test'@'%'identified by '999';
 
@@ -77,7 +78,7 @@ grant select on *.* to 'user_test'@'%';
 ```
 ![](http://cdn.hurra.ltd/img/20200516004045.png)
 
-## 3.2 使用user_test登录,尝试创建数据库test_db
+2. 使用user_test登录,尝试创建数据库test_db
 ```sql
 create database test_db;
 ```
@@ -97,7 +98,7 @@ grant select,create on *.* to 'test_4'@'%';
 ```
 ![](http://cdn.hurra.ltd/img/20200516084018.png)
 
-## 3.2 使用test_4登录,尝试创建数据库test_db
+3. 使用test_4登录,尝试创建数据库test_db
 ```sql
 create database test_db;
 ```
