@@ -1,15 +1,14 @@
+## 目录
+
 - [一、Docker搭建MySQL](#一docker搭建mysql)
   - [1. 获取镜像](#1-获取镜像)
   - [2. 运行镜像](#2-运行镜像)
     - [2.1 不映射目录](#21-不映射目录)
     - [2.2 映射目录](#22-映射目录)
   - [3. 远程连接](#3-远程连接)
-    - [3.1 登录MySQL](#31-登录mysql)
-    - [3.2 设置允许远程登录](#32-设置允许远程登录)
-    - [3.3 测试](#33-测试)
   - [4.常见问题](#4常见问题)
-    - [4.1 中文乱码问题](#41-中文乱码问题)
-    - [4.2 降低MySQL容器占用内存](#42-降低mysql容器占用内存)
+    - [4.1 中文乱码](#41-中文乱码)
+    - [4.2 降低占用内存](#42-降低占用内存)
 
 # 一、Docker搭建MySQL
 
@@ -46,15 +45,16 @@ docker run -itd -p 主机端口:3306 -v 宿主机目录:/var/lib/mysql -e MYSQL_
 
 ## 3. 远程连接
 
-### 3.1 登录MySQL
+登录MySQL
 ```shell
-docker exec -it 容器id bash
+docker exec -it <容器id/容器名> bash
 
 mysql -u root -p
 ```
 
 ![](http://cdn.hurra.ltd/img/20200515202434.png)
-### 3.2 设置允许远程登录
+
+允许远程登录
 
 ```shell
 grant all privileges on *.* to 'root'@'%' identified by '刚设置的MYSQL密码';
@@ -65,9 +65,7 @@ flush privileges;
 
 ![](http://cdn.hurra.ltd/img/20200515202734.png)
 
-### 3.3 测试
-
-新建一个数据库Test
+测试:新建一个数据库Test
 
 ![](http://cdn.hurra.ltd/img/20200515234119.png)
 
@@ -78,7 +76,7 @@ flush privileges;
 
 ## 4.常见问题
 
-### 4.1 中文乱码问题
+### 4.1 中文乱码
 
 进入容器内,执行
 ```sh
@@ -87,12 +85,12 @@ echo "character-set-server=utf8" >> /etc/mysql/mysql.conf.d/mysqld.cnf
 service mysql restart
 ```
 
-### 4.2 降低MySQL容器占用内存
-进入容器内,执行
+### 4.2 降低占用内存
+进入容器内
 ```shell
 vim /etc/mysql/mysql.conf.d/mysqld.cnf
 ```
-在mysqld.cnf文件的最后追加:
+在mysqld.cnf最后追加:
 
 ```shell
 performance_schema_max_table_instances=400

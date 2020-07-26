@@ -1,41 +1,35 @@
+## 目录
+- [目录](#目录)
 - [源码](#源码)
-  - [百度云](#百度云)
-  - [code.aliyun](#codealiyun)
-- [一、 目的](#一-目的)
-- [二、 过程](#二-过程)
-  - [2.1 效果](#21-效果)
-  - [2.2 项目结构](#22-项目结构)
-  - [2.3 head部分](#23-head部分)
-  - [2.4 body部分](#24-body部分)
-  - [2.4 JS部分](#24-js部分)
+- [效果](#效果)
+- [项目结构](#项目结构)
+- [1. head部分](#1-head部分)
+- [2. body部分](#2-body部分)
+- [3. JS部分](#3-js部分)
 
-# 源码
+## 源码
 
-## 百度云  
+1. 百度云  
 [提取码 : jn2w](https://pan.baidu.com/s/1hOuL-fgn_e6sVAbhq0Z8vw)  
 
-## code.aliyun
+2. code.aliyun
 ```shell
 git@code.aliyun.com:dalao/BootstrapvalidatorDemo.git
 ```
 
-# 一、 目的
-使用Bootstrapvalidator插件完成对表达的验证
+---
 
 
-# 二、 过程
-
-
-## 2.1 效果
+## 效果
 ![](http://cdn.hurra.ltd/img/20200526231712.png)
 ![](http://cdn.hurra.ltd/img/20200526231734.png)
 ![](http://cdn.hurra.ltd/img/20200526231855.png)
 
-## 2.2 项目结构
+##  项目结构
 ![](http://cdn.hurra.ltd/img/20200526233425.png)
 
 
-## 2.3 head部分
+## 1. head部分
 注意**依赖文件**的路径需根据自己实际下载文件路径进行修改,网上教程中的代码无法直接使用往往就是因为依赖库没处理好
 ```html
 <head>
@@ -54,7 +48,7 @@ git@code.aliyun.com:dalao/BootstrapvalidatorDemo.git
 </head>
 ```
 
-## 2.4 body部分
+## 2. body部分
 ```html
 <body>
     <div class="container">
@@ -124,7 +118,7 @@ git@code.aliyun.com:dalao/BootstrapvalidatorDemo.git
     </div>
 ```
 
-## 2.4 JS部分
+## 3. JS部分
 ```javascript
 <script type="text/javascript">
         $(document).ready(function () {

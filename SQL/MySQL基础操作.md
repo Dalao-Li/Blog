@@ -1,9 +1,9 @@
-
+## 目录
 - [1. 新建](#1-新建)
   - [1.1 新建用户](#11-新建用户)
   - [1.2 查看用户](#12-查看用户)
   - [1.3 登录](#13-登录)
-- [2. 权限操作](#2-权限操作)
+- [2. 权限](#2-权限)
   - [2.1 授权](#21-授权)
   - [2.2 查看](#22-查看)
 - [3. 示例](#3-示例)
@@ -33,15 +33,18 @@ create user '用户名'@'host' identified by '密码';
 
 ## 1.3 登录
 ```sql
-mysql -u 用户名 -p
+mysql -u <用户名> -p
 ```
 ![](http://cdn.hurra.ltd/img/20200516001919.png)
 
 ---
 
-# 2. 权限操作
+# 2. 权限
 
 ## 2.1 授权
+
+> 注意:`授权操作只有root用户才有权限操作`
+
 
 ```sql
 grant all privileges on *.* to '用户名'@'%' identified by '密码';
@@ -49,14 +52,14 @@ grant all privileges on *.* to '用户名'@'%' identified by '密码';
 > - priveleges(权限列表),all priveleges表示所有权限，也可以是:  
     - select、update、create、delete、drop等权限，多个权限之间用逗号分开  
 > - on用来指定权限针对哪些库和表。
-> - 前面的 * 号用来指定数据库名  
-> - 后面的 * 号用来指定表名
+> - 前面 * 号用来指定数据库名  
+> - 后面 * 号用来指定表名
 > - identified by指定用户登录密码,可省略
 > - to 表示将权限赋予某个用户, 如 dalao@'localhost' 表示dalao用户  
 > - @后跟限制地址，可以是IP、域名与%(任何地方)
 > - identified by指定用户的登录密码,该项可以省略。
 
-授权操作只有root用户才有权限操作
+
 
 ![](http://cdn.hurra.ltd/img/20200516003253.png)
 <center>授予dalao用户对所有数据库所有表的所有操作权限</center>

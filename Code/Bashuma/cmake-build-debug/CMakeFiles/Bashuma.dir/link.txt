@@ -1,3 +1,0 @@
-"D:\App\CLion 2020.1.1\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\Bashuma.dir/objects.a
-D:\App\Dev-Cpp\MinGW64\bin\ar.exe cr CMakeFiles\Bashuma.dir/objects.a @CMakeFiles\Bashuma.dir\objects1.rsp
-D:\App\Dev-Cpp\MinGW64\bin\g++.exe -g   -Wl,--whole-archive CMakeFiles\Bashuma.dir/objects.a -Wl,--no-whole-archive  -o Bashuma.exe -Wl,--out-implib,libBashuma.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\Bashuma.dir\linklibs.rsp

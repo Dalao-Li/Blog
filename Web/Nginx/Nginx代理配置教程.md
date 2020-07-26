@@ -1,17 +1,20 @@
+- [环境](#环境)
 - [一、目的](#一目的)
-- [二、环境](#二环境)
-- [三、设计](#三设计)
+- [二、设计](#二设计)
   - [1.端口映射](#1端口映射)
   - [2.新建容器](#2新建容器)
   - [3.修改配置文件](#3修改配置文件)
     - [3.1 默认代理](#31-默认代理)
     - [3.2 自定义代理](#32-自定义代理)
     - [3.3 ip代理](#33-ip代理)
-  - [4. 重新加载配置文件](#4-重新加载配置文件)
-- [四、结果](#四结果)
-- [五、问题](#五问题)
-  - [5.1 分析](#51-分析)
-  - [5.2 解决](#52-解决)
+- [三、结果](#三结果)
+- [四、问题](#四问题)
+
+
+
+# 环境
+> - 系统 : winsows10  
+> - 软件 : Docker for Desktop
 
 # 一、目的
 使用Nginx实现:
@@ -19,12 +22,9 @@
 > - 对html文件的反向代理配置  
 > - 实现对ip地址的反向代理配置
 
-# 二、环境
-> - 系统 : winsows10  
-> - 软件 : Docker for Desktop
 
 
-# 三、设计
+# 二、设计
 
 ## 1.端口映射
 
@@ -141,7 +141,7 @@ http{
 }
 ```
 
-## 4. 重新加载配置文件
+重新加载配置文件
 ```shell
 nginx -s reload
 ```
@@ -149,7 +149,7 @@ nginx -s reload
 
 ![](https://imgconvert.csdnimg.cn/aHR0cDovL2Nkbi5odXJyYS5sdGQvaW1nLzIwMjAwNTE0MTAxMzQxMTM5LnBuZw?x-oss-process=image/format,png)
 
-# 四、结果
+# 三、结果
 
 ![](https://imgconvert.csdnimg.cn/aHR0cDovL2Nkbi5odXJyYS5sdGQvaW1nLzIwMjAwNTE0MTAyNTMxMjAzLnBuZw?x-oss-process=image/format,png)
 <center>成功实现了对默认页面的访问</center>
@@ -161,15 +161,15 @@ nginx -s reload
 <center>出现了问题，反向代理失败</center>  
 
 
-# 五、问题
+# 四、问题
 
-## 5.1 分析
+1.  分析
 
 ![](https://imgconvert.csdnimg.cn/aHR0cDovL2Nkbi5odXJyYS5sdGQvaW1nLzIwMjAwNTE0MTAzMTI4ODE3LnBuZw?x-oss-process=image/format,png)
 
 这路本意是将**http://127.0.0.1:82**转发到宿主机的**http://127.0.0.1:5000**，但Nginx处于Linux环境中，所以此处localhost实际上指的是`容器`内的localhost而并非`宿主机`内的localhost，因此出现错误情况。
 
-## 5.2 解决
+2. 解决
 
 在windows环境下可使用`host.docker.internal`指代宿主机的localhost地址  
 

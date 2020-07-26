@@ -5,32 +5,26 @@
 
 
 ## 目录
-- [环境](#环境)
-- [一、目的](#一目的)
-- [二、过程](#二过程)
-  - [2.1 编写Flask应用](#21-编写flask应用)
-  - [2.2 编写uwsgi配置文件](#22-编写uwsgi配置文件)
-  - [2.3 编写Dockerfile](#23-编写dockerfile)
-  - [2.4 构建容器](#24-构建容器)
-  - [2.5 启动镜像](#25-启动镜像)
-- [三、总结](#三总结)
+- [1.1 编写Flask应用](#11-编写flask应用)
+- [1.2 编写uwsgi配置文件](#12-编写uwsgi配置文件)
+- [1.3 编写Dockerfile](#13-编写dockerfile)
+- [1.4 构建容器](#14-构建容器)
+- [1.5 启动镜像](#15-启动镜像)
+- [总结](#总结)
   
 
-# 环境
+## 环境
 
 > - 运行环境 : CentOS7
 > - Python版本 : Python3.7
 > - Docker版本 :  Docker 19.03.12
 > - 内网IP : 192.168.3.20
 
-# 一、目的
-
-使用Docker将本地Flask应用打包,并完成部署
 
 
-# 二、过程
 
-## 2.1 编写Flask应用
+
+# 1.1 编写Flask应用
 
 新建目录demo,进入;新建app.py文件,内容为
 ```py
@@ -43,7 +37,7 @@ def hello():
 if __name__ == '__main__':
 	app.run()
 ```
-## 2.2 编写uwsgi配置文件
+# 1.2 编写uwsgi配置文件
 新建config.ini文件,内容为:
 ```sh
 [uwsgi]
@@ -63,7 +57,7 @@ threads = 8
 buffer-size = 32768
 ```
 
-## 2.3 编写Dockerfile
+# 1.3 编写Dockerfile
 
 新建Dockerfile,内容为:
 ```docker
@@ -87,7 +81,7 @@ CMD ["uwsgi","config.ini"]
 
 ```
 
-## 2.4 构建容器
+# 1.4 构建容器
 
 进入demo目录,执行:
 ```shell
@@ -99,7 +93,7 @@ docker build -t mydemo .
 
 ![](http://cdn.hurra.ltd/img/20200712113859.png)
 
-## 2.5 启动镜像
+# 1.5 启动镜像
 ```shell
 docker run -itd -p 80:8080 mydemo
 ```
@@ -108,7 +102,7 @@ docker run -itd -p 80:8080 mydemo
 ![](http://cdn.hurra.ltd/img/20200712114018.png)
 
 
-# 三、总结
+# 总结
 
 1. Flask应用的部署方式有gunicorn与uwsgi两种方式
 

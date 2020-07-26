@@ -1,5 +1,5 @@
-@[TOC]
-# 1 冒泡排序
+
+# 1. 冒泡排序
 ```c
 //冒泡排序,len为数组长度
 template<class T>
@@ -21,7 +21,7 @@ void bubbleSort(vector<T> data) {
 	}
 }
 ```
-# 2 插入排序
+# 2. 插入排序
 ```c
 template<class T>
 void insertSort(vector<T> data) {
@@ -44,7 +44,7 @@ void insertSort(vector<T> data) {
 }
 ```
 
-# 3 选择排序
+# 3. 选择排序
 ```c
 template<class T>
 void selectSort (vector<T> data) {
@@ -67,7 +67,7 @@ void selectSort (vector<T> data) {
 }
 ```
 
-# 4 快速排序
+# 4. 快速排序
 ```c
 //left,reight代表数组左右区间大小
 template<class T>
@@ -97,7 +97,7 @@ void quickSort(vector<T> data,int left,int right) {
 }
 ```
 
-# 5 堆排序
+# 5. 堆排序
 ```c
 //调整为小根堆函数;start,end 表示待建堆区间
 template<class T>

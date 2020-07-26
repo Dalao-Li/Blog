@@ -1,20 +1,18 @@
 ## 目录
-- [一、环境](#一环境)
-- [二、过程](#二过程)
-  - [2.1 建立虚拟环境](#21-建立虚拟环境)
-  - [2.2 安装Flask](#22-安装flask)
-  - [2.3 安装uswgi](#23-安装uswgi)
-  - [2.4 部署](#24-部署)
+- [环境](#环境)
+- [1.1 建立虚拟环境](#11-建立虚拟环境)
+- [1.2 安装Flask](#12-安装flask)
+- [1.3 安装uswgi](#13-安装uswgi)
+- [1.4 部署](#14-部署)
 
 
-# 一、环境
+# 环境
 
 > - 实验环境 : Ubuntu20.04
 > - Python版本 : Python3.7
 
-# 二、过程
 
-## 2.1 建立虚拟环境
+# 1.1 建立虚拟环境
 创建demo文件夹并进入
 ```shell
 mkdir demo
@@ -45,7 +43,7 @@ source venv/bin/activate
 ```shell
 deactivate
 ```
-## 2.2 安装Flask
+# 1.2 安装Flask
 
 ```
 pip install Flask
@@ -70,7 +68,7 @@ python app.py
 ![](http://cdn.hurra.ltd/img/20200711112554.png)
 ![](http://cdn.hurra.ltd/img/20200711112626.png)
 
-## 2.3 安装uswgi
+# 1.3 安装uswgi
 ```
 pip install uwsgi
 ```
@@ -91,7 +89,7 @@ uwsgi --http :8080 --plugin python --wsgi-file test.py
 ![](http://cdn.hurra.ltd/img/20200711123744.png)
 ![](http://cdn.hurra.ltd/img/20200711123908.png)
 
-## 2.4 部署
+# 1.4 部署
 新建config.ini文件,并写入以下内容
 ```ini
 [uwsgi]

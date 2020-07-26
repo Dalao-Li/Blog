@@ -1,18 +1,12 @@
 ## 目录
-
 - [目录](#目录)
 - [1. 安装](#1-安装)
 - [2. 设置](#2-设置)
 - [3. pip3换源](#3-pip3换源)
 
-
-
-CentOS安装Python3,并对pip3并换源
-
-
 ## 1. 安装
 
-安装编译Python所需的依赖
+安装编译Python所需依赖
 ```s
 yum -y install gcc zlib* libffi-devel
 ```
@@ -29,12 +23,12 @@ wget https://www.python.org/ftp/python/3.8.0/Python-3.8.0.tar.xz
 ```shell
 tar -xvf Python-3.8.0.tar.xz -C /usr/bin
 ```
-进入路径中
+进入
 ```shell
 cd /usr/bin/Python-3.8.0
 ```
 
-输入以下命令
+输入
 ```shell
 ./configure --prefix=/usr/bin/python3
 ```
@@ -70,11 +64,11 @@ PATH=$PATH:$HOME/bin:/usr/bin/python3/bin
 
 export PATH
 ```
-图示
+图示:
 
 ![](http://cdn.hurra.ltd/img/20200628173314.png)
 
-执行以下命令使对配置的修改生效
+使对配置的修改生效
 ```shell
 source ~/.bash_profile
 ```
@@ -90,15 +84,15 @@ python3 -V
 ```shell
 cd /usr/bin/python3/bin
 ```
-创建文件夹
+创建
 ```shell
 mkdir ~/.pip
 ```
-编辑文件
+编辑
 ```shell
 vim ~/.pip/pip.conf
 ```
-写入以下内容
+写入
 ```shell
 [global]
 
