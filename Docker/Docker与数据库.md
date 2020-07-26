@@ -18,6 +18,7 @@
 docker pull mysql:5.7
 ```
 ![](http://cdn.hurra.ltd/img/20200515200648.png)
+
 ## 2. 运行镜像
 
 ### 2.1 不映射目录
@@ -91,7 +92,8 @@ service mysql restart
 ```shell
 vim /etc/mysql/mysql.conf.d/mysqld.cnf
 ```
-在mysqld.cnf文件的最后追加：
+在mysqld.cnf文件的最后追加:
+
 ```shell
 performance_schema_max_table_instances=400
 

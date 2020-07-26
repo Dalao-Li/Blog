@@ -1,3 +1,5 @@
+## 目录
+- [目录](#目录)
 - [启用Linux子系统](#启用linux子系统)
 - [切换到WSL2](#切换到wsl2)
 - [添加Docker源](#添加docker源)
@@ -5,6 +7,7 @@
 - [启动Docker daemon](#启动docker-daemon)
 - [权限](#权限)
 - [关闭WSL](#关闭wsl)
+  
 
 更新 Win10 到2004版本
 

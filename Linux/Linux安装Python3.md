@@ -1,19 +1,16 @@
 ## 目录
 
-- [一、目的](#一目的)
-- [二、过程](#二过程)
-  - [2.1 安装](#21-安装)
-  - [2.2 设置](#22-设置)
-  - [2.3 pip3换源](#23-pip3换源)
+- [目录](#目录)
+- [1. 安装](#1-安装)
+- [2. 设置](#2-设置)
+- [3. pip3换源](#3-pip3换源)
 
-# 一、目的
+
 
 CentOS安装Python3,并对pip3并换源
 
 
-# 二、过程
-
-## 2.1 安装
+## 1. 安装
 
 安装编译Python所需的依赖
 ```s
@@ -29,34 +26,34 @@ wget https://www.python.org/ftp/python/3.8.0/Python-3.8.0.tar.xz
 
 
 解压文件到指定路径
-```s
+```shell
 tar -xvf Python-3.8.0.tar.xz -C /usr/bin
 ```
 进入路径中
-```s
+```shell
 cd /usr/bin/Python-3.8.0
 ```
 
 输入以下命令
-```s
+```shell
 ./configure --prefix=/usr/bin/python3
 ```
 > -  ./configure用来检测依赖
 > -  prefix定义Python3安装的位置
 
 编译安装
-```s
+```shell
 make && make install 
 ```
 最终结果
 
 ![](http://cdn.hurra.ltd/img/20200628170422.png)
 
-## 2.2 设置
+## 2. 设置
 
 查看python的默认版本
 
-```
+```shell
 python -V 
 ```
 
@@ -87,22 +84,22 @@ python3 -V
 ```
 ![](http://cdn.hurra.ltd/img/20200628173400.png)
 
-## 2.3 pip3换源
+## 3. pip3换源
 
 进入python3的bin目录
-```s
+```shell
 cd /usr/bin/python3/bin
 ```
 创建文件夹
-```s
+```shell
 mkdir ~/.pip
 ```
 编辑文件
-```s
+```shell
 vim ~/.pip/pip.conf
 ```
 写入以下内容
-```s
+```shell
 [global]
 
 index-url = https://pypi.tuna.tsinghua.edu.cn/simple

@@ -1,6 +1,6 @@
 - [一、Windows环境](#一windows环境)
   - [1. 安装virtualenv](#1-安装virtualenv)
-  - [2. 创建虚拟环境](#2-创建虚拟环境)
+  - [2. 创建](#2-创建)
   - [3.设置解释器](#3设置解释器)
   - [4. 激活](#4-激活)
   - [5. 退出](#5-退出)
@@ -23,7 +23,7 @@ pip install virtualenv
 ```
 ![](http://cdn.hurra.ltd/img/20200312224255893.png)
 
-## 2. 创建虚拟环境
+## 2. 创建
 
 这里创建的虚拟环境名为venv
 ```
@@ -68,7 +68,7 @@ deactivate
 
 # 二、linux环境
 
-创建一个文件夹,安装 virtualenv与Windows环境下相同，仅设置python解释器的步骤不同
+创建一个文件夹,安装 virtualenv与Windows环境下相同
 
 ## 1.设置
 
@@ -95,14 +95,14 @@ virtualenv -p /usr/bin/python3.8  venv
 ![](http://cdn.hurra.ltd/img/20200515114605.png)
 
 ### 1.2 使用默认配置
-```
+```py
 python -m virtualenv venv
 
 ```
 
 ## 2. 激活
 ```
-  source venv/bin/activate
+source venv/bin/activate
 ```
 ![](http://cdn.hurra.ltd/img/20200515114747.png)
 

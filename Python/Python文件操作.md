@@ -13,12 +13,12 @@
   - [3.3 读取文件](#33-读取文件)
     - [3.3.1 整体读取](#331-整体读取)
     - [3.3.2 逐行读取](#332-逐行读取)
-  - [3.4 移动/复制文件](#34-移动复制文件)
-  - [3.5 删除文件](#35-删除文件)
+  - [3.4 移动/复制](#34-移动复制)
+  - [3.5 删除](#35-删除)
 - [四、文件夹操作](#四文件夹操作)
   - [4.1 读取](#41-读取)
-    - [4.1.1 显示所有文件](#411-显示所有文件)
-    - [4.1.2 递归显示所有文件](#412-递归显示所有文件)
+    - [4.1.1 显示](#411-显示)
+    - [4.1.2 递归显示](#412-递归显示)
 
 # 一、环境
 
@@ -29,10 +29,10 @@
 # 二、操作
 
 ## 文件路径问题
-在**Windows**中因为 " \ "被当成了转义字符，会导致路径找不到 
-
-例如 : C:\Users\xxx\Desktop\x.txt需改写为以下三种形式之一
-
+>在**Windows**中因为 " \ "被当成了转义字符，会导致路径找不到 
+>
+>例如 : C:\Users\xxx\Desktop\x.txt需改写为以下三种形式之一
+>
 > - r'C:\Users\xxx\Desktop\x.txt'  
 >
 > - 'C:\\Users\xxx\Desktop\\x.txt'  
@@ -141,7 +141,7 @@ with open(file_path, 'r', encoding='utf-8') as f:
     for i in data:
         print(i)
 ```
-## 3.4 移动/复制文件
+## 3.4 移动/复制
 移动文件
 ```py
 import os
@@ -170,7 +170,7 @@ if __name__ == '__main__':
 shutil.copyfile(source_path, target_path)
 ```
 
-## 3.5 删除文件
+## 3.5 删除
 ```py
 def delete_file(source_path):
     if  not os.path.exists(source_path):
@@ -184,7 +184,7 @@ def delete_file(source_path):
 
 ## 4.1 读取
 
-### 4.1.1 显示所有文件
+### 4.1.1 显示
 ```py
 def display_all_files(folder_path):
     for i in os.listdir(folder_path):
@@ -195,7 +195,7 @@ def display_all_files(folder_path):
 ```
 ![](http://cdn.hurra.ltd/img/20200629221116.png)
 
-### 4.1.2 递归显示所有文件
+### 4.1.2 递归显示
 ```py
 def display_all_folders(folder_path):
     for i in os.listdir(folder_path):

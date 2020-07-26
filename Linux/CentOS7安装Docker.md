@@ -55,12 +55,12 @@ docker info
 ![](http://cdn.hurra.ltd/img/20200623102258.png)
 
 # 6. 换源
-```s
+```shell
 vim /etc/docker/daemon.json
 ```
 
 添加以下内容
-```s
+```shell
 {
   "registry-mirrors": ["https://docker.mirrors.ustc.edu.cn"]
 }
@@ -68,7 +68,7 @@ vim /etc/docker/daemon.json
 ```
 
 重启docker
-```s
+```shell
 systemctl restart docker
 ```
 

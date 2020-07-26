@@ -1,9 +1,10 @@
 
-
+## 相关教程
 >[uwsgi部署Flask](https://blog.csdn.net/qq_41452937/article/details/107284032)  
 >[gunicorn部署Flask](https://blog.csdn.net/qq_41452937/article/details/104660945)
 
 
+## 目录
 - [环境](#环境)
 - [一、目的](#一目的)
 - [二、过程](#二过程)

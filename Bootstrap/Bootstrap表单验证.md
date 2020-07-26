@@ -1,6 +1,6 @@
 - [源码](#源码)
-  - [1.百度云](#1百度云)
-  - [2.code.aliyun](#2codealiyun)
+  - [百度云](#百度云)
+  - [code.aliyun](#codealiyun)
 - [一、 目的](#一-目的)
 - [二、 过程](#二-过程)
   - [2.1 效果](#21-效果)
@@ -11,11 +11,11 @@
 
 # 源码
 
-## 1.百度云  
+## 百度云  
 [提取码 : jn2w](https://pan.baidu.com/s/1hOuL-fgn_e6sVAbhq0Z8vw)  
 
-## 2.code.aliyun
-```s
+## code.aliyun
+```shell
 git@code.aliyun.com:dalao/BootstrapvalidatorDemo.git
 ```
 

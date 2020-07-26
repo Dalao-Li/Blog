@@ -1,11 +1,24 @@
-**项目地址**
+>- 项目地址  
+>`git@code.aliyun.com:dalao/submit_homework.git`
+>- Docker  
+> `docker run -itd -p 80:8080 registry.cn-beijing.aliyuncs.com/liyuanhao/homework:v3`
 
->**git@code.aliyun.com:dalao/submit_homework.git**
 
- **Docker**
-
- >docker run -itd -p 80:8080 registry.cn-beijing.aliyuncs.com/liyuanhao/homework:v3
-
+- [前言](#前言)
+- [结果](#结果)
+- [一、需求分析](#一需求分析)
+  - [1.1 上传](#11-上传)
+  - [1.2 重命名](#12-重命名)
+  - [1.3 打包](#13-打包)
+- [二、设计](#二设计)
+  - [2.1 技术](#21-技术)
+  - [2.2 存储](#22-存储)
+- [三、过程](#三过程)
+  - [3.1 前端](#31-前端)
+    - [3.1.1 表格](#311-表格)
+    - [3.1.2 提交框](#312-提交框)
+    - [3.1.3 JS](#313-js)
+  - [3.2 后端](#32-后端)
 
 # 前言
 
@@ -46,6 +59,7 @@
 将收齐的word文件放入一个文件夹内，压缩并下载
 
 # 二、设计
+
 ## 2.1 技术
 
 该系统采取C/S架构
@@ -187,10 +201,14 @@
  <script>
  	//实现表格信息的分页操作
 	$('#stuInfoTable').bootstrapTable({
-        pagination: true,   //是否显示分页条
-        pageSize: 5,   //一页显示的行数
-        paginationLoop: false,   //是否开启分页条无限循环，最后一页时点击下一页是否转到第一页
-        pageList: [5, 10, 20]   //选择每页显示多少行，数据过少时可能会没有效果
+        //是否显示分页条
+        pagination: true,   
+        //一页显示的行数
+        pageSize: 5,   
+        //是否开启分页条无限循环，最后一页时点击下一页是否转到第一页
+        paginationLoop: false,  
+        //选择每页显示多少行，数据过少时可能会没有效果 
+        pageList: [5, 10, 20]   
     })
     //显示模态框
     function display_form(data) {
