@@ -1,0 +1,264 @@
+[一、连接](#一连接)  
+[二、建表](#二建表)
+  - [字段](#字段)
+  - [字段参数](#字段参数)  
+    
+[三、操作](#三操作)
+  - [管理](#管理)
+  - [新增](#新增)
+  - [查询](#查询)
+  - [修改](#修改)
+  - [删除](#删除)
+
+
+新建Django项目demo,建立一个应用app
+
+```py
+python3 manage.py startapp people
+```
+
+![](http://cdn.hurra.ltd/img/20200802134308.png)
+
+# 一、连接
+编辑主目录下settings.py文件,找到DATABASES
+
+![](http://cdn.hurra.ltd/img/20200802140333.png)
+
+此为默认配置,会在项目下建立sqlite3数据库
+
+若使用其他数据库,需进行修改,此处以MySQL为例:
+```sh
+DATABASES = {
+    'default': {
+        # 数据库引擎,此处以MySQL为例
+        'ENGINE': 'django.db.backends.mysql',  
+         #数据库名
+        'NAME': <db_name>,
+        # 连接用户名
+        'USER': <user_name>, 
+        # 密码
+        'PASSWORD':<pwd>,  
+        #数据库主机的ip地址
+        'HOST':<IP>, 
+        # 默认mysql访问端口
+        'PORT':<port>, 
+    }
+}
+```
+
+# 二、建表
+
+编辑app/models.py
+```py
+from django.db import models
+
+
+# Create your models here.
+# 学生表
+class Stu(models.Model):
+    num = models.CharField(
+        primary_key=True,
+        verbose_name='学号',
+        help_text='请输入学号',
+        max_length=5
+    )
+    name = models.CharField(
+        verbose_name='姓名',
+        help_text='请输入姓名',
+        max_length=5
+    )
+    age = models.IntegerField(
+        verbose_name='年龄',
+        help_text='请输入年龄'
+    )
+    sex = models.CharField(
+        verbose_name='性别',
+        help_text='请选择性别',
+        default='M',
+        choices=(
+            ('M', '男'),
+            ('W', '女')
+        ),
+        max_length=1
+    )
+
+    # 元数据
+    class Meta:
+        # 按'age'字段升序排列
+        ordering = ['age']
+
+    # 显示类信息
+    def __str__(self):
+        sex = '男' if self.sex == 'M' else '女'
+        return '学号:%s  姓名:%s  年龄:%s 性别:%s' % (self.num, self.name, self.age,sex)
+```
+
+## 字段
+|  类型   | 说明  |
+|  ----   | ----  |
+| AutoField  | 一个自动增加的整数类型字段。通常不需要自己编写,Django会自动添加字段:id = models.AutoField(primary_key=True),自增字段,从1开始计数|
+| CharField  | 字符串类型。必须接收一个max_length参数,表示字符串长度不能超过该值。默认的表单标签是input text |
+|TextField|大量文本内容,在HTML中表现为Textarea标签|
+|IntegerField|整数类型,取值范围-2147483648到2147483647|
+|FileField|上传文件类型|
+|ImageField|图像类型|
+
+## 字段参数  
+
+|  类型    | 说明   |
+|  ----   | ----   |
+|   default      |     字段的默认值,可以是值或者一个可调用对象   |
+|help_text|额外显示在表单部件上的帮助文本|
+|primary_key |若为字段设置了primary_key=True,则当前字段变为主键;    primary_key=True隐含null=False和unique=True的意思|
+|verbose_name|为字段设置可读,直观的别名|
+|choices|选择框标签,值为一个二维的二元元组;第一个元素表示数据库内的真实值,第二个表示页面上的显示内容|
+
+
+
+编辑完成后终端执行:
+```py
+# 为改动创建迁移记录
+python manage.py makemigrations  
+
+# 将操作同步到数据库
+python manage.py migrate`
+```
+
+![](http://cdn.hurra.ltd/img/20200802152633.png)
+
+此时app/migrations下生成0001_initial.py文件
+
+![](http://cdn.hurra.ltd/img/20200802233105.png)
+
+
+
+# 三、操作
+
+## 管理
+Django自带后台管理页面,使用前需创建管理员用户  
+
+在终端执行
+
+```py
+python manage.py createsuperuser
+```
+输入用户名和密码,邮箱地址可选
+
+![](http://cdn.hurra.ltd/img/20200802153640.png)
+
+启动项目,访问http://127.0.0.1:8000/admin/
+
+![](http://cdn.hurra.ltd/img/20200802153902.png)
+![](http://cdn.hurra.ltd/img/20200802154127.png)
+
+现在还无法看到建好的表,需在admin中注册,将app的模型加入站点内,接受站点管理
+
+打开app/admin.py文件,修改为:
+```py
+from django.contrib import admin
+from .models import Stu
+# Register your models here.
+
+# 注册Stu
+admin.site.register(Stu)
+```
+刷新
+
+![](http://cdn.hurra.ltd/img/20200802213738.png)
+
+## 新增
+
+- 可视化  
+直接使用Django管理页面新增数据
+![](http://cdn.hurra.ltd/img/20200802223956.png)
+
+![](http://cdn.hurra.ltd/img/20200802224031.png)
+
+由于之前设定了 ordering = ['age'],故添加的数据会按从小到大的顺序排列
+
+- 代码实现
+
+在命令行执行
+
+```py
+s = Stu(num='D-123',name='阿强',age=19,sex='M')
+
+s.save()
+```
+上述代码等同于
+```py
+s = Stu.objects.create(num='D-123',name='阿强',age=19,sex='M')
+```
+![](http://cdn.hurra.ltd/img/20200802235206.png)
+
+![](http://cdn.hurra.ltd/img/20200802235230.png)
+
+
+## 查询
+
+- 获取所有对象
+```py
+stu_list = Stu.objects.all()
+```
+![](http://cdn.hurra.ltd/img/20200802235655.png)
+
+
+- 过滤查询
+
+例如查询所有男性同学
+```py
+stu = Stu.objects.filter(sex='M')
+```
+![](http://cdn.hurra.ltd/img/20200803001551.png)
+
+- 单一查询  
+  
+例如查询学号为A-123的同学
+```py
+stu = Stu.objects.get(num='A-123')
+```
+![](http://cdn.hurra.ltd/img/20200803001831.png)
+
+- 查询是否存在
+
+例如查询学号为B-456的同学是否存在
+```py
+Stu.objects.filter(num='B-456').exists()
+```
+
+![](http://cdn.hurra.ltd/img/20200803004453.png)
+
+## 修改
+- 可视化  
+直接在管理页面修改
+
+![](http://cdn.hurra.ltd/img/20200803002039.png)
+
+- 代码
+
+所有男性同学年龄改为18岁
+```py
+Stu.objects.filter(sex='M').update(age=18)
+```
+
+![](http://cdn.hurra.ltd/img/20200803004011.png)
+
+![](http://cdn.hurra.ltd/img/20200803004052.png)
+
+## 删除
+- 可视化  
+
+直接在管理页面删除
+
+- 代码
+
+删除学号为A-123的同学信息
+```py
+Stu.objects.filter(num='A-123').delete()
+```
+![](http://cdn.hurra.ltd/img/20200803004719.png)
+![](http://cdn.hurra.ltd/img/20200803004753.png)
+
+---
+
+![](http://cdn.hurra.ltd/img/赞赏码.png)

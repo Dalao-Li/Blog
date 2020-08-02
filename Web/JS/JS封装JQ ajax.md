@@ -6,7 +6,7 @@
 ## JS封装ajax
 >参数说明
 > - type : 请求方式
-> - url : 发送的位置
+> - url : 发送的url
 > - parm : 发送的数据
 > - callback : 回调函数
 
@@ -18,12 +18,13 @@ function send_ajax(type,url,param, callback) {
         ache: false,
         type: type,
         url: url,
+        //发送的数据
         data: JSON.stringify(param),
-        dataType: "text",
+        //服务端返回数据的格式
+        dataType: "json",
         success: function (data) {
             //获取返回值
-            var value = $.parseJSON(data).result
-            //回调函数
+            var value = data.result
             callback(value)
         },
         error: function () {

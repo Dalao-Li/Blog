@@ -45,12 +45,12 @@ deactivate
 ```
 # 1.2 安装Flask
 
-```
+```py
 pip install Flask
 ```
 ![](http://cdn.hurra.ltd/img/20200711112400.png)
 
-新建app.py文件
+新建app.py
 ```py
 from flask import Flask
 app = Flask(__name__)
@@ -61,7 +61,7 @@ def hello():
 if __name__ == '__main__':
 	app.run()
 ```
-运行app.py文件,访问http://127.0.0.1:5000
+运行app.py,访问http://127.0.0.1:5000
 ```py
 python app.py
 ```
@@ -74,7 +74,7 @@ pip install uwsgi
 ```
 ![](http://cdn.hurra.ltd/img/20200711123350.png)
 
-新建test.py文件,写入
+新建 test.py ,写入:
 ```py
 def application(env, start_response):
     start_response('200 OK', [('Content-Type','text/html')])
@@ -90,7 +90,7 @@ uwsgi --http :8080 --plugin python --wsgi-file test.py
 ![](http://cdn.hurra.ltd/img/20200711123908.png)
 
 # 1.4 部署
-新建config.ini文件,并写入以下内容
+新建config.ini,写入:
 ```ini
 [uwsgi]
 # 启动主进程，来管理其他进程
@@ -111,7 +111,6 @@ buffer-size = 32768
 启动
 ```shell
 uwsgi config.ini
-
 ```
 ![](http://cdn.hurra.ltd/img/20200711130654.png)
 ![](http://cdn.hurra.ltd/img/20200711135506.png)

@@ -5,11 +5,11 @@
 
 
 ## 目录
-- [1.1 编写Flask应用](#11-编写flask应用)
-- [1.2 编写uwsgi配置文件](#12-编写uwsgi配置文件)
-- [1.3 编写Dockerfile](#13-编写dockerfile)
-- [1.4 构建容器](#14-构建容器)
-- [1.5 启动镜像](#15-启动镜像)
+- [1. 编写Flask应用](#1-编写flask应用)
+- [2. 编写uwsgi配置文件](#2-编写uwsgi配置文件)
+- [3. 编写Dockerfile](#3-编写dockerfile)
+- [4. 构建容器](#4-构建容器)
+- [5. 启动镜像](#5-启动镜像)
 - [总结](#总结)
   
 
@@ -20,11 +20,7 @@
 > - Docker版本 :  Docker 19.03.12
 > - 内网IP : 192.168.3.20
 
-
-
-
-
-# 1.1 编写Flask应用
+# 1. 编写Flask应用
 
 新建目录demo,进入;新建app.py文件,内容为
 ```py
@@ -37,7 +33,7 @@ def hello():
 if __name__ == '__main__':
 	app.run()
 ```
-# 1.2 编写uwsgi配置文件
+# 2. 编写uwsgi配置文件
 新建config.ini文件,内容为:
 ```sh
 [uwsgi]
@@ -57,7 +53,7 @@ threads = 8
 buffer-size = 32768
 ```
 
-# 1.3 编写Dockerfile
+# 3. 编写Dockerfile
 
 新建Dockerfile,内容为:
 ```docker
@@ -81,7 +77,7 @@ CMD ["uwsgi","config.ini"]
 
 ```
 
-# 1.4 构建容器
+# 4. 构建容器
 
 进入demo目录,执行:
 ```shell
@@ -93,7 +89,7 @@ docker build -t mydemo .
 
 ![](http://cdn.hurra.ltd/img/20200712113859.png)
 
-# 1.5 启动镜像
+# 5. 启动镜像
 ```shell
 docker run -itd -p 80:8080 mydemo
 ```

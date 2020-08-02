@@ -45,10 +45,14 @@ docker run -itd -p 主机端口:3306 -v 宿主机目录:/var/lib/mysql -e MYSQL_
 
 ## 3. 远程连接
 
-登录MySQL
+进入容器
+
 ```shell
 docker exec -it <容器id/容器名> bash
 
+```
+登录
+```s
 mysql -u root -p
 ```
 
@@ -92,7 +96,7 @@ vim /etc/mysql/mysql.conf.d/mysqld.cnf
 ```
 在mysqld.cnf最后追加:
 
-```shell
+```s
 performance_schema_max_table_instances=400
 
 table_definition_cache=400
