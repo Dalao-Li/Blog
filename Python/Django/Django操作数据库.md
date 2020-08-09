@@ -14,7 +14,7 @@
 新建Django项目demo,建立一个应用app
 
 ```py
-python3 manage.py startapp people
+python3 manage.py startapp app
 ```
 
 ![](http://cdn.hurra.ltd/img/20200802134308.png)
@@ -100,6 +100,8 @@ class Stu(models.Model):
 | CharField  | 字符串类型。必须接收一个max_length参数,表示字符串长度不能超过该值。默认的表单标签是input text |
 |TextField|大量文本内容,在HTML中表现为Textarea标签|
 |IntegerField|整数类型,取值范围-2147483648到2147483647|
+|DateField|日期类型,Python中的datetime.date()实例,例如2020-08-05|
+|DateTimeField|日期时间类型,Python datetime.datetime()实例。多了小时、分和秒的显示,例如2020-08-05 23:08|
 |FileField|上传文件类型|
 |ImageField|图像类型|
 
@@ -121,7 +123,7 @@ class Stu(models.Model):
 python manage.py makemigrations  
 
 # 将操作同步到数据库
-python manage.py migrate`
+python manage.py migrate
 ```
 
 ![](http://cdn.hurra.ltd/img/20200802152633.png)

@@ -33,6 +33,7 @@
         $.each(t, function () {
             d[this.name] = this.value;
         })
+        //转换为JSON字符串
         return JSON.stringify(d)
     }
 
@@ -86,3 +87,12 @@
 
 </html>
 ```
+
+## 6.备注
+
+$.each()函数中
+
+return false 相当于 break
+
+
+return true 相当于 continue
