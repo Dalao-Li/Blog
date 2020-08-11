@@ -53,7 +53,7 @@ docker run -itd --name mysql_server -e MYSQL_ROOT_PASSWORD=123 mysql:5.7
 
 ```
 
-建立ubuntu容器
+建立ubuntu容器,并与之前创建的MySQL容器作链接
 
 ```shell
 docker run -itd --name ubuntu_demo --link mysql_server:db ubuntu
