@@ -56,31 +56,11 @@ from django.db import models
 # Create your models here.
 # 学生表
 class Stu(models.Model):
-    num = models.CharField(
-        primary_key=True,
-        verbose_name='学号',
-        help_text='请输入学号',
-        max_length=5
-    )
-    name = models.CharField(
-        verbose_name='姓名',
-        help_text='请输入姓名',
-        max_length=5
-    )
-    age = models.IntegerField(
-        verbose_name='年龄',
-        help_text='请输入年龄'
-    )
-    sex = models.CharField(
-        verbose_name='性别',
-        help_text='请选择性别',
-        default='M',
-        choices=(
-            ('M', '男'),
-            ('W', '女')
-        ),
-        max_length=1
-    )
+    choices=(('M', '男'),('W', '女')),
+    num = models.CharField(primary_key=True,verbose_name='学号',help_text='请输入学号',max_length=5)
+    name = models.CharField(verbose_name='姓名',help_text='请输入姓名',max_length=5)
+    age = models.IntegerField(verbose_name='年龄',help_text='请输入年龄')
+    sex = models.CharField(verbose_name='性别',help_text='请选择性别',default='M',max_length=1)
 
     # 元数据
     class Meta:
@@ -94,26 +74,26 @@ class Stu(models.Model):
 ```
 
 ## 字段
-|  类型   | 说明  |
-|  ----   | ----  |
-| AutoField  | 一个自动增加的整数类型字段。通常不需要自己编写,Django会自动添加字段:id = models.AutoField(primary_key=True),自增字段,从1开始计数|
-| CharField  | 字符串类型。必须接收一个max_length参数,表示字符串长度不能超过该值。默认的表单标签是input text |
-|TextField|大量文本内容,在HTML中表现为Textarea标签|
-|IntegerField|整数类型,取值范围-2147483648到2147483647|
-|DateField|日期类型,Python中的datetime.date()实例,例如2020-08-05|
-|DateTimeField|日期时间类型,Python datetime.datetime()实例。多了小时、分和秒的显示,例如2020-08-05 23:08|
-|FileField|上传文件类型|
-|ImageField|图像类型|
+| 类型          | 说明                                                                                                                        |
+| ------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| AutoField     | 一个自动增加的整数类型字段。通常不需要自己编写,Django会自动添加自增字段:id = models.AutoField(primary_key=True),从1开始计数 |
+| CharField     | 字符串类型。必须接收一个max_length参数,表示字符串长度不能超过该值。默认的表单标签是input text                               |
+| TextField     | 大量文本内容,在HTML中表现为Textarea标签                                                                                     |
+| IntegerField  | 整数类型,取值范围-2147483648到2147483647                                                                                    |
+| DateField     | 日期类型,Python中的datetime.date()实例,例如2020-08-05                                                                       |
+| DateTimeField | 日期时间类型,Python datetime.datetime()实例。多了小时、分和秒的显示,例如2020-08-05 23:08                                    |
+| FileField     | 上传文件类型                                                                                                                |
+| ImageField    | 图像类型                                                                                                                    |
 
 ## 字段参数  
 
-|  类型    | 说明   |
-|  ----   | ----   |
-|   default      |     字段的默认值,可以是值或者一个可调用对象   |
-|help_text|额外显示在表单部件上的帮助文本|
-|primary_key |若为字段设置了primary_key=True,则当前字段变为主键;    primary_key=True隐含null=False和unique=True的意思|
-|verbose_name|为字段设置可读,直观的别名|
-|choices|选择框标签,值为一个二维的二元元组;第一个元素表示数据库内的真实值,第二个表示页面上的显示内容|
+| 类型         | 说明                                                                                                    |
+| ------------ | ------------------------------------------------------------------------------------------------------- |
+| default      | 字段的默认值,可以是值或者一个可调用对象                                                                 |
+| help_text    | 额外显示在表单部件上的帮助文本                                                                          |
+| primary_key  | 若为字段设置了primary_key=True,则当前字段变为主键;    primary_key=True隐含null=False和unique=True的意思 |
+| verbose_name | 为字段设置可读,直观的别名                                                                               |
+| choices      | 选择框标签,值为一个二维的二元元组;第一个元素表示数据库内的真实值,第二个表示页面上的显示内容             |
 
 
 

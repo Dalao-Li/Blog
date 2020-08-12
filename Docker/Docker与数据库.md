@@ -103,4 +103,4 @@ table_definition_cache=400
 
 table_open_cache=256
 ```
-重启容器或者重启MySQL服务即可
+重启容器或者重启MySQL服务

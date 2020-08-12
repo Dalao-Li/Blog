@@ -9,9 +9,6 @@
   - [3.1 镜像制作](#31-镜像制作)
   - [3.2 安装系统](#32-安装系统)
   - [3.3 系统设置](#33-系统设置)
-    - [1. 换源](#1-换源)
-    - [2. 配置SSH](#2-配置ssh)
-    - [3. 设置静态IP](#3-设置静态ip)
 - [四、 测试](#四-测试)
 - [五、优化](#五优化)
 - [六、成果](#六成果)
@@ -110,7 +107,7 @@
 ## 3.3 系统设置
 
 
-### 1. 换源
+1. 换源
 ```shell
 vi /etc/yum.repos.d/CentOS-Base.repo
 ```
@@ -123,7 +120,7 @@ vi /etc/yum.repos.d/CentOS-Base.repo
 ```
 ![](http://cdn.hurra.ltd/img/20200531180352.png)
 
-### 2. 配置SSH
+2. 配置SSH
 
 开放端口,设置允许密码连接,允许root用户连接
 
@@ -135,7 +132,7 @@ vi /etc/yum.repos.d/CentOS-Base.repo
 systemctl start sshd.service
 ```
 
-### 3. 设置静态IP
+3. 设置静态IP
 
 这里主备将服务器的ip设为192.168.3.20
 

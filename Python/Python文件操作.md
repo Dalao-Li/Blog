@@ -48,11 +48,9 @@ def create_file(file_name):
     path = os.getcwd()
     # 获得文件的路径
     file_path = os.path.join(path,file_name)
-    # 如果该文件存在
     if os.path.exists(file_path):
         print('该文件已经存在')
         return
-    # 创建文件
     f = open(file_path,'w',encoding='utf-8')
     if os.path.exists(file_path):
         f.close()
@@ -117,6 +115,7 @@ def rename_file(old_name,new_name):
 ![](http://cdn.hurra.ltd/img/20200628233529.png)
 
 # 三、 读取文件
+
 ## 3.1 整体读取
 ```py
 def read_file(file_name):
@@ -140,6 +139,7 @@ with open(file_path, 'r', encoding='utf-8') as f:
         print(i)
 ```
 ## 3.3 移动/复制
+
 移动文件
 ```py
 import os
@@ -176,9 +176,6 @@ def delete_file(source_path):
         return
     os.remove(source_path)
 ```
-
-
-
 
 # 四、读取文件夹
 

@@ -25,7 +25,7 @@ pip install virtualenv
 
 ## 2. 创建
 
-这里创建的虚拟环境名为venv
+创建名为venv的虚拟环境
 ```
  virtualenv venv 
  ```

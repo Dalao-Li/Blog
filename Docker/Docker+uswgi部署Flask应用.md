@@ -74,7 +74,6 @@ COPY . .
 
 # 容器启动时执行指令,每个Dockerfile只能有一条CMD命令
 CMD ["uwsgi","config.ini"]
-
 ```
 
 # 4. 构建容器

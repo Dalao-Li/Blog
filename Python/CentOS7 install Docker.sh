@@ -12,6 +12,8 @@ yum install -y lvm2 &&
 
 yum-config-manager --add-repo &&http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
 
+echo "------更新源与安装依赖------" &&
+
 yum install -y docker-ce-18.03.1.ce &&
 
 systemctl enable docker &&
