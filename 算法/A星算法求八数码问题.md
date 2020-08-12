@@ -1,13 +1,10 @@
-# 一、实验目的
+
 通过A*算法求出八数码的最少移动次数和移动过程的路径
 
-# 二、实验环境
-CLion 
 
-# 三、实验过程
 
-## 3.1 bashuma.h文件
-```c
+# 1. bashuma.h文件
+```c++
 //
 // Created by _casper on 2019/11/10.
 //
@@ -31,7 +28,7 @@ public:
     State(string str, string father, int g, int h);
 
     //更新父节点与g值
-    void updateValue(const string &fathers, int gs);
+    void update(const string &fathers, int gs);
 
     bool operator<(const State &s1) const;
 
@@ -40,7 +37,6 @@ public:
 } State;
 
 
-//游戏类
 typedef class Game {
 public:
     //八数码最初状态
@@ -77,7 +73,7 @@ public:
     void searchPath(State St);
 
     //寻找节点的坐标
-    static int getStrIndex(const string &str, const vector<State> &v);
+    static int getIndex(const string &str, const vector<State> &v);
 
     //设置h值
     int getWeight(string str) const;
@@ -93,7 +89,7 @@ public:
 
 ```
 
-## 3.2 bashuma.cpp文件
+# 2. bashuma.cpp文件
 ```c
 //
 // Created by _casper on 2019/11/10.
@@ -123,15 +119,14 @@ bool State::operator==(const State &s1) const {
     return s1.str == str;
 }
 
-void State::updateValue(const string &fathers, int gs) {
+void State::update(const string &fathers, int gs) {
     this->father = fathers;
     this->f = gs + this->h;
     this->g = gs;
 }
 
 
-Game::Game(string origStr, string finStr) : origStr(std::move(origStr)),
-                                            finStr(std::move(finStr)) {}
+Game::Game(string origStr, string finStr) : origStr(std::move(origStr)),finStr(std::move(finStr)) {}
 
 //判断两个字符的奇偶性
 bool Game::isOdevity() {
@@ -151,28 +146,28 @@ bool Game::isOdevity() {
 //从当前状态搜索路径
 void Game::searchPath(State St) {
     //空白位置
-    int blankIndex = St.str.find('0');
+    int blank = St.str.find('0');
     //遍历空白位置的所有可移动方向
     for (int i = 0; i < 4; i++) {
-        int movePosition = moves[blankIndex][i];
-        if (movePosition == -1) {
+        int movePos = moves[blank][i];
+        if (movePos == -1) {
             continue;
         }
         string newStr = St.str;
         //交换空白位置与它可达位置的元素
-        swap(newStr[movePosition], newStr[blankIndex]);
+        swap(newStr[movePos], newStr[blank]);
 
         //若交换位置后的字符串未在close表中索过
-        if (getStrIndex(newStr, close) == -1) {
-            int newStrIndex = getStrIndex(newStr, open);
+        if (getIndex(newStr, close) == -1) {
+            int newIndex = getIndex(newStr, open);
             //若该字符串未在open表中,
-            if (newStrIndex == -1) {
+            if (newIndex == -1) {
                 open.emplace_back(newStr, St.str, St.g + 1, getWeight(newStr));
             }
             //若该字符串在open表中,且经过当前状态可以使路径更优
-            else if (St.g + 1 < open[newStrIndex].g) {
+            else if (St.g + 1 < open[newIndex].g) {
                 //将当前状态节点设为交换后状态节点的父节点，并更新g值
-                open[newStrIndex].updateValue(St.str, St.g + 1);
+                open[newIndex].update(St.str, St.g + 1);
             }
         }
         if (newStr == finStr) {
@@ -188,7 +183,7 @@ void Game::searchPath(State St) {
 }
 
 //给定一个字符串返回它在容器内的下标
-int Game::getStrIndex(const string &str, const vector<State> &v) {
+int Game::getIndex(const string &str, const vector<State> &v) {
     for (int i = 0, size = v.size(); i < size; ++i) {
         if (v[i].str == str) {
             return i;
@@ -214,11 +209,11 @@ void Game::creatPath() {
     vector<State> v;
     v.insert(v.end(), open.begin(), open.end());
     v.insert(v.end(), close.begin(), close.end());
-    State St = v[getStrIndex(finStr, v)];
+    State St = v[getIndex(finStr, v)];
     while (St.father != " ") {
         path.push_back(St);
         //找寻下一个节点
-        St = v[getStrIndex(St.father, v)];
+        St = v[getIndex(St.father, v)];
     }
     path.emplace_back(origStr, " ", 0, 0);
     reverse(path.begin(), path.end());
@@ -247,7 +242,7 @@ void Game::start() {
 
 ```
 
-## 3.3 main.cpp文件
+# 3. main.cpp文件
 ```c
 #include <cstdio>
 #include "bashuma.h"
@@ -270,7 +265,7 @@ int main(int argv, char *argc[]) {
 }
 
 ```
-# 四、运行结果
+# 结果
 
 ![](http://cdn.hurra.ltd/img/20200621162526.png)
 ![](http://cdn.hurra.ltd/img/20200621162621.png)
