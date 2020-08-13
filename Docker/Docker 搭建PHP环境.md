@@ -34,7 +34,6 @@ mkdir -p ~/nginx/www ~/nginx/logs ~/nginx/conf
    phpinfo();
 ?>
 ```
-
 进入/nginx/conf,新建test-php.conf
 ```s
 server {
@@ -59,7 +58,6 @@ server {
     }
 }
 ```
-
 ## 1.4 实例化容器
 
 PHP容器
