@@ -210,7 +210,20 @@ git merge second
 可以看到master分支下已经出现了second.txt
 
 
+## 查看远程仓库地址
+```shell
+git remote -v
+```
 
+## 删除远程仓库地址
+```shell
+git remote rm <origin-name>
+```
+
+## 添加新地址
+```shell
+git remote add origin <origin-url>
+```
 
 
 ![](http://cdn.hurra.ltd/img/赞赏码.png)
