@@ -1,0 +1,132 @@
+# 创建MongoDB容器
+```s
+# 创建容器 --auth：需要密码才能访问容器服务
+docker run -itd --name mongo -p 27017:27017 mongo --auth
+
+docker exec -it mongo mongo admin
+
+# 创建一个名为 admin，密码为 123456 的用户。
+db.createUser({ user:'admin',pwd:'123456',roles:[ { role:'userAdminAnyDatabase', db: 'admin'},"readWriteAnyDatabase"]});
+
+# 进行连接。
+> db.auth('admin', '123456')
+```
+![](http://cdn.hurra.ltd/img/20201014175200.png)
+
+# 数据库
+
+## 创建数据库
+
+```s
+use <db_name>
+```
+例:创建test数据库
+![](http://cdn.hurra.ltd/img/20201014142358.png)
+
+这里暂不会显示新建的数据库,因为其中还未插入数据
+
+# 集合
+
+## 创建集合
+```s
+db.createCollection(<"collect_name">)
+```
+
+例:创建stu集合
+
+![](http://cdn.hurra.ltd/img/20201014171656.png)
+# CRUD操作
+
+## 插入
+
+
+### 插入文档
+单条插入
+```
+db.<collect_name>.insert(<JSON数据>)
+```
+
+例:向stu集合中插入数据
+![](http://cdn.hurra.ltd/img/20201014174718.png)
+
+多条插入
+
+```
+db.<collect_name>.insert([<JSON数据1>,<JSON数据2>,<JSON数据3>.....])
+```
+![](http://cdn.hurra.ltd/img/20201014175739.png)
+
+
+## 查询
+
+
+### 全部查询
+
+显示集合内所有文档
+
+```s
+db.<collect_name>.find()
+```
+
+例:显示stu集合内所有数据
+![](http://cdn.hurra.ltd/img/20201014174834.png)
+
+格式化显示集合内所有文档
+```s
+db.<collect_name>.find().pretty()
+```
+![](http://cdn.hurra.ltd/img/20201014180104.png)
+
+
+### 条件查询
+
+```
+db.<collec_name>.find({<key>:<value>}).pretty()
+```
+例:查询stu集合中name为LILI的文档
+
+![](http://cdn.hurra.ltd/img/20201014190333.png)
+
+例:查询年龄大于等于19的文档
+
+![](http://cdn.hurra.ltd/img/20201014191820.png)
+
+条件查询语言表
+
+| 操作       | 格式                       |
+| ---------- | -------------------------- |
+| 等于       | {\<key>:\<value>}          |
+| 小于       | {\<key>:{`$lt`:\<value>}}  |
+| 小于或等于 | {\<key>:{`$lte`:\<value>}} |
+| 大于       | {\<key>:{`$gt`:\<value>}}  |
+| 大于或等于 | {\<key>:{`$gte`:\<value>}} |
+| 不等于     | {\<key>:{`$ne`:\<value>}}  |
+
+## 修改
+
+### 修改文档
+
+```s
+db.<collect_name>.update({<key1>:<value>},{$set:{<key2>:<new_value>}})
+```
+
+例:将name为LILI的文档中age值改为22
+
+![](http://cdn.hurra.ltd/img/20201014195214.png)
+
+
+
+## 删除
+
+### 删除文档
+```s
+db.<collect_name>.remove({<key>:<value>})
+```
+
+例:删除name=LILI的文档
+
+![](http://cdn.hurra.ltd/img/20201014204226.png)
+
+
+
+![](http://cdn.hurra.ltd/img/赞赏码.png)
