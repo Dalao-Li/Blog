@@ -1,4 +1,5 @@
 # 连接
+
 ```py
 import pymongo
 
@@ -6,13 +7,14 @@ client = pymongo.MongoClient("mongodb://<user_name>:<password>@<ip>:<port>/")
 
 db_list = client.list_database_names()
 
-#打印所有数据库 
+#打印所有数据库
 print(db_list)
 ```
 
 ![](http://cdn.hurra.ltd/img/20201014211648.png)
 
 # 获取集合
+
 ```py
 # 获取数据库
 db = client[<collect_name>]
@@ -22,9 +24,11 @@ collect_list = db.list_collection_names()
 
 print(collect_list)
 ```
+
 ![](http://cdn.hurra.ltd/img/20201014212147.png)
 
 # 获取文档
+
 ```py
 db = client[<db_name>]
 
@@ -38,8 +42,25 @@ for i in collect.find():
 
 ![](http://cdn.hurra.ltd/img/20201014213434.png)
 
+- 按条件获取
+
+find()函数里添加{key:value}对即可
+
+例如获取 name 为 new_name2 的人员信息
+
+```py
+# 获取集合
+collect = db['stu']
+
+data = collect.find({"name":"new_name2"})[0]
+
+print(data)
+```
+
+![](http://cdn.hurra.ltd/img/20201029161327.png)
 
 # 插入文档
+
 ```py
 import pymongo
 
@@ -61,9 +82,11 @@ collect.insert_many(data_list)
 for i in collect.find():
     print(i)
 ```
+
 ![](http://cdn.hurra.ltd/img/20201015093600.png)
 
 ![](http://cdn.hurra.ltd/img/20201015093938.png)
 
+# 修改文档
 
 ![](http://cdn.hurra.ltd/img/赞赏码.png)
