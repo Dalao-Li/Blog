@@ -1,7 +1,6 @@
 # 完整代码
 
-> [**github地址**](https://github.com/Dalao-Li/WebNotepad-Django.git)
-
+> [**github 地址**](https://github.com/Dalao-Li/WebNotepad-Django.git)
 
 # 运行结果
 
@@ -15,20 +14,16 @@
 
 ![](http://cdn.hurra.ltd/img/20200809154003.png)
 
-
 ![](http://cdn.hurra.ltd/img/20200816225928.png)
+
 # 涉及技术
 
 > - CSS : BootStrap4 , Font Awesome,
 > - JS : JQuery , SweetAlery2
-> - Web框架 : Django
+> - Web 框架 : Django
 > - 数据库 : Sqlite3
 
 # 概要设计
-
-
-
-
 
 ## 前端
 
@@ -40,18 +35,17 @@
 
 每一行显示记事的序号、标题、内容与状态
 
- - 完成按钮
-  
+- 完成按钮
+
 可完成记事
 
- - 添加按钮
+- 添加按钮
 
 点击后可添加新记事
 
- - 编辑记事
+- 编辑记事
 
 对进行中的记事,当点击对应行时会弹出修改页面,用户可对其进行修改
-
 
 对进行中记事可进行的操作为 : 修改,标记完成,删除
 
@@ -60,12 +54,6 @@
 2. 回收站
 
 显示所有已经删除的记事
-
-
-
-
-
-
 
 ## 数据库
 
@@ -77,37 +65,32 @@ note
 
 | 列名   | 说明           | 备注                                                                                                       |
 | ------ | -------------- | ---------------------------------------------------------------------------------------------------------- |
-| id     | 每条记事的序号 | Django自定义主键                                                                                           |
-| name   | 每条记事的标题 | 限定2-15字                                                                                                 |
-| text   | 记事的内容     | 限定2-15字                                                                                                 |
+| id     | 每条记事的序号 | Django 自定义主键                                                                                          |
+| name   | 每条记事的标题 | 限定 2-15 字                                                                                               |
+| text   | 记事的内容     | 限定 2-15 字                                                                                               |
 | s_time | 开始时间       | 必须比结束时间早                                                                                           |
 | e_time | 结束时间       | 必须比开始时间晚                                                                                           |
 | status | 该记事状态     | U(underway): 进行中<br>F(finish) : 已完成<br>D(deleted) : 已删除 <br> O(Overtime):已超时<br>P(Plan):未开始 |
 
-
-
-
 # 具体实现
-
 
 ## 初始化项目
 
 建立项目
 
-建立一个应用app
+建立一个应用 app
 
 ```py
 python manage.py startapp app
 ```
 
-修改settings.py文件
+修改 settings.py 文件
 
-
-在INSTALLED_APPS中添加刚创建的应用
+在 INSTALLED_APPS 中添加刚创建的应用
 
 ![](http://cdn.hurra.ltd/img/20200805182554.png)
 
-在MIDDLEWARE中注释django.middleware.csrf.CsrfViewMiddleware
+在 MIDDLEWARE 中注释 django.middleware.csrf.CsrfViewMiddleware
 
 ![](http://cdn.hurra.ltd/img/20200805182720.png)
 
@@ -115,14 +98,14 @@ python manage.py startapp app
 
 ![](http://cdn.hurra.ltd/img/20200805182830.png)
 
-
-在app目录下新建static与templates目录,用于存放静态文件和模板文件
+在 app 目录下新建 static 与 templates 目录,用于存放静态文件和模板文件
 
 ---
 
 ## 前端
 
-app/templates目录下新建main.html文件
+app/templates 目录下新建 main.html 文件
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -382,148 +365,159 @@ app/templates目录下新建main.html文件
 </html>
 ```
 
-app/static目录下新建api.js文件
+app/static 目录下新建 api.js 文件
+
 ```js
 function sendAjax(param, url, callback) {
-    $.ajax({
-        async: false,
-        ache: false,
-        type: 'POST',
-        url: url,
-        //JSON对象转化JSON字符串
-        data: JSON.stringify(param),
-        //服务器返回的数据类型
-        dataType: "json",
-        success: function (data) {
-            callback(data.result)
-        },
-        error: function (data) {
-            //错误处理
-        }
-    })
+  $.ajax({
+    async: false,
+    ache: false,
+    type: "POST",
+    url: url,
+    //JSON对象转化JSON字符串
+    data: JSON.stringify(param),
+    //服务器返回的数据类型
+    dataType: "json",
+    success: function (data) {
+      callback(data.result);
+    },
+    error: function (data) {
+      //错误处理
+    },
+  });
 }
 
 function addNote() {
-    var d = {}
-    //表单是否存在空值
-    var isNull = false
-    var t = $('#newNoteForm').serializeArray()
-    $.each(t, function () {
-        if (this.value === "") {
-            isNull = true
-            addCallback(0)
-            // return false才代表退出each()函数
-            return false
-        }
-        d[this.name] = this.value
-    })
-    //若存在空值则不发送ajax
-    if (isNull) {
-        return
+  var d = {};
+  //表单是否存在空值
+  var isNull = false;
+  var t = $("#newNoteForm").serializeArray();
+  $.each(t, function () {
+    if (this.value === "") {
+      isNull = true;
+      addCallback(0);
+      // return false才代表退出each()函数
+      return false;
     }
-    sendAjax(d, '/app/add/', function (value) {
-        if (value === 1) {
-            swal({title: "添加成功", text: "", type: "success", timer: 2000}, function () {
-                location.href = '/app/'
-            })
+    d[this.name] = this.value;
+  });
+  //若存在空值则不发送ajax
+  if (isNull) {
+    return;
+  }
+  sendAjax(d, "/app/add/", function (value) {
+    if (value === 1) {
+      swal(
+        { title: "添加成功", text: "", type: "success", timer: 2000 },
+        function () {
+          location.href = "/app/";
         }
-        if (value === 0) {
-            swal("填写内容不能为空", "请重写填写", "error")
-        }
-    })
+      );
+    }
+    if (value === 0) {
+      swal("填写内容不能为空", "请重写填写", "error");
+    }
+  });
 }
-
 
 function delNote(n_id) {
-    swal({
-            title: "确定要删除该记事吗？",
-            text: "删除不可恢复",
-            type: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#DD6B55",
-            confirmButtonText: "确认",
-            cancelButtonText: "取消",
-            closeOnConfirm: false,
-            closeOnCancel: false
-        },
-        function (isConfirm) {
-            if (!isConfirm) {
-                swal({
-                    title: "已取消",
-                    text: "您取消了删除操作！",
-                    type: "warning"
-                })
-                return
-            }
-            var data = {
-                'n_id': n_id,
-            }
-            sendAjax(data, '/app/del/', function (value) {
-                if (value === 1) {
-                    swal({title: "删除成功", text: "", type: "success", timer: 2000}, function () {
-                        location.reload()
-                    })
-                }
-                if (value === -1) {
-                    swal("删除失败", "请重试", "error")
-                }
-            })
-        }
-    )
-}
-
-
-function finishNote(n_id) {
-    var data = {
-        'n_id': n_id,
-        'status': 'F'
-    }
-    sendAjax(data, '/app/change/', function (value) {
+  swal(
+    {
+      title: "确定要删除该记事吗？",
+      text: "删除不可恢复",
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#DD6B55",
+      confirmButtonText: "确认",
+      cancelButtonText: "取消",
+      closeOnConfirm: false,
+      closeOnCancel: false,
+    },
+    function (isConfirm) {
+      if (!isConfirm) {
+        swal({
+          title: "已取消",
+          text: "您取消了删除操作！",
+          type: "warning",
+        });
+        return;
+      }
+      var data = {
+        n_id: n_id,
+      };
+      sendAjax(data, "/app/del/", function (value) {
         if (value === 1) {
-            swal({title: "记事已完成", text: "", type: "success", timer: 2000}, function () {
-                location.reload()
-            })
+          swal(
+            { title: "删除成功", text: "", type: "success", timer: 2000 },
+            function () {
+              location.reload();
+            }
+          );
         }
         if (value === -1) {
-            swal("网络异常", "请重试", "error")
+          swal("删除失败", "请重试", "error");
         }
-    })
+      });
+    }
+  );
 }
 
+function finishNote(n_id) {
+  var data = {
+    n_id: n_id,
+    status: "F",
+  };
+  sendAjax(data, "/app/change/", function (value) {
+    if (value === 1) {
+      swal(
+        { title: "记事已完成", text: "", type: "success", timer: 2000 },
+        function () {
+          location.reload();
+        }
+      );
+    }
+    if (value === -1) {
+      swal("网络异常", "请重试", "error");
+    }
+  });
+}
 
 function modifyNote() {
-    var d = {}
-    //表单是否存在空值
-    var isNull = false
-    var t = $('#modifyNoteForm').serializeArray()
-    $.each(t, function () {
-        if (this.value === "") {
-            isNull = true
-            addCallback(0)
-            // return false才代表退出each()函数
-            return false
-        }
-        d[this.name] = this.value
-    })
-    //若存在空值则不发送ajax
-    if (isNull) {
-        return
+  var d = {};
+  //表单是否存在空值
+  var isNull = false;
+  var t = $("#modifyNoteForm").serializeArray();
+  $.each(t, function () {
+    if (this.value === "") {
+      isNull = true;
+      addCallback(0);
+      // return false才代表退出each()函数
+      return false;
     }
-    sendAjax(d, '/app/add/', function (value) {
-        if (value === 1) {
-            swal({
-                title: "修改成功",
-                text: "",
-                type: "success",
-                timer: 2000
-            }, function () {
-                location.href = '/app/'
-            })
+    d[this.name] = this.value;
+  });
+  //若存在空值则不发送ajax
+  if (isNull) {
+    return;
+  }
+  sendAjax(d, "/app/add/", function (value) {
+    if (value === 1) {
+      swal(
+        {
+          title: "修改成功",
+          text: "",
+          type: "success",
+          timer: 2000,
+        },
+        function () {
+          location.href = "/app/";
         }
-        if (value === 0) {
-            swal("填写内容不能为空", "请重写填写", "error")
-        }
-    })
+      );
+    }
+    if (value === 0) {
+      swal("填写内容不能为空", "请重写填写", "error");
+    }
+  });
 }
 ```
 
@@ -531,7 +525,7 @@ function modifyNote() {
 
 ### 数据库
 
-编辑app/models.py文件
+编辑 app/models.py 文件
 
 ```py
 from django.db import models
@@ -554,18 +548,21 @@ class Note(models.Model):
 ```
 
 编辑完成后终端执行:
+
 ```py
 # 为改动创建迁移记录
-python manage.py makemigrations  
+python manage.py makemigrations
 
 # 将操作同步到数据库
 python manage.py migrate
 ```
+
 ![](http://cdn.hurra.ltd/img/20200809154710.png)
 
-
 ### 视图函数
-编辑app/views.py
+
+编辑 app/views.py
+
 ```py
 import json
 
@@ -615,9 +612,10 @@ def change_note_status(request):
 
 ```
 
-
 ### 绑定路由
-在app目录下新建urls.py文件
+
+在 app 目录下新建 urls.py 文件
+
 ```py
 from django.urls import path
 from app import views
@@ -638,7 +636,8 @@ urlpatterns = [
 ]
 ```
 
-编辑主目录下urls.py文件
+编辑主目录下 urls.py 文件
+
 ```py
 from django.contrib import admin
 from django.urls import path, include
@@ -649,9 +648,9 @@ urlpatterns = [
 ]
 
 ```
+
 # 四、部署
 
-可参照此博客的部署过程 [学弟教程-Django-微型Web项目:体温登记系统](https://blog.csdn.net/qq_41452937/article/details/107847636)
+可参照此博客的部署过程 [学弟教程-Django-微型 Web 项目:体温登记系统](https://blog.csdn.net/qq_41452937/article/details/107847636)
 
-
-![](http://cdn.hurra.ltd/img/赞赏码.png)
+![](http://cdn.hurra.ltd/img/收款码.png)

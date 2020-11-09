@@ -1,17 +1,19 @@
 - [一、目的](#一目的)
 - [二、过程](#二过程)
-	- [2.1 函数模板](#21-函数模板)
-	- [2.2 结构体模板](#22-结构体模板)
-	- [2.3 类模板](#23-类模板)
-
+  - [2.1 函数模板](#21-函数模板)
+  - [2.2 结构体模板](#22-结构体模板)
+  - [2.3 类模板](#23-类模板)
 
 # 一、目的
-掌握C++函数模板、结构体模板与类模板的使用
+
+掌握 C++函数模板、结构体模板与类模板的使用
 
 # 二、过程
 
 ## 2.1 函数模板
+
 写一个求和函数,返回两个输入值的和
+
 ```c
 template <class T>
 T add(T a,T b) {
@@ -19,7 +21,9 @@ T add(T a,T b) {
 }
 
 ```
+
 测试代码
+
 ```c
 #include <iostream>
 using namespace std;
@@ -36,12 +40,15 @@ int main() {
 	return 0;
 }
 ```
+
 运行结果
 
 ![](http://cdn.hurra.ltd/img/20200625230350.png)
 
 ## 2.2 结构体模板
+
 结构体定义
+
 ```c
 template<class T>
 struct Node {
@@ -51,6 +58,7 @@ struct Node {
 ```
 
 测试代码
+
 ```c
 #include<iostream>
 using namespace std;
@@ -87,10 +95,10 @@ void init(Node<T> *head,int n) {
 
 
 int main() {
-	Node<int> *head_int = new Node<int>; 
-	
+	Node<int> *head_int = new Node<int>;
+
 	Node<double> *head_double = new Node<double>;
-	
+
 	Node<string> *head_string = new Node<string>;
     //显式调用
 	init<int>(head_int,5);
@@ -99,12 +107,15 @@ int main() {
 	init<string>(head_string,5);
 }
 ```
+
 运行结果
 
 ![](http://cdn.hurra.ltd/img/20200625224721.png)
 
 ## 2.3 类模板
+
 类定义
+
 ```c
 template <class T>
 class Com {
@@ -125,6 +136,7 @@ class Com {
 ```
 
 测试代码
+
 ```c
 #include <iostream>
 using namespace std;
@@ -172,7 +184,6 @@ int main() {
 
 运行结果
 
-
 ![](http://cdn.hurra.ltd/img/20200625230433.png)
 
-![](http://cdn.hurra.ltd/img/赞赏码.png)
+![](http://cdn.hurra.ltd/img/收款码.png)

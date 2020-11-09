@@ -1,85 +1,81 @@
 ## 目录
+
 - [目录](#目录)
-- [启用Linux子系统](#启用linux子系统)
-- [切换到WSL2](#切换到wsl2)
-- [添加Docker源](#添加docker源)
-- [安装Docker](#安装docker)
-- [启动Docker daemon](#启动docker-daemon)
+- [启用 Linux 子系统](#启用linux子系统)
+- [切换到 WSL2](#切换到wsl2)
+- [添加 Docker 源](#添加docker源)
+- [安装 Docker](#安装docker)
+- [启动 Docker daemon](#启动docker-daemon)
 - [权限](#权限)
-- [关闭WSL](#关闭wsl)
-  
+- [关闭 WSL](#关闭wsl)
 
-更新 Win10 到2004版本
+更新 Win10 到 2004 版本
 
+## 启用 Linux 子系统
 
-## 启用Linux子系统
+打开 控制面板 -> 程序 -> 启用或关闭 Windows 功能。找到"适用于 Linux 的 Windows 子系统"和"虚拟机平台",勾选这两项,并重新启动计算机。
 
-打开 控制面板 -> 程序 -> 启用或关闭Windows功能。找到"适用于Linux的Windows子系统"和"虚拟机平台",勾选这两项,并重新启动计算机。
+## 切换到 WSL2
 
-## 切换到WSL2
-
-使用管理员用户打开CMD，运行:
+使用管理员用户打开 CMD，运行:
 
 ```shell
 wsl --set-default-version 2
 ```
 
-## 添加Docker源
+## 添加 Docker 源
 
 ```shell
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
-sudo add-apt-repository \
-   "deb [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu \
-   $(lsb_release -cs) \
-   stable"
+sudo add-apt-repository "deb [arch=amd64] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu $(lsb_release -cs) stable"
 
 sudo apt update
 ```
 
-## 安装Docker
+## 安装 Docker
+
 ```shell
 sudo apt install -y docker-ce
 ```
 
-## 启动Docker daemon
+## 启动 Docker daemon
+
 ```shell
 sudo service docker start
 ```
 
 ## 权限
-使用docker info 命令出现问题
+
+使用 docker info 命令出现问题
 
 ![](http://cdn.hurra.ltd/img/20200721210505.png)
 
 这是权限不足的原因,可使用以下命令解决
-
-
 
 ```shell
 # 添加docker用户组
 sudo groupadd docker
 
 # 将登陆用户加入到docker用户组中
-sudo gpasswd -a $USER docker   
+sudo gpasswd -a $USER docker
 
 # 更新用户组
-newgrp docker     
+newgrp docker
 ```
 
 现在就没问题了
 
 ![](http://cdn.hurra.ltd/img/20200721210744.png)
 
-
-## 关闭WSL
+## 关闭 WSL
 
 ![](http://cdn.hurra.ltd/img/20200721211633.png)
 
-该进程是WSL的进程。它比较占内存,不使用WSL2的时候可关闭,方法如下,使用管理员打开CMD，运行：
+该进程是 WSL 的进程。它比较占内存,不使用 WSL2 的时候可关闭,方法如下,使用管理员打开 CMD，运行：
 
 ```s
 wsl --shutdown
 ```
 
-![](http://cdn.hurra.ltd/img/赞赏码.png)
+![](http://cdn.hurra.ltd/img/收款码.png)

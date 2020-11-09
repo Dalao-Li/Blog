@@ -1,24 +1,28 @@
 # 问题
 
-通过shell程序将/home/dalao目录下的demo.txt中的
+通过 shell 程序将/home/dalao 目录下的 demo.txt 中的
+
 ```s
-....
-
 PATH:/usr/bin
-
-....
 ```
-替换为:PATH:/usr/bin/python3/bin
+
+替换为:
+
+```s
+PATH:/usr/bin/python3/bin
+```
 
 # 程序
 
 ```s
 sed -i "s/\<oldStr>/\<newStr>/g" \<filePath>
 ```
-> - g的意思是全部替换
+
+> - g 的意思是全部替换
 > - 若字符串中带有路径符号 `/` 则可以用 `#` 做分隔符
 
 示例:
+
 ```shell
 #!/bin/bash
 
@@ -31,6 +35,4 @@ sed -i "s#$oldStr#$newStr#g" /home/dalao/demo.txt
 
 # 运行
 
-
-
-![](http://cdn.hurra.ltd/img/赞赏码.png)
+![](http://cdn.hurra.ltd/img/收款码.png)

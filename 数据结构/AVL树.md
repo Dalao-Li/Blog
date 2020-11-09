@@ -184,4 +184,4 @@ AVLNode<T>* leftRightRotation(AVLNode<T> *root){
 
 其中,红色为插入节点;绿色为最小失衡子树的根节点
 
-![](http://cdn.hurra.ltd/img/赞赏码.png)
+![](http://cdn.hurra.ltd/img/收款码.png)

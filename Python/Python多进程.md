@@ -19,9 +19,10 @@ if __name__ == '__main__':
     cook()
     wash()
 ```
+
 ![](http://cdn.hurra.ltd/img/20201019171128.png)
 
-两个任务先后完成,共花费3秒钟
+两个任务先后完成,共花费 3 秒钟
 
 此时,可使用多线程的方式让两个任务同步执行
 
@@ -59,13 +60,15 @@ if __name__ == '__main__':
     cook_process.start()
     wash_process.start()
 ```
+
 ![](http://cdn.hurra.ltd/img/20201019173207.png)
 
 ## 进程执行带参任务
 
-### args传参
+### args 传参
 
-args以元组的形式给线程传递参数
+args 以元组的形式给线程传递参数
+
 ```py
 import time
 import multiprocessing
@@ -89,12 +92,12 @@ if __name__ == '__main__':
     cook_process.start()
     wash_process.start()
 ```
+
 ![](http://cdn.hurra.ltd/img/20201019175806.png)
 
+### kwargs 传参
 
-### kwargs传参
-
-args以字典的形式给线程传递参数
+args 以字典的形式给线程传递参数
 
 ```py
 import time
@@ -120,8 +123,8 @@ if __name__ == '__main__':
     cook_process.start()
     wash_process.start()
 ```
-![](http://cdn.hurra.ltd/img/20201019180329.png)
 
+![](http://cdn.hurra.ltd/img/20201019180329.png)
 
 ## 获取进程编号
 
@@ -134,6 +137,7 @@ import os
 pid = os.getpid()
 print(pid)
 ```
+
 ![](http://cdn.hurra.ltd/img/20201019181524.png)
 
 获取当前父进程的编号
@@ -166,6 +170,7 @@ if __name__ == '__main__':
     cook_process.start()
     wash_process.start()
 ```
+
 ![](http://cdn.hurra.ltd/img/20201019183002.png)
 
 ## 守护进程
@@ -201,8 +206,9 @@ if __name__ == '__main__':
     time.sleep(1)
     print("主进程结束!")
 ```
+
 ![](http://cdn.hurra.ltd/img/20201019195202.png)
 
 可见,主进程结束时子进程也立即结束
 
-![](http://cdn.hurra.ltd/img/赞赏码.png)
+![](http://cdn.hurra.ltd/img/收款码.png)

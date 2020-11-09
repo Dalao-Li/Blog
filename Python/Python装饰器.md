@@ -58,4 +58,4 @@ if __name__ == "__main__":
 
 ![](http://cdn.hurra.ltd/img/20201024152019.png)
 
-![](http://cdn.hurra.ltd/img/赞赏码.png)
+![](http://cdn.hurra.ltd/img/收款码.png)

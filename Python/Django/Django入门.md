@@ -1,30 +1,34 @@
 ## 1. 创建项目
 
 ![](http://cdn.hurra.ltd/img/20200801113226.png)
-创建名为demo的Django项目
+创建名为 demo 的 Django 项目
 项目目录
->- demo/init.py: 一个空文件,声明所在目录的包为一个Python包
+
+> - demo/init.py: 一个空文件,声明所在目录的包为一个 Python 包
 >
->- demo/settings.py: 管理项目的配置信息
+> - demo/settings.py: 管理项目的配置信息
 >
->- demo/urls.py: 声明请求url的映射关系
+> - demo/urls.py: 声明请求 url 的映射关系
 >
->- demo/wsgi.py: python程序和web服务器的通信协议
+> - demo/wsgi.py: python 程序和 web 服务器的通信协议
 >
->- demo/manage.py: 一个命令行工具,用来和Django项目进行交互
+> - demo/manage.py: 一个命令行工具,用来和 Django 项目进行交互
 
 ## 2. 创建应用
 
-在终端执行以下命令,创建名为app的应用
+在终端执行以下命令,创建名为 app 的应用
+
 ```py
 python manage.py startapp app
 ```
+
 ![](http://cdn.hurra.ltd/img/20200801112336.png)
 
-app目录结构:
-- app/admin:app应用后台管理配置文件
+app 目录结构:
 
-- app/apps:app应用的配置文件
+- app/admin:app 应用后台管理配置文件
+
+- app/apps:app 应用的配置文件
 
 - app/models:数据模块，用于设计数据库等
 
@@ -34,11 +38,12 @@ app目录结构:
 
 ## 3. 应用注册
 
-新建应用需在settings.py文件中的INSTALLED_APPS列表中注册，使程序找到该服务
+新建应用需在 settings.py 文件中的 INSTALLED_APPS 列表中注册，使程序找到该服务
 
 ![](http://cdn.hurra.ltd/img/20200801112631.png)
 
-setting.py默认内容:
+setting.py 默认内容:
+
 ```py
 import os
 
@@ -146,7 +151,8 @@ STATIC_URL = '/static/'
 
 ## 4. 页面编写
 
-打开app/view.py 写入
+打开 app/view.py 写入
+
 ```py
 from django.http import HttpResponse
 from django.shortcuts import render
@@ -158,7 +164,8 @@ def hello(request):
 
 ## 5. 建立映射
 
-打开urls.py,写入
+打开 urls.py,写入
+
 ```py
 from django.contrib import admin
 from django.urls import path
@@ -172,6 +179,7 @@ urlpatterns = [
 ```
 
 ## 6. 测试
+
 运行,访问http://127.0.0.1:8000/hello
 
 ![](http://cdn.hurra.ltd/img/20200801113106.png)
@@ -180,5 +188,4 @@ urlpatterns = [
 
 ---
 
-
-![](http://cdn.hurra.ltd/img/赞赏码.png)
+![](http://cdn.hurra.ltd/img/收款码.png)

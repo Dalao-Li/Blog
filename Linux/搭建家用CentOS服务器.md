@@ -1,4 +1,5 @@
 ## 目录
+
 - [一、目的](#一目的)
 - [二、准备](#二准备)
   - [2.1 硬件](#21-硬件)
@@ -15,8 +16,7 @@
 
 # 一、目的
 
-搭建一台CentOS系统的家用服务器
-
+搭建一台 CentOS 系统的家用服务器
 
 # 二、准备
 
@@ -24,39 +24,44 @@
 
 ![](http://cdn.hurra.ltd/img/IMG_20200531_163807.jpg)
 
-从废品站里20大洋淘来了一台2007年的电脑,配置如下
-> - CPU:  Intel(R) Celeron(R) CPU 420  @ 1.60GHz
-> - 内存：1GB杂牌
-> - 硬盘：500GB希捷
+从废品站里 20 大洋淘来了一台 2007 年的电脑,配置如下
+
+> - CPU: Intel(R) Celeron(R) CPU 420 @ 1.60GHz
+> - 内存：1GB 杂牌
+> - 硬盘：500GB 希捷
 
 ## 2.2 软件
 
-安装Centos7系统,没有图形界面,纯命令行操作
+安装 Centos7 系统,没有图形界面,纯命令行操作
 
 ## 2.3 网络
 
-电脑直连服务器,设置静态IP,通过SSH进行登录
+电脑直连服务器,设置静态 IP,通过 SSH 进行登录
 
-##  结果
+## 结果
 
-配置了静态IP为192.168.3.15
+配置了静态 IP 为 192.168.3.15
 
 ![](http://cdn.hurra.ltd/img/20200531165606.png)
+
 <center>SSH登录</center>
 
 ---
 
 ![](http://cdn.hurra.ltd/img/20200531165639.png)
+
 <center>查看主板信息</center>
 
 ---
 
 ![](http://cdn.hurra.ltd/img/20200531165807.png)
+
 <center>查看BIOS信息</center>
 
 ---
 
 ![](http://cdn.hurra.ltd/img/20200531170105.png)
+
 <center>最大支持4GB内存....</center>
 
 ---
@@ -67,7 +72,7 @@
 
 1. 选择镜像
 
-使用CentOS的Minimal版本,特点是安装完成后没有图形界面,比较轻量,毕竟服务器只有1G的内存,能省就省了   
+使用 CentOS 的 Minimal 版本,特点是安装完成后没有图形界面,比较轻量,毕竟服务器只有 1G 的内存,能省就省了
 
 [下载地址--阿里源](http://mirrors.aliyun.com/centos/7/isos/x86_64/)
 
@@ -81,10 +86,10 @@
 
 **注意! 此处为了演示方便,使用了虚拟机再现了安装过程**
 
-![](http://cdn.hurra.ltd/img/20200531172003.png)  
+![](http://cdn.hurra.ltd/img/20200531172003.png)
 
 网络选择桥接模式,毕竟服务器是直接连接网络的
-![](http://cdn.hurra.ltd/img/20200531172103.png)  
+![](http://cdn.hurra.ltd/img/20200531172103.png)
 
 安装页面
 ![](http://cdn.hurra.ltd/img/20200531172225.png)
@@ -99,57 +104,60 @@
 
 然后重启等待进入系统即可
 
-
 开机进行登录,无图形界面
 
 ![](http://cdn.hurra.ltd/img/20200531172943.png)
 
 ## 3.3 系统设置
 
-
 1. 换源
+
 ```shell
 vi /etc/yum.repos.d/CentOS-Base.repo
 ```
 
 在 mirrorlist= 开头行前面加 # 注释掉  
-将 baseurl= 开头行取消注释,输入vi命令将该行内的mirror.centos.org换掉
+将 baseurl= 开头行取消注释,输入 vi 命令将该行内的 mirror.centos.org 换掉
 
 ```shell
 %s/mirror.centos.org/mirrors.aliyun.com/g
 ```
+
 ![](http://cdn.hurra.ltd/img/20200531180352.png)
 
-2. 配置SSH
+2. 配置 SSH
 
-开放端口,设置允许密码连接,允许root用户连接
+开放端口,设置允许密码连接,允许 root 用户连接
 
 [给小白的教程](https://blog.csdn.net/qq_41452937/article/details/106187241)
 
+启动 ssh 服务
 
-启动ssh服务
 ```
 systemctl start sshd.service
 ```
 
-3. 设置静态IP
+3. 设置静态 IP
 
-这里主备将服务器的ip设为192.168.3.20
+这里主备将服务器的 ip 设为 192.168.3.20
 
 记下宿主机配置
 
 ![](http://cdn.hurra.ltd/img/20200531180759.png)
-服务器的IP地址,子网掩码,默认网关,服务器的ip应该设置为**192.168.3.XXX**,`必须和宿主机在一个网段`
+服务器的 IP 地址,子网掩码,默认网关,服务器的 ip 应该设置为**192.168.3.XXX**,`必须和宿主机在一个网段`
 
 查看服务器的网卡
+
 ```
 ifconfig
 ```
+
 ![](http://cdn.hurra.ltd/img/20200531181036.png)
 
-这里的网卡名为ens33,各位操作时请以实际网卡名为准  
+这里的网卡名为 ens33,各位操作时请以实际网卡名为准
 
 修改配置文件
+
 ```s
 /etc/sysconfig/network-scripts/ifcfg-ens33
 ```
@@ -157,12 +165,13 @@ ifconfig
 修改对应内容与以下一致
 
 ```s
-BOOTPROTO="static"  
-ONBOOT="yes  
+BOOTPROTO="static"
+ONBOOT="yes
 ```
 
 新增以下内容
-```s
+
+```shell
 #IP地址前三位要和自己宿主机的一养
 IPADDR=192.168.3.20
 
@@ -176,60 +185,63 @@ GATEWAY=192.168.3.1
 DNS1=192.168.3.1
 DNS2=8.8.8.8
 ```
+
 修改示意图
 
 ![](http://cdn.hurra.ltd/img/20200531183752.png)
 
 重启网络
+
 ```s
 service network restart
 ```
 
 # 四、 测试
 
->  **注:**  
->  使用虚拟机模拟的时候可能出现无法ping通的问题  
+> **注:**  
+>  使用虚拟机模拟的时候可能出现无法 ping 通的问题  
 >  进入虚拟机的虚拟网络编辑器,选择电脑的外部网卡,我这里选择的是连接以太网的网卡
->  搭建物理服务器的时候并没有出现这种情况
+> 搭建物理服务器的时候并没有出现这种情况
 
 ![](http://cdn.hurra.ltd/img/20200531194956.png)
 
 ---
 
+服务器 IP 192.168.3.20
 
-服务器IP 192.168.3.20  
+宿主机 IP 192.168.3.10
 
-宿主机IP 192.168.3.10
-
-1. 宿主机ping服务器
-
+1. 宿主机 ping 服务器
 
 ![](http://cdn.hurra.ltd/img/20200531195148.png)
 
-2. 服务器ping宿主机
+2. 服务器 ping 宿主机
 
 ![](http://cdn.hurra.ltd/img/20200531195246.png)
 
-3. 服务器ping百度
+3. 服务器 ping 百度
 
 ![](http://cdn.hurra.ltd/img/20200531195515.png)
 
 # 五、优化
 
-1. 设置ssh开机自启
+1. 设置 ssh 开机自启
 
 ```sh
 systemctl enable sshd
 ```
 
 2. 开机自动登录  
-此台服务器没外接显示器,所以希望开机后自动以root用户登录,这样我就能以SSH登录它了   
+   此台服务器没外接显示器,所以希望开机后自动以 root 用户登录,这样我就能以 SSH 登录它了
 
 打开配置文件
+
 ```s
 vim /etc/systemd/system/getty.target.wants/getty@tty1.service
 ```
+
 修改对应内容如下
+
 ```s
 [Service]
 ...
@@ -237,6 +249,7 @@ ExecStart=-/sbin/agetty --autologin root --noclear %I
 ```
 
 重启
+
 ```s
 reboot
 ```
@@ -249,6 +262,6 @@ reboot
 
 接下来就可以愉快的玩耍了,嘿嘿！
 
-作者QQ: **1061299112** 有什么问题欢迎来讨论
+作者 QQ: **1061299112** 有什么问题欢迎来讨论
 
-![](http://cdn.hurra.ltd/img/赞赏码.png)
+![](http://cdn.hurra.ltd/img/收款码.png)

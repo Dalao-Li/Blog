@@ -13,11 +13,12 @@
   - [2. 标准选择器](#2-标准选择器)
     - [2.1 find](#21-find)
     - [2.2 find_all](#22-find_all)
-    - [例1](#例1)
+    - [例 1](#例1)
 
 # 一、简介
 
 ## 1.1 创建对象
+
 ```py
 from bs4 import BeautifulSoup
 
@@ -29,62 +30,61 @@ soup = BeautifulSoup(html, 'lxml')
 ```
 
 ## 1.2 对象说明
-BeautifulSoup4将HTML文档转换成的树形结构,个节点都是python对象,所有对象可以归纳为:
+
+BeautifulSoup4 将 HTML 文档转换成的树形结构,个节点都是 python 对象,所有对象可以归纳为:
 
 > - `tag` 获得标签及内容，默认是找到的第一个标签内容
-> - `NavigableString` 若想获得标签里内容,可用string方法,如:soup.title.string
+> - `NavigableString` 若想获得标签里内容,可用 string 方法,如:soup.title.string
 > - `BeautifulSoup` 获取整个文档内容
-> - `Comment` 特殊的NavigableString，输出内容不包含注释符号
-
+> - `Comment` 特殊的 NavigableString，输出内容不包含注释符号
 
 ## 1.3 遍历
 
-> - contents 获取tag的所有子节点，返回一个list
-> - children 获取tag的所有子节点，返回一个生成器
-
+> - contents 获取 tag 的所有子节点，返回一个 list
+> - children 获取 tag 的所有子节点，返回一个生成器
 
 # 二、过程
 
-示例文件index.html
+示例文件 index.html
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>爬虫示例文章</title>
-</head>
-<body>
-<h1 class="title" name="dromouse">
-    本文专用与爬虫演示
-</h1>
-<p class="story1">
-    演示部分1<br>
-    <a class="jump1" href="https://www.google.com.hk/" id="link1">
-        本超链接用于跳转至谷歌
-    </a><br>
-    <a class="jump2" href="https://cn.bing.com/" id="link2">
+  </head>
+  <body>
+    <h1 class="title" name="dromouse">本文专用与爬虫演示</h1>
+    <p class="story1">
+      演示部分1<br />
+      <a class="jump1" href="https://www.google.com.hk/" id="link1">
+        本超链接用于跳转至谷歌 </a
+      ><br />
+      <a class="jump2" href="https://cn.bing.com/" id="link2">
         本超链接用于跳转至必应
-    </a>
-</p>
-<p class="story2">演示部分2</p>
+      </a>
+    </p>
+    <p class="story2">演示部分2</p>
 
-<div class="panel-body">
-    <ul class="list" id="list_1">
+    <div class="panel-body">
+      <ul class="list" id="list_1">
         <li class="element">列表1 数据1</li>
         <li class="element">列表1 数据2</li>
         <li class="element">列表1 数据2</li>
-    </ul>
-    <ul class="list list-small" id="list_2">
+      </ul>
+      <ul class="list list-small" id="list_2">
         <li class="element">列表2 数据1</li>
         <li class="element">列表2 数据2</li>
         <li class="element">列表2 数据3</li>
-    </ul>
-</div>
-</body>
+      </ul>
+    </div>
+  </body>
 </html>
 ```
 
-Flask应用代码
+Flask 应用代码
+
 ```py
 from flask import Flask,render_template
 
@@ -99,7 +99,8 @@ if __name__ == '__main__':
 
 ```
 
-获取指定html
+获取指定 html
+
 ```py
 from bs4 import BeautifulSoup
 
@@ -125,12 +126,13 @@ print(soup.head)
 print(soup.p)
 
 ```
+
 ![](http://cdn.hurra.ltd/img/20200727212743.png)
 
 从运行结果可得:
-soup.title得到index.html中\<title>...\</title>标签与其中内容  
-soup.head得到index.html中\<head>...\</head>标签与其中内容  
-soup.p得到index.html中第一个\<p>...\</p> 标签与其中内容  
+soup.title 得到 index.html 中\<title>...\</title>标签与其中内容  
+soup.head 得到 index.html 中\<head>...\</head>标签与其中内容  
+soup.p 得到 index.html 中第一个\<p>...\</p> 标签与其中内容
 
 ---
 
@@ -145,11 +147,13 @@ print(soup.title.text)
 print(soup.head.text)
 print(soup.p.text)
 ```
+
 ![](http://cdn.hurra.ltd/img/20200727225103.png)
 
 ---
 
 ### 1.3 获取属性
+
 ```py
 from bs4 import BeautifulSoup
 
@@ -160,6 +164,7 @@ print(soup.h1['id'])
 print(soup.h1['name'])
 print(soup.p['id'])
 ```
+
 ![](http://cdn.hurra.ltd/img/20200727225703.png)
 
 ---
@@ -176,8 +181,8 @@ print(soup.head.title.string)
 
 ![](http://cdn.hurra.ltd/img/20200727225812.png)
 
-
 ### 1.5 访问子节点
+
 ```py
 from bs4 import BeautifulSoup
 
@@ -188,14 +193,14 @@ soup = BeautifulSoup(html, 'lxml')
 for j in soup.ul.children:
     print(j.string)
 ```
-![](http://cdn.hurra.ltd/img/20200727234942.png)
----
+
+## ![](http://cdn.hurra.ltd/img/20200727234942.png)
 
 ## 2. 标准选择器
 
 ### 2.1 find
-find 返回的是一个bs4.element.Tag 对象,可进一步搜索;若有多个满足的结果,find只返回第一个;若没有则返回 None
 
+find 返回的是一个 bs4.element.Tag 对象,可进一步搜索;若有多个满足的结果,find 只返回第一个;若没有则返回 None
 
 ```py
 from bs4 import BeautifulSoup
@@ -210,12 +215,12 @@ print(soup.find(class_ = 'list'))
 print(soup.find(name='demo'))
 
 ```
-![](http://cdn.hurra.ltd/img/20200727231457.png)
 
+![](http://cdn.hurra.ltd/img/20200727231457.png)
 
 ### 2.2 find_all
 
-find_all 返回一个由 bs4.element.Tag 对象组成的list,不论找到或是没找到,均是 list
+find_all 返回一个由 bs4.element.Tag 对象组成的 list,不论找到或是没找到,均是 list
 
 ```py
 from bs4 import BeautifulSoup
@@ -224,9 +229,10 @@ html = get_html('http://127.0.0.1:5000')
 soup = BeautifulSoup(html, 'lxml')
 print(soup.find_all('p'))
 ```
+
 ![](http://cdn.hurra.ltd/img/20200727231843.png)
 
-### 例1 
+### 例 1
 
 获取所有\<a>标签中的超链接
 
@@ -238,9 +244,7 @@ soup = BeautifulSoup(html, 'lxml')
 for i in soup.find_all('a'):
     print(i.get('href'))
 ```
+
 ![](http://cdn.hurra.ltd/img/20200727232239.png)
 
-
-
-
-![](http://cdn.hurra.ltd/img/赞赏码.png)
+![](http://cdn.hurra.ltd/img/收款码.png)

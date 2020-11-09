@@ -49,4 +49,4 @@ for (Map.Entry<Integer, String> entry : m1.entrySet()) {
 
 ![](http://cdn.hurra.ltd/img/20201029202252.png)
 
-![](http://cdn.hurra.ltd/img/赞赏码.png)
+![](http://cdn.hurra.ltd/img/收款码.png)

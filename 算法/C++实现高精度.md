@@ -1,23 +1,20 @@
-- [1. 大数加法](#1-大数加法)
-- [2. 大数减法](#2-大数减法)
-
-
 ## 1. 大数加法
 
-例1: 无进位情况
+例 1: 无进位情况
 
-string a = "12345" , string b = "789"
+a = "12345" , b = "789"
 
 利用数组**逆序**存储两个数字，来求和与进位  
 图示:
 ![](http://cdn.hurra.ltd/img/20200620162302.png)
-求和结果为13134
+求和结果为 13134
 
-例2:有进位情况
-string a = "99769" , string b = "231"
+例 2 : 有进位情况
+a = "99769" , b = "231"
 ![](http://cdn.hurra.ltd/img/20200620162957.png)
 
 实现代码
+
 ```c
 //大数加法
 string addNum(string a, string b) {
@@ -42,28 +39,29 @@ string addNum(string a, string b) {
     }
     //保存结果
     string res = "";
-    //判断有无进位的情况
+    //判断求和结果有无进位的情况
     if (tot[len]) {
-        res += (tot[len]+'0');
+        res += (tot[len] + '0');
     }
     for (int i = len - 1; i >= 0; i--) {
-        res += (tot[i]+'0');
+        res += (tot[i] + '0');
     }
     return res;
 }
 ```
+
 运行结果
 ![](http://cdn.hurra.ltd/img/20200620163531.png)
 
-
 ## 2. 大数减法
 
-例3:非负情况
+例 3:非负情况
 string a = "99729" , string b = "99231"
 
 ![](http://cdn.hurra.ltd/img/20200620164104.png)
 
 运算时确保被减数大于减数，最后判断是否为负数
+
 ```C
 //大数减法,a为被减数,b为减数
 string subNum(string a, string b) {
@@ -101,6 +99,7 @@ string subNum(string a, string b) {
     return res;
 }
 ```
+
 运行结果
 
 ![](http://cdn.hurra.ltd/img/20200620192640.png)

@@ -89,4 +89,4 @@ for i in collect.find():
 
 # 修改文档
 
-![](http://cdn.hurra.ltd/img/赞赏码.png)
+![](http://cdn.hurra.ltd/img/收款码.png)

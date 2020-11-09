@@ -135,4 +135,4 @@ int main() {
 
 ![](http://cdn.hurra.ltd/img/20201028194047.png)
 
-![](http://cdn.hurra.ltd/img/赞赏码.png)
+![](http://cdn.hurra.ltd/img/收款码.png)

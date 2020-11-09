@@ -1,15 +1,18 @@
 - [一、目的](#一目的)
 - [二、环境](#二环境)
 - [三、过程](#三过程)
-	- [3.1 数据定义](#31-数据定义)
-	- [3.2 初始化](#32-初始化)
-	- [3.3 输入](#33-输入)
-	- [3.4 输出](#34-输出)
-	- [3.5 全部代码](#35-全部代码)
+  - [3.1 数据定义](#31-数据定义)
+  - [3.2 初始化](#32-初始化)
+  - [3.3 输入](#33-输入)
+  - [3.4 输出](#34-输出)
+  - [3.5 全部代码](#35-全部代码)
+
 # 一、目的
-使用C++采取后插法创建链表
+
+使用 C++采取后插法创建链表
 
 # 二、环境
+
 gcc 4.9.2
 
 # 三、过程
@@ -22,7 +25,9 @@ typedef struct Node {
 	struct Node *next;
 } Node,*NodeList;
 ```
+
 ## 3.2 初始化
+
 ```c++
 NodeList init(){
     NodeList head = (NodeList)malloc(sizeof(Node));
@@ -30,7 +35,9 @@ NodeList init(){
     return head;
 }
 ```
+
 ## 3.3 输入
+
 ```c++
 //输入n个节点的值
 void input(NodeList &head,int n){
@@ -49,7 +56,9 @@ void input(NodeList &head,int n){
 	}
 }
 ```
+
 ## 3.4 输出
+
 ```c++
 void ouput(NodeList &head){
     NodeList p = head->next;
@@ -59,7 +68,9 @@ void ouput(NodeList &head){
     }
 }
 ```
+
 ## 3.5 全部代码
+
 ```c++
 #include<stdio.h>
 #include<stdlib.h>
@@ -108,8 +119,9 @@ int main(void){
 	return 0;
 }
 ```
+
 运行结果
 
 ![](http://cdn.hurra.ltd/img/20200620130329.png)
 
-![](http://cdn.hurra.ltd/img/赞赏码.png)
+![](http://cdn.hurra.ltd/img/收款码.png)

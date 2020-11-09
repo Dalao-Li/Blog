@@ -1,124 +1,177 @@
 ## 目录
+
 - [目录](#目录)
 - [源码](#源码)
 - [效果](#效果)
 - [项目结构](#项目结构)
-- [1. head部分](#1-head部分)
-- [2. body部分](#2-body部分)
-- [3. JS部分](#3-js部分)
+- [1. head 部分](#1-head部分)
+- [2. body 部分](#2-body部分)
+- [3. JS 部分](#3-js部分)
 
 ## 源码
 
 1. 百度云  
-[提取码 : jn2w](https://pan.baidu.com/s/1hOuL-fgn_e6sVAbhq0Z8vw)  
+   [提取码 : jn2w](https://pan.baidu.com/s/1hOuL-fgn_e6sVAbhq0Z8vw)
 
 2. code.aliyun
+
 ```shell
 git@code.aliyun.com:dalao/BootstrapvalidatorDemo.git
 ```
 
 ---
 
-
 ## 效果
+
 ![](http://cdn.hurra.ltd/img/20200526231712.png)
 ![](http://cdn.hurra.ltd/img/20200526231734.png)
 ![](http://cdn.hurra.ltd/img/20200526231855.png)
 
-##  项目结构
+## 项目结构
+
 ![](http://cdn.hurra.ltd/img/20200526233425.png)
 
+## 1. head 部分
 
-## 1. head部分
 注意**依赖文件**的路径需根据自己实际下载文件路径进行修改,网上教程中的代码无法直接使用往往就是因为依赖库没处理好
+
 ```html
 <head>
-    <title></title>
-    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css" />
-    <link rel="stylesheet" href="dist/css/bootstrapValidator.css" />
-    <script type="text/javascript" src="vendor/jquery/jquery-1.10.2.min.js"></script>
-    <script type="text/javascript" src="vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="dist/js/bootstrapValidator.js"></script>
-    <style>
-        .container {
-            width: 500px;
-            height: 1000px;
-        }
-    </style>
+  <title></title>
+  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css" />
+  <link rel="stylesheet" href="dist/css/bootstrapValidator.css" />
+  <script
+    type="text/javascript"
+    src="vendor/jquery/jquery-1.10.2.min.js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="vendor/bootstrap/js/bootstrap.min.js"
+  ></script>
+  <script type="text/javascript" src="dist/js/bootstrapValidator.js"></script>
+  <style>
+    .container {
+      width: 500px;
+      height: 1000px;
+    }
+  </style>
 </head>
 ```
 
-## 2. body部分
+## 2. body 部分
+
 ```html
 <body>
-    <div class="container">
-        <div class="row">
-            <!-- form: -->
-            <section>
-                <div class="col-lg-8 col-lg-offset-2">
-                    <div class="page-header">
-                        <h2>注册</h2>
-                    </div>
+  <div class="container">
+    <div class="row">
+      <!-- form: -->
+      <section>
+        <div class="col-lg-8 col-lg-offset-2">
+          <div class="page-header">
+            <h2>注册</h2>
+          </div>
 
-                    <form id="defaultForm" method="post" class="form-horizontal" action="">
-                        <div class="form-group">
-                            <label class="col-lg-3 control-label">用户名</label>
-                            <div class="col-lg-5">
-                                <input type="text" class="form-control" name="username" placeholder="5-15位字母或数字" />
-                            </div>
-                        </div>
+          <form
+            id="defaultForm"
+            method="post"
+            class="form-horizontal"
+            action=""
+          >
+            <div class="form-group">
+              <label class="col-lg-3 control-label">用户名</label>
+              <div class="col-lg-5">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="username"
+                  placeholder="5-15位字母或数字"
+                />
+              </div>
+            </div>
 
-                        <div class="form-group">
-                            <label class="col-lg-3 control-label">邮箱</label>
-                            <div class="col-lg-5">
-                                <input type="text" class="form-control" name="email" placeholder="输入邮箱" />
-                            </div>
-                        </div>
+            <div class="form-group">
+              <label class="col-lg-3 control-label">邮箱</label>
+              <div class="col-lg-5">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="email"
+                  placeholder="输入邮箱"
+                />
+              </div>
+            </div>
 
-                        <div class="form-group">
-                            <label class="col-lg-3 control-label">密码</label>
-                            <div class="col-lg-5">
-                                <input type="password" class="form-control" name="password" placeholder="5-15位字母或数字" />
-                            </div>
-                        </div>
+            <div class="form-group">
+              <label class="col-lg-3 control-label">密码</label>
+              <div class="col-lg-5">
+                <input
+                  type="password"
+                  class="form-control"
+                  name="password"
+                  placeholder="5-15位字母或数字"
+                />
+              </div>
+            </div>
 
-                        <div class="form-group">
-                            <label class="col-lg-3 control-label">确认密码</label>
-                            <div class="col-lg-5">
-                                <input type="password" class="form-control" name="confirmPassword"
-                                    placeholder="再次输入密码" />
-                            </div>
-                        </div>
+            <div class="form-group">
+              <label class="col-lg-3 control-label">确认密码</label>
+              <div class="col-lg-5">
+                <input
+                  type="password"
+                  class="form-control"
+                  name="confirmPassword"
+                  placeholder="再次输入密码"
+                />
+              </div>
+            </div>
 
-                        <div class="form-group">
-                            <label class="col-lg-3 control-label" id="captchaOperation"></label>
-                            <div class="col-lg-2">
-                                <input type="text" class="form-control" name="captcha" placeholder="输入两数字之和" />
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-lg-5 col-lg-offset-3">
-                                <div class="checkbox">
-                                    <input type="checkbox" name="acceptTerms" /> 同意协议
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-lg-9 col-lg-offset-3">
-                                <button type="submit" class="btn btn-primary" name="signup"
-                                    value="Sign up">确认注册</button>
-                                <button type="button" class="btn btn-info" id="resetBtn">重置表格</button>
-                            </div>
-                        </div>
-                    </form>
+            <div class="form-group">
+              <label
+                class="col-lg-3 control-label"
+                id="captchaOperation"
+              ></label>
+              <div class="col-lg-2">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="captcha"
+                  placeholder="输入两数字之和"
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-lg-5 col-lg-offset-3">
+                <div class="checkbox">
+                  <input type="checkbox" name="acceptTerms" /> 同意协议
                 </div>
-            </section>
-            <!-- :form -->
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-lg-9 col-lg-offset-3">
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                  name="signup"
+                  value="Sign up"
+                >
+                  确认注册
+                </button>
+                <button type="button" class="btn btn-info" id="resetBtn">
+                  重置表格
+                </button>
+              </div>
+            </div>
+          </form>
         </div>
+      </section>
+      <!-- :form -->
     </div>
+  </div>
+</body>
 ```
 
-## 3. JS部分
+## 3. JS 部分
+
 ```javascript
 <script type="text/javascript">
         $(document).ready(function () {
@@ -229,4 +282,4 @@ git@code.aliyun.com:dalao/BootstrapvalidatorDemo.git
     </script>
 ```
 
-![](http://cdn.hurra.ltd/img/赞赏码.png)
+![](http://cdn.hurra.ltd/img/收款码.png)

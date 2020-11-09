@@ -1,8 +1,8 @@
 # 目的
 
-Java连接MySQL数据库实例
+Java 连接 MySQL 数据库实例
 
-注意需提前导入JDBC包
+注意需提前导入 JDBC 包
 
 # 代码
 
@@ -174,4 +174,4 @@ public class DBUtil extends DBPool {
 }
 ```
 
-![](http://cdn.hurra.ltd/img/赞赏码.png)
+![](http://cdn.hurra.ltd/img/收款码.png)

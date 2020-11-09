@@ -1,4 +1,5 @@
 ## 目录
+
 - [一、概念](#一概念)
   - [1.1 特性](#11-特性)
     - [原子性(Atomic)](#原子性atomic)
@@ -11,11 +12,10 @@
   - [2.2 提交](#22-提交)
   - [2.3 回滚](#23-回滚)
 
-
 # 一、概念
 
-> - 只有使用Innodb数据库引擎的数据库或表才支持事务
-> - 事务处理可以用来维护数据库的完整性,保证SQL语句要么全执行,要么全不执行
+> - 只有使用 Innodb 数据库引擎的数据库或表才支持事务
+> - 事务处理可以用来维护数据库的完整性,保证 SQL 语句要么全执行,要么全不执行
 > - 事务用来管理 INSERT、UPDATE、DELETE 语句
 
 ## 1.1 特性
@@ -38,17 +38,16 @@
 
 ## 1.2 事务控制
 
-> - 开始一个事务 : BEGIN 
-> - 事务回滚 : ROLLBACK 
+> - 开始一个事务 : BEGIN
+> - 事务回滚 : ROLLBACK
 > - 事务确认 : COMMIT
-
 
 # 二、实例
 
-**以操作Sqlite3为例**
-
+**以操作 Sqlite3 为例**
 
 ## 2.1 建表
+
 ```sql
 /*
  Navicat Premium Data Transfer
@@ -89,12 +88,13 @@ INSERT INTO info (id,name) VALUES ('000A-X','WANG-LI');
 
 COMMIT;
 ```
-![](http://cdn.hurra.ltd/img/20200712233125.png)
 
+![](http://cdn.hurra.ltd/img/20200712233125.png)
 
 ## 2.3 回滚
 
 1. 假设插入新用户,然后撤回的情况
+
 ```sql
 BEGIN;
 
@@ -121,7 +121,8 @@ DELETE FROM info WHERE id = '000B-Y';
 
 ROLLBACK;
 ```
+
 ![](http://cdn.hurra.ltd/img/20200713000345.png)
 可以看到数据没有被删除
 
-![](http://cdn.hurra.ltd/img/赞赏码.png)
+![](http://cdn.hurra.ltd/img/收款码.png)

@@ -1,116 +1,130 @@
-
 - [技术](#技术)
 - [效果](#效果)
 - [一、过程](#一过程)
   - [1.1 前端](#11-前端)
   - [1.2 后端代码](#12-后端代码)
 
-
 # 技术
+
 > 前端 : Bootstrap + JQuery + SweetAlert2  
-> Web框架 : Flask
+> Web 框架 : Flask
 
 # 效果
 
 ![](http://cdn.hurra.ltd/img/20200708224302.png)
+
 <center>每页显示一定量数据</center>
 
 ![](http://cdn.hurra.ltd/img/20200708224344.png)
 
 ![](http://cdn.hurra.ltd/img/20200708224537.png)
+
 <center>按关键字显示数据</center>
 
 ![](http://cdn.hurra.ltd/img/20200708234616.png)
+
 <center>点击表格后显示被点击行的信息</center>
 
 # 一、过程
 
 ## 1.1 前端
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
     <title></title>
-    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
+    />
     <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://www.huangwx.cn/css/sweetalert.css">
-    <script type="text/javascript" src="https://www.huangwx.cn/js/sweetalert-dev.js"></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://www.huangwx.cn/css/sweetalert.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://www.huangwx.cn/js/sweetalert-dev.js"
+    ></script>
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.css">
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.css"
+    />
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.js"></script>
     <!-- Latest compiled and minified Locales -->
     <script src="https://unpkg.com/bootstrap-table@1.16.0/dist/locale/bootstrap-table-zh-CN.min.js"></script>
-</head>
-<body>
-<div style="text-align: center;">
-    <h2>Bootstrap表格分页示例</h2>
-</div>
+  </head>
+  <body>
+    <div style="text-align: center;">
+      <h2>Bootstrap表格分页示例</h2>
+    </div>
 
-
-<table class="table table-hover" id="demoTable">
-    <thead>
-    <tr>
-        <th>学号</th>
-        <th>姓名</th>
-        <th>年龄</th>
-        <th>性别</th>
-    </tr>
-    </thead>
-    <tbody>
-    {% for i in data %}
+    <table class="table table-hover" id="demoTable">
+      <thead>
         <tr>
-            <td>{{ i.num }}</td>
-            <td>{{ i.name }}</td>
-            <td>{{ i.age }}</td>
-            <td>{{ i.sex }}</td>
+          <th>学号</th>
+          <th>姓名</th>
+          <th>年龄</th>
+          <th>性别</th>
         </tr>
-    {% endfor %}
-    </tbody>
-</table>
-
-</body>
-<script>
+      </thead>
+      <tbody>
+        {% for i in data %}
+        <tr>
+          <td>{{ i.num }}</td>
+          <td>{{ i.name }}</td>
+          <td>{{ i.age }}</td>
+          <td>{{ i.sex }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+  <script>
     //实现表格分页
-    $('#demoTable').bootstrapTable({
-        //点击行事件,element为被点击行的tr元素对象
-        onClickRow: function (row, $element) {
-            $element.each(function () {
-                //获取所有td的值
-                var tds = $(this).find("td")
-                var num = tds.eq(0).text()
-                var name = tds.eq(1).text()
-                var age = tds.eq(2).text()
-                var sex = tds.eq(3).text()
-                swal({
-                    title: "用户信息",
-                    text: "学号:" + num + "  姓名:" + name,
-                    type: "info"
-                })
-            })
-        },
-        //首页页码
-        pageNumber: 1,
-        //是否显示分页条
-        pagination: true,
-        //一页显示的行数
-        pageSize: 5,
-        //是否开启分页条无限循环
-        paginationLoop: false,
-        //选择每页显示多少行
-        pageList: [5, 10, 20],
-        //启用关键字搜索框
-        search: true
-    })
-</script>
+    $("#demoTable").bootstrapTable({
+      //点击行事件,element为被点击行的tr元素对象
+      onClickRow: function (row, $element) {
+        $element.each(function () {
+          //获取所有td的值
+          var tds = $(this).find("td");
+          var num = tds.eq(0).text();
+          var name = tds.eq(1).text();
+          var age = tds.eq(2).text();
+          var sex = tds.eq(3).text();
+          swal({
+            title: "用户信息",
+            text: "学号:" + num + "  姓名:" + name,
+            type: "info",
+          });
+        });
+      },
+      //首页页码
+      pageNumber: 1,
+      //是否显示分页条
+      pagination: true,
+      //一页显示的行数
+      pageSize: 5,
+      //是否开启分页条无限循环
+      paginationLoop: false,
+      //选择每页显示多少行
+      pageList: [5, 10, 20],
+      //启用关键字搜索框
+      search: true,
+    });
+  </script>
 </html>
 ```
 
 ## 1.2 后端代码
+
 ```py
 from flask import Flask, render_template
 
@@ -170,4 +184,4 @@ if __name__ == '__main__':
     app.run()
 ```
 
-![](http://cdn.hurra.ltd/img/赞赏码.png)
+![](http://cdn.hurra.ltd/img/收款码.png)
