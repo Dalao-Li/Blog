@@ -1,6 +1,6 @@
 # \*args
 
-`*args 用来将参数打包成tuple给函数调用`
+> \*args 用来将参数打包成 tuple 给函数调用
 
 ```py
 def fun(*args):
@@ -32,7 +32,7 @@ if __name__ == "__main__":
 
 # \*\*kwargs
 
-`**kwargs 将关键字参数打包成dict给函数调用`
+> \*\*kwargs 将关键字参数打包成 dict 给函数调用
 
 ```py
 def fun(**kwargs):
@@ -48,6 +48,6 @@ if __name__ == "__main__":
 
 ![](http://cdn.hurra.ltd/img/20200905193946.png)
 
-**`注意点：参数 arg、\*args、\*\*kwargs 三个参数的位置必须是(\*args,**kwargs)顺序,否则程序报错`\*\*
+> `注意:参数 arg、\*args、\*\*kwargs 三个参数的位置必须是(\*args,**kwargs)顺序,否则程序报错`
 
 ![](http://cdn.hurra.ltd/img/收款码.png)

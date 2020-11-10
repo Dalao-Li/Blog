@@ -1,33 +1,16 @@
->- 项目地址  
->`git@code.aliyun.com:dalao/submit_homework.git`
->- Docker  
-> `docker run -itd -p 80:8080 registry.cn-beijing.aliyuncs.com/liyuanhao/homework:v3`
-
-
-- [前言](#前言)
-- [结果](#结果)
-- [一、需求分析](#一需求分析)
-  - [1.1 上传](#11-上传)
-  - [1.2 重命名](#12-重命名)
-  - [1.3 打包](#13-打包)
-- [二、设计](#二设计)
-  - [2.1 技术](#21-技术)
-  - [2.2 存储](#22-存储)
-- [三、过程](#三过程)
-  - [3.1 前端](#31-前端)
-    - [3.1.1 表格](#311-表格)
-    - [3.1.2 提交框](#312-提交框)
-    - [3.1.3 JS](#313-js)
-  - [3.2 后端](#32-后端)
+> - 项目地址  
+>   `git@code.aliyun.com:dalao/submit_homework.git`
+> - Docker  
+>   `docker run -itd -p 80:8080 registry.cn-beijing.aliyuncs.com/liyuanhao/homework:v3`
 
 # 前言
 
->博主最近小学期，每天得收三十多份报告;原采用QQ发送形式,但效率太低，很多时间都花在收发和修改命名格式上，因而博主打算写个提交作业平台,部署于阿里云,每个同学均可通过它上传当日作业,最后博主统一上交  
+> 博主最近小学期，每天得收三十多份报告;原采用 QQ 发送形式,但效率太低，很多时间都花在收发和修改命名格式上，因而博主打算写个提交作业平台,部署于阿里云,每个同学均可通过它上传当日作业,最后博主统一上交
 >
->PS:由于开发周期只有一天半，所以有些地方可能存有BUG，恳请指正
-
+> PS:由于开发周期只有一天半，所以有些地方可能存有 BUG，恳请指正
 
 # 结果
+
 主页面
 
 ![](https://imgconvert.csdnimg.cn/aHR0cDovL2Nkbi5odXJyYS5sdGQvaW1nLzIwMjAwNzA4MTgyOTQyLnBuZw?x-oss-process=image/format,png)
@@ -49,26 +32,28 @@
 # 一、需求分析
 
 ## 1.1 上传
-同学将每天的作业(Word文档)上传到该平台
+
+同学将每天的作业(Word 文档)上传到该平台
 
 ## 1.2 重命名
 
 按老师要求的格式给每份文件命名
 
 ## 1.3 打包
-将收齐的word文件放入一个文件夹内，压缩并下载
+
+将收齐的 word 文件放入一个文件夹内，压缩并下载
 
 # 二、设计
 
 ## 2.1 技术
 
-该系统采取C/S架构
+该系统采取 C/S 架构
 
-> - 部署环境 : CentOS7 
+> - 部署环境 : CentOS7
 >
 > - 前端 : Bootstrap + Jquery+SweetAlert2
 >
-> - WEB框架 : Flask
+> - WEB 框架 : Flask
 
 ## 2.2 存储
 
@@ -79,136 +64,156 @@
 项目结构  
 ![](https://imgconvert.csdnimg.cn/aHR0cDovL2Nkbi5odXJyYS5sdGQvaW1nLzIwMjAwNzAzMTMwMDE4LnBuZw?x-oss-process=image/format,png)
 
-
-
 ## 3.1 前端
 
 ### 3.1.1 表格
+
 主页面初始时显示一个提交表格,内容为每位同学的提交状态、学号、姓名、提交时间以及操作按钮.
 图示
 ![](https://imgconvert.csdnimg.cn/aHR0cDovL2Nkbi5odXJyYS5sdGQvaW1nLzIwMjAwNzAzMTE1MTEzLnBuZw?x-oss-process=image/format,png)
 
+> - data 是后端传来的一个列表,内含每个学生信息的字典
 
-> - data是后端传来的一个列表,内含每个学生信息的字典
 ```html
 <!--提交信息的表格-->
 <table class="table table-hover" id="stuInfoTable">
-    <thead>
+  <thead>
     <tr>
-        <th>提交状态</th>
-        <th>学号</th>
-        <th>姓名</th>
-        <th>上传时间</th>
-        <th>操作</th>
+      <th>提交状态</th>
+      <th>学号</th>
+      <th>姓名</th>
+      <th>上传时间</th>
+      <th>操作</th>
     </tr>
-    </thead>
-    <tbody>
+  </thead>
+  <tbody>
     {% for i in data %}
-        <tr>
-            {% if i['status'] == 'yes' %}
-                <td style="color: green">
-                    <strong>已提交</strong>
-                </td>
-            {% else %}
-                <td style="color: red">
-                    <strong>未提交</strong>
-                </td>
-            {% endif %}
-            <td>{{ i['num'] }}</td>
-            <td>{{ i['name'] }}</td>
-            <td>{{ i['time'] }}</td>
-            <!--已经提交则提交按钮为不可操作状态-->
-            {% if i['status'] == 'yes' %}
-                <td>
-                    <button class="btn btn-primary" disabled="disabled">
-                        已上传
-                    </button>
-                </td>
+    <tr>
+      {% if i['status'] == 'yes' %}
+      <td style="color: green">
+        <strong>已提交</strong>
+      </td>
+      {% else %}
+      <td style="color: red">
+        <strong>未提交</strong>
+      </td>
+      {% endif %}
+      <td>{{ i['num'] }}</td>
+      <td>{{ i['name'] }}</td>
+      <td>{{ i['time'] }}</td>
+      <!--已经提交则提交按钮为不可操作状态-->
+      {% if i['status'] == 'yes' %}
+      <td>
+        <button class="btn btn-primary" disabled="disabled">已上传</button>
+      </td>
 
-            {% else %}
-                <!--否则当点击上传按钮时将字典i的值传给对应函数-->
-                <td>
-                    <button class="btn btn-primary btn-lg" data-toggle="modal" onclick="display_form({{ i }})">
-                        文件上传
-                    </button>
-                </td>
-            {% endif %}
-        </tr>
+      {% else %}
+      <!--否则当点击上传按钮时将字典i的值传给对应函数-->
+      <td>
+        <button
+          class="btn btn-primary btn-lg"
+          data-toggle="modal"
+          onclick="display_form({{ i }})"
+        >
+          文件上传
+        </button>
+      </td>
+      {% endif %}
+    </tr>
     {% endfor %}
-    </tbody>
+  </tbody>
 </table>
 ```
 
 ### 3.1.2 提交框
+
 ![](https://imgconvert.csdnimg.cn/aHR0cDovL2Nkbi5odXJyYS5sdGQvaW1nLzIwMjAwNzAzMTIxMjUyLnBuZw?x-oss-process=image/format,png)
+
 ```html
 <!--上传文件弹出框-->
-<div class="modal fade" id="stu_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="myModalLabel">
-                    操作系统每日报告上传
-                </h4>
+<div
+  class="modal fade"
+  id="stu_modal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="myModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">操作系统每日报告上传</h4>
+      </div>
+      <div class="modal-body">
+        <!--上传信息表格-->
+        <form
+          id="upload"
+          action="/upload"
+          enctype="multipart/form-data"
+          method="POST"
+        >
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">姓名</span>
             </div>
-            <div class="modal-body">
-                <!--上传信息表格-->
-                <form id="upload" action="/upload" enctype='multipart/form-data' method='POST'>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">姓名</span>
-                        </div>
-                        <label for="name"></label>
-                        <input type="text" class="form-control" id="name" name="name">
-                    </div>
+            <label for="name"></label>
+            <input type="text" class="form-control" id="name" name="name" />
+          </div>
 
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">学号</span>
-                        </div>
-                        <label for="num"></label>
-                        <input type="text" class="form-control" id="num" name="num">
-                    </div>
-
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">班级</span>
-                        </div>
-                        <select class="form-control" name="classes" disabled>
-                            <option value="1701_1">信1701-1班</option>
-                            <option value="1701_2">信1701-2班</option>
-                            <!--默认值-->
-                            <option value="1701_3" selected>信1701-3班</option>
-                        </select>
-
-                    </div>
-                    <!--上传文件的控件-->
-                    <input id='file' class="btn btn-info" name="file" type="file">
-                    <div class="modal-footer">
-                        <button type="button" onclick="submit_form()" class="btn btn-primary">提交</button>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">关闭</button>
-                    </div>
-                </form>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">学号</span>
             </div>
-        </div>
+            <label for="num"></label>
+            <input type="text" class="form-control" id="num" name="num" />
+          </div>
+
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text">班级</span>
+            </div>
+            <select class="form-control" name="classes" disabled>
+              <option value="1701_1">信1701-1班</option>
+              <option value="1701_2">信1701-2班</option>
+              <!--默认值-->
+              <option value="1701_3" selected>信1701-3班</option>
+            </select>
+          </div>
+          <!--上传文件的控件-->
+          <input id="file" class="btn btn-info" name="file" type="file" />
+          <div class="modal-footer">
+            <button
+              type="button"
+              onclick="submit_form()"
+              class="btn btn-primary"
+            >
+              提交
+            </button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">
+              关闭
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
+  </div>
 </div>
 ```
 
-
 ### 3.1.3 JS
+
 ```js
  <script>
  	//实现表格信息的分页操作
 	$('#stuInfoTable').bootstrapTable({
         //是否显示分页条
-        pagination: true,   
+        pagination: true,
         //一页显示的行数
-        pageSize: 5,   
+        pageSize: 5,
         //是否开启分页条无限循环，最后一页时点击下一页是否转到第一页
-        paginationLoop: false,  
-        //选择每页显示多少行，数据过少时可能会没有效果 
-        pageList: [5, 10, 20]   
+        paginationLoop: false,
+        //选择每页显示多少行，数据过少时可能会没有效果
+        pageList: [5, 10, 20]
     })
     //显示模态框
     function display_form(data) {
@@ -273,9 +278,10 @@
 </script>
 ```
 
-
 ## 3.2 后端
+
 app.py
+
 ```py
 import os
 import time
@@ -385,6 +391,7 @@ if __name__ == '__main__':
 ```
 
 models.py 数据仅做示例
+
 ```py
 stu_info = [
     {'num': '2015****', 'name': '李**'},

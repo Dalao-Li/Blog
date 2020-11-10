@@ -1,21 +1,40 @@
-## 目录
+# 一键 shell 脚本
 
-- [1. 更新 yum 源](#1-更新yum源)
-- [2. 安装依赖](#2-安装依赖)
-- [3. 设置 yum 源](#3-设置yum源)
-- [4. 安装](#4-安装)
-- [5. 启动](#5-启动)
-- [6. 换源](#6-换源)
+```c
+#!/bin/sh
+echo "------更新源与安装依赖------"
+
+yum update -y
+
+yum install -y yum-utils device-mapper-persistent-data lvm2
+
+yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+
+echo "------更新源与安装依赖------"
+
+yum install -y docker-ce-18.03.1.ce
+
+systemctl enable docker
+
+echo "------Docker安装成功------"
+
+# 换源
+echo -e "{\n \"registry-mirrors\": [\"https://docker.mirrors.ustc.edu.cn\"] \n}" >> /etc/docker/daemon.json
+
+systemctl restart docker
+
+echo "------已经换源至中科大的docker源------"
+```
 
 # 1. 更新 yum 源
 
-```sh
+```shell
 yum update
 ```
 
 # 2. 安装依赖
 
-```sh
+```shell
 yum install -y yum-utils
 
 yum install -y device-mapper-persistent-data
@@ -27,7 +46,7 @@ yum install -y lvm2
 
 此处使用阿里源
 
-```s
+```shell
 yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
 ```
 
@@ -35,7 +54,7 @@ yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/d
 
 查看仓库中所有 Docker 版本
 
-```s
+```shell
 yum list docker-ce --showduplicates | sort -r
 ```
 
@@ -43,18 +62,17 @@ yum list docker-ce --showduplicates | sort -r
 
 # 4. 安装
 
-```s
+```shell
 yum install docker-ce-18.03.1.ce
 ```
 
 # 5. 启动
 
-```s
+```shell
 systemctl start docker
 
-#设置开机自启
+# 设置开机自启
 systemctl enable docker
-
 ```
 
 查看 Docker 版本
@@ -77,7 +95,6 @@ vim /etc/docker/daemon.json
 {
   "registry-mirrors": ["https://docker.mirrors.ustc.edu.cn"]
 }
-
 ```
 
 重启 docker

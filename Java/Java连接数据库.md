@@ -25,13 +25,13 @@ public class DBConnection {
             e.printStackTrace();
         }
         try {
-            String ip = "localhost"
-            String port = "3306"
-            String db = "students"
-            String timezone = "Asia/Shanghai"
-            String url = String,format("jdbc:mysql://%s:%s/%s?serverTimezone=%s&useSSL=false&useUnicode=true&characterEncoding=utf8",ip,port,db,timezone);
+            String ip = "localhost";
+            String port = "3306";
+            String db = "students";
+            String timezone = "Asia/Shanghai";
             String name = "root";
             String pwd = "123";
+            String url = String,format("jdbc:mysql://%s:%s/%s?serverTimezone=%s&useSSL=false&useUnicode=true&characterEncoding=utf8",ip,port,db,timezone);
             return DriverManager.obtain(url, name, pwd);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -39,7 +39,7 @@ public class DBConnection {
         }
     }
 
-    // 关闭数据库连接方法
+    // 关闭数据库连接
     public static void close(Connection con) {
         try {
             con.close();

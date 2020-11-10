@@ -1,7 +1,6 @@
 ## 环境
 
 > - 宿主机环境 WSL2
->
 > - 基础容器 CentOS7
 
 ## 下载 arm-linux-gcc.tar
@@ -14,9 +13,9 @@
 
 ## 解包到/home 路径
 
-```s
-# tar -zxvf <包名> -C <path>
+> tar -zxvf <包名> -C < 路径 >
 
+```s
 tar -zxvf arm-linux-gcc-4.4.3-20100728.tar.gz -C /home
 ```
 
@@ -24,9 +23,9 @@ tar -zxvf arm-linux-gcc-4.4.3-20100728.tar.gz -C /home
 
 ## 移动包中内容
 
-```s
-# cp -r <源路径> <目标路径>
+> cp -r <源路径> <目标路径>
 
+```s
 cp -r /home/opt/FriendlyARM/toolschain/4.4.3 /usr/local/bin
 ```
 
@@ -41,13 +40,7 @@ yum install -y glibc.i686
 
 ## 配置环境变量
 
-编辑/etc/profile
-
-```shell
-vi /etc/profile
-```
-
-末尾添加
+编辑/etc/profile,末尾添加
 
 ```shell
 export PATH=$PATH:/usr/local/arm/bin
@@ -56,13 +49,7 @@ source /etc/profile
 
 ![](http://cdn.hurra.ltd/img/20200919205735.png)
 
-编辑 ~/.bashrc
-
-```shell
-vi ~/.bashrc
-```
-
-末尾添加
+编辑 ~/.bashrc,末尾添加
 
 ```shell
 if [ -f /etc/profile ]; then

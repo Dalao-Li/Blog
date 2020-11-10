@@ -1,12 +1,3 @@
-## 目录
-
-- [一、POST 请求](#一post请求)
-  - [1.1 普通 JSON](#11-普通json)
-  - [1.2 表格](#12-表格)
-  - [1.3 文件](#13-文件)
-- [二、GET 请求](#二get请求)
-  - [2.1 带参数](#21-带参数)
-
 ## 环境
 
 > - Python 版本 : Python 3.7.6
@@ -17,18 +8,17 @@
 
 ## 1.1 普通 JSON
 
-测试 JSON
+测试 JSON 文件
 
 ```js
 {
     'name' : 'dalao',
     'pwd' : 'FSDjdskfne23',
-    'age' :18
+    'age' : 18
 }
 ```
 
 ```py
-
 @app.route('/postApi',methods=['POST'])
 def hello_world():
     print(request)

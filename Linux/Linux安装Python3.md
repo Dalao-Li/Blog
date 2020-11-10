@@ -1,21 +1,14 @@
-## 目录
-
-- [目录](#目录)
-- [1. 安装](#1-安装)
-- [2. 设置](#2-设置)
-- [3. pip3 换源](#3-pip3换源)
-
-## 1. 安装
+# 1. 安装
 
 安装编译 Python 所需依赖
 
-```s
+```shell
 yum -y install gcc zlib* libffi-devel
 ```
 
 下载 Python3
 
-```s
+```shell
 wget https://www.python.org/ftp/python/3.8.0/Python-3.8.0.tar.xz
 ```
 
@@ -52,7 +45,7 @@ make && make install
 
 ![](http://cdn.hurra.ltd/img/20200628170422.png)
 
-## 2. 设置
+# 2. 设置
 
 查看 python 的默认版本
 
@@ -61,13 +54,8 @@ python -V
 ```
 
 ![](http://cdn.hurra.ltd/img/20200628170509.png)
-设置环境变量
 
-```shell
-vim ~/.bash_profile
-```
-
-修改内容为
+设置环境变量,修改~/.bash_profile 内容为
 
 ```shell
 # python3的安装路径
@@ -76,8 +64,6 @@ PATH=$PATH:$HOME/bin:/usr/bin/python3/bin
 
 export PATH
 ```
-
-图示:
 
 ![](http://cdn.hurra.ltd/img/20200628173314.png)
 
@@ -95,7 +81,7 @@ python3 -V
 
 ![](http://cdn.hurra.ltd/img/20200628173400.png)
 
-## 3. pip3 换源
+# 3. pip3 换源
 
 进入 python3 的 bin 目录
 
