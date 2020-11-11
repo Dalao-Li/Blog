@@ -68,6 +68,7 @@ client = pymongo.MongoClient("mongodb://admin:123456@192.168.0.110:27017/")
 db = client['test']
 # 获取集合
 collect = db['stu']
+
 # 单条插入
 data = {"name":"new_name","num":"0-CVNMAS-123","age":19}
 collect.insert_one(data)

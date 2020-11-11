@@ -1,16 +1,16 @@
 # 创建 MongoDB 容器
 
-```s
+```shell
 # 创建容器 --auth：需要密码才能访问容器服务
 docker run -itd --name mongo -p 27017:27017 mongo --auth
 
 docker exec -it mongo mongo admin
 
-# 创建一个名为 admin，密码为 123456 的用户。
+# 创建一个名为 admin，密码为 123456 的用户
 db.createUser({ user:'admin',pwd:'123456',roles:[ { role:'userAdminAnyDatabase', db: 'admin'},"readWriteAnyDatabase"]});
 
-# 进行连接。
-> db.auth('admin', '123456')
+# 连接
+db.auth('admin', '123456')
 ```
 
 ![](http://cdn.hurra.ltd/img/20201014175200.png)
@@ -19,7 +19,7 @@ db.createUser({ user:'admin',pwd:'123456',roles:[ { role:'userAdminAnyDatabase',
 
 ## 创建数据库
 
-```s
+```shell
 use <db_name>
 ```
 
@@ -32,8 +32,8 @@ use <db_name>
 
 ## 创建集合
 
-```s
-db.createCollection(<"collect_name">)
+```shell
+db.createCollection("<collect_name>")
 ```
 
 例:创建 stu 集合
@@ -48,7 +48,7 @@ db.createCollection(<"collect_name">)
 
 单条插入
 
-```
+```shell
 db.<collect_name>.insert(<JSON数据>)
 ```
 
@@ -57,7 +57,7 @@ db.<collect_name>.insert(<JSON数据>)
 
 多条插入
 
-```
+```shell
 db.<collect_name>.insert([<JSON数据1>,<JSON数据2>,<JSON数据3>.....])
 ```
 
@@ -69,7 +69,7 @@ db.<collect_name>.insert([<JSON数据1>,<JSON数据2>,<JSON数据3>.....])
 
 显示集合内所有文档
 
-```s
+```shell
 db.<collect_name>.find()
 ```
 
@@ -78,7 +78,7 @@ db.<collect_name>.find()
 
 格式化显示集合内所有文档
 
-```s
+```shell
 db.<collect_name>.find().pretty()
 ```
 
@@ -86,7 +86,7 @@ db.<collect_name>.find().pretty()
 
 ### 条件查询
 
-```
+```shell
 db.<collec_name>.find({<key>:<value>}).pretty()
 ```
 
@@ -113,7 +113,7 @@ db.<collec_name>.find({<key>:<value>}).pretty()
 
 ### 修改文档
 
-```s
+```shell
 db.<collect_name>.update({<key1>:<value>},{$set:{<key2>:<new_value>}})
 ```
 
@@ -125,7 +125,7 @@ db.<collect_name>.update({<key1>:<value>},{$set:{<key2>:<new_value>}})
 
 ### 删除文档
 
-```s
+```shell
 db.<collect_name>.remove({<key>:<value>})
 ```
 

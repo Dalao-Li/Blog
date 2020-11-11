@@ -1,17 +1,3 @@
-## 目录
-
-- [一、概念](#一概念)
-  - [1.1 特性](#11-特性)
-    - [原子性(Atomic)](#原子性atomic)
-    - [一致性(Consistency)](#一致性consistency)
-    - [隔离性(Isolation)](#隔离性isolation)
-    - [持久性(Durability)](#持久性durability)
-  - [1.2 事务控制](#12-事务控制)
-- [二、实例](#二实例)
-  - [2.1 建表](#21-建表)
-  - [2.2 提交](#22-提交)
-  - [2.3 回滚](#23-回滚)
-
 # 一、概念
 
 > - 只有使用 Innodb 数据库引擎的数据库或表才支持事务
@@ -44,39 +30,16 @@
 
 # 二、实例
 
-**以操作 Sqlite3 为例**
+以操作 Sqlite3 为例
 
 ## 2.1 建表
 
 ```sql
-/*
- Navicat Premium Data Transfer
-
- Source Server         : demo
- Source Server Type    : SQLite
- Source Server Version : 3030001
- Source Schema         : main
-
- Target Server Type    : SQLite
- Target Server Version : 3030001
- File Encoding         : 65001
-
- Date: 12/07/2020 23:21:40
-*/
-
-PRAGMA foreign_keys = false;
-
--- ----------------------------
--- Table structure for info
--- ----------------------------
-DROP TABLE IF EXISTS "info";
 CREATE TABLE "info" (
   "id" text NOT NULL,
   "name" text,
   PRIMARY KEY ("id")
 );
-
-PRAGMA foreign_keys = true;
 ```
 
 ## 2.2 提交
@@ -110,6 +73,7 @@ ROLLBACK;
 ```
 
 ![](http://cdn.hurra.ltd/img/20200712235320.png)
+
 可以看到第二条数据并未写入
 
 2. 假设删除某用户,现要撤销删除的操作
@@ -123,6 +87,7 @@ ROLLBACK;
 ```
 
 ![](http://cdn.hurra.ltd/img/20200713000345.png)
+
 可以看到数据没有被删除
 
 ![](http://cdn.hurra.ltd/img/收款码.png)

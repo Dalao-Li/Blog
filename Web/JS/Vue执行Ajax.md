@@ -1,9 +1,3 @@
-## 目录
-
-- [环境](#环境)
-- [GET 请求](#get请求)
-- [POST 请求](#post请求)
-
 # 环境
 
 > - 系统 : Windows10 2004
@@ -55,7 +49,7 @@
 
 数据
 
-```js
+```json
 data = [
   { name: "LI_LI", age: 18 },
   { name: "WAN_MIN", age: 20 },
