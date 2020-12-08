@@ -12,7 +12,7 @@ yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/d
 
 echo "------更新源与安装依赖------"
 
-yum install -y docker-ce-18.03.1.ce
+yum install -y docker-ce-19.03.1.ce
 
 systemctl enable docker
 

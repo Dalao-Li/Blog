@@ -1,23 +1,32 @@
 #!/bin/sh
 echo "------更新源与安装依赖------" 
 
-yum update -y 
+sudo yum update -y 
 
-yum install -y yum-utils 
+sudo yum install -y yum-utils device-mapper-persistent-data lvm2
 
-yum install -y device-mapper-persistent-data 
-
-yum install -y lvm2 
-
-yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+sudo yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
 
 echo "------更新源与安装依赖------" 
 
-yum install -y docker-ce-18.03.1.ce 
+sudo yum install -y docker-ce-19.03.1.ce 
 
 systemctl enable docker 
 
 echo "------Docker安装成功------" 
+
+echo "------开始添加用户组------" 
+
+# 添加docker用户组
+sudo groupadd docker 
+
+# 将登陆用户加入到docker用户组中
+sudo gpasswd -a $USER docker  
+
+# 更新用户组
+newgrp docker 
+
+echo "--------添加用户组完成------" 
 
 # 换源
 echo -e "{\n \"registry-mirrors\": [\"https://docker.mirrors.ustc.edu.cn\"] \n}" >> /etc/docker/daemon.json 
@@ -25,3 +34,4 @@ echo -e "{\n \"registry-mirrors\": [\"https://docker.mirrors.ustc.edu.cn\"] \n}"
 systemctl restart docker
 
 echo "------已经换源至中科大的docker源------" 
+
