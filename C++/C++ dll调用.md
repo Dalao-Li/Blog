@@ -95,7 +95,7 @@ bool isLeapYear(int y) {
 
 修改 Demo CMakeLists.txt 文件
 
-```c
+```shell
 # 新增
 target_link_libraries(Demo libnum.dll)
 ```
@@ -125,6 +125,7 @@ bool isLeapYear(int y);
 int main() {
     hello();
     printf("%d\n",add(3,4));
+    
     int y1 = 2004;
     if(isLeapYear(y1)){
         printf("%d2004year is lead year\n",y1);
