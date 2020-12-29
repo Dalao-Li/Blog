@@ -39,8 +39,6 @@ SELECT * FROM dba_data_files;
 ```sql
 CREATE TABLESPACE space_demo DATAFILE '/u01/app/oracle/oradata/xe/space_demo.DBF' SIZE 32M AUTOEXTEND ON NEXT 32M MAXSIZE 20480M EXTENT MANAGEMENT LOCAL;
 
-
-
 ```
 
 > 上述命令就创建了名为 space_demo,表空间路径为'/u01/app/oracle/oradata/xe/space_demo.DBF'的表空间
@@ -49,6 +47,8 @@ CREATE TABLESPACE space_demo DATAFILE '/u01/app/oracle/oradata/xe/space_demo.DBF
 
 ```sql
 CREATE USER user_test IDENTIFIED BY 123 ACCOUNT UNLOCK DEFAULT TABLESPACE space_demo;
+
+
 
 ```
 

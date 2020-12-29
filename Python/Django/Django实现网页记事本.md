@@ -651,6 +651,4 @@ urlpatterns = [
 
 # 四、部署
 
-可参照此博客的部署过程 [学弟教程-Django-微型 Web 项目:体温登记系统](https://blog.csdn.net/qq_41452937/article/details/107847636)
-
 ![](http://cdn.hurra.ltd/img/收款码.png)
