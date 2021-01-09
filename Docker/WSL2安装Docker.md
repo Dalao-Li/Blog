@@ -39,13 +39,7 @@ sudo apt update
 sudo apt install -y docker-ce
 ```
 
-## 启动 Docker daemon
-
-```shell
-sudo service docker start
-```
-
-## 权限
+## 设置权限
 
 使用 docker info 命令出现问题
 
@@ -64,7 +58,11 @@ sudo gpasswd -a $USER docker
 newgrp docker
 ```
 
-现在就没问题了
+## 启动 Docker daemon
+
+```shell
+sudo service docker start
+```
 
 ![](http://cdn.hurra.ltd/img/20200721210744.png)
 
