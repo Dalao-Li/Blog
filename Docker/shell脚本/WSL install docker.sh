@@ -39,3 +39,6 @@ echo - e "{\n \"registry-mirrors\": [\"https://docker.mirrors.ustc.edu.cn\"]\n" 
 sudo service docker restart
 
 
+# {
+#   "registry-mirrors": ["https://997nddro.mirror.aliyuncs.com"]
+# }

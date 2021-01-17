@@ -20,15 +20,11 @@ wget https://www.python.org/ftp/python/3.8.0/Python-3.8.0.tar.xz
 tar -xvf Python-3.8.0.tar.xz -C /usr/bin
 ```
 
-进入
+设置
 
 ```shell
 cd /usr/bin/Python-3.8.0
-```
 
-输入
-
-```shell
 ./configure --prefix=/usr/bin/python3
 ```
 

@@ -2,13 +2,31 @@
 
 ![](http://cdn.hurra.ltd/img/20200720231600.png)
 
----
+## 配置
 
-本地新建文件夹 demo,进入
+- 设置
+
+```shell
+# 配置用户名
+
+git config --global user.name "<name>"
+
+# 配置邮箱
+
+git config --global user.email "<email>"
+```
+
+- 建立公钥
+
+```
+ssh-keygen -t rsa -C "<邮箱>"
+```
+
+公钥位置 : `.ssh/id_rsa.pub`
 
 ## 建立本地仓库
 
-> - 初始化一个文件夹为本地仓库
+- 初始化一个文件夹为本地仓库
 
 ```shell
 git init
@@ -60,7 +78,7 @@ git reset HEAD <filename>
 
 ## 提交操作
 
-> - 将暂存区里的改动给提交到本地的版本库
+- 将暂存区里的改动给提交到本地的版本库
 
 ```shell
 git commit -m "提交的注释信息"
