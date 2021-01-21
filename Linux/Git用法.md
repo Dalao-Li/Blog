@@ -86,6 +86,20 @@ git commit -m "提交的注释信息"
 
 ![](http://cdn.hurra.ltd/img/20200717230921.png)
 
+## 修改提交
+
+- 修改最近一次的 commit 信息
+
+```shell
+git commit --amend
+```
+
+- 比如要修改的 commit 是倒数第三条，使用下述命令：
+
+```shell
+git rebase -i HEAD~3
+```
+
 ## 查看提交记录
 
 ```shell
