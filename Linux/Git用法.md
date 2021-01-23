@@ -258,7 +258,7 @@ git remote rm <origin-name>
 ## 添加新地址
 
 ```shell
-git remote add origin <origin-url>
+git remote add <origin-name> <origin-url>
 ```
 
 ![](http://cdn.hurra.ltd/img/收款码.png)
