@@ -1,13 +1,6 @@
-## 目录
-
-- [一、--link 命令](#一--link命令)
-  - [1.1 容器互 ping](#11-容器互ping)
-  - [1.2 跨容器访问](#12-跨容器访问)
-- [二、网络互联](#二网络互联)
-
 # 一、--link 命令
 
-## 1.1 容器互 ping
+- 容器互 ping
 
 拉取镜像
 
@@ -17,19 +10,19 @@ docker pull busybox
 
 建立名为 box_1 的容器
 
-```shell
+```sh
 docker run -itd --name box_1 busybox /bin/sh
 ```
 
 建立名为 box_2 的容器,并且 link 到 box_1 容器
 
-```shell
+```sh
 docker run -itd --name box_2 --link box_1 busybox /bin/sh
 ```
 
 获取容器的 IP 地址
 
-```shell
+```sh
 docker exec -it <container name> ip a|grep 172
 ```
 
@@ -46,9 +39,9 @@ box_2 容器 IP : 172.17.0.3
 
 ---
 
-## 1.2 跨容器访问
+- 跨容器访问
 
-建立一个 ubuntu 容器,使用--link 命令连接建立的 mysql 容器,实现从 ubuntu 容器中访问 mysql 服务
+> 建立一个 ubuntu 容器,使用--link 命令连接建立的 mysql 容器,实现从 ubuntu 容器中访问 mysql 服务
 
 建立 MySQL 容器
 
@@ -66,7 +59,7 @@ docker run -itd --name ubuntu_demo --link mysql_server:db ubuntu
 
 进入 ubuntu 容器,安装 mysql-client
 
-```shell
+```sh
 docker exec -it uubuntu_demo bash
 
 apt-get update
@@ -130,5 +123,9 @@ box_4 ping box_3
 ![](http://cdn.hurra.ltd/img/20200726154622.png)
 
 ---![](http://cdn.hurra.ltd/img/20200726154622.png)
+
+
+
+
 
 ![](http://cdn.hurra.ltd/img/收款码.png)
