@@ -26,7 +26,7 @@ docker pull nginx
 
 ## 1.3 文件夹映射
 
-新建文件夹，用来映射网站根目录、Nginx 配置文件与日志文件
+新建文件夹,用来映射网站根目录、Nginx 配置文件与日志文件
 
 ```s
 mkdir -p ~/nginx/www ~/nginx/logs ~/nginx/conf

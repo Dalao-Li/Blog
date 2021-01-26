@@ -24,7 +24,7 @@
     //serializeArray() 方法通过序列化表单值来创建对象(name 和 value)的数组
     var t = $("form").serializeArray();
 
-    //.each() 对 jQuery 对象进行迭代，为每个匹配元素执行函数
+    //.each() 对 jQuery 对象进行迭代,为每个匹配元素执行函数
     $.each(t, function () {
       d[this.name] = this.value;
     });

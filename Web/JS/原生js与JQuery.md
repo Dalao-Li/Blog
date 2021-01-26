@@ -11,7 +11,7 @@
 ## 获取控件
 
 document.getElementById("id")可以直接获取当前对象  
-jQuery 利用\$("#id")获取的是一个[object Object]，需用\$("#id")[0]或\$("#id").get(0)获取真实对象
+jQuery 利用\$("#id")获取的是一个[object Object],需用\$("#id")[0]或\$("#id").get(0)获取真实对象
 
 ```js
 const name = document.getElementById("name");

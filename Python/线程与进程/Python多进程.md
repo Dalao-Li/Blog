@@ -1,3 +1,15 @@
+<!--
+ * @Description: 
+ * @Version: 1
+ * @Autor: Li Yuanhao
+ * @Email: dalao-li@163.com
+ * @Date: 2021-01-16 17:59:35
+ * @LastEditors: Li Yuanhao
+ * @LastEditTime: 2021-01-26 10:35:23
+-->
+
+
+
 # 多进程
 
 ## 普通情况
@@ -30,6 +42,8 @@ if __name__ == '__main__':
 
 ## 多进程执行任务
 
+`Windows环境下`  
+
 步骤:
 
 > - 导入进程包
@@ -38,8 +52,8 @@ if __name__ == '__main__':
 
 ```py
 import time
-# 导入进程包
-import multiprocessing
+
+from multiprocessing import Process
 
 def cook():
     for i in range(3):
@@ -53,8 +67,8 @@ def wash():
 
 if __name__ == '__main__':
     # 使用进程类创建进程对象
-    cook_process = multiprocessing.Process(target=cook)
-    wash_process = multiprocessing.Process(target=wash)
+    cook_process = Process(target=cook)
+    wash_process = Process(target=wash)
 
     # 使用进程对象启动进程执行指定任务
     cook_process.start()
@@ -101,8 +115,8 @@ args 以字典的形式给线程传递参数
 
 ```py
 import time
-# 导入进程包
-import multiprocessing
+
+from multiprocessing import Process
 
 def cook(num):
     for i in range(num):
@@ -116,8 +130,8 @@ def wash(num):
 
 if __name__ == '__main__':
     # 使用进程类创建进程对象
-    cook_process = multiprocessing.Process(target=cook, kwargs={"num": 2})
-    wash_process = multiprocessing.Process(target=wash, kwargs={"num": 2})
+    cook_process = Process(target=cook, kwargs={"num": 2})
+    wash_process = Process(target=wash, kwargs={"num": 2})
 
     # 使用进程对象启动进程执行指定任务
     cook_process.start()
@@ -147,7 +161,7 @@ print(pid)
 ```py
 import time
 import os
-import multiprocessing
+from multiprocessing import Proess
 
 def cook():
     for i in range(2):
@@ -165,50 +179,12 @@ def wash():
 
 if __name__ == '__main__':
     print("主进程的pid: ",os.getpid())
-    cook_process = multiprocessing.Process(target=cook)
-    wash_process = multiprocessing.Process(target=wash)
+    cook_process = Process(target=cook)
+    wash_process = Process(target=wash)
     cook_process.start()
     wash_process.start()
 ```
 
 ![](http://cdn.hurra.ltd/img/20201019183002.png)
 
-## 守护进程
 
-主进程会等待所有的子进程执行结束再结束
-
-实际开发过程中则希望主进程结束时结束所有子进程
-
-此时需要主进程创建守护进程
-
-> - 守护进程会在主进程代码执行结束后就终止
->
-> - 守护进程内无法再开启子进程,否则抛出异常：AssertionError: daemonic processes are not allowed to have children
->
-> - 注意：进程之间是互相独立的，主进程代码运行结束，守护进程随即终止
-
-```py
-import time
-import os
-import multiprocessing
-
-def work():
-    for i in range(10):
-        print("Work in....")
-        time.sleep(0.2)
-
-if __name__ == '__main__':
-    # 创建子进程
-    work_process = multiprocessing.Process(target=work)
-    # 设置守护进程,主进程结束后子进程直接销毁
-    work_process.daemon = True
-    work_process.start()
-    time.sleep(1)
-    print("主进程结束!")
-```
-
-![](http://cdn.hurra.ltd/img/20201019195202.png)
-
-可见,主进程结束时子进程也立即结束
-
-![](http://cdn.hurra.ltd/img/收款码.png)

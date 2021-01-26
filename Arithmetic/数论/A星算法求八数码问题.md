@@ -166,7 +166,7 @@ void Game::searchPath(State St) {
             }
             //若该字符串在open表中,且经过当前状态可以使路径更优
             else if (St.g + 1 < open[newIndex].g) {
-                //将当前状态节点设为交换后状态节点的父节点，并更新g值
+                //将当前状态节点设为交换后状态节点的父节点,并更新g值
                 open[newIndex].update(St.str, St.g + 1);
             }
         }

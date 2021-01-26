@@ -31,7 +31,7 @@ docker run -itd -p  主机端口:3306 -e MYSQL_ROOT_PASSWORD= 密码  镜像id
 ![](http://cdn.hurra.ltd/img/20200515200803.png)
 
 > - -p 3306:3306 即将容器的 3306 端口映射到主机的 3306 端口上
-> - -e MYSQL_ROOT_PASSWORD=123456 即设置环境变量,用户为 root，密码为 123456
+> - -e MYSQL_ROOT_PASSWORD=123456 即设置环境变量,用户为 root,密码为 123456
 
 不映射目录的情况下数据不能持久化保存,容器没了就得跑路了
 

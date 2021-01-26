@@ -1,40 +1,58 @@
-#include<iostream>
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: Li Yuanhao
+ * @Email: dalao_li@163.com
+ * @Date: 2021-01-16 17:59:36
+ * @LastEditors: Li Yuanhao
+ * @LastEditTime: 2021-01-26 10:51:37
+ */
+
+#include <iostream>
 using namespace std;
 
-//Ô­Ê¼Êı¾İ 1,2,4,7;Ä¿±êºÍ13,Èç¹ûÓĞ½âÔòÊä³öOK 
-int a[4] = {1,2,4,7};
+//åŸå§‹æ•°æ® 1,2,4,7;ç›®æ ‡å’Œ13,å¦‚æœæœ‰è§£åˆ™è¾“å‡ºOK
+int a[4] = {1, 2, 4, 7};
 int k = 13;
 int n = 4;
 
-//¼ÙÉèÒÑÑ¡ÔòÁËÇ°iÏî,µ±Ç°µÄÖµÎªsum
-bool dfs(int i,int sum) {
-	//Èç¹ûÒÑ¾­Ñ¡ÔñÍêÁË
-	if(i==n) {
-		//Èç¹ûºÍsumÓëkÏàµÈ,·µ»Øtrue
-		if(sum==k) {
+//å‡è®¾å·²é€‰åˆ™äº†å‰ié¡¹,å½“å‰çš„å€¼ä¸ºsum
+bool dfs(int i, int sum)
+{
+	//å¦‚æœå·²ç»é€‰æ‹©å®Œäº†
+	if (i == n)
+	{
+		//å¦‚æœå’Œsumä¸kç›¸ç­‰,è¿”å›true
+		if (sum == k)
+		{
 			return true;
 		}
-		//·ñÔò·µ»Øfalse
+		//å¦åˆ™è¿”å›false
 		return false;
 	}
-	//²»Ñ¡Ôña[i]µÄÇé¿ö
-	if(dfs(i+1,sum)) {
+	//ä¸é€‰æ‹©a[i]çš„æƒ…å†µ
+	if (dfs(i + 1, sum))
+	{
 		return true;
 	}
-	//¼ÓÉÏa[i]µÄÇé¿ö
-	if(dfs(i+1,sum+a[i])) {
+	//åŠ ä¸Ša[i]çš„æƒ…å†µ
+	if (dfs(i + 1, sum + a[i]))
+	{
 		return true;
 	}
-	//¼´ÔõÃ´Ñù¶¼²»ÄÜ´Õ³Ék
+	//å³æ€ä¹ˆæ ·éƒ½ä¸èƒ½å‡‘æˆk
 	return false;
 }
 
-int main() {
-	if(dfs(0,0)) {
-		cout<<"OK"<<endl;
-	} else {
-		cout<<"NO"<<endl;
+int main()
+{
+	if (dfs(0, 0))
+	{
+		cout << "OK" << endl;
+	}
+	else
+	{
+		cout << "NO" << endl;
 	}
 	return 0;
-
 }

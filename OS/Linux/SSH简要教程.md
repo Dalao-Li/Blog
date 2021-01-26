@@ -24,12 +24,12 @@ vim /etc/ssh/sshd_config
 ![](https://imgconvert.csdnimg.cn/aHR0cDovL2Nkbi5odXJyYS5sdGQvaW1nLzIwMjAwNTE4MDkyOTI1LnBuZw?x-oss-process=image/format,png)
 
 ```shell
-编辑完成后按Esc键,输入 wq! 敲回车，保存退出
+编辑完成后按Esc键,输入 wq! 敲回车,保存退出
 ```
 
 ## 3.2 添加密码
 
-由于此处使用的是 docker 容器,所以默认是 root 用户，得给它设个密码
+由于此处使用的是 docker 容器,所以默认是 root 用户,得给它设个密码
 
 ```shell
 passwd
@@ -118,7 +118,7 @@ vim /etc/ssh/sshd_config
 
 将RSAAuthentication与RSAAuthentication修改为yes
 
-将PasswordAuthentication修改为no，以禁用密码登录
+将PasswordAuthentication修改为no,以禁用密码登录
 ```
 
 ![](https://imgconvert.csdnimg.cn/aHR0cDovL2Nkbi5odXJyYS5sdGQvaW1nLzIwMjAwNTE4MDk1NTMzLnBuZw?x-oss-process=image/format,png)

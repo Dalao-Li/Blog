@@ -30,15 +30,15 @@ app 目录结构:
 
 - app/apps:app 应用的配置文件
 
-- app/models:数据模块，用于设计数据库等
+- app/models:数据模块,用于设计数据库等
 
 - app/tests:编写测试脚本
 
-- app/views:视图层，直接和浏览器进行交互
+- app/views:视图层,直接和浏览器进行交互
 
 ## 3. 应用注册
 
-新建应用需在 settings.py 文件中的 INSTALLED_APPS 列表中注册，使程序找到该服务
+新建应用需在 settings.py 文件中的 INSTALLED_APPS 列表中注册,使程序找到该服务
 
 ![](http://cdn.hurra.ltd/img/20200801112631.png)
 
@@ -71,7 +71,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
-# 中间件 ,需要加载的中间件。比如在请求前和响应后根据规则去执行某些代码的方法
+# 中间件 ,需要加载的中间件.比如在请求前和响应后根据规则去执行某些代码的方法
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

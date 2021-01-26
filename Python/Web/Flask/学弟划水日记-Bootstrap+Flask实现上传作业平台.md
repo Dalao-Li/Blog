@@ -5,9 +5,9 @@
 
 # 前言
 
-> 博主最近小学期，每天得收三十多份报告;原采用 QQ 发送形式,但效率太低，很多时间都花在收发和修改命名格式上，因而博主打算写个提交作业平台,部署于阿里云,每个同学均可通过它上传当日作业,最后博主统一上交
+> 博主最近小学期,每天得收三十多份报告;原采用 QQ 发送形式,但效率太低,很多时间都花在收发和修改命名格式上,因而博主打算写个提交作业平台,部署于阿里云,每个同学均可通过它上传当日作业,最后博主统一上交
 >
-> PS:由于开发周期只有一天半，所以有些地方可能存有 BUG，恳请指正
+> PS:由于开发周期只有一天半,所以有些地方可能存有 BUG,恳请指正
 
 # 结果
 
@@ -41,7 +41,7 @@
 
 ## 1.3 打包
 
-将收齐的 word 文件放入一个文件夹内，压缩并下载
+将收齐的 word 文件放入一个文件夹内,压缩并下载
 
 # 二、设计
 
@@ -210,9 +210,9 @@
         pagination: true,
         //一页显示的行数
         pageSize: 5,
-        //是否开启分页条无限循环，最后一页时点击下一页是否转到第一页
+        //是否开启分页条无限循环,最后一页时点击下一页是否转到第一页
         paginationLoop: false,
-        //选择每页显示多少行，数据过少时可能会没有效果
+        //选择每页显示多少行,数据过少时可能会没有效果
         pageList: [5, 10, 20]
     })
     //显示模态框
@@ -271,7 +271,7 @@
                 })
             },
             error: function () {
-                alert("网络异常，请稍后重试")
+                alert("网络异常,请稍后重试")
             }
         })
     }
@@ -333,7 +333,7 @@ def zip_file():
     file_news = dir + '.zip'
     z = zipfile.ZipFile(file_news, 'w', zipfile.ZIP_DEFLATED)  # 参数一：文件夹名
     for dirpath, dirnames, filenames in os.walk(startdir):
-        fpath = dirpath.replace(startdir, '')  # 这一句很重要，不replace的话，就从根目录开始复制
+        fpath = dirpath.replace(startdir, '')  # 这一句很重要,不replace的话,就从根目录开始复制
         fpath = fpath and fpath + os.sep or ''
         for filename in filenames:
             z.write(os.path.join(dirpath, filename), fpath + filename)

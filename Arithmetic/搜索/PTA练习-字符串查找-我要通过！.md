@@ -61,7 +61,7 @@ bool check(string s) {
 			return  len1==len2;
 		}
 		//如果 aPbTc 是正确的,那么 aPbATca 也是正确的,
-		// 其中 a、 b、 c 均或者是空字符串,或者是仅由字母 A 组成的字符串。
+		// 其中 a、 b、 c 均或者是空字符串,或者是仅由字母 A 组成的字符串.
 		if(s[i]=='P') {
             //若是aPbATca这种情况则返回错误
 			if(s[i+1]=='T') {

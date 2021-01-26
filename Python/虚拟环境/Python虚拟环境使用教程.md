@@ -1,6 +1,6 @@
-# 一、Windows 环境
+# Windows 环境
 
-创建一个文件夹 demo，进入其目录下
+创建一个文件夹 demo,进入其目录下
 
 ## 1. 安装 virtualenv
 
@@ -45,7 +45,7 @@ activate
 
 ![](http://cdn.hurra.ltd/img/20200515113603.png)
 
-路径前出现了`(venv)`，表明当前处在 venv 虚拟环境下
+路径前出现了`(venv)`,表明当前处在 venv 虚拟环境下
 
 ---
 

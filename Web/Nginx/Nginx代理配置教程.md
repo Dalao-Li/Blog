@@ -21,8 +21,8 @@
 |     8081     |     81     |
 |     8082     |     82     |
 
-> 访问`宿主机`的`8080`端口，相当于访问 `容器*`的`80`端口(即 Nginx 的默认端口);
-> 其它以此类推。
+> 访问`宿主机`的`8080`端口,相当于访问 `容器*`的`80`端口(即 Nginx 的默认端口);
+> 其它以此类推.
 
 ## 2.新建容器
 
@@ -40,7 +40,7 @@ docker run -itd -p 8080:80 -p 8081:81 -p 8082:82 nginx
 ![](https://imgconvert.csdnimg.cn/aHR0cDovL2Nkbi5odXJyYS5sdGQvaW1nLzIwMjAwNTE0MDkzMDUwNDYxLnBuZw?x-oss-process=image/format,png)
 ![](https://imgconvert.csdnimg.cn/aHR0cDovL2Nkbi5odXJyYS5sdGQvaW1nLzIwMjAwNTE0MDk0MDE0MjIwLnBuZw?x-oss-process=image/format,png)
 
-> 在配置文件最后一行的意思是使用默认的配置文件，此处将其`注释`掉，以使用自己的配置
+> 在配置文件最后一行的意思是使用默认的配置文件,此处将其`注释`掉,以使用自己的配置
 
 ### 3.1 默认代理
 
@@ -63,11 +63,11 @@ server{
 }
 ```
 
-> 配置容器 80 端口，实现访问宿主机 **http://127.0.0.1:8080**访问到 Nginx 的默认欢迎界面
+> 配置容器 80 端口,实现访问宿主机 **http://127.0.0.1:8080**访问到 Nginx 的默认欢迎界面
 
 ### 3.2 自定义代理
 
-在/home 目录下新建 demo 文件夹，创建 a.html 文件,修改其内容为
+在/home 目录下新建 demo 文件夹,创建 a.html 文件,修改其内容为
 
 ```html
 <p>Successfully implemented the proxy to the HTML file</p>
@@ -93,7 +93,7 @@ server{
 }
 ```
 
-> 配置容器 81 端口，实现访问宿主机 **http://127.0.0.1:8081** 而通过 Nginx 反向代理访问自定义的页面
+> 配置容器 81 端口,实现访问宿主机 **http://127.0.0.1:8081** 而通过 Nginx 反向代理访问自定义的页面
 
 ### 3.3 ip 代理
 
@@ -113,9 +113,9 @@ server{
 }
 ```
 
-> 将容器 82 端口反向代理到 Flask 应用的端口，实现宿主机访问http://127.0.0.1:8082而能访问到默认地址为http://127.0.0.1:5000的Flask应用
+> 将容器 82 端口反向代理到 Flask 应用的端口,实现宿主机访问http://127.0.0.1:8082而能访问到默认地址为http://127.0.0.1:5000的Flask应用
 
-三个 Server 配置完成后，nginx.conf 文件结构
+三个 Server 配置完成后,nginx.conf 文件结构
 
 ```
 http{
@@ -141,7 +141,7 @@ http{
 nginx -s reload
 ```
 
-终端显示 **signal process started**时才表明修改成功，若有问题会提示错误
+终端显示 **signal process started**时才表明修改成功,若有问题会提示错误
 
 ![](https://imgconvert.csdnimg.cn/aHR0cDovL2Nkbi5odXJyYS5sdGQvaW1nLzIwMjAwNTE0MTAxMzQxMTM5LnBuZw?x-oss-process=image/format,png)
 
@@ -157,7 +157,7 @@ nginx -s reload
 
 ![](https://imgconvert.csdnimg.cn/aHR0cDovL2Nkbi5odXJyYS5sdGQvaW1nLzIwMjAwNTE0MTAyMTMzOTMwLnBuZw?x-oss-process=image/format,png)
 
-<center>出现了问题，反向代理失败</center>
+<center>出现了问题,反向代理失败</center>
 
 # 四、问题
 
@@ -165,7 +165,7 @@ nginx -s reload
 
 ![](https://imgconvert.csdnimg.cn/aHR0cDovL2Nkbi5odXJyYS5sdGQvaW1nLzIwMjAwNTE0MTAzMTI4ODE3LnBuZw?x-oss-process=image/format,png)
 
-这路本意是将**http://127.0.0.1:82**转发到宿主机的**http://127.0.0.1:5000**，但 Nginx 处于 Linux 环境中，所以此处 localhost 实际上指的是`容器`内的 localhost 而并非`宿主机`内的 localhost，因此出现错误情况。
+这路本意是将**http://127.0.0.1:82**转发到宿主机的**http://127.0.0.1:5000**,但 Nginx 处于 Linux 环境中,所以此处 localhost 实际上指的是`容器`内的 localhost 而并非`宿主机`内的 localhost,因此出现错误情况.
 
 2. 解决
 

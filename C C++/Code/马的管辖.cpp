@@ -1,89 +1,120 @@
-#include<cstdio>
-#include<iostream>
-#include<cstring>
-using namespace std;
-//Âí×ßÈÕ
-int dir[8][2]= {{-2,-1},{-1,2},{2,1},{-1,-2},{-2,1},{1,2},{2,-1},{1,-2}}; 
-//õ¿ÁËÂí½Å
-int vis[8][2]= {{-1,0},{0,1},{1,0},{0,-1},{-1,0},{0,1},{1,0},{0,-1}}; 
-int n=5,m=5;
-int map[5][5];
-//×îĞ¡·½°¸Êı 
-int MINV=0x7fffffff;
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: Li Yuanhao
+ * @Email: dalao_li@163.com
+ * @Date: 2021-01-16 17:59:35
+ * @LastEditors: Li Yuanhao
+ * @LastEditTime: 2021-01-26 10:45:21
+ */
 
-int fun(int t) {
-	//Ã¿ÖÖ·½°¸Ö®Ç°ÒªÇå0
-	memset(map,0,sizeof(map));
-	//ÂíµÄ¸öÊı
-	int cnt=0;
-	//Âí·ÅµÄÎ»ÖÃ
-	for(int i=0; i<n; i++) {
-		for(int j=0; j<m; j++) {
-			//¶ş½øÖÆ¸ÃÎ»Îª1 
-			if(t&1) {
-				//Ôò¸ÃÎ»ÓĞÂí 
-				map[i][j]=1;
+#include <cstdio>
+#include <iostream>
+#include <cstring>
+using namespace std;
+//é©¬èµ°æ—¥
+int dir[8][2] = {{-2, -1}, {-1, 2}, {2, 1}, {-1, -2}, {-2, 1}, {1, 2}, {2, -1}, {1, -2}};
+//è¹©äº†é©¬è„š
+int vis[8][2] = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}, {-1, 0}, {0, 1}, {1, 0}, {0, -1}};
+int n = 5, m = 5;
+int map[5][5];
+//æœ€å°æ–¹æ¡ˆæ•°
+int MINV = 0x7fffffff;
+
+int fun(int t)
+{
+	//æ¯ç§æ–¹æ¡ˆä¹‹å‰è¦æ¸…0
+	memset(map, 0, sizeof(map));
+	//é©¬çš„ä¸ªæ•°
+	int cnt = 0;
+	//é©¬æ”¾çš„ä½ç½®
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < m; j++)
+		{
+			//äºŒè¿›åˆ¶è¯¥ä½ä¸º1
+			if (t & 1)
+			{
+				//åˆ™è¯¥ä½æœ‰é©¬
+				map[i][j] = 1;
 				cnt++;
-			} else{
-				map[i][j]=0;
 			}
-			t>>=1;
+			else
+			{
+				map[i][j] = 0;
+			}
+			t >>= 1;
 		}
 	}
-	//Ö»Òª×îÉÙµÄÂíÊıÁ¿À´Âú×ãÌõ¼ş
-	if(cnt>MINV) {
+	//åªè¦æœ€å°‘çš„é©¬æ•°é‡æ¥æ»¡è¶³æ¡ä»¶
+	if (cnt > MINV)
+	{
 		return 0;
 	}
-	for(int i=0; i<n; i++) {
-		for(int j=0; j<m; j++) {
-			//±ê¼ÇÃ¿¸öÂí¿É¹ÜÏ½µÄ·¶Î§
-			if(map[i][j]==1) {
-				for(int k=0; k<8; k++) {
-					int x=i+dir[k][0];
-					int y=j+dir[k][1];
-					int tx=i+vis[k][0];
-					int ty=j+vis[k][1];
-					//³¬¹ı·¶Î§»òõ¿Âí½ÅµÄÎ»ÖÃÓĞÂí 
-					if(x<0||y<0||x>=n||y>=n||map[tx][ty]==1) {
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < m; j++)
+		{
+			//æ ‡è®°æ¯ä¸ªé©¬å¯ç®¡è¾–çš„èŒƒå›´
+			if (map[i][j] == 1)
+			{
+				for (int k = 0; k < 8; k++)
+				{
+					int x = i + dir[k][0];
+					int y = j + dir[k][1];
+					int tx = i + vis[k][0];
+					int ty = j + vis[k][1];
+					//è¶…è¿‡èŒƒå›´æˆ–è¹©é©¬è„šçš„ä½ç½®æœ‰é©¬
+					if (x < 0 || y < 0 || x >= n || y >= n || map[tx][ty] == 1)
+					{
 						continue;
-					} 
-					if(map[x][y]==0) {
-						//¹ÜÏ½¸ÃÎ»ÖÃ 
-						map[x][y]=0x7fffffff;
+					}
+					if (map[x][y] == 0)
+					{
+						//ç®¡è¾–è¯¥ä½ç½®
+						map[x][y] = 0x7fffffff;
 					}
 				}
 			}
 		}
 	}
-	//ÅĞ¶ÏÃ¿¸öÂíÊÇ·ñ¹ÜÏ½ÁËÕû¸öÆåÅÌ
-	for(int i=0; i<n; i++) {
-		for(int j=0; j<m; j++) {
-			if(!map[i][j]) {
+	//åˆ¤æ–­æ¯ä¸ªé©¬æ˜¯å¦ç®¡è¾–äº†æ•´ä¸ªæ£‹ç›˜
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < m; j++)
+		{
+			if (!map[i][j])
+			{
 				return 0;
 			}
 		}
 	}
-	if(cnt<MINV) {
-		MINV=cnt;
+	if (cnt < MINV)
+	{
+		MINV = cnt;
 	}
 	return cnt;
 }
-int main() {
+int main()
+{
 	int ans[26];
-	memset(ans,0,sizeof(ans));
-	for(int i=0; i<(1<<25); i++) {
-		int t=fun(i);
-		//¼ÇÂ¼t¸öÂíÂú×ãÌõ¼şµÄÊıÁ¿
-		if(t) {
+	memset(ans, 0, sizeof(ans));
+	for (int i = 0; i < (1 << 25); i++)
+	{
+		int t = fun(i);
+		//è®°å½•tä¸ªé©¬æ»¡è¶³æ¡ä»¶çš„æ•°é‡
+		if (t)
+		{
 			ans[t]++;
 		}
 	}
-	for(int i=0; i<26; i++) {
-		if(ans[i]) {
-			printf("%d\n%d\n",i,ans[i]);
+	for (int i = 0; i < 26; i++)
+	{
+		if (ans[i])
+		{
+			printf("%d\n%d\n", i, ans[i]);
 			return 0;
 		}
 	}
 	return 0;
 }
-

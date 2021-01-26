@@ -28,7 +28,7 @@ int main() {
 	cout<<"重新调整vector容量大小的v6:";
 	showvector(v6);
 	vector<string> v11 = {"HELLO","sa","wdasdas","sdaAAA"};
-	v11.erase(v11.begin()+2,v11.end()-1);  //删除之间的元素，其他元素前移
+	v11.erase(v11.begin()+2,v11.end()-1);  //删除之间的元素,其他元素前移
 	showvector(v11);                       //HELLO sa wdasdas"
 	vector<int> v5 = { 1,2,3,4,5 };        //列表初始化,注意使用的是花括号
 	cout <<"v5的第一个元素: "<< v5.front() << endl;       //访问第一个元素

@@ -67,12 +67,12 @@ class Stu(models.Model):
 
 | 类型          | 说明                                                                                                                           |
 | ------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| AutoField     | 一个自动增加的整数类型字段。通常不需要自己编写,Django 会自动添加自增字段:id = models.AutoField(primary_key=True),从 1 开始计数 |
-| CharField     | 字符串类型。必须接收一个 max_length 参数,表示字符串长度不能超过该值。默认的表单标签是 input text                               |
+| AutoField     | 一个自动增加的整数类型字段.通常不需要自己编写,Django 会自动添加自增字段:id = models.AutoField(primary_key=True),从 1 开始计数 |
+| CharField     | 字符串类型.必须接收一个 max_length 参数,表示字符串长度不能超过该值.默认的表单标签是 input text                               |
 | TextField     | 大量文本内容,在 HTML 中表现为 Textarea 标签                                                                                    |
 | IntegerField  | 整数类型,取值范围-2147483648 到 2147483647                                                                                     |
 | DateField     | 日期类型,Python 中的 datetime.date()实例,例如 2020-08-05                                                                       |
-| DateTimeField | 日期时间类型,Python datetime.datetime()实例。多了小时、分和秒的显示,例如 2020-08-05 23:08                                      |
+| DateTimeField | 日期时间类型,Python datetime.datetime()实例.多了小时、分和秒的显示,例如 2020-08-05 23:08                                      |
 | FileField     | 上传文件类型                                                                                                                   |
 | ImageField    | 图像类型                                                                                                                       |
 

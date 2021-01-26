@@ -75,7 +75,7 @@ while True:
 
     print(client_address + '[Received]:' + data.decode())
     send = input('Input: ')
-    # UDP 是无状态连接，所以每次连接都需要给出目的地址
+    # UDP 是无状态连接,所以每次连接都需要给出目的地址
     s.sendto(send.encode(), client_address)
 s.close()
 ```
@@ -136,14 +136,14 @@ class SocketServer:
             # 获取到客户端的数据
 			data = client.recv(1024)
 			if not data or data.decode() == 'bye':
-				# 如果没有发送过来数据就代表客户端close了，或者发过来bye代表连接要断开
+				# 如果没有发送过来数据就代表客户端close了,或者发过来bye代表连接要断开
 				print('服务结束', addr)
-                # 断开连接，为下一个服务
+                # 断开连接,为下一个服务
 				client.close()
 				break
 			else:
 				print('%s 发送 %s',  %(addr,data.decode()))
-				msg = '统一回复，人不在'
+				msg = '统一回复,人不在'
 				client.send(msg.encode())
 
 if __name__ == '__main__':

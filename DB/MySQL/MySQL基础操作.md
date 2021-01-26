@@ -42,15 +42,15 @@ mysql -u <用户名> -p
 GRANT ALL PRIVILEGES ON *.* TO '用户名'@'%' identified BY '密码';
 ```
 
-> - priveleges(权限列表),ALL PRIVILEGES 表示所有权限，也可以是:
->   SELECT、UPDATE、CREATE、DELETE、DROP 等权限，多个权限之间用逗号分开
-> - ON 用来指定权限针对哪些库和表。
+> - priveleges(权限列表),ALL PRIVILEGES 表示所有权限,也可以是:
+>   SELECT、UPDATE、CREATE、DELETE、DROP 等权限,多个权限之间用逗号分开
+> - ON 用来指定权限针对哪些库和表.
 > - 前面 \* 号用来指定数据库名
 > - 后面 \* 号用来指定表名
 > - identified by 指定用户登录密码,可省略
 > - TO 表示将权限赋予某个用户, 如 dalao@'localhost' 表示 dalao 用户
-> - @后跟限制地址，可以是 IP、域名与%(任何地方)
-> - identified by 指定用户的登录密码,该项可以省略。
+> - @后跟限制地址,可以是 IP、域名与%(任何地方)
+> - identified by 指定用户的登录密码,该项可以省略.
 
 ![](http://cdn.hurra.ltd/img/20200516003253.png)
 
@@ -94,13 +94,13 @@ CREATE DATABASE test_db;
 
 <center>可以发现被拒绝了</center>
 
-3. 使用 user_test 用户，尝试查询
+3. 使用 user_test 用户,尝试查询
 
 ![](http://cdn.hurra.ltd/img/20200516004447.png)
 
 <center>可以发现查询是没问题的</center>
 
-4. 新建用户 test_4，授予 SELECT,CREATE 权限
+4. 新建用户 test_4,授予 SELECT,CREATE 权限
 
 ```sql
 CREATE USER 'test_4'@'%' identified by '999';

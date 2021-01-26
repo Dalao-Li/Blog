@@ -16,15 +16,15 @@ soup = BeautifulSoup(html, 'lxml')
 
 BeautifulSoup4 将 HTML 文档转换成的树形结构,个节点都是 python 对象,所有对象可以归纳为:
 
-> - `tag` 获得标签及内容，默认是找到的第一个标签内容
+> - `tag` 获得标签及内容,默认是找到的第一个标签内容
 > - `NavigableString` 若想获得标签里内容,可用 string 方法,如:soup.title.string
 > - `BeautifulSoup` 获取整个文档内容
-> - `Comment` 特殊的 NavigableString，输出内容不包含注释符号
+> - `Comment` 特殊的 NavigableString,输出内容不包含注释符号
 
 ## 1.3 遍历
 
-> - contents 获取 tag 的所有子节点，返回一个 list
-> - children 获取 tag 的所有子节点，返回一个生成器
+> - contents 获取 tag 的所有子节点,返回一个 list
+> - children 获取 tag 的所有子节点,返回一个生成器
 
 # 二、过程
 

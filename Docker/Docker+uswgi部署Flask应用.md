@@ -41,7 +41,7 @@ if __name__ == '__main__':
 
 ```sh
 [uwsgi]
-# 启动主进程，来管理其他进程
+# 启动主进程,来管理其他进程
 master = true
 
 # 地址和端口号
@@ -50,7 +50,7 @@ http = :8000
 # app.py路径
 wsgi-file =  app.py
 
-# uwsgi指定的是application，而flask中是app
+# uwsgi指定的是application,而flask中是app
 callable = app
 
 # 开启的进程数量
@@ -59,7 +59,7 @@ processes = 2
 # 运行线程
 threads = 8
 
-# 设置用于uwsgi包解析的内部缓存区大小为64k。默认是4k
+# 设置用于uwsgi包解析的内部缓存区大小为64k.默认是4k
 buffer-size = 32768
 ```
 

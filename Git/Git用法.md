@@ -94,7 +94,7 @@ git commit -m "提交的注释信息"
 git commit --amend
 ```
 
-- 比如要修改的 commit 是倒数第三条，使用下述命令：
+- 比如要修改的 commit 是倒数第三条,使用下述命令：
 
 ```shell
 git rebase -i HEAD~3
@@ -122,7 +122,7 @@ git log
 git reset --hard HEAD^
 ```
 
-> - `删除工作空间改动代码，撤销commit,撤销git add .`
+> - `删除工作空间改动代码,撤销commit,撤销git add .`
 
 ![](http://cdn.hurra.ltd/img/20200717233342.png)
 
@@ -136,7 +136,7 @@ git reset --hard HEAD^
 git reset --soft HEAD^
 ```
 
-> - `不删除工作空间改动代码，撤销commit,不撤销git add . `
+> - `不删除工作空间改动代码,撤销commit,不撤销git add . `
 
 ![](http://cdn.hurra.ltd/img/20200717233725.png)
 

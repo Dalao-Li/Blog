@@ -1,7 +1,7 @@
 # 一、概念
 
 JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式,是 JavaScript 原生格式;在 JavaScript 中处理 JSON 数据不须要任何特殊的 API 或工具包.
-在 JSON 中，有两种结构:对象和数组.
+在 JSON 中,有两种结构:对象和数组.
 
 ```js
 var data = { key1: value1, key2: value2 };

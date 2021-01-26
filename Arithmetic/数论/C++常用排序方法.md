@@ -14,7 +14,7 @@ void bubbleSort(vector<T> data) {
 				swap(data[j],data[j+1]);
 			}
 		}
-		//如果此轮没有发生交换，则说明已完成排序
+		//如果此轮没有发生交换,则说明已完成排序
 		if(exchange == false) {
 			break;
 		}

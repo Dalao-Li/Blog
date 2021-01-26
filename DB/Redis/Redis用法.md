@@ -40,7 +40,7 @@ EXISTS key
 EXPIRE key seconds
 ```
 
-- 以秒为单位，返回给定 key 的剩余生存时间
+- 以秒为单位,返回给定 key 的剩余生存时间
 
 ```
 TTL key

@@ -239,9 +239,9 @@ python manage.py createsuperuser
         pageNumber: 1,
         //一页显示的行数
         pageSize: 5,
-        //是否开启分页条无限循环，最后一页时点击下一页是否转到第一页
+        //是否开启分页条无限循环,最后一页时点击下一页是否转到第一页
         paginationLoop: false,
-        //选择每页显示多少行，数据过少时可能会没有效果
+        //选择每页显示多少行,数据过少时可能会没有效果
         pageList: [5, 10, 20],
         //启用关键字搜索框
         search: true
@@ -333,7 +333,7 @@ function delRecord(id) {
   swal(
     {
       title: "您确定要删除该记录吗",
-      text: "删除后将无法恢复，请谨慎操作！",
+      text: "删除后将无法恢复,请谨慎操作！",
       type: "warning",
       showCancelButton: true,
       confirmButtonColor: "#DD6B55",
@@ -486,10 +486,10 @@ urlpatterns += staticfiles_urlpatterns()
 主目录下新建 gunicorn_config.py 文件:
 
 ```py
-# 定义同时开启的处理请求的进程数量，根据网站流量适当调整
+# 定义同时开启的处理请求的进程数量,根据网站流量适当调整
 workers = 5
 
-# 采用gevent库，支持异步处理请求，提高吞吐量
+# 采用gevent库,支持异步处理请求,提高吞吐量
 worker_class = "gevent"
 
 # 这里8000可以随便调整
