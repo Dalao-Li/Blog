@@ -1,20 +1,20 @@
-# 一、目的
+# 目的
 
 > - 设置**密码**通过 SSH 登录
 >
 > - 设置**密钥**通过 SSH 登录
 
-# 二、环境
+# 环境
 
 > - 客户端 : Windows
 > - 服务端 : Ubuntu16.04
 > - SSH 工具 : Xshell;Xftp
 
-# 三、密码登录
+# 密码登录
 
 首先直接登录 Linux 主机进行配置
 
-## 3.1 配置文件
+## 配置文件
 
 ```shell
 vim /etc/ssh/sshd_config
@@ -27,7 +27,7 @@ vim /etc/ssh/sshd_config
 编辑完成后按Esc键,输入 wq! 敲回车,保存退出
 ```
 
-## 3.2 添加密码
+## 添加密码
 
 由于此处使用的是 docker 容器,所以默认是 root 用户,得给它设个密码
 
@@ -48,7 +48,7 @@ useradd -m 用户名
 passwd 用户名
 ```
 
-## 3.3 重启服务
+## 重启服务
 
 ```shell
 service ssh restart
@@ -56,7 +56,7 @@ service ssh restart
 
 ![](https://imgconvert.csdnimg.cn/aHR0cDovL2Nkbi5odXJyYS5sdGQvaW1nLzIwMjAwNTE4MDkzMzA3LnBuZw?x-oss-process=image/format,png)
 
-## 3.4 测试
+## 测试
 
 使用 ssh 工具进行连接
 
@@ -80,9 +80,9 @@ ssh (-p 端口) <用户名>@<ip地址>
 
 ---
 
-# 四、密钥登录
+# 密钥登录
 
-## 4.1 制作密钥对
+## 制作密钥对
 
 ```shell
 ssh-keygen
@@ -97,7 +97,7 @@ ssh-keygen
 私钥 : /root/.ssh/id_rsa
 ```
 
-## 4.2 安装公钥
+## 安装公钥
 
 在服务端安装公钥并完成授权
 
@@ -111,7 +111,7 @@ chmod 600 authorized_keys
 chmod 700 ~/.ssh
 ```
 
-## 4.3 配置文件
+## 配置文件
 
 ```shell
 vim /etc/ssh/sshd_config
@@ -128,7 +128,7 @@ vim /etc/ssh/sshd_config
 service ssh restart
 ```
 
-## 4.5 下载私钥
+## 下载私钥
 
 将 5.1 生成的私钥文件 id_rsa 下载到客户端
 ![](https://imgconvert.csdnimg.cn/aHR0cDovL2Nkbi5odXJyYS5sdGQvaW1nLzIwMjAwNTE4MTAwMDUwLnBuZw?x-oss-process=image/format,png)

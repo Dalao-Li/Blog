@@ -1,32 +1,19 @@
-## 相关教程
-
-> [uwsgi 部署 Flask](https://blog.csdn.net/qq_41452937/article/details/107284032)  
-> [gunicorn 部署 Flask](https://blog.csdn.net/qq_41452937/article/details/104660945)
-
-## 目录
-
-- [1. 编写 Flask 应用](#1-编写flask应用)
-- [2. 编写 uwsgi 配置文件](#2-编写uwsgi配置文件)
-- [3. 编写 Dockerfile](#3-编写dockerfile)
-- [4. 构建容器](#4-构建容器)
-- [5. 启动镜像](#5-启动镜像)
-- [总结](#总结)
-
-## 环境
+# 环境
 
 > - 运行环境 : CentOS7
-> - Python 版本 : Python3.7
-> - Docker 版本 : Docker 19.03.12
+> - Python : Python3.7
+> - Docker: Docker 19.03.12
 > - 内网 IP : 192.168.3.20
 
 # 1. 编写 Flask 应用
 
-新建目录 demo;新建 app.py 文件
+目录 demo,新建 app.py 文件
 
 ```py
 from flask import Flask
 
 app = Flask(__name__)
+
 @app.route('/')
 def hello():
     return 'Docker deploy Flask'
@@ -35,9 +22,9 @@ if __name__ == '__main__':
 	app.run()
 ```
 
-# 2. 编写 uwsgi 配置文件
+# 2. uwsgi 配置文件
 
-新建 config.ini 文件,内容为:
+新建 config.ini 文件:
 
 ```sh
 [uwsgi]
@@ -65,8 +52,6 @@ buffer-size = 32768
 
 # 3. 编写 Dockerfile
 
-新建 Dockerfile,内容为:
-
 ```docker
 # 所采用的基础镜像
 FROM python:3.7
@@ -75,10 +60,10 @@ FROM python:3.7
 LABEL version="v1" description="Docker deploy Flask" by="Dalao"
 
 # 配置工作目录
-WORKDIR /usr/src/app
+WORKDIR /usr/flask/app
 
 # 在镜像容器中执行命令
-RUN pip install Flask && pip install uwsgi -i https://pypi.tuna.tsinghua.edu.cn/simple/
+RUN pip install Flask uwsgi -i https://pypi.tuna.tsinghua.edu.cn/simple/
 
 # 将主机中目录内容拷贝到镜像目录下
 COPY . .
@@ -87,7 +72,7 @@ COPY . .
 CMD ["uwsgi","config.ini"]
 ```
 
-# 4. 构建容器
+# 4. 构建镜像
 
 进入 demo 目录,执行:
 
@@ -103,7 +88,7 @@ docker build -t mydemo .
 # 5. 启动镜像
 
 ```shell
-docker run -itd -p 80:8080 mydemo
+docker run -itd -p 80:8080 --name test mydemo
 ```
 
 访问http://192.168.3.20
@@ -112,8 +97,8 @@ docker run -itd -p 80:8080 mydemo
 
 # 总结
 
-1. Flask 应用的部署方式有 gunicorn 与 uwsgi 两种方式
+- Flask 应用的部署方式通常采用 gunicorn 或 uwsgi 两种方式
 
-2. 目前 windows 尚不支持 uwsgi 包的使用
+-  `目前 windows 尚不支持 uwsgi 包的使用`
 
 ![](http://cdn.hurra.ltd/img/收款码.png)

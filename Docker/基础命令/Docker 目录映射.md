@@ -1,14 +1,4 @@
-- docker 删除所有容器
 
-```shell
-docker rm $(docker ps -aq)
-```
-
-- 停用并删除容器
-
-```shell
-docker stop $(docker ps -q) & docker rm $(docker ps -aq)
-```
 
 # 目录挂载
 

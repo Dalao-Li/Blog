@@ -1,3 +1,12 @@
+<!--
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: Li Yuanhao
+ * @Email: dalao_li@163.com
+ * @Date: 2021-01-24 15:25:28
+ * @LastEditors: Li Yuanhao
+ * @LastEditTime: 2021-01-28 22:15:39
+-->
 # 连接
 
 - Docker 拉取 Redis 镜像
@@ -58,4 +67,19 @@ CONFIG set requirepass "pwd"
 
 ```
 CONFIG get requirepass
+```
+
+# Docker部署允许远程访问
+
+
+建立redis.conf
+
+```s
+protected-mode no  //关闭保护模式
+
+requirepass 123456   //密码
+```
+
+```s
+docker run -itd -p 6379:6379 -v $PWD/redis.conf:/etc/redis/redis.conf --privileged=true --name redis redis redis-server /etc/redis/redis.conf
 ```

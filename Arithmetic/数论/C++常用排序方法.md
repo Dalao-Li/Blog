@@ -40,7 +40,6 @@ void insertSort(vector<T> data) {
 			data[j+1] = temp;
 		}
 	}
-
 }
 ```
 

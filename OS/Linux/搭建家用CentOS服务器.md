@@ -1,10 +1,10 @@
-# 一、目的
+# 目的
 
 搭建一台 CentOS 系统的家用服务器
 
-# 二、准备
+# 准备
 
-## 2.1 硬件
+## 硬件
 
 ![](http://cdn.hurra.ltd/img/IMG_20200531_163807.jpg)
 
@@ -14,11 +14,11 @@
 > - 内存：1GB 杂牌
 > - 硬盘：500GB 希捷
 
-## 2.2 软件
+## 软件
 
 安装 Centos7 系统,没有图形界面,纯命令行操作
 
-## 2.3 网络
+## 网络
 
 电脑直连服务器,设置静态 IP,通过 SSH 进行登录
 
@@ -50,11 +50,11 @@
 
 ---
 
-# 三、过程
+# 过程
 
-## 3.1 镜像制作
+## 镜像制作
 
-1. 选择镜像
+- 选择镜像
 
 使用 CentOS 的 Minimal 版本,特点是安装完成后没有图形界面,比较轻量,毕竟服务器只有 1G 的内存,能省就省了
 
@@ -62,11 +62,11 @@
 
 ![](http://cdn.hurra.ltd/img/20200531165035.png)
 
-2. 制作启动盘
+- 制作启动盘
 
 各显神通了,博主使用的是软碟通,当然使用大白菜,老毛桃也是可以的
 
-## 3.2 安装系统
+## 安装系统
 
 **注意! 此处为了演示方便,使用了虚拟机再现了安装过程**
 
@@ -92,9 +92,9 @@
 
 ![](http://cdn.hurra.ltd/img/20200531172943.png)
 
-## 3.3 系统设置
+## 系统设置
 
-1. 换源
+- 换源
 
 ```shell
 vi /etc/yum.repos.d/CentOS-Base.repo
@@ -109,7 +109,7 @@ vi /etc/yum.repos.d/CentOS-Base.repo
 
 ![](http://cdn.hurra.ltd/img/20200531180352.png)
 
-2. 配置 SSH
+- 配置 SSH
 
 开放端口,设置允许密码连接,允许 root 用户连接
 
@@ -121,7 +121,7 @@ vi /etc/yum.repos.d/CentOS-Base.repo
 systemctl start sshd.service
 ```
 
-3. 设置静态 IP
+- 设置静态 IP
 
 这里主备将服务器的 ip 设为 192.168.3.20
 
@@ -130,7 +130,7 @@ systemctl start sshd.service
 ![](http://cdn.hurra.ltd/img/20200531180759.png)
 服务器的 IP 地址,子网掩码,默认网关,服务器的 ip 应该设置为**192.168.3.XXX**,`必须和宿主机在一个网段`
 
-查看服务器的网卡
+- 查看服务器的网卡
 
 ```
 ifconfig
@@ -140,22 +140,23 @@ ifconfig
 
 这里的网卡名为 ens33,各位操作时请以实际网卡名为准
 
-修改配置文件
+- 修改配置文件
 
-```s
+```sh
 /etc/sysconfig/network-scripts/ifcfg-ens33
 ```
 
-修改对应内容与以下一致
+- 修改对应内容与以下一致
 
-```s
+```sh
 BOOTPROTO="static"
+
 ONBOOT="yes
 ```
 
-新增以下内容
+- 新增以下内容
 
-```shell
+```sh
 #IP地址前三位要和自己宿主机的一养
 IPADDR=192.168.3.20
 
@@ -170,11 +171,11 @@ DNS1=192.168.3.1
 DNS2=8.8.8.8
 ```
 
-修改示意图
+- 修改示意图
 
 ![](http://cdn.hurra.ltd/img/20200531183752.png)
 
-重启网络
+- 重启网络
 
 ```s
 service network restart
@@ -207,24 +208,25 @@ service network restart
 
 ![](http://cdn.hurra.ltd/img/20200531195515.png)
 
-# 五、优化
+# 优化
 
-1. 设置 ssh 开机自启
+- 设置 ssh 开机自启
 
 ```sh
 systemctl enable sshd
 ```
 
-2. 开机自动登录  
-   此台服务器没外接显示器,所以希望开机后自动以 root 用户登录,这样我就能以 SSH 登录它了
+- 开机自动登录  
 
-打开配置文件
+希望开机后自动以 root 用户登录,这样就能以 SSH 登录它了
+
+- 打开配置文件
 
 ```s
 vim /etc/systemd/system/getty.target.wants/getty@tty1.service
 ```
 
-修改对应内容如下
+- 修改对应内容如下
 
 ```s
 [Service]
@@ -232,13 +234,13 @@ vim /etc/systemd/system/getty.target.wants/getty@tty1.service
 ExecStart=-/sbin/agetty --autologin root --noclear %I
 ```
 
-重启
+- 重启
 
 ```s
 reboot
 ```
 
-# 六、成果
+# 成果
 
 ![](http://cdn.hurra.ltd/img/20200531200411.png)
 

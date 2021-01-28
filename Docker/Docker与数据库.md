@@ -1,16 +1,14 @@
-## 目录
+<!--
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: Li Yuanhao
+ * @Email: dalao_li@163.com
+ * @Date: 2021-01-16 17:59:34
+ * @LastEditors: Li Yuanhao
+ * @LastEditTime: 2021-01-28 22:22:37
+-->
 
-- [一、Docker 搭建 MySQL](#一docker搭建mysql)
-  - [1. 获取镜像](#1-获取镜像)
-  - [2. 运行镜像](#2-运行镜像)
-    - [2.1 不映射目录](#21-不映射目录)
-    - [2.2 映射目录](#22-映射目录)
-  - [3. 远程连接](#3-远程连接)
-  - [4.常见问题](#4常见问题)
-    - [4.1 中文乱码](#41-中文乱码)
-    - [4.2 降低占用内存](#42-降低占用内存)
-
-# 一、Docker 搭建 MySQL
+# Docker 搭建 MySQL
 
 ## 1. 获取镜像
 
@@ -38,7 +36,7 @@ docker run -itd -p  主机端口:3306 -e MYSQL_ROOT_PASSWORD= 密码  镜像id
 ### 2.2 映射目录
 
 ```
-docker run -itd -p 主机端口:3306 -v 宿主机目录:/var/lib/mysql -e MYSQL_ROOT_PASSWORD= 密码  镜像id
+docker run -itd -p 3306:3306 -v $PWD/mysql:/var/lib/mysql -e MYSQL_ROOT_PASSWORD= 123  mysql:5.6
 ```
 
 ![](http://cdn.hurra.ltd/img/20200515201929.png)
@@ -55,7 +53,6 @@ docker run -itd -p 主机端口:3306 -v 宿主机目录:/var/lib/mysql -e MYSQL_
 
 ```shell
 docker exec -it <容器id/容器名> bash
-
 ```
 
 登录

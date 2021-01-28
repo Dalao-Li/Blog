@@ -1,4 +1,14 @@
-> - github 地址 : `https://github.com/Dalao-Li/RegisterSystem-Django.git`
+<!--
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: Li Yuanhao
+ * @Email: dalao_li@163.com
+ * @Date: 2021-01-16 17:59:35
+ * @LastEditors: Li Yuanhao
+ * @LastEditTime: 2021-01-28 22:31:09
+-->
+
+- github 地址 : `https://github.com/Dalao-Li/RegisterSystem-Django.git`
 
 ---
 
@@ -71,24 +81,10 @@ from django.db import models
 # Create your models here.
 
 class Reocrd(models.Model):
-    num = models.CharField(
-        verbose_name='学号',
-        help_text='请输入学号',
-        max_length=8
-    )
-    name = models.CharField(
-        verbose_name='姓名',
-        help_text='请输入姓名',
-        max_length=5
-    )
-    temperature = models.FloatField(
-        verbose_name='体温',
-        help_text='请输入体温',
-    )
-    date = models.DateTimeField(
-        verbose_name='日期',
-        help_text='请选择日期与时间',
-    )
+    num = models.CharField(verbose_name='学号', max_length=8)
+    name = models.CharField(verbose_name='姓名',max_length=5)
+    temperature = models.FloatField(verbose_name='体温')
+    date = models.DateTimeField(verbose_name='日期')
 
     def __str__(self):
         return self.num
@@ -464,7 +460,7 @@ urlpatterns = [
 
 本项目采用 Docker + Gunicorn 方式进行部署
 
-部署后可能会出现无法访问静态文件的情况,因此编辑主目录下 urls.py 文件,新增:
+- 部署后可能会出现无法访问静态文件的情况,因此编辑主目录下 urls.py 文件,新增:
 
 ```py
 from django.contrib import admin
@@ -473,17 +469,13 @@ from django.urls import path,include
 # 新增
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    # 注册应用app的路由
-    path('app/',include('app.urls')),
-]
+......
 
 # 新增
 urlpatterns += staticfiles_urlpatterns()
 ```
 
-主目录下新建 gunicorn_config.py 文件:
+- 主目录下新建 gunicorn_config.py 文件:
 
 ```py
 # 定义同时开启的处理请求的进程数量,根据网站流量适当调整
@@ -499,7 +491,7 @@ bind = "0.0.0.0:8000"
 timeout = 30
 ```
 
-生成项目依赖文件
+- 生成项目依赖文件
 
 ```py
 pip freeze > requirements.txt
@@ -521,7 +513,7 @@ zope.interface==5.1.0
 
 ---
 
-编写 Dockerfile
+- 编写 Dockerfile
 
 ```docker
 #所采用的基础镜像
@@ -548,7 +540,6 @@ CMD ["gunicorn", "demo.wsgi", "-c", "gunicorn_config.py"]
 
 将文件夹上传至服务器
 
-进入 demo 目录
 
 ```s
 docker build -t mydemo .
@@ -559,7 +550,7 @@ docker build -t mydemo .
 运行容器,查看结果
 
 ```
-docker run -itd -p 80:8000 mydemo
+docker run -itd -p 80:8000 --name django_test mydemo
 ```
 
 ![](http://cdn.hurra.ltd/img/20200806190407.png)

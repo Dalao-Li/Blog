@@ -1,4 +1,4 @@
-# 一、--link 命令
+# --link 命令(不建议采用)
 
 - 容器互 ping
 
@@ -80,7 +80,7 @@ mysql -h db -u root -p123
 
 ![](http://cdn.hurra.ltd/img/20200726152540.png)
 
-# 二、网络互联
+# 网络互联
 
 查看当前 docker 可使用网络
 

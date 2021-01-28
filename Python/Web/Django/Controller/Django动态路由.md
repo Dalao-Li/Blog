@@ -1,3 +1,12 @@
+<!--
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: Li Yuanhao
+ * @Email: dalao_li@163.com
+ * @Date: 2021-01-16 17:59:35
+ * @LastEditors: Li Yuanhao
+ * @LastEditTime: 2021-01-28 22:34:07
+-->
 # 正则匹配
 
 ## 单关键字
@@ -49,7 +58,8 @@ urlpatterns = [
 ]
 ```
 
-- 关键字传参:前面的 w+传给 v1,后面的 w+传给 v2
+- 关键字传参:  
+  前面的 w+传给 v1,后面的 w+传给 v2
   此时可以匹配`127.0.0.1:8000/dis/<字符1>/<字符2>`这类 url,并且字符 1 将传给 dis 函数的 v1 参数;字符 2 将传给 dis 函数的 v2 参数
 
 ---

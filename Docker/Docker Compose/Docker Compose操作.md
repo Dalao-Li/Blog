@@ -6,7 +6,7 @@
  * @QQ: 1061299112
  * @Date: 2021-01-24 18:40:12
  * @LastEditors: Li Yuanhao
- * @LastEditTime: 2021-01-25 21:41:33
+ * @LastEditTime: 2021-01-28 22:23:50
 -->
 
 
@@ -41,15 +41,11 @@ services:
         container_name:db_app
         environment:
             MYSQL_ROOT_PASSWORD:123
-
     app:
         build: .
         container_name:ubuntu_app
         links:
             -db
-
-
-
 ```
 
 ## 例 2
@@ -95,12 +91,13 @@ CMD ["python", "app.py"]
 
 ```yml
 version: "3"
+
 services:
+
   web:
     build: .
     ports:
       - "5000:5000"
-
   redis:
     image: "redis:alpine"
 ```
