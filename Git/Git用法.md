@@ -1,10 +1,8 @@
-## Git 命令流程
+# Git 命令流程
 
 ![](http://cdn.hurra.ltd/img/20200720231600.png)
 
 ## 配置
-
-- 设置
 
 ```sh
 # 配置用户名
@@ -16,11 +14,11 @@ git config --global user.email "<email>"
 
 - 建立公钥
 
-```
+```shell
 ssh-keygen -t rsa -C "<邮箱>"
 ```
 
-公钥位置 : `.ssh/id_rsa.pub`
+> 公钥位置 : `.ssh/id_rsa.pub`
 
 ## 建立本地仓库
 

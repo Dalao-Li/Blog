@@ -28,7 +28,7 @@ BeautifulSoup4 将 HTML 文档转换成的树形结构,个节点都是 python �
 
 # 过程
 
-示例文件 index.html
+- index.html
 
 ```html
 <!DOCTYPE html>
@@ -66,7 +66,7 @@ BeautifulSoup4 将 HTML 文档转换成的树形结构,个节点都是 python �
 </html>
 ```
 
-Flask 应用代码
+- Flask
 
 ```py
 from flask import Flask,render_template
@@ -82,7 +82,7 @@ if __name__ == '__main__':
 
 ```
 
-获取指定 html
+- 获取指定 html
 
 ```py
 from bs4 import BeautifulSoup
@@ -177,7 +177,7 @@ for j in soup.ul.children:
     print(j.string)
 ```
 
-## ![](http://cdn.hurra.ltd/img/20200727234942.png)
+![](http://cdn.hurra.ltd/img/20200727234942.png)
 
 ## 2. 标准选择器
 
@@ -190,10 +190,13 @@ from bs4 import BeautifulSoup
 
 html = get_html('http://127.0.0.1:5000')
 soup = BeautifulSoup(html, 'lxml')
+
 # 获取id为s1的标签
 print(soup.find(id = 's1'))
+
 # 获取class为list的标签
 print(soup.find(class_ = 'list'))
+
 # 获取name为demo的标签
 print(soup.find(name='demo'))
 
@@ -209,7 +212,9 @@ find_all 返回一个由 bs4.element.Tag 对象组成的 list,不论找到或是
 from bs4 import BeautifulSoup
 
 html = get_html('http://127.0.0.1:5000')
+
 soup = BeautifulSoup(html, 'lxml')
+
 print(soup.find_all('p'))
 ```
 
@@ -223,7 +228,9 @@ print(soup.find_all('p'))
 from bs4 import BeautifulSoup
 
 html = get_html('http://127.0.0.1:5000')
+
 soup = BeautifulSoup(html, 'lxml')
+
 for i in soup.find_all('a'):
     print(i.get('href'))
 ```

@@ -1,4 +1,15 @@
-新建 Django 项目 demo,建立一个应用 app
+<!--
+ * @Description: 
+ * @Version: 1.0
+ * @Author: Li Yuanhao
+ * @Email: dalao_li@163.com
+ * @Date: 2021-01-16 17:59:35
+ * @LastEditors: Li Yuanhao
+ * @LastEditTime: 2021-01-31 21:35:38
+-->
+<!-- TOC -->autoauto- [连接](#连接)auto- [建表](#建表)auto    - [字段](#字段)auto    - [字段参数](#字段参数)auto- [操作](#操作)auto    - [管理](#管理)auto    - [新增](#新增)auto    - [查询](#查询)auto    - [修改](#修改)auto    - [删除](#删除)autoauto<!-- /TOC -->
+
+建立一个应用 app
 
 ```py
 python3 manage.py startapp app
@@ -6,7 +17,7 @@ python3 manage.py startapp app
 
 ![](http://cdn.hurra.ltd/img/20200802134308.png)
 
-# 一、连接
+# 连接
 
 编辑主目录下 settings.py 文件,找到 DATABASES
 
@@ -35,7 +46,7 @@ DATABASES = {
 }
 ```
 
-# 二、建表
+# 建表
 
 编辑 app/models.py
 
@@ -102,7 +113,7 @@ python manage.py migrate
 
 ![](http://cdn.hurra.ltd/img/20200802233105.png)
 
-# 三、操作
+# 操作
 
 ## 管理
 

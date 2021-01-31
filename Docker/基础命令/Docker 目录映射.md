@@ -1,16 +1,32 @@
+<!--
+ * @Description: 
+ * @Version: 1.0
+ * @Author: Li Yuanhao
+ * @Email: dalao_li@163.com
+ * @Date: 2021-01-16 17:59:34
+ * @LastEditors: Li Yuanhao
+ * @LastEditTime: 2021-01-31 21:51:52
+-->
 
 
 # 目录挂载
 
-- 容器目录不可以为相对路径
+
+## 命令
+
+> -v 宿主机目录：容器目录
+
+## 注意
+
+- 容器目录只能为绝对路径
 
 > 绝对路径,必须以下斜线“/”开头
 
-将宿主机 python 目录下的 myapp 目录映射到容器内的/usr/src/myapp 目录
+将宿主机 当前目录下的/myapp目录映射到容器内/usr/src/myapp 目录
 
 ![](http://cdn.hurra.ltd/img/20210109220453.png)
 
-- 宿主机目录如果不存在,则会自动生成
+- 宿主机目录若不存在会自动生成
 
 将宿主机 demo 目录(不存在) 映射到容器内/demo 目录
 

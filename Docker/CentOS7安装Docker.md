@@ -5,8 +5,11 @@
  * @Email: dalao_li@163.com
  * @Date: 2021-01-16 17:59:34
  * @LastEditors: Li Yuanhao
- * @LastEditTime: 2021-01-28 22:16:01
+ * @LastEditTime: 2021-01-31 21:57:00
 -->
+
+# Centos7 安装Docker
+
 
 # 一键脚本
 
@@ -29,20 +32,20 @@ systemctl enable docker
 echo "------Docker安装成功------"
 
 # 换源
-echo -e "{\n \"registry-mirrors\": [\"https://docker.mirrors.ustc.edu.cn\"] \n}" >> /etc/docker/daemon.json
+echo -e "{\n \"registry-mirrors\": [\"https://docker.mirrors.ustc.edu.cn\"] \n}" > /etc/docker/daemon.json
 
 systemctl restart docker
 
 echo "------已经换源至中科大的docker源------"
 ```
 
-# 1. 更新 yum 源
+# 更新 yum 源
 
 ```shell
 yum update
 ```
 
-# 2. 安装依赖
+# 安装依赖
 
 ```shell
 yum install -y yum-utils
@@ -52,7 +55,7 @@ yum install -y device-mapper-persistent-data
 yum install -y lvm2
 ```
 
-# 3. 设置 yum 源
+# 设置 yum 源
 
 此处使用阿里源
 
@@ -70,13 +73,13 @@ yum list docker-ce --showduplicates | sort -r
 
 ![](http://cdn.hurra.ltd/img/20200623102007.png)
 
-# 4. 安装
+# 安装
 
 ```shell
 yum install docker-ce-18.03.1.ce
 ```
 
-# 5. 启动
+# 启动
 
 ```shell
 systemctl start docker
@@ -87,17 +90,15 @@ systemctl enable docker
 
 查看 Docker 版本
 
-```
+```shell
 docker info
 ```
 
 ![](http://cdn.hurra.ltd/img/20200623102258.png)
 
-# 6. 换源
+# 换源
 
-```shell
-vim /etc/docker/daemon.json
-```
+编辑/etc/docker/daemon.json文件
 
 添加以下内容
 

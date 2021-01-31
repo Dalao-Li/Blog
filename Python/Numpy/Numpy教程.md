@@ -1,3 +1,12 @@
+<!--
+ * @Description: 
+ * @Version: 1.0
+ * @Author: Li Yuanhao
+ * @Email: dalao_li@163.com
+ * @Date: 2021-01-16 17:59:34
+ * @LastEditors: Li Yuanhao
+ * @LastEditTime: 2021-01-31 22:18:51
+-->
 # Ndarray 对象
 
 N 维数组对象 ndarray
@@ -19,12 +28,12 @@ numpy.array(object, dtype = None, copy = True, order = None, subok = False, ndmi
 | subok  | 默认返回一个与基类类型一致的                            | 数组 |
 | ndmin  | 指定生成数组的最小维度                                  |
 
-例:
 
 - 单维度
 
 ```py
 import numpy as np
+
 a = np.array([1,2,3,4,5,6])
 print(a)
 ```
@@ -35,6 +44,7 @@ print(a)
 
 ```py
 import numpy as np
+
 a = np.array([[1, 2, 3],[4, 5, 6]])
 print(a)
 ```
@@ -46,6 +56,7 @@ print(a)
 
 ```py
 import numpy as np
+
 a = np.array([1, 2, 3, 4, 5], ndmin =  2)
 print (a)
 ```
@@ -56,6 +67,7 @@ print (a)
 
 ```py
 import numpy as np
+
 a = np.array([1,  2,  3], dtype = complex)
 print (a)
 ```

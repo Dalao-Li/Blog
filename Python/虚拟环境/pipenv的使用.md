@@ -5,10 +5,10 @@
  * @Email: dalao_li@163.com
  * @Date: 2021-01-22 21:58:02
  * @LastEditors: Li Yuanhao
- * @LastEditTime: 2021-01-26 16:27:01
+ * @LastEditTime: 2021-01-31 22:09:10
 -->
 
-# 概念
+# Pipenv概念
 
 Python 依赖管理工具,pip 和 virtualenv 的组合体,基于 Pipfile 的依赖记录方式,用于替代 requirements.txt.
 

@@ -1,7 +1,17 @@
+
+###
+ # @Description: 
+ # @Version: 1.0
+ # @Author: Li Yuanhao
+ # @Email: dalao_li@163.com
+ # @Date: 2021-01-16 17:59:34
+ # @LastEditors: Li Yuanhao
+ # @LastEditTime: 2021-01-31 14:34:09
+### 
 #!/bin/sh
 
 # 安装依赖
-yum -y install gcc zlib* libffi-devel
+yum -y install gcc zlib* libffi-devel wget
 
 wget https://www.python.org/ftp/python/3.8.0/Python-3.8.0.tar.xz
 

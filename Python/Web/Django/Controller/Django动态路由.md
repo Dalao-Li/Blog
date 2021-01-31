@@ -5,20 +5,20 @@
  * @Email: dalao_li@163.com
  * @Date: 2021-01-16 17:59:35
  * @LastEditors: Li Yuanhao
- * @LastEditTime: 2021-01-30 13:50:22
+ * @LastEditTime: 2021-01-31 22:22:20
 -->
 # 正则匹配
 
 ## 单关键字
 
-views.py 文件
+views.py文件
 
 ```py
 def dis(request,value):
     return HttpResponse(value)
 ```
 
-urls.py 文件
+urls.py文件
 
 ```py
 urlpatterns = [
@@ -26,12 +26,12 @@ urlpatterns = [
 ]
 ```
 
-- `\w` :匹配字母、数字、下划线,等价于[A-Za-z0-9_]
-- `+`:匹配前面的子表达式一次或多次
-- `$`:表示结尾
+>- `\w` :匹配字母、数字、下划线,等价于[A-Za-z0-9_]
+>- `+`:匹配前面的子表达式一次或多次
+>- `$`:表示结尾
   此时可以匹配`127.0.0.1:8000/dis/<字符>`这类 url,并且<字符>部分的值将作为 dis 函数的第二个参数
 
-实现效果
+
 ![](http://cdn.hurra.ltd/img/20200903085713.png)
 
 ![](http://cdn.hurra.ltd/img/20200903085600.png)
@@ -40,7 +40,7 @@ urlpatterns = [
 
 ## 多关键字
 
-views.py 文件
+views.py文件
 
 ```py
 from django.http import HttpResponse
@@ -50,7 +50,7 @@ def dis(request,v1,v2):
     return HttpResponse(res)
 ```
 
-urls.py 文件
+urls.py文件
 
 ```py
 urlpatterns = [
@@ -62,9 +62,9 @@ urlpatterns = [
   前面的 w+传给 v1,后面的 w+传给 v2
   此时可以匹配`127.0.0.1:8000/dis/<字符1>/<字符2>`这类 url,并且字符 1 将传给 dis 函数的 v1 参数;字符 2 将传给 dis 函数的 v2 参数
 
----
-
 # 反射机制
+
+> 反射:通过输入的函数名调用函数
 
 ```py
 urlpatterns = [
@@ -72,8 +72,8 @@ urlpatterns = [
 ]
 ```
 
-反射:通过输入的函数名调用函数
 
+views.py代码
 ```py
 from django.http import HttpResponse
 
@@ -94,16 +94,14 @@ def goodbye_world(request):
 
 # 删除模板中硬编码的URLs
 
-在polls/index.html文件中，还有一部分硬编码存在，也就是href里的“/polls/”部分：
+在polls/index.html文件中，还有一部分硬编码即href里的“/polls/”部分：
 
 ```html
 <li><a href="/polls/{{ question.id }}/">{{ question.question_text }}</a></li>
 ```
-它对于代码修改非常不利。设想如你在urls.py文件里修改了路由表达式，那么所有的模板中对这个url的引用都需要修改
+它对于代码修改非常不利,前面给urls定义了一个name别名，可以用它来解决这个问题,具体代码如下：
 
-前面给urls定义了一个name别名，可以用它来解决这个问题,具体代码如下：
-
-```shell
+```html
 <li><a href="{% url 'detail' question.id %}">{{ question.question_text }}</a></li>
 ```
 Django会在polls.urls文件中查找name='detail'的路由，具体的就是下面这行：

@@ -4,9 +4,9 @@
 > - IDE : Pycharm
 > - 测试工具 : Postman
 
-# 一、POST 请求
+# POST 请求
 
-## 1.1 普通 JSON
+## 普通 JSON
 
 测试 JSON 文件
 
@@ -29,7 +29,7 @@ def hello_world():
     # 将数据转换为JSON格式
     print(request.json)
 
-    #将接收的数据转换为JSON格式
+    # 将接收的数据转换为python字典
     data = json.loads(request.data)
     print(data)
 
@@ -42,7 +42,7 @@ def hello_world():
 
 ---
 
-## 1.2 表格
+## 表格
 
 ```py
 @app.route('/postApi',methods=['POST'])
@@ -57,6 +57,7 @@ def hello_world():
     name = request.form.get('name')
     pwd =  request.form.get('pwd')
     age =  request.form.get('age')
+
     print('用户名:%s 密码:%s  年龄:%s'%(name,pwd,age))
 
     return {'result':200}
@@ -68,7 +69,7 @@ def hello_world():
 
 ---
 
-## 1.3 文件
+## 文件
 
 ```py
 @app.route('/postApi', methods=['POST'])
@@ -96,9 +97,9 @@ def hello_world():
 
 > - `注意 : POST请求无法通过request.args.get(<param>)方法获取数据`
 
-# 二、GET 请求
+# GET 请求
 
-## 2.1 带参数
+## 带参数
 
 ```py
 @app.route('/getApi/', methods=['GET'])

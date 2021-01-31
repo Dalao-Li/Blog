@@ -1,10 +1,19 @@
-# 一、概念
+<!--
+ * @Description: 
+ * @Version: 1.0
+ * @Author: Li Yuanhao
+ * @Email: dalao_li@163.com
+ * @Date: 2021-01-16 17:59:35
+ * @LastEditors: Li Yuanhao
+ * @LastEditTime: 2021-01-31 22:17:56
+-->
+# 概念
 
 简单说就是可以在不影响已经写好的函数结构上,给函数添加额外功能的另一种函数
 
-# 二、示例
+# 示例
 
-1. 显示每个函数的运行时间
+- 显示每个函数的运行时间
 
 ```py
 import time
@@ -33,7 +42,7 @@ if __name__ == "__main__":
 
 ---
 
-2. 显示当前运行函数的函数名
+- 显示当前运行函数的函数名
 
 ```py
 # 装饰器

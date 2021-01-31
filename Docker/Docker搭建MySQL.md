@@ -5,25 +5,25 @@
  * @Email: dalao_li@163.com
  * @Date: 2021-01-16 17:59:34
  * @LastEditors: Li Yuanhao
- * @LastEditTime: 2021-01-28 22:22:37
+ * @LastEditTime: 2021-01-31 22:06:32
 -->
 
 # Docker 搭建 MySQL
 
-## 1. 获取镜像
+# 获取镜像
 
-```s
+```shell
 docker pull mysql:5.7
 ```
 
 ![](http://cdn.hurra.ltd/img/20200515200648.png)
 
-## 2. 运行镜像
+# 运行镜像
 
-### 2.1 不映射目录
+## 不映射目录
 
-```
-docker run -itd -p  主机端口:3306 -e MYSQL_ROOT_PASSWORD= 密码  镜像id
+```shell
+docker run -itd -p  3306:3306 -e MYSQL_ROOT_PASSWORD=123456  mysql:5.7
 ```
 
 ![](http://cdn.hurra.ltd/img/20200515200803.png)
@@ -33,37 +33,31 @@ docker run -itd -p  主机端口:3306 -e MYSQL_ROOT_PASSWORD= 密码  镜像id
 
 不映射目录的情况下数据不能持久化保存,容器没了就得跑路了
 
-### 2.2 映射目录
+## 映射目录
 
-```
+```shell
 docker run -itd -p 3306:3306 -v $PWD/mysql:/var/lib/mysql -e MYSQL_ROOT_PASSWORD= 123  mysql:5.6
 ```
 
 ![](http://cdn.hurra.ltd/img/20200515201929.png)
 
-这样容器内的 **/var/lib/mysql** 目录映射到了宿主机的**D:/volume/mysql**目录上,容器没了数据还在
+容器内的 **/var/lib/mysql** 目录映射到了宿主机的**D:/volume/mysql**目录上,容器没了数据还在
 
 ![](http://cdn.hurra.ltd/img/20200515202929.png)
 
 ---
 
-## 3. 远程连接
+## 远程连接
 
-进入容器
+- 进入容器,登录
 
 ```shell
-docker exec -it <容器id/容器名> bash
-```
-
-登录
-
-```s
 mysql -u root -p
 ```
 
 ![](http://cdn.hurra.ltd/img/20200515202434.png)
 
-允许远程登录
+- 允许远程登录
 
 ```shell
 grant all privileges on *.* to 'root'@'%' identified by '刚设置的MYSQL密码';
@@ -81,9 +75,9 @@ flush privileges;
 
 ![](http://cdn.hurra.ltd/img/20200515234144.png)
 
-## 4.常见问题
+# 常见问题
 
-### 4.1 中文乱码
+## 中文乱码
 
 进入容器内,执行
 
@@ -93,17 +87,11 @@ echo "character-set-server=utf8" >> /etc/mysql/mysql.conf.d/mysqld.cnf
 service mysql restart
 ```
 
-### 4.2 降低占用内存
+## 降低占用内存
 
-进入容器内
+容器内编辑 /etc/mysql/mysql.conf.d/mysqld.cnf,追加:
 
 ```shell
-vim /etc/mysql/mysql.conf.d/mysqld.cnf
-```
-
-在 mysqld.cnf 最后追加:
-
-```s
 performance_schema_max_table_instances=400
 
 table_definition_cache=400

@@ -1,14 +1,8 @@
-# 环境
-
-> - 系统环境 : Windows 10 2004
-> - IDE : Pycharm
-> - Python: Python 3.8
 
 # 文件路径问题
 
-> 在**Windows**中因为 " \ "被当成了转义字符,会导致路径找不到
->
-> 例如 : C:\Users\xxx\Desktop\x.txt 需改写为以下三种形式之一
+在**Windows**中因为 " \ "被当成了转义字符,会导致路径找不到  
+例如 : C:\Users\xxx\Desktop\x.txt 需改写为以下三种形式之一
 >
 > - r'C:\Users\xxx\Desktop\x.txt'
 >
@@ -16,9 +10,9 @@
 >
 > - 'C:/Users/xxx/Desktop/x.txt'
 
-# 一、 创建文件
+# 创建文件
 
-## 1.1 当前路径
+## 当前路径
 
 ```py
 import os
@@ -27,11 +21,14 @@ def create_file(file_name):
     # 获取当前路径
     path = os.getcwd()
     # 获得文件的路径
+
     file_path = os.path.join(path,file_name)
+
     if os.path.exists(file_path):
         print('该文件已经存在')
         return
     f = open(file_path,'w',encoding='utf-8')
+
     if os.path.exists(file_path):
         f.close()
         print('%s 文件创建成功'%file_name)
@@ -42,13 +39,13 @@ def create_file(file_name):
 
 ![](http://cdn.hurra.ltd/img/20200628230114.png)
 
-## 1.2 指定路径
+## 指定路径
 
-仅需将 3.1.1 中的 path 变量的值换为指定的路径值即可,需注意文件路径的问题
+仅需将 当前路径代码 中的 path 变量的值换为指定的路径值即可,需注意文件路径的问题
 
-# 二、 修改文件
+# 修改文件
 
-## 2.1 写入
+## 写入
 
 ```py
 def write_file(file_name):
@@ -64,7 +61,7 @@ def write_file(file_name):
 
 ![](http://cdn.hurra.ltd/img/20200628231431.png)
 
-## 2.2 追加
+## 追加
 
 ```py
 def add_file_data(file_name):
@@ -84,11 +81,11 @@ def add_file_data(file_name):
 
 ![](http://cdn.hurra.ltd/img/20200628232636.png)
 
-## 2.3 覆盖
+## 覆盖
 
 与 3.2.1 写入文件内容的代码一致
 
-## 2.4 重命名
+## 重命名
 
 ```py
 def rename_file(old_name,new_name):
@@ -102,9 +99,9 @@ def rename_file(old_name,new_name):
 
 ![](http://cdn.hurra.ltd/img/20200628233529.png)
 
-# 三、 读取文件
+# 读取文件
 
-## 3.1 整体读取
+## 整体读取
 
 ```py
 def read_file(file_name):
@@ -120,9 +117,9 @@ def read_file(file_name):
 
 ![](http://cdn.hurra.ltd/img/20200628234541.png)
 
-## 3.2 逐行读取
+## 逐行读取
 
-修改 3.3.1 代码为
+修改 整体读取中的代码为
 
 ```py
 with open(file_path, 'r', encoding='utf-8') as f:
@@ -131,9 +128,9 @@ with open(file_path, 'r', encoding='utf-8') as f:
         print(i)
 ```
 
-## 3.3 移动/复制
+## 移动/复制
 
-移动文件
+- 移动文件
 
 ```py
 import os
@@ -157,14 +154,12 @@ if __name__ == '__main__':
 
 ![](http://cdn.hurra.ltd/img/20200629001956.png)
 
-复制文件  
+- 复制文件  
 将 shutil.move()换为 shutil.copyfile()即可
 
-```py
-shutil.copyfile(source_path, target_path)
-```
+> shutil.copyfile(source_path, target_path)
 
-## 3.4 删除
+## 删除
 
 ```py
 def delete_file(source_path):
@@ -174,9 +169,9 @@ def delete_file(source_path):
     os.remove(source_path)
 ```
 
-# 四、读取文件夹
+# 读取文件夹
 
-## 4.1 显示
+## 显示
 
 ```py
 def display_all_files(folder_path):
@@ -189,7 +184,7 @@ def display_all_files(folder_path):
 
 ![](http://cdn.hurra.ltd/img/20200629221116.png)
 
-### 4.2 递归显示
+### 递归显示
 
 ```py
 def display_all_folders(folder_path):

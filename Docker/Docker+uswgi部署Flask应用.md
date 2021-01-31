@@ -5,7 +5,7 @@
 > - Docker: Docker 19.03.12
 > - 内网 IP : 192.168.3.20
 
-# 1. 编写 Flask 应用
+#  Flask 应用
 
 目录 demo,新建 app.py 文件
 
@@ -22,11 +22,11 @@ if __name__ == '__main__':
 	app.run()
 ```
 
-# 2. uwsgi 配置文件
+# uwsgi 配置文件
 
 新建 config.ini 文件:
 
-```sh
+```ini
 [uwsgi]
 # 启动主进程,来管理其他进程
 master = true
@@ -50,7 +50,7 @@ threads = 8
 buffer-size = 32768
 ```
 
-# 3. 编写 Dockerfile
+# Dockerfile
 
 ```docker
 # 所采用的基础镜像
@@ -72,7 +72,7 @@ COPY . .
 CMD ["uwsgi","config.ini"]
 ```
 
-# 4. 构建镜像
+# 构建镜像
 
 进入 demo 目录,执行:
 
@@ -85,7 +85,7 @@ docker build -t mydemo .
 
 ![](http://cdn.hurra.ltd/img/20200712113859.png)
 
-# 5. 启动镜像
+# 建立容器
 
 ```shell
 docker run -itd -p 80:8080 --name test mydemo
@@ -99,6 +99,6 @@ docker run -itd -p 80:8080 --name test mydemo
 
 - Flask 应用的部署方式通常采用 gunicorn 或 uwsgi 两种方式
 
--  `目前 windows 尚不支持 uwsgi 包的使用`
+-  `目前 windows平台 尚不支持 uwsgi 包的使用`
 
 ![](http://cdn.hurra.ltd/img/收款码.png)

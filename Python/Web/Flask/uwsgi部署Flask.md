@@ -5,16 +5,10 @@
  * @Email: dalao_li@163.com
  * @Date: 2021-01-16 17:59:35
  * @LastEditors: Li Yuanhao
- * @LastEditTime: 2021-01-28 22:43:38
+ * @LastEditTime: 2021-01-31 22:24:46
 -->
 
-# 环境
-
-> - 实验环境 : Ubuntu20.04
-> - Python 版本 : Python3.7
-
-
-# 新建文件
+# Flask
 
 ```py
 from flask import Flask
@@ -28,7 +22,7 @@ if __name__ == '__main__':
 	app.run()
 ```
 
-运行 app.py,访问http://127.0.0.1:5000
+运行
 
 ```py
 python app.py
@@ -37,15 +31,15 @@ python app.py
 ![](http://cdn.hurra.ltd/img/20200711112554.png)
 ![](http://cdn.hurra.ltd/img/20200711112626.png)
 
-# 安装 uswgi
+# uswgi.ini
 
-```
+```py
 pip install uwsgi
 ```
 
 ![](http://cdn.hurra.ltd/img/20200711123350.png)
 
-新建 test.py,写入:
+新建 test.py文件:
 
 ```py
 def application(env, start_response):
@@ -53,7 +47,7 @@ def application(env, start_response):
     return [b"Hello World"]
 ```
 
-运行以下命令,并访问http://127.0.0.1:8000
+运行以下命令,并访问http://127.0.0.1:8080
 
 ```py
 uwsgi --http :8080 --plugin python --wsgi-file test.py
