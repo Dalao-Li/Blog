@@ -1,3 +1,12 @@
+<!--
+ * @Description: 
+ * @Version: 1.0
+ * @Author: Li Yuanhao
+ * @Email: dalao_li@163.com
+ * @Date: 2021-01-20 11:26:41
+ * @LastEditors: Li Yuanhao
+ * @LastEditTime: 2021-01-31 10:38:02
+-->
 # 创建
 
 VS2019 选择创建动态链接库(DLL)
@@ -23,10 +32,10 @@ DLLEXPORT void hello();
 #endif //PCH_H
 ```
 
-> `#define DLLEXPORT extern "C" __declspec(dllexport)`
+- `#define DLLEXPORT extern "C" __declspec(dllexport)`
 >
-> - windows 下需要使用\_\_declspec(dllexport)的声明来说明这个函数是动态库导出
-> - extern "C"声明避免编译器对函数名称进行 name mangling,这对于使用 C++来编写 DLL/SO 是必须的
+> windows 下需要使用\_\_declspec(dllexport)的声明来说明这个函数是动态库导出  
+> extern "C"声明避免编译器对函数名称进行 name mangling,这对于使用 C++来编写 DLL/SO 是必须的
 
 - pch.cpp
 

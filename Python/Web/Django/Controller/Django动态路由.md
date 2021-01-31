@@ -5,7 +5,7 @@
  * @Email: dalao_li@163.com
  * @Date: 2021-01-16 17:59:35
  * @LastEditors: Li Yuanhao
- * @LastEditTime: 2021-01-28 22:34:07
+ * @LastEditTime: 2021-01-30 13:50:22
 -->
 # 正则匹配
 
@@ -91,5 +91,33 @@ def goodbye_world(request):
 此时输入`http:127.0.0.1:8000/dis/hello_world`时,会自动调用 hello_world()函数
 
 ![](http://cdn.hurra.ltd/img/20200903103754.png)
+
+# 删除模板中硬编码的URLs
+
+在polls/index.html文件中，还有一部分硬编码存在，也就是href里的“/polls/”部分：
+
+```html
+<li><a href="/polls/{{ question.id }}/">{{ question.question_text }}</a></li>
+```
+它对于代码修改非常不利。设想如你在urls.py文件里修改了路由表达式，那么所有的模板中对这个url的引用都需要修改
+
+前面给urls定义了一个name别名，可以用它来解决这个问题,具体代码如下：
+
+```shell
+<li><a href="{% url 'detail' question.id %}">{{ question.question_text }}</a></li>
+```
+Django会在polls.urls文件中查找name='detail'的路由，具体的就是下面这行：
+
+```py
+path('<int:question_id>/', views.detail, name='detail'),
+```
+
+举个栗子，如果想将polls的detail视图的URL更换为polls/specifics/12/，那么仅仅只需要在polls/urls.py文件中，将对应的正则表达式改成下面这样的就行了，所
+有模板中对它的引用都会自动修改成新的链接：
+
+```py
+# 添加新的单词'specifics'
+path('specifics/<int:question_id>/', views.detail, name='detail'),
+```
 
 ![](http://cdn.hurra.ltd/img/收款码.png)

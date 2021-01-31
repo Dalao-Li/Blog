@@ -6,13 +6,11 @@
 
 - 设置
 
-```shell
+```sh
 # 配置用户名
-
 git config --global user.name "<name>"
 
 # 配置邮箱
-
 git config --global user.email "<email>"
 ```
 

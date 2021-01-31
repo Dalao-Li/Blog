@@ -1,21 +1,22 @@
-- [一、目的](#一目的)
-- [二、代码](#二代码)
-	- [2.1 结构体定义](#21-结构体定义)
-	- [2.2 结构体初始化](#22-结构体初始化)
-	- [2.3 结构体数组](#23-结构体数组)
-- [三、补充](#三补充)
-	- [3.1 构造函数](#31-构造函数)
-  
+<!--
+ * @Description: 
+ * @Version: 1.0
+ * @Author: Li Yuanhao
+ * @Email: dalao_li@163.com
+ * @Date: 2021-01-16 17:59:34
+ * @LastEditors: Li Yuanhao
+ * @LastEditTime: 2021-01-31 10:38:37
+-->
 
   
-# 一、目的
+# 目的
 定义一个结构体,并设立带参与无参的构造函数  
 
 定义一个结构体数组并完成初始化
 
-# 二、代码
+# 代码
 
-## 2.1 结构体定义
+## 结构体定义
 ```c++
 typedef struct Stu {
     string name;
@@ -27,11 +28,14 @@ typedef struct Stu {
 	Stu(string name,string num,int age):name(name),num(num),age(age) {}
 } Stu;
 ```
-## 2.2 结构体初始化
+
+## 结构体初始化
+
 ```c++
 Stu s("lili","A-1234",18);
 cout<<s.name<<" "<<s.num<<" "<<s.age<<endl;
 ```
+
 运行结果  
 ![](http://cdn.hurra.ltd/img/20200618213943.png)
 
@@ -51,7 +55,7 @@ for(int i = 0;i<3;i++){
 运行结果  
 ![](http://cdn.hurra.ltd/img/20200618214620.png)
 
-# 三、补充
+# 补充
 
 ## 3.1 构造函数
 含参构造函数写出如下形式也是可以的

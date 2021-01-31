@@ -1,4 +1,4 @@
-# 一、编写 dll
+# 编写
 
 建立一个 C Library 项目 hello
 
@@ -13,7 +13,7 @@ ctrl + F9 编译
 右侧生成了 libhello.dll 文件
 ![](http://cdn.hurra.ltd/img/20201028181058.png)
 
-# 二、调用 dll
+# 调用
 
 另建立一个项目 Demo,在其根目录下建立 lib 目录,将上一步生成的 dll 文件拷入
 ![](http://cdn.hurra.ltd/img/20201028182033.png)
@@ -61,7 +61,6 @@ add_executable(Demo main.cpp)
 # 新增;指目标链接的dll文件
 target_link_libraries(Demo libhello.dll)
 ```
-
 编辑 Configurations
 设置 Environment variables ,值为 lib 目录的绝对路径
 
@@ -70,7 +69,7 @@ target_link_libraries(Demo libhello.dll)
 运行
 ![](http://cdn.hurra.ltd/img/20201028184425.png)
 
-# 三、 测试
+# 测试
 
 新建 C Library 项目 num
 
