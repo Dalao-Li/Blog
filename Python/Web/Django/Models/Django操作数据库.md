@@ -5,9 +5,10 @@
  * @Email: dalao_li@163.com
  * @Date: 2021-01-16 17:59:35
  * @LastEditors: Li Yuanhao
- * @LastEditTime: 2021-01-31 21:35:38
+ * @LastEditTime: 2021-02-01 16:50:20
 -->
-<!-- TOC -->autoauto- [连接](#连接)auto- [建表](#建表)auto    - [字段](#字段)auto    - [字段参数](#字段参数)auto- [操作](#操作)auto    - [管理](#管理)auto    - [新增](#新增)auto    - [查询](#查询)auto    - [修改](#修改)auto    - [删除](#删除)autoauto<!-- /TOC -->
+
+# Django 操作数据库
 
 建立一个应用 app
 
@@ -19,7 +20,7 @@ python3 manage.py startapp app
 
 # 连接
 
-编辑主目录下 settings.py 文件,找到 DATABASES
+编辑主目录下 settings.py文件,找到 DATABASES
 
 ![](http://cdn.hurra.ltd/img/20200802140333.png)
 

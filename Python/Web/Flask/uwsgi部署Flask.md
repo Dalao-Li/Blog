@@ -5,11 +5,12 @@
  * @Email: dalao_li@163.com
  * @Date: 2021-01-16 17:59:35
  * @LastEditors: Li Yuanhao
- * @LastEditTime: 2021-01-31 22:24:46
+ * @LastEditTime: 2021-02-02 21:55:41
 -->
 
-# Flask
+# Flask文件
 
+建立app.py文件
 ```py
 from flask import Flask
 app = Flask(__name__)
@@ -31,8 +32,9 @@ python app.py
 ![](http://cdn.hurra.ltd/img/20200711112554.png)
 ![](http://cdn.hurra.ltd/img/20200711112626.png)
 
-# uswgi.ini
+# uswgi.ini文件
 
+安装uwsgi
 ```py
 pip install uwsgi
 ```
@@ -47,7 +49,7 @@ def application(env, start_response):
     return [b"Hello World"]
 ```
 
-运行以下命令,并访问http://127.0.0.1:8080
+运行
 
 ```py
 uwsgi --http :8080 --plugin python --wsgi-file test.py
@@ -55,12 +57,14 @@ uwsgi --http :8080 --plugin python --wsgi-file test.py
 
 > - --plugin python 是告诉 uWSGI 在使用 python 插件
 
+访问http://127.0.0.1:8080
+
 ![](http://cdn.hurra.ltd/img/20200711123744.png)
 ![](http://cdn.hurra.ltd/img/20200711123908.png)
 
-# 部署
+# uwsgi部署Flask
 
-新建 config.ini,写入:
+新建 config.ini文件:
 
 ```ini
 [uwsgi]

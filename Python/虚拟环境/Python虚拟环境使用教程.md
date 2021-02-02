@@ -74,7 +74,7 @@ whereis python
 ![](http://cdn.hurra.ltd/img/20200515114240.png)
 
 ```sh
- virtualenv venv
+virtualenv venv
 ```
 
 ![](http://cdn.hurra.ltd/img/20200515114449.png)

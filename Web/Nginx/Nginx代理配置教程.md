@@ -76,7 +76,7 @@ server{
 
 在 nginx.conf 文件的 http 块中加入以下代码
 
-```shell
+```ini
 #2.配置81端口的反向代理
 server{
     #监听Nginx的81端口

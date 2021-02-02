@@ -5,20 +5,14 @@
  * @Email: dalao_li@163.com
  * @Date: 2021-01-16 17:59:35
  * @LastEditors: Li Yuanhao
- * @LastEditTime: 2021-01-28 22:31:09
+ * @LastEditTime: 2021-02-02 12:14:24
 -->
 
-- github 地址 : `https://github.com/Dalao-Li/RegisterSystem-Django.git`
+> github 地址 : `https://github.com/Dalao-Li/RegisterSystem-Django.git`
 
 ---
-
-# 配置
-
-> - 宿主机 : Windows10 2004
-> - 部署环境 : CentOS7
-> - IDE : Pycharm
-
-# 涉及技术
+# Django实现简单的体温登记系统
+# 技术
 
 > - CSS : Bootstrap
 > - JS : JQuery
@@ -28,7 +22,7 @@
 
 # 初始化
 
-- 建立 Django 项目 demo
+- 建立 Django 项目
 
 ![](http://cdn.hurra.ltd/img/20200805181844.png)
 
@@ -42,7 +36,7 @@ python manage.py startapp app
 
 ![](http://cdn.hurra.ltd/img/20200805182327.png)
 
-- 修改 settings.py 文件
+- 修改 settings.py文件
 
 在 INSTALLED_APPS 中添加刚创建的应用
 
@@ -57,12 +51,6 @@ python manage.py startapp app
 ![](http://cdn.hurra.ltd/img/20200805182830.png)
 
 # 数据库设计
-
-- 数据库
-
-本项目中采用默认的 sqlite3 数据库
-
----
 
 - 表设计
 
@@ -90,7 +78,7 @@ class Reocrd(models.Model):
         return self.num
 ```
 
-终端执行,为改动创建迁移记录
+为改动创建迁移记录
 
 ```py
 python manage.py makemigrations
@@ -102,7 +90,6 @@ python manage.py makemigrations
 python manage.py migrate
 ```
 
----
 
 - 创建管理员用户
 
@@ -114,11 +101,11 @@ python manage.py createsuperuser
 
 ![](http://cdn.hurra.ltd/img/20200802153640.png)
 
-# 模板文件
+# 模板
 
 在 app 目录下新建 templates 文件夹
 
-编辑 settings.py 文件,找到 TEMPLATES,将新增模板的路径添加至 DIRS 项中:
+编辑 settings.py文件,找到 TEMPLATES,将新增模板的路径添加至 DIRS 项中:
 
 ![](http://cdn.hurra.ltd/img/20200805185510.png)
 
@@ -460,7 +447,7 @@ urlpatterns = [
 
 本项目采用 Docker + Gunicorn 方式进行部署
 
-- 部署后可能会出现无法访问静态文件的情况,因此编辑主目录下 urls.py 文件,新增:
+- 部署后可能会出现无法访问静态文件的情况,因此编辑主目录下 urls.py文件,新增:
 
 ```py
 from django.contrib import admin
@@ -475,7 +462,7 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 urlpatterns += staticfiles_urlpatterns()
 ```
 
-- 主目录下新建 gunicorn_config.py 文件:
+- 主目录下新建 gunicorn_config.py文件:
 
 ```py
 # 定义同时开启的处理请求的进程数量,根据网站流量适当调整
@@ -497,7 +484,7 @@ timeout = 30
 pip freeze > requirements.txt
 ```
 
-```s
+```shell
 asgiref==3.2.10
 cffi==1.14.1
 Django==3.0.8
@@ -511,7 +498,6 @@ zope.event==4.4
 zope.interface==5.1.0
 ```
 
----
 
 - 编写 Dockerfile
 
@@ -541,7 +527,7 @@ CMD ["gunicorn", "demo.wsgi", "-c", "gunicorn_config.py"]
 将文件夹上传至服务器
 
 
-```s
+```shell
 docker build -t mydemo .
 ```
 
@@ -549,7 +535,7 @@ docker build -t mydemo .
 
 运行容器,查看结果
 
-```
+```shell
 docker run -itd -p 80:8000 --name django_test mydemo
 ```
 
