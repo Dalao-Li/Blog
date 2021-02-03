@@ -5,7 +5,7 @@
  * @Email: dalao_li@163.com
  * @Date: 2021-01-16 17:59:35
  * @LastEditors: Li Yuanhao
- * @LastEditTime: 2021-02-01 16:50:20
+ * @LastEditTime: 2021-02-03 13:52:32
 -->
 
 # Django 操作数据库
@@ -18,7 +18,7 @@ python3 manage.py startapp app
 
 ![](http://cdn.hurra.ltd/img/20200802134308.png)
 
-# 连接
+## 连接
 
 编辑主目录下 settings.py文件,找到 DATABASES
 
@@ -47,7 +47,7 @@ DATABASES = {
 }
 ```
 
-# 建表
+## 建表
 
 编辑 app/models.py
 
@@ -75,7 +75,7 @@ class Stu(models.Model):
         return '学号:%s  姓名:%s  年龄:%s 性别:%s' % (self.num, self.name, self.age,sex)
 ```
 
-## 字段
+### 字段说明
 
 | 类型          | 说明                                                                                                                           |
 | ------------- | ------------------------------------------------------------------------------------------------------------------------------ |
@@ -88,7 +88,7 @@ class Stu(models.Model):
 | FileField     | 上传文件类型                                                                                                                   |
 | ImageField    | 图像类型                                                                                                                       |
 
-## 字段参数
+### 字段参数
 
 | 类型         | 说明                                                                                                       |
 | ------------ | ---------------------------------------------------------------------------------------------------------- |
@@ -98,7 +98,7 @@ class Stu(models.Model):
 | verbose_name | 为字段设置可读,直观的别名                                                                                  |
 | choices      | 选择框标签,值为一个二维的二元元组;第一个元素表示数据库内的真实值,第二个表示页面上的显示内容                |
 
-编辑完成后终端执行:
+建表完成后终端执行:
 
 ```py
 # 为改动创建迁移记录
@@ -114,9 +114,9 @@ python manage.py migrate
 
 ![](http://cdn.hurra.ltd/img/20200802233105.png)
 
-# 操作
+## 操作
 
-## 管理
+### 管理
 
 Django 自带后台管理页面,使用前需创建管理员用户
 
@@ -152,7 +152,7 @@ admin.site.register(Stu)
 
 ![](http://cdn.hurra.ltd/img/20200802213738.png)
 
-## 新增
+### 新增
 
 - 可视化  
   直接使用 Django 管理页面新增数据
@@ -182,7 +182,7 @@ s = Stu.objects.create(num='D-123',name='阿强',age=19,sex='M')
 
 ![](http://cdn.hurra.ltd/img/20200802235230.png)
 
-## 查询
+### 查询
 
 - 获取所有对象
 
@@ -222,7 +222,7 @@ Stu.objects.filter(num='B-456').exists()
 
 ![](http://cdn.hurra.ltd/img/20200803004453.png)
 
-## 修改
+### 修改
 
 - 可视化  
   直接在管理页面修改
@@ -241,7 +241,7 @@ Stu.objects.filter(sex='M').update(age=18)
 
 ![](http://cdn.hurra.ltd/img/20200803004052.png)
 
-## 删除
+### 删除
 
 - 可视化
 

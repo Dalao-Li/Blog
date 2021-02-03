@@ -58,7 +58,6 @@ deactivate
 
 # linux 环境
 
-
 ## 设置
 
 ### 指定解释器

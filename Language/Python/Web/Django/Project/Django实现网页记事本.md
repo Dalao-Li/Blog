@@ -1,8 +1,10 @@
-# 完整代码
+# Django实现网页记事本
 
-> [**github 地址**](https://github.com/Dalao-Li/WebNotepad-Django.git)
+## 完整代码
 
-# 运行结果
+> https://github.com/Dalao-Li/WebNotepad-Django.git
+
+## 运行结果
 
 ![](http://cdn.hurra.ltd/img/20200809153325.png)
 
@@ -16,16 +18,16 @@
 
 ![](http://cdn.hurra.ltd/img/20200816225928.png)
 
-# 涉及技术
+## 涉及技术
 
 > - CSS : BootStrap4 , Font Awesome,
 > - JS : JQuery , SweetAlery2
 > - Web 框架 : Django
 > - 数据库 : Sqlite3
 
-# 概要设计
+## 概要设计
 
-## 前端
+### 前端
 
 显示设计
 
@@ -55,7 +57,7 @@
 
 显示所有已经删除的记事
 
-## 数据库
+### 数据库
 
 sqlite3
 
@@ -72,9 +74,9 @@ note
 | e_time | 结束时间       | 必须比开始时间晚                                                                                           |
 | status | 该记事状态     | U(underway): 进行中<br>F(finish) : 已完成<br>D(deleted) : 已删除 <br> O(Overtime):已超时<br>P(Plan):未开始 |
 
-# 具体实现
+## 具体实现
 
-## 初始化项目
+### 初始化项目
 
 建立项目
 
@@ -102,7 +104,7 @@ python manage.py startapp app
 
 ---
 
-## 前端
+### 前端
 
 app/templates 目录下新建 main.html 文件
 
@@ -614,7 +616,7 @@ def change_note_status(request):
 
 ### 绑定路由
 
-在 app 目录下新建 urls.py 文件
+在 app 目录下新建 urls.py文件
 
 ```py
 from django.urls import path
@@ -636,7 +638,7 @@ urlpatterns = [
 ]
 ```
 
-编辑主目录下 urls.py 文件
+编辑主目录下 urls.py文件
 
 ```py
 from django.contrib import admin

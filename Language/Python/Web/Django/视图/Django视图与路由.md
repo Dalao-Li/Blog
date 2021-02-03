@@ -1,21 +1,18 @@
-> - 前文
 
-上文实现了 Django 对数据库的操作,本篇则为 Django 视图与模板的教程
+# Django 路由与视图
 
 访问网站的本质即为访问对应的 html 文件,后在由浏览器等对其进行渲染,最终展示出页面
 
-# 目的
+## 目的
 
 - 任务一 : 访问http://127.0.0.1:8000/app/index,读取index.html,显示内容
 
 - 任务二 :访问http://127.0.0.1:8000/app/db,在网页上显示数据库中所有元素信息
 
-# 任务一
-
-## 模板
+## 任务一
 
 - 新建模板  
-  在 app 目录下新建 templates 文件夹,由于保存 html
+  在 app 目录下新建 templates 文件夹
 
 ![](http://cdn.hurra.ltd/img/20200803191147.png)
 
@@ -23,22 +20,20 @@
 
 新建的模板目录需在项目设置文件中进行注册
 
-打开主目录 settings.py 文件,找到 TEMPLATES,将新增模板的路径添加至'DIRS'项中:
+打开主目录 settings.py文件,找到 TEMPLATES,将新增模板的路径添加至'DIRS'项中:
 
 ```py
 TEMPLATES = [
-    {
-        ......
+  {
+    ......
+    'DIRS': [
+        os.path.join(BASE_DIR, 'templates'),
 
-        'DIRS': [
-            os.path.join(BASE_DIR, 'templates'),
-
-            # 新建的模板目录
-            os.path.join(BASE_DIR, 'app/templates')
-        ],
-
-        ......
-    },
+        # 新建的模板目录
+        os.path.join(BASE_DIR, 'app/templates')
+    ],
+    ......
+  },
 ]
 ```
 
@@ -57,13 +52,9 @@ TEMPLATES = [
 </html>
 ```
 
-## 路由
-
-第一步中已完成模板目录的新建与 html 文件的编写,下面需配置路由,以便访问 html 文件
-
 - 编写视图函数
 
-打开 app/views.py 文件,添加:
+编辑app/views.py 文件
 
 ```py
 from django.shortcuts import render
@@ -78,7 +69,7 @@ def index(request):
 
 编写好函数后,需将其绑定到对应路由,由于此处是在项目中的应用里配置,故为子路由
 
-在 app 目录下新建 urls.py 文件,添加:
+在 app 目录下新建 urls.py 文件
 
 ```py
 from django.urls import path
@@ -116,7 +107,7 @@ urlpatterns = [
 
 ![](http://cdn.hurra.ltd/img/20200803193631.png)
 
-# 任务二
+## 任务二
 
 任务一中已实现访问静态页面,此处将实现对动态页面的渲染与访问
 

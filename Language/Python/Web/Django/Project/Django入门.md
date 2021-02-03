@@ -1,44 +1,37 @@
-## 1. 创建项目
+# Django入门教程
+
+## 创建项目
 
 ![](http://cdn.hurra.ltd/img/20200801113226.png)
 创建名为 demo 的 Django 项目
 项目目录
 
-> - demo/init.py: 一个空文件,声明所在目录的包为一个 Python 包
->
-> - demo/settings.py: 管理项目的配置信息
->
-> - demo/urls.py: 声明请求 url 的映射关系
->
-> - demo/wsgi.py: python 程序和 web 服务器的通信协议
->
-> - demo/manage.py: 一个命令行工具,用来和 Django 项目进行交互
+> - <项目名>/init.py: 一个空文件,声明所在目录的包为一个 Python 包
+> - <项目名>/settings.py: 管理项目的配置信息
+> - <项目名>/urls.py: 声明请求 url 的映射关系
+> - <项目名>/wsgi.py: python 程序和 web 服务器的通信协议
+> - <项目名>/manage.py: 一个命令行工具,用来和 Django 项目进行交互
 
-## 2. 创建应用
-
-在终端执行以下命令,创建名为 app 的应用
+## 创建应用
 
 ```py
+# 创建名为 app 的应用
 python manage.py startapp app
 ```
 
 ![](http://cdn.hurra.ltd/img/20200801112336.png)
 
-app 目录结构:
+应用目录结构:
 
-- app/admin:app 应用后台管理配置文件
+>- <应用名>/admin:app 应用后台管理配置文件
+>- <应用名>/apps:app 应用的配置文件
+>- <应用名>/models:数据模块,用于设计数据库等
+>- <应用名>/tests:编写测试脚本
+>- <应用名>/views:视图层,直接和浏览器进行交互
 
-- app/apps:app 应用的配置文件
+## 应用注册
 
-- app/models:数据模块,用于设计数据库等
-
-- app/tests:编写测试脚本
-
-- app/views:视图层,直接和浏览器进行交互
-
-## 3. 应用注册
-
-新建应用需在 settings.py 文件中的 INSTALLED_APPS 列表中注册,使程序找到该服务
+新建应用需在 settings.py文件中的 INSTALLED_APPS 列表中注册,使程序找到该服务
 
 ![](http://cdn.hurra.ltd/img/20200801112631.png)
 
@@ -149,9 +142,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 ```
 
-## 4. 页面编写
+## 视图
 
-打开 app/view.py 写入
+编辑app/view.py文件
 
 ```py
 from django.http import HttpResponse
@@ -162,10 +155,8 @@ def hello(request):
     return HttpResponse('Hello World')
 ```
 
-## 5. 建立映射
-
-打开 urls.py,写入
-
+## 路由
+编辑app/urls.py文件
 ```py
 from django.contrib import admin
 from django.urls import path
@@ -178,7 +169,7 @@ urlpatterns = [
 ]
 ```
 
-## 6. 测试
+## 测试
 
 运行,访问http://127.0.0.1:8000/hello
 

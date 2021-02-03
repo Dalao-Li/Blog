@@ -5,14 +5,14 @@
  * @Email: dalao_li@163.com
  * @Date: 2021-01-16 17:59:35
  * @LastEditors: Li Yuanhao
- * @LastEditTime: 2021-02-02 12:14:24
+ * @LastEditTime: 2021-02-03 14:04:20
 -->
 
 > github 地址 : `https://github.com/Dalao-Li/RegisterSystem-Django.git`
 
 ---
 # Django实现简单的体温登记系统
-# 技术
+## 技术
 
 > - CSS : Bootstrap
 > - JS : JQuery
@@ -20,7 +20,7 @@
 > - Web 框架 : Django
 > - 数据库 : Sqlite3
 
-# 初始化
+## 初始化
 
 - 建立 Django 项目
 
@@ -50,7 +50,7 @@ python manage.py startapp app
 
 ![](http://cdn.hurra.ltd/img/20200805182830.png)
 
-# 数据库设计
+## 数据库设计
 
 - 表设计
 
@@ -101,7 +101,7 @@ python manage.py createsuperuser
 
 ![](http://cdn.hurra.ltd/img/20200802153640.png)
 
-# 模板
+## 视图 
 
 在 app 目录下新建 templates 文件夹
 
@@ -234,7 +234,7 @@ python manage.py createsuperuser
 </html>
 ```
 
-# 静态文件
+## JS
 
 app 目录下新建 static 目录,存放静态文件
 
@@ -367,7 +367,7 @@ function delCallback(value) {
 
 `完整代码请访问博主的Github`
 
-# 视图函数
+## 视图函数
 
 编辑 app/views.py 文件:
 
@@ -406,7 +406,7 @@ def del_record(request):
 
 ```
 
-# 绑定路由
+## 绑定路由
 
 在 app 目录下新建 urls.py 文件:
 
@@ -443,7 +443,7 @@ urlpatterns = [
 
 ![](http://cdn.hurra.ltd/img/20200806160425.png)
 
-# 部署
+## 部署
 
 本项目采用 Docker + Gunicorn 方式进行部署
 
