@@ -14,7 +14,7 @@ pip install virtualenv
 创建名为 venv 的虚拟环境
 
 ```
- virtualenv venv
+virtualenv venv
 ```
 
 ![](http://cdn.hurra.ltd/img/TIM截图20200515113058.png)
