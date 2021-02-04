@@ -1,4 +1,15 @@
-# 连接
+<!--
+ * @Description: 
+ * @Version: 1.0
+ * @Author: Li Yuanhao
+ * @Email: dalao_li@163.com
+ * @Date: 2021-01-16 17:59:35
+ * @LastEditors: Li Yuanhao
+ * @LastEditTime: 2021-02-04 23:21:38
+-->
+
+# Python操作MongoDB
+## 连接
 
 ```py
 import pymongo
@@ -13,7 +24,7 @@ print(db_list)
 
 ![](http://cdn.hurra.ltd/img/20201014211648.png)
 
-# 获取集合
+## 获取集合
 
 ```py
 # 获取数据库
@@ -27,7 +38,7 @@ print(collect_list)
 
 ![](http://cdn.hurra.ltd/img/20201014212147.png)
 
-# 获取文档
+## 获取文档
 
 ```py
 db = client[<db_name>]
@@ -59,7 +70,7 @@ print(data)
 
 ![](http://cdn.hurra.ltd/img/20201029161327.png)
 
-# 插入文档
+## 插入文档
 
 ```py
 import pymongo
@@ -88,6 +99,6 @@ for i in collect.find():
 
 ![](http://cdn.hurra.ltd/img/20201015093938.png)
 
-# 修改文档
+## 修改文档
 
 ![](http://cdn.hurra.ltd/img/收款码.png)

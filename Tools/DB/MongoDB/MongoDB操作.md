@@ -1,4 +1,7 @@
-# 创建 MongoDB 容器
+
+# MongodDB操作
+
+- 创建 MongoDB 容器
 
 ```shell
 # 创建容器 --auth：需要密码才能访问容器服务
@@ -15,7 +18,6 @@ db.auth('admin', '123456')
 
 ![](http://cdn.hurra.ltd/img/20201014175200.png)
 
-# 数据库
 
 ## 创建数据库
 
@@ -24,11 +26,11 @@ use <db_name>
 ```
 
 例:创建 test 数据库
+
 ![](http://cdn.hurra.ltd/img/20201014142358.png)
 
 这里暂不会显示新建的数据库,因为其中还未插入数据
 
-# 集合
 
 ## 创建集合
 
@@ -40,13 +42,12 @@ db.createCollection("<collect_name>")
 
 ![](http://cdn.hurra.ltd/img/20201014171656.png)
 
-# CRUD 操作
 
 ## 插入
 
 ### 插入文档
 
-单条插入
+- 单条插入
 
 ```shell
 db.<collect_name>.insert(<JSON数据>)
@@ -55,7 +56,7 @@ db.<collect_name>.insert(<JSON数据>)
 例:向 stu 集合中插入数据
 ![](http://cdn.hurra.ltd/img/20201014174718.png)
 
-多条插入
+- 多条插入
 
 ```shell
 db.<collect_name>.insert([<JSON数据1>,<JSON数据2>,<JSON数据3>.....])
@@ -65,7 +66,7 @@ db.<collect_name>.insert([<JSON数据1>,<JSON数据2>,<JSON数据3>.....])
 
 ## 查询
 
-### 全部查询
+- 全部查询
 
 显示集合内所有文档
 
@@ -74,6 +75,7 @@ db.<collect_name>.find()
 ```
 
 例:显示 stu 集合内所有数据
+
 ![](http://cdn.hurra.ltd/img/20201014174834.png)
 
 格式化显示集合内所有文档
@@ -84,7 +86,7 @@ db.<collect_name>.find().pretty()
 
 ![](http://cdn.hurra.ltd/img/20201014180104.png)
 
-### 条件查询
+- 条件查询
 
 ```shell
 db.<collec_name>.find({<key>:<value>}).pretty()
@@ -111,7 +113,7 @@ db.<collec_name>.find({<key>:<value>}).pretty()
 
 ## 修改
 
-### 修改文档
+- 修改文档
 
 ```shell
 db.<collect_name>.update({<key1>:<value>},{$set:{<key2>:<new_value>}})
@@ -123,7 +125,7 @@ db.<collect_name>.update({<key1>:<value>},{$set:{<key2>:<new_value>}})
 
 ## 删除
 
-### 删除文档
+- 删除文档
 
 ```shell
 db.<collect_name>.remove({<key>:<value>})

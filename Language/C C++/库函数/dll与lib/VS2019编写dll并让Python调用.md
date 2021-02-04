@@ -5,15 +5,15 @@
  * @Email: dalao_li@163.com
  * @Date: 2021-01-20 11:26:41
  * @LastEditors: Li Yuanhao
- * @LastEditTime: 2021-01-31 10:38:02
+ * @LastEditTime: 2021-02-04 23:20:19
 -->
-# 创建
+# VS2019编写dll
 
-VS2019 选择创建动态链接库(DLL)
+VS2019 选择创建动态链接库(DLL)项目
 
-# 编写
+## 编写
 
-- pch.h 文件代码
+- pch.h 文件
 
 ```c
 #ifndef PCH_H
@@ -32,10 +32,9 @@ DLLEXPORT void hello();
 #endif //PCH_H
 ```
 
-- `#define DLLEXPORT extern "C" __declspec(dllexport)`
->
-> windows 下需要使用\_\_declspec(dllexport)的声明来说明这个函数是动态库导出  
-> extern "C"声明避免编译器对函数名称进行 name mangling,这对于使用 C++来编写 DLL/SO 是必须的
+`#define DLLEXPORT extern "C" __declspec(dllexport)`
+> - windows 下需要使用\_\_declspec(dllexport)的声明来说明这个函数是动态库导出  
+> - extern "C"声明避免编译器对函数名称进行 name mangling,这对于使用 C++来编写 DLL/SO 是必须的
 
 - pch.cpp
 
@@ -54,7 +53,7 @@ void hello() {
 }
 ```
 
-# 选择编译
+## 编译
 
 ![](http://cdn.hurra.ltd/img/20210120113257.png)
 
@@ -62,7 +61,7 @@ X86 将编译为 32 位的 dll;X64 将编译为 64 为的 dll
 
 ![](http://cdn.hurra.ltd/img/20210120113457.png)
 
-# Python 调用
+## Python 调用
 
 ```py
 from ctypes import *

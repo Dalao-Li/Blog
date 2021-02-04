@@ -1,4 +1,6 @@
-# 编写
+# C语言编写dll并调用
+
+## 编写
 
 建立一个 C Library 项目 hello
 
@@ -13,7 +15,7 @@ ctrl + F9 编译
 右侧生成了 libhello.dll 文件
 ![](http://cdn.hurra.ltd/img/20201028181058.png)
 
-# 调用
+## 调用
 
 另建立一个项目 Demo,在其根目录下建立 lib 目录,将上一步生成的 dll 文件拷入
 ![](http://cdn.hurra.ltd/img/20201028182033.png)
@@ -45,7 +47,7 @@ int main() {
 
 CMakeList.txt 内容改为
 
-```c
+```txt
 cmake_minimum_required(VERSION 3.17)
 
 # 项目名
@@ -61,15 +63,14 @@ add_executable(Demo main.cpp)
 # 新增;指目标链接的dll文件
 target_link_libraries(Demo libhello.dll)
 ```
-编辑 Configurations
-设置 Environment variables ,值为 lib 目录的绝对路径
+编辑 Configurations,设置 Environment variables ,值为 lib 目录的绝对路径
 
 ![](http://cdn.hurra.ltd/img/20201028184033.png)
 
 运行
 ![](http://cdn.hurra.ltd/img/20201028184425.png)
 
-# 测试
+## 测试
 
 新建 C Library 项目 num
 

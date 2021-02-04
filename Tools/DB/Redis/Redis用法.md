@@ -5,81 +5,56 @@
  * @Email: dalao_li@163.com
  * @Date: 2021-01-24 15:25:28
  * @LastEditors: Li Yuanhao
- * @LastEditTime: 2021-01-28 22:15:39
+ * @LastEditTime: 2021-02-04 23:45:54
 -->
-# 连接
+# Readis操作
 
-- Docker 拉取 Redis 镜像
 
-```
-docker run -itd --name redis-test -p 6379:6379 redis
 
-docker exec -it redis-test /bin/bash
-```
 
-连接
-
-```
-redis-cli
-```
-
-# 基础操作
+## 基础操作
 
 - 建立键
 
-```
+```shell
 SET key redis
 ```
 
 - 删除键
 
-```
+```shell
 DEL key
 ```
 
 - 检查给定 key 是否存在
 
-```
+```shell
 EXISTS key
 ```
 
 - 为给定 key 设置过期时间,以秒计
 
-```
+```shell
 EXPIRE key seconds
 ```
 
 - 以秒为单位,返回给定 key 的剩余生存时间
 
-```
+```shell
 TTL key
 ```
 
-# 安全操作
+## 安全操作
 
 - 设置密码
 
-```
+```shell
 CONFIG set requirepass "pwd"
 ```
 
 - 查看密码
 
-```
+```shell
 CONFIG get requirepass
 ```
 
-# Docker部署允许远程访问
-
-
-建立redis.conf
-
-```s
-protected-mode no  //关闭保护模式
-
-requirepass 123456   //密码
-```
-
-```s
-docker run -itd -p 6379:6379 -v $PWD/redis.conf:/etc/redis/redis.conf --privileged=true --name redis redis redis-server /etc/redis/redis.conf
-```

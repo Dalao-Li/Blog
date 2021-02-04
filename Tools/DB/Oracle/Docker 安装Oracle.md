@@ -5,7 +5,7 @@
  * @Email: dalao_li@163.com
  * @Date: 2021-01-16 17:59:34
  * @LastEditors: Li Yuanhao
- * @LastEditTime: 2021-01-31 22:00:41
+ * @LastEditTime: 2021-02-04 23:50:41
 -->
 
 
@@ -14,19 +14,19 @@
 
 - 拉取镜像
 
-```shell
+```docker
 docker pull truevoly/oracle-12c
 ```
 
 - 创建容器
 
-```shell
+```docker
 docker run -d -p 8080:8080 -p 1521:1521 truevoly/oracle-12c
 ```
 
 - 进入容器后,输入
 
-```shell
+```docker
 sqlplus sys as sysdba
 ```
 

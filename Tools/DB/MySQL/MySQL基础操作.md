@@ -1,4 +1,4 @@
-# 新建
+# MySQL基础操作
 
 ## 新建用户
 
@@ -14,7 +14,7 @@ CEEATE user '用户名'@'host' identified by '密码';
 
 这样我就创建了一个名为 dalao 的用户,并且它可以从任意 ip 登录
 
-## 查看用户
+- 查看用户
 
 ```sql
 SELECT host,user,authentication_string FROM mysql.user;
@@ -22,7 +22,7 @@ SELECT host,user,authentication_string FROM mysql.user;
 
 ![](http://cdn.hurra.ltd/img/20200516001828.png)
 
-## 登录
+- 登录
 
 ```sql
 mysql -u <用户名> -p
@@ -32,7 +32,7 @@ mysql -u <用户名> -p
 
 ---
 
-# 权限
+
 
 ## 授权
 
@@ -56,7 +56,7 @@ GRANT ALL PRIVILEGES ON *.* TO '用户名'@'%' identified BY '密码';
 
 <center>授予dalao用户对所有数据库所有表的所有操作权限</center>
 
-## 查看
+- 查看
 
 - 查看所有用户权限
 
@@ -72,9 +72,9 @@ SHOW grant FOR '<用户名>'@'%';
 
 ![](http://cdn.hurra.ltd/img/20200516003557.png)
 
-# 示例
+- 示例
 
-- 新建用户 user_test,仅授予 SELECT 权限
+新建用户 user_test,仅授予 SELECT 权限
 
 ```sql
 CREATE USER 'user_test'@'%'identified by '999';
@@ -84,7 +84,7 @@ GRANT SELECT ON *.* TO 'user_test'@'%';
 
 ![](http://cdn.hurra.ltd/img/20200516004045.png)
 
-- 使用 user_test 登录,尝试创建数据库 test_db
+使用 user_test 登录,尝试创建数据库 test_db
 
 ```sql
 CREATE DATABASE test_db;
@@ -94,13 +94,13 @@ CREATE DATABASE test_db;
 
 <center>可以发现被拒绝了</center>
 
-- 使用 user_test 用户,尝试查询
+使用 user_test 用户,尝试查询
 
 ![](http://cdn.hurra.ltd/img/20200516004447.png)
 
 <center>可以发现查询是没问题的</center>
 
-- 新建用户 test_4,授予 SELECT,CREATE 权限
+新建用户 test_4,授予 SELECT,CREATE 权限
 
 ```sql
 CREATE USER 'test_4'@'%' identified by '999';
@@ -110,7 +110,7 @@ GRANT SELECT,CREATE ON *.* TO 'test_4'@'%';
 
 ![](http://cdn.hurra.ltd/img/20200516084018.png)
 
-- 使用 test_4 登录,尝试创建数据库 test_db
+使用 test_4 登录,尝试创建数据库 test_db
 
 ```sql
 CREATE DATABASE test_db;
