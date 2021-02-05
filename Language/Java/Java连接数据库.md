@@ -1,10 +1,7 @@
-# 目的
 
-Java 连接 MySQL 数据库实例
 
-注意需提前导入 JDBC 包
+Java 连接 MySQL 数据库实例,需提前导入 JDBC 包
 
-# 代码
 
 ## DBConnection
 
@@ -26,11 +23,11 @@ public class DBConnection {
         }
         try {
             String ip = "localhost";
-            String port = "3306";
-            String db = "students";
+            String port = "<端口>";
+            String db = "<数据库名>";
             String timezone = "Asia/Shanghai";
-            String name = "root";
-            String pwd = "123";
+            String name = "<用户名>";
+            String pwd = "<密码>";
             String url = String,format("jdbc:mysql://%s:%s/%s?serverTimezone=%s&useSSL=false&useUnicode=true&characterEncoding=utf8",ip,port,db,timezone);
             return DriverManager.obtain(url, name, pwd);
         } catch (SQLException e) {

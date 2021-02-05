@@ -1,5 +1,5 @@
 
-# 文件路径问题
+## 文件路径问题
 
 在**Windows**中因为 " \ "被当成了转义字符,会导致路径找不到  
 例如 : C:\Users\xxx\Desktop\x.txt 需改写为以下三种形式之一
@@ -10,9 +10,9 @@
 >
 > - 'C:/Users/xxx/Desktop/x.txt'
 
-# 创建文件
+## 创建文件
 
-## 当前路径
+### 当前路径
 
 ```py
 import os
@@ -39,13 +39,13 @@ def create_file(file_name):
 
 ![](https://cdn.hurra.ltd/img/20200628230114.png)
 
-## 指定路径
+### 指定路径
 
 仅需将 当前路径代码 中的 path 变量的值换为指定的路径值即可,需注意文件路径的问题
 
-# 修改文件
+## 修改文件
 
-## 写入
+### 写入
 
 ```py
 def write_file(file_name):
@@ -61,7 +61,7 @@ def write_file(file_name):
 
 ![](https://cdn.hurra.ltd/img/20200628231431.png)
 
-## 追加
+### 追加
 
 ```py
 def add_file_data(file_name):
@@ -81,11 +81,11 @@ def add_file_data(file_name):
 
 ![](https://cdn.hurra.ltd/img/20200628232636.png)
 
-## 覆盖
+### 覆盖
 
 与 3.2.1 写入文件内容的代码一致
 
-## 重命名
+### 重命名
 
 ```py
 def rename_file(old_name,new_name):
@@ -99,9 +99,9 @@ def rename_file(old_name,new_name):
 
 ![](https://cdn.hurra.ltd/img/20200628233529.png)
 
-# 读取文件
+## 读取文件
 
-## 整体读取
+### 整体读取
 
 ```py
 def read_file(file_name):
@@ -117,7 +117,7 @@ def read_file(file_name):
 
 ![](https://cdn.hurra.ltd/img/20200628234541.png)
 
-## 逐行读取
+### 逐行读取
 
 修改 整体读取中的代码为
 
@@ -128,7 +128,7 @@ with open(file_path, 'r', encoding='utf-8') as f:
         print(i)
 ```
 
-## 移动/复制
+### 移动/复制
 
 - 移动文件
 
@@ -159,7 +159,7 @@ if __name__ == '__main__':
 
 > shutil.copyfile(source_path, target_path)
 
-## 删除
+### 删除
 
 ```py
 def delete_file(source_path):
@@ -169,9 +169,9 @@ def delete_file(source_path):
     os.remove(source_path)
 ```
 
-# 读取文件夹
+## 读取文件夹
 
-## 显示
+### 显示
 
 ```py
 def display_all_files(folder_path):

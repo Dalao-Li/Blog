@@ -10,9 +10,9 @@
 
 从废品站里 20 大洋淘来了一台 2007 年的电脑,配置如下
 
-> - CPU: Intel(R) Celeron(R) CPU 420 @ 1.60GHz
-> - 内存：1GB 杂牌
-> - 硬盘：500GB 希捷
+- CPU: Intel(R) Celeron(R) CPU 420 @ 1.60GHz
+- 内存：1GB 杂牌
+- 硬盘：500GB 希捷
 
 ## 软件
 
@@ -50,7 +50,6 @@
 
 ---
 
-# 过程
 
 ## 镜像制作
 
@@ -181,7 +180,7 @@ DNS2=8.8.8.8
 service network restart
 ```
 
-# 四、 测试
+## 测试
 
 > **注:**  
 >  使用虚拟机模拟的时候可能出现无法 ping 通的问题  
@@ -196,19 +195,19 @@ service network restart
 
 宿主机 IP 192.168.3.10
 
-1. 宿主机 ping 服务器
+- 宿主机 ping 服务器
 
 ![](https://cdn.hurra.ltd/img/20200531195148.png)
 
-2. 服务器 ping 宿主机
+- 服务器 ping 宿主机
 
 ![](https://cdn.hurra.ltd/img/20200531195246.png)
 
-3. 服务器 ping 百度
+- 服务器 ping 百度
 
 ![](https://cdn.hurra.ltd/img/20200531195515.png)
 
-# 优化
+## 优化
 
 - 设置 ssh 开机自启
 
@@ -240,7 +239,7 @@ ExecStart=-/sbin/agetty --autologin root --noclear %I
 reboot
 ```
 
-# 成果
+## 成果
 
 ![](https://cdn.hurra.ltd/img/20200531200411.png)
 

@@ -1,4 +1,13 @@
-# \*args
+<!--
+ * @Description: 
+ * @Version: 1.0
+ * @Author: Li Yuanhao
+ * @Email: dalao_li@163.com
+ * @Date: 2021-01-16 17:59:35
+ * @LastEditors: Li Yuanhao
+ * @LastEditTime: 2021-02-05 16:03:49
+-->
+## \*args
 
 > \*args 用来将参数打包成 tuple 给函数调用
 
@@ -30,7 +39,7 @@ if __name__ == "__main__":
 
 ![](https://cdn.hurra.ltd/img/20200905193601.png)
 
-# \*\*kwargs
+## \*\*kwargs
 
 > \*\*kwargs 将关键字参数打包成 dict 给函数调用
 

@@ -1,3 +1,12 @@
+<!--
+ * @Description: 
+ * @Version: 1.0
+ * @Author: Li Yuanhao
+ * @Email: dalao_li@163.com
+ * @Date: 2021-01-16 17:59:35
+ * @LastEditors: Li Yuanhao
+ * @LastEditTime: 2021-02-05 16:01:11
+-->
 ## JS 封装 ajax
 
 > - type : 请求方式
@@ -18,9 +27,7 @@ function send_ajax(type, url, param, callback) {
     //服务端返回数据的格式
     dataType: "json",
     success: function (data) {
-      //获取返回值
-      var value = data.result;
-      callback(value);
+      callback(data.result);
     },
     error: function () {
       //失败处理
@@ -33,7 +40,7 @@ function send_ajax(type, url, param, callback) {
 
 ## 实例
 
-### 1. 回调函数
+### 回调函数
 
 ```javascript
 function login_callback(value) {
@@ -54,7 +61,7 @@ function login_callback(value) {
 }
 ```
 
-### 2. 登录函数
+### 登录函数
 
 ```javascript
 function user_login(name, pwd) {

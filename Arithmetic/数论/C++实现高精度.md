@@ -1,19 +1,19 @@
-## 1. 大数加法
+## 大数加法
 
-例 1: 无进位情况
+> 利用数组**逆序**存储两个数字,来求和与进位  
+- 无进位情况
 
 a = "12345" , b = "789"
 
-利用数组**逆序**存储两个数字,来求和与进位  
-图示:
 ![](https://cdn.hurra.ltd/img/20200620162302.png)
 求和结果为 13134
 
-例 2 : 有进位情况
+- 有进位情况
+  
 a = "99769" , b = "231"
 ![](https://cdn.hurra.ltd/img/20200620162957.png)
 
-实现代码
+
 
 ```c
 //大数加法
@@ -53,10 +53,10 @@ string addNum(string a, string b) {
 运行结果
 ![](https://cdn.hurra.ltd/img/20200620163531.png)
 
-## 2. 大数减法
+## 大数减法
 
-例 3:非负情况
-string a = "99729" , string b = "99231"
+- 非负情况  
+a = "99729" , b = "99231"
 
 ![](https://cdn.hurra.ltd/img/20200620164104.png)
 
@@ -95,6 +95,10 @@ string subNum(string a, string b) {
     }
     for(int i = index ; i>=0 ;i--){
         res += (tot[i] + '0');
+    }
+    //处理负数情况
+    if(a.size() < b.size()){
+        res += '-';
     }
     return res;
 }

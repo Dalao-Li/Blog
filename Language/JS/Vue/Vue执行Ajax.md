@@ -1,10 +1,10 @@
-# 环境
+## 环境
 
 > - 系统 : Windows10 2004
 > - Web 框架 : Flask
 > - Vue 版本 : 2.4.2
 
-# GET 请求
+## GET 请求
 
 获取后端 JSON 数据并显示
 
@@ -61,7 +61,7 @@ data = [
 
 ![](https://cdn.hurra.ltd/img/20200725123717.png)
 
-# POST 请求
+## POST 请求
 
 ```html
 <!DOCTYPE html>

@@ -1,4 +1,13 @@
-# 数组与切片
+<!--
+ * @Description: 
+ * @Version: 1.0
+ * @Author: Li Yuanhao
+ * @Email: dalao_li@163.com
+ * @Date: 2021-01-16 17:59:34
+ * @LastEditors: Li Yuanhao
+ * @LastEditTime: 2021-02-05 15:56:47
+-->
+## 数组与切片
 
 ```go
 package main
@@ -20,7 +29,7 @@ func main() {
 }
 ```
 
-# 排序
+## 排序
 
 ```go
 package main

@@ -5,7 +5,7 @@
  * @Email: dalao_li@163.com
  * @Date: 2021-01-23 14:51:38
  * @LastEditors: Li Yuanhao
- * @LastEditTime: 2021-02-05 12:36:59
+ * @LastEditTime: 2021-02-05 12:54:22
 -->
 # 网络通信
 
@@ -16,7 +16,7 @@
 - 共享内存（匿名的和具名的,eg:channel）
 - 远程过程调用(RPC)
 
-# 网络中进程通信
+## 网络中进程通信
 
 问题:
 
