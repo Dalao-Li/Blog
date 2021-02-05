@@ -55,11 +55,11 @@ void hello() {
 
 ## 编译
 
-![](http://cdn.hurra.ltd/img/20210120113257.png)
+![](https://cdn.hurra.ltd/img/20210120113257.png)
 
 X86 将编译为 32 位的 dll;X64 将编译为 64 为的 dll
 
-![](http://cdn.hurra.ltd/img/20210120113457.png)
+![](https://cdn.hurra.ltd/img/20210120113457.png)
 
 ## Python 调用
 
@@ -73,5 +73,5 @@ print(pdll.add(1, 3))
 pdll.hello()
 ```
 
-![](http://cdn.hurra.ltd/img/20210120113618.png)
-![](http://cdn.hurra.ltd/img/20210120113618.png)
+![](https://cdn.hurra.ltd/img/20210120113618.png)
+![](https://cdn.hurra.ltd/img/20210120113618.png)

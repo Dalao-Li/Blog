@@ -37,7 +37,7 @@ cout<<s.name<<" "<<s.num<<" "<<s.age<<endl;
 ```
 
 运行结果  
-![](http://cdn.hurra.ltd/img/20200618213943.png)
+![](https://cdn.hurra.ltd/img/20200618213943.png)
 
 ## 2.3 结构体数组
 ```c++
@@ -53,7 +53,7 @@ for(int i = 0;i<3;i++){
 }
 ```
 运行结果  
-![](http://cdn.hurra.ltd/img/20200618214620.png)
+![](https://cdn.hurra.ltd/img/20200618214620.png)
 
 # 补充
 

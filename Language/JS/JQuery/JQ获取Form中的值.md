@@ -40,7 +40,7 @@
 
 ## 运行结果
 
-![](http://cdn.hurra.ltd/img/20200528224751.png)
+![](https://cdn.hurra.ltd/img/20200528224751.png)
 
 ## 备注
 

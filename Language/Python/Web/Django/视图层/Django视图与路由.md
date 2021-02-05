@@ -14,7 +14,7 @@
 - 新建模板  
   在 app 目录下新建 templates 文件夹
 
-![](http://cdn.hurra.ltd/img/20200803191147.png)
+![](https://cdn.hurra.ltd/img/20200803191147.png)
 
 - 注册模板目录
 
@@ -105,7 +105,7 @@ urlpatterns = [
 
 运行项目,访问http://127.0.0.1:8000/app/index
 
-![](http://cdn.hurra.ltd/img/20200803193631.png)
+![](https://cdn.hurra.ltd/img/20200803193631.png)
 
 ## 任务二
 
@@ -167,8 +167,8 @@ urlpatterns = [
 
 运行项目,访问http://127.0.0.1:8000/app/db
 
-![](http://cdn.hurra.ltd/img/20200803222027.png)
+![](https://cdn.hurra.ltd/img/20200803222027.png)
 
 ---
 
-![](http://cdn.hurra.ltd/img/收款码.png)
+![](https://cdn.hurra.ltd/img/收款码.png)

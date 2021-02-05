@@ -62,7 +62,7 @@ INSERT INTO info (id,name) VALUES ('000A-X','WANG-LI');
 COMMIT;
 ```
 
-![](http://cdn.hurra.ltd/img/20200712233125.png)
+![](https://cdn.hurra.ltd/img/20200712233125.png)
 
 ## 回滚
 
@@ -82,7 +82,7 @@ INSERT INTO info (id,name) VALUES ('000C-Z','SONG-LING');
 ROLLBACK;
 ```
 
-![](http://cdn.hurra.ltd/img/20200712235320.png)
+![](https://cdn.hurra.ltd/img/20200712235320.png)
 
 可以看到第二条数据并未写入
 
@@ -96,8 +96,8 @@ DELETE FROM info WHERE id = '000B-Y';
 ROLLBACK;
 ```
 
-![](http://cdn.hurra.ltd/img/20200713000345.png)
+![](https://cdn.hurra.ltd/img/20200713000345.png)
 
 可以看到数据没有被删除
 
-![](http://cdn.hurra.ltd/img/收款码.png)
+![](https://cdn.hurra.ltd/img/收款码.png)

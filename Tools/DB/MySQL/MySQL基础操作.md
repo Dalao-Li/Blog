@@ -10,7 +10,7 @@ CEEATE user '用户名'@'host' identified by '密码';
 > - host = ip 为运行某个 ip 地址登录
 > - host = %" 为允许外网 ip 登录
 
-![](http://cdn.hurra.ltd/img/20200516001447.png)
+![](https://cdn.hurra.ltd/img/20200516001447.png)
 
 这样我就创建了一个名为 dalao 的用户,并且它可以从任意 ip 登录
 
@@ -20,7 +20,7 @@ CEEATE user '用户名'@'host' identified by '密码';
 SELECT host,user,authentication_string FROM mysql.user;
 ```
 
-![](http://cdn.hurra.ltd/img/20200516001828.png)
+![](https://cdn.hurra.ltd/img/20200516001828.png)
 
 - 登录
 
@@ -28,7 +28,7 @@ SELECT host,user,authentication_string FROM mysql.user;
 mysql -u <用户名> -p
 ```
 
-![](http://cdn.hurra.ltd/img/20200516001919.png)
+![](https://cdn.hurra.ltd/img/20200516001919.png)
 
 ---
 
@@ -52,7 +52,7 @@ GRANT ALL PRIVILEGES ON *.* TO '用户名'@'%' identified BY '密码';
 > - @后跟限制地址,可以是 IP、域名与%(任何地方)
 > - identified by 指定用户的登录密码,该项可以省略.
 
-![](http://cdn.hurra.ltd/img/20200516003253.png)
+![](https://cdn.hurra.ltd/img/20200516003253.png)
 
 <center>授予dalao用户对所有数据库所有表的所有操作权限</center>
 
@@ -70,7 +70,7 @@ SHOW grant;
 SHOW grant FOR '<用户名>'@'%';
 ```
 
-![](http://cdn.hurra.ltd/img/20200516003557.png)
+![](https://cdn.hurra.ltd/img/20200516003557.png)
 
 - 示例
 
@@ -82,7 +82,7 @@ CREATE USER 'user_test'@'%'identified by '999';
 GRANT SELECT ON *.* TO 'user_test'@'%';
 ```
 
-![](http://cdn.hurra.ltd/img/20200516004045.png)
+![](https://cdn.hurra.ltd/img/20200516004045.png)
 
 使用 user_test 登录,尝试创建数据库 test_db
 
@@ -90,13 +90,13 @@ GRANT SELECT ON *.* TO 'user_test'@'%';
 CREATE DATABASE test_db;
 ```
 
-![](http://cdn.hurra.ltd/img/20200516004259.png)
+![](https://cdn.hurra.ltd/img/20200516004259.png)
 
 <center>可以发现被拒绝了</center>
 
 使用 user_test 用户,尝试查询
 
-![](http://cdn.hurra.ltd/img/20200516004447.png)
+![](https://cdn.hurra.ltd/img/20200516004447.png)
 
 <center>可以发现查询是没问题的</center>
 
@@ -108,7 +108,7 @@ CREATE USER 'test_4'@'%' identified by '999';
 GRANT SELECT,CREATE ON *.* TO 'test_4'@'%';
 ```
 
-![](http://cdn.hurra.ltd/img/20200516084018.png)
+![](https://cdn.hurra.ltd/img/20200516084018.png)
 
 使用 test_4 登录,尝试创建数据库 test_db
 
@@ -116,6 +116,6 @@ GRANT SELECT,CREATE ON *.* TO 'test_4'@'%';
 CREATE DATABASE test_db;
 ```
 
-![](http://cdn.hurra.ltd/img/20200516084301.png)
+![](https://cdn.hurra.ltd/img/20200516084301.png)
 
 <center>可以发现是没问题的</center>

@@ -174,4 +174,4 @@ public class DBUtil extends DBPool {
 }
 ```
 
-![](http://cdn.hurra.ltd/img/收款码.png)
+![](https://cdn.hurra.ltd/img/收款码.png)

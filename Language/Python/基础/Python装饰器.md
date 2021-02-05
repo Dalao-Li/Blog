@@ -38,7 +38,7 @@ if __name__ == "__main__":
     func()
 ```
 
-![](http://cdn.hurra.ltd/img/20201024135555.png)
+![](https://cdn.hurra.ltd/img/20201024135555.png)
 
 ---
 
@@ -65,6 +65,6 @@ if __name__ == "__main__":
     func_b()
 ```
 
-![](http://cdn.hurra.ltd/img/20201024152019.png)
+![](https://cdn.hurra.ltd/img/20201024152019.png)
 
-![](http://cdn.hurra.ltd/img/收款码.png)
+![](https://cdn.hurra.ltd/img/收款码.png)

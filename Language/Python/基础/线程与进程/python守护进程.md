@@ -43,8 +43,8 @@ if __name__ == '__main__':
     print("主进程结束!")
 ```
 
-![](http://cdn.hurra.ltd/img/20201019195202.png)
+![](https://cdn.hurra.ltd/img/20201019195202.png)
 
 可见,主进程结束时子进程也立即结束
 
-![](http://cdn.hurra.ltd/img/收款码.png)
+![](https://cdn.hurra.ltd/img/收款码.png)

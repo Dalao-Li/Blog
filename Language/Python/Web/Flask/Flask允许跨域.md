@@ -60,7 +60,7 @@ if __name__ == '__main__':
 
 使用 F12 进入控制台后发现如下错误
 
-![](http://cdn.hurra.ltd/img/20200722234713.png)
+![](https://cdn.hurra.ltd/img/20200722234713.png)
 
 通过查询此为跨域问题,所以需设置 Flask 允许跨域
 
@@ -99,8 +99,8 @@ if __name__ == '__main__':
 ```
 
 运行结果
-![](http://cdn.hurra.ltd/img/20200722235455.png)
+![](https://cdn.hurra.ltd/img/20200722235455.png)
 
-![](http://cdn.hurra.ltd/img/20200722235514.png)
+![](https://cdn.hurra.ltd/img/20200722235514.png)
 
-![](http://cdn.hurra.ltd/img/收款码.png)
+![](https://cdn.hurra.ltd/img/收款码.png)

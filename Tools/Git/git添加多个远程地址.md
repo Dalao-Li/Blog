@@ -31,6 +31,6 @@ git remote add origin https://github.com/Dalao-Li/Bolg.git
 git remote set-url --add origin https://code.aliyun.com/dalao/Bolg
 ```
 
-![](http://cdn.hurra.ltd/img/20210125231032.png)
+![](https://cdn.hurra.ltd/img/20210125231032.png)
 
 以后只要使用`git push origin master` 就可以一次性push到2各库里面

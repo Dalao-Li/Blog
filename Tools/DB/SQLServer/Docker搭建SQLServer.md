@@ -28,10 +28,10 @@ docker run -itd -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Dalao@13546!" -p 1433:1433  -
 
 - 显示所有数据库
 
-![](http://cdn.hurra.ltd/img/20201012110513.png)
+![](https://cdn.hurra.ltd/img/20201012110513.png)
 
 - 显示表
 
-![](http://cdn.hurra.ltd/img/20201012130931.png)
+![](https://cdn.hurra.ltd/img/20201012130931.png)
 
 >别忘记输入`GO`,那样才会执行命令(反人类的SQLServer)

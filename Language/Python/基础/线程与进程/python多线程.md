@@ -53,7 +53,7 @@ print('thread %s ended.' % current_thread().name)
 
 ```
 
-![](http://cdn.hurra.ltd/img/20210126110727.png)
+![](https://cdn.hurra.ltd/img/20210126110727.png)
 
 由于任何进程默认就会启动一个主线程,主线程又可以启动新的线程,Python的threading模块current_thread()函数,它永远返回当前线程的实例  
 主线程实例的名字叫MainThread,子线程的名字在创建时指定,此处用LoopThread命名子线程.名字仅仅在打印时显示,没有其他意义,如果不起名字Python就自动给线程命名为Thread-1,Thread-2......

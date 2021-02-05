@@ -59,7 +59,7 @@ data = [
 
 结果
 
-![](http://cdn.hurra.ltd/img/20200725123717.png)
+![](https://cdn.hurra.ltd/img/20200725123717.png)
 
 # POST 请求
 
@@ -129,10 +129,10 @@ def post_api():
 ```
 
 运行结果
-![](http://cdn.hurra.ltd/img/20200725151620.png)
+![](https://cdn.hurra.ltd/img/20200725151620.png)
 
-![](http://cdn.hurra.ltd/img/20200725151641.png)
+![](https://cdn.hurra.ltd/img/20200725151641.png)
 
 ---
 
-![](http://cdn.hurra.ltd/img/收款码.png)
+![](https://cdn.hurra.ltd/img/收款码.png)

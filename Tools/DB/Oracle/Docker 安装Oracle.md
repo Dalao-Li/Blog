@@ -5,7 +5,7 @@
  * @Email: dalao_li@163.com
  * @Date: 2021-01-16 17:59:34
  * @LastEditors: Li Yuanhao
- * @LastEditTime: 2021-02-04 23:50:41
+ * @LastEditTime: 2021-02-05 11:13:12
 -->
 
 
@@ -24,7 +24,7 @@ docker pull truevoly/oracle-12c
 docker run -d -p 8080:8080 -p 1521:1521 truevoly/oracle-12c
 ```
 
-- 进入容器后,输入
+- 进入Oracle
 
 ```docker
 sqlplus sys as sysdba
@@ -44,7 +44,7 @@ SELECT tablespace_name FROM dba_tablespaces;
 SELECT * FROM dba_data_files;
 ```
 
-![](http://cdn.hurra.ltd/img/20201130153639.png)
+![](https://cdn.hurra.ltd/img/20201130153639.png)
 
 > path = /u01/app/oracle/oradata/xe/...
 
@@ -72,4 +72,4 @@ GRANT CONNECT,RESOURCE,DBA TO user_test;
 
 > connect,resource,dba 权限赋予 test 用户
 
-![](http://cdn.hurra.ltd/img/收款码.png)
+![](https://cdn.hurra.ltd/img/收款码.png)

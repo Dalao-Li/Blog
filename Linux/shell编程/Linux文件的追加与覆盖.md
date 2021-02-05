@@ -18,7 +18,7 @@ echo "追加内容1" >> demo
 echo "追加内容2" >> demo
 ```
 
-![](http://cdn.hurra.ltd/img/20200619212430.png)
+![](https://cdn.hurra.ltd/img/20200619212430.png)
 
 ## 1.2 多行追加
 
@@ -40,4 +40,4 @@ echo "文本内容" > 文件名
 echo "覆盖内容" > demo
 ```
 
-![](http://cdn.hurra.ltd/img/20200619212618.png)
+![](https://cdn.hurra.ltd/img/20200619212618.png)

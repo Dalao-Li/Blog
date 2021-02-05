@@ -4,21 +4,21 @@
 
 建立一个 C Library 项目 hello
 
-![](http://cdn.hurra.ltd/img/20201028180820.png)
+![](https://cdn.hurra.ltd/img/20201028180820.png)
 
 library.c 文件中已有默认代码
 
-![](http://cdn.hurra.ltd/img/20201028181141.png)
+![](https://cdn.hurra.ltd/img/20201028181141.png)
 
 ctrl + F9 编译
 
 右侧生成了 libhello.dll 文件
-![](http://cdn.hurra.ltd/img/20201028181058.png)
+![](https://cdn.hurra.ltd/img/20201028181058.png)
 
 ## 调用
 
 另建立一个项目 Demo,在其根目录下建立 lib 目录,将上一步生成的 dll 文件拷入
-![](http://cdn.hurra.ltd/img/20201028182033.png)
+![](https://cdn.hurra.ltd/img/20201028182033.png)
 
 main.cpp 内写入代码
 
@@ -65,10 +65,10 @@ target_link_libraries(Demo libhello.dll)
 ```
 编辑 Configurations,设置 Environment variables ,值为 lib 目录的绝对路径
 
-![](http://cdn.hurra.ltd/img/20201028184033.png)
+![](https://cdn.hurra.ltd/img/20201028184033.png)
 
 运行
-![](http://cdn.hurra.ltd/img/20201028184425.png)
+![](https://cdn.hurra.ltd/img/20201028184425.png)
 
 ## 测试
 
@@ -134,6 +134,6 @@ int main() {
 }
 ```
 
-![](http://cdn.hurra.ltd/img/20201028194047.png)
+![](https://cdn.hurra.ltd/img/20201028194047.png)
 
-![](http://cdn.hurra.ltd/img/收款码.png)
+![](https://cdn.hurra.ltd/img/收款码.png)

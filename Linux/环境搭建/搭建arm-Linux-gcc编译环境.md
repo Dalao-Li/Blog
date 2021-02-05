@@ -9,7 +9,7 @@
 
 - 将 tar 包复制到新建的 CentOS7 容器
 
-![](http://cdn.hurra.ltd/img/20200919202648.png)
+![](https://cdn.hurra.ltd/img/20200919202648.png)
 
 - 解包到/home 路径
 
@@ -19,7 +19,7 @@
 tar -zxvf arm-linux-gcc-4.4.3-20100728.tar.gz -C /home
 ```
 
-![](http://cdn.hurra.ltd/img/20200919202951.png)
+![](https://cdn.hurra.ltd/img/20200919202951.png)
 
 - 移动包中内容
 
@@ -29,7 +29,7 @@ tar -zxvf arm-linux-gcc-4.4.3-20100728.tar.gz -C /home
 cp -r /home/opt/FriendlyARM/toolschain/4.4.3 /usr/local/bin
 ```
 
-![](http://cdn.hurra.ltd/img/20200919203033.png)
+![](https://cdn.hurra.ltd/img/20200919203033.png)
 
 - 安装相关依赖
 
@@ -47,7 +47,7 @@ export PATH=$PATH:/usr/local/arm/bin
 source /etc/profile
 ```
 
-![](http://cdn.hurra.ltd/img/20200919205735.png)
+![](https://cdn.hurra.ltd/img/20200919205735.png)
 
 编辑 ~/.bashrc,末尾添加
 
@@ -69,6 +69,6 @@ source /etc/profile
 arm-linux-gcc -v
 ```
 
-![](http://cdn.hurra.ltd/img/20200919210020.png)
+![](https://cdn.hurra.ltd/img/20200919210020.png)
 
-![](http://cdn.hurra.ltd/img/收款码.png)
+![](https://cdn.hurra.ltd/img/收款码.png)

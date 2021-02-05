@@ -16,7 +16,7 @@
 docker pull mysql:5.7
 ```
 
-![](http://cdn.hurra.ltd/img/20200515200648.png)
+![](https://cdn.hurra.ltd/img/20200515200648.png)
 
 # 运行镜像
 
@@ -26,7 +26,7 @@ docker pull mysql:5.7
 docker run -itd -p  3306:3306 -e MYSQL_ROOT_PASSWORD=123456  mysql:5.7
 ```
 
-![](http://cdn.hurra.ltd/img/20200515200803.png)
+![](https://cdn.hurra.ltd/img/20200515200803.png)
 
 > - -p 3306:3306 即将容器的 3306 端口映射到主机的 3306 端口上
 > - -e MYSQL_ROOT_PASSWORD=123456 即设置环境变量,用户为 root,密码为 123456
@@ -39,11 +39,11 @@ docker run -itd -p  3306:3306 -e MYSQL_ROOT_PASSWORD=123456  mysql:5.7
 docker run -itd -p 3306:3306 -v $PWD/mysql:/var/lib/mysql -e MYSQL_ROOT_PASSWORD= 123  mysql:5.6
 ```
 
-![](http://cdn.hurra.ltd/img/20200515201929.png)
+![](https://cdn.hurra.ltd/img/20200515201929.png)
 
 容器内的 **/var/lib/mysql** 目录映射到了宿主机的**D:/volume/mysql**目录上,容器没了数据还在
 
-![](http://cdn.hurra.ltd/img/20200515202929.png)
+![](https://cdn.hurra.ltd/img/20200515202929.png)
 
 ---
 
@@ -55,7 +55,7 @@ docker run -itd -p 3306:3306 -v $PWD/mysql:/var/lib/mysql -e MYSQL_ROOT_PASSWORD
 mysql -u root -p
 ```
 
-![](http://cdn.hurra.ltd/img/20200515202434.png)
+![](https://cdn.hurra.ltd/img/20200515202434.png)
 
 - 允许远程登录
 
@@ -65,15 +65,15 @@ grant all privileges on *.* to 'root'@'%' identified by '刚设置的MYSQL
 flush privileges;
 ```
 
-![](http://cdn.hurra.ltd/img/20200515202734.png)
+![](https://cdn.hurra.ltd/img/20200515202734.png)
 
 测试:新建一个数据库 Test
 
-![](http://cdn.hurra.ltd/img/20200515234119.png)
+![](https://cdn.hurra.ltd/img/20200515234119.png)
 
 如果设置了目录映射的话就能在宿主机中看见了
 
-![](http://cdn.hurra.ltd/img/20200515234144.png)
+![](https://cdn.hurra.ltd/img/20200515234144.png)
 
 # 常见问题
 
@@ -101,4 +101,4 @@ table_open_cache=256
 
 重启容器或者重启 MySQL 服务
 
-![](http://cdn.hurra.ltd/img/收款码.png)
+![](https://cdn.hurra.ltd/img/收款码.png)

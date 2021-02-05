@@ -36,9 +36,9 @@ def hello_world():
     return {'result':200}
 ```
 
-![](http://cdn.hurra.ltd/img/20200726230918.png)
+![](https://cdn.hurra.ltd/img/20200726230918.png)
 
-![](http://cdn.hurra.ltd/img/20200726231736.png)
+![](https://cdn.hurra.ltd/img/20200726231736.png)
 
 ---
 
@@ -63,9 +63,9 @@ def hello_world():
     return {'result':200}
 ```
 
-![](http://cdn.hurra.ltd/img/20200726232434.png)
+![](https://cdn.hurra.ltd/img/20200726232434.png)
 
-![](http://cdn.hurra.ltd/img/20200726232455.png)
+![](https://cdn.hurra.ltd/img/20200726232455.png)
 
 ---
 
@@ -91,9 +91,9 @@ def hello_world():
     return {'result': 200}
 ```
 
-![](http://cdn.hurra.ltd/img/20200726233200.png)
+![](https://cdn.hurra.ltd/img/20200726233200.png)
 
-![](http://cdn.hurra.ltd/img/20200726233131.png)
+![](https://cdn.hurra.ltd/img/20200726233131.png)
 
 > - `注意 : POST请求无法通过request.args.get(<param>)方法获取数据`
 
@@ -118,10 +118,10 @@ def hello_world():
     return {'result': 200}
 ```
 
-![](http://cdn.hurra.ltd/img/20200726234429.png)
+![](https://cdn.hurra.ltd/img/20200726234429.png)
 
-![](http://cdn.hurra.ltd/img/20200726234454.png)
+![](https://cdn.hurra.ltd/img/20200726234454.png)
 
 ---
 
-![](http://cdn.hurra.ltd/img/收款码.png)
+![](https://cdn.hurra.ltd/img/收款码.png)

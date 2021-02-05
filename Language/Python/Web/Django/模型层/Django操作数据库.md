@@ -16,13 +16,13 @@
 python3 manage.py startapp app
 ```
 
-![](http://cdn.hurra.ltd/img/20200802134308.png)
+![](https://cdn.hurra.ltd/img/20200802134308.png)
 
 ## 连接
 
 编辑主目录下 settings.py文件,找到 DATABASES
 
-![](http://cdn.hurra.ltd/img/20200802140333.png)
+![](https://cdn.hurra.ltd/img/20200802140333.png)
 
 此为默认配置,会在项目下建立 sqlite3 数据库
 
@@ -108,11 +108,11 @@ python manage.py makemigrations
 python manage.py migrate
 ```
 
-![](http://cdn.hurra.ltd/img/20200802152633.png)
+![](https://cdn.hurra.ltd/img/20200802152633.png)
 
 此时 app/migrations 下生成 0001_initial.py 文件
 
-![](http://cdn.hurra.ltd/img/20200802233105.png)
+![](https://cdn.hurra.ltd/img/20200802233105.png)
 
 ## 操作
 
@@ -128,12 +128,12 @@ python manage.py createsuperuser
 
 输入用户名和密码,邮箱地址可选
 
-![](http://cdn.hurra.ltd/img/20200802153640.png)
+![](https://cdn.hurra.ltd/img/20200802153640.png)
 
 启动项目,访问http://127.0.0.1:8000/admin/
 
-![](http://cdn.hurra.ltd/img/20200802153902.png)
-![](http://cdn.hurra.ltd/img/20200802154127.png)
+![](https://cdn.hurra.ltd/img/20200802153902.png)
+![](https://cdn.hurra.ltd/img/20200802154127.png)
 
 现在还无法看到建好的表,需在 admin 中注册,将 app 的模型加入站点内,接受站点管理
 
@@ -150,15 +150,15 @@ admin.site.register(Stu)
 
 刷新
 
-![](http://cdn.hurra.ltd/img/20200802213738.png)
+![](https://cdn.hurra.ltd/img/20200802213738.png)
 
 ### 新增
 
 - 可视化  
   直接使用 Django 管理页面新增数据
-  ![](http://cdn.hurra.ltd/img/20200802223956.png)
+  ![](https://cdn.hurra.ltd/img/20200802223956.png)
 
-![](http://cdn.hurra.ltd/img/20200802224031.png)
+![](https://cdn.hurra.ltd/img/20200802224031.png)
 
 由于之前设定了 ordering = ['age'],故添加的数据会按从小到大的顺序排列
 
@@ -178,9 +178,9 @@ s.save()
 s = Stu.objects.create(num='D-123',name='阿强',age=19,sex='M')
 ```
 
-![](http://cdn.hurra.ltd/img/20200802235206.png)
+![](https://cdn.hurra.ltd/img/20200802235206.png)
 
-![](http://cdn.hurra.ltd/img/20200802235230.png)
+![](https://cdn.hurra.ltd/img/20200802235230.png)
 
 ### 查询
 
@@ -190,7 +190,7 @@ s = Stu.objects.create(num='D-123',name='阿强',age=19,sex='M')
 stu_list = Stu.objects.all()
 ```
 
-![](http://cdn.hurra.ltd/img/20200802235655.png)
+![](https://cdn.hurra.ltd/img/20200802235655.png)
 
 - 过滤查询
 
@@ -200,7 +200,7 @@ stu_list = Stu.objects.all()
 stu = Stu.objects.filter(sex='M')
 ```
 
-![](http://cdn.hurra.ltd/img/20200803001551.png)
+![](https://cdn.hurra.ltd/img/20200803001551.png)
 
 - 单一查询
 
@@ -210,7 +210,7 @@ stu = Stu.objects.filter(sex='M')
 stu = Stu.objects.get(num='A-123')
 ```
 
-![](http://cdn.hurra.ltd/img/20200803001831.png)
+![](https://cdn.hurra.ltd/img/20200803001831.png)
 
 - 查询是否存在
 
@@ -220,14 +220,14 @@ stu = Stu.objects.get(num='A-123')
 Stu.objects.filter(num='B-456').exists()
 ```
 
-![](http://cdn.hurra.ltd/img/20200803004453.png)
+![](https://cdn.hurra.ltd/img/20200803004453.png)
 
 ### 修改
 
 - 可视化  
   直接在管理页面修改
 
-![](http://cdn.hurra.ltd/img/20200803002039.png)
+![](https://cdn.hurra.ltd/img/20200803002039.png)
 
 - 代码
 
@@ -237,9 +237,9 @@ Stu.objects.filter(num='B-456').exists()
 Stu.objects.filter(sex='M').update(age=18)
 ```
 
-![](http://cdn.hurra.ltd/img/20200803004011.png)
+![](https://cdn.hurra.ltd/img/20200803004011.png)
 
-![](http://cdn.hurra.ltd/img/20200803004052.png)
+![](https://cdn.hurra.ltd/img/20200803004052.png)
 
 ### 删除
 
@@ -255,9 +255,9 @@ Stu.objects.filter(sex='M').update(age=18)
 Stu.objects.filter(num='A-123').delete()
 ```
 
-![](http://cdn.hurra.ltd/img/20200803004719.png)
-![](http://cdn.hurra.ltd/img/20200803004753.png)
+![](https://cdn.hurra.ltd/img/20200803004719.png)
+![](https://cdn.hurra.ltd/img/20200803004753.png)
 
 ---
 
-![](http://cdn.hurra.ltd/img/收款码.png)
+![](https://cdn.hurra.ltd/img/收款码.png)

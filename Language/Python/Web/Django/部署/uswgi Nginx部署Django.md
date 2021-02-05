@@ -23,9 +23,9 @@ django-admin.py startproject mysite
 ```shell
 python manage.py runserver 0.0.0.0:8000
 ```
-![](http://cdn.hurra.ltd/img/20210203191544.png)
+![](https://cdn.hurra.ltd/img/20210203191544.png)
 
-![](http://cdn.hurra.ltd/img/20210203191643.png)
+![](https://cdn.hurra.ltd/img/20210203191643.png)
 
 ## uwsgi文件
 

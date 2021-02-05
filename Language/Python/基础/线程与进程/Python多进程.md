@@ -32,7 +32,7 @@ if __name__ == '__main__':
     wash()
 ```
 
-![](http://cdn.hurra.ltd/img/20201019171128.png)
+![](https://cdn.hurra.ltd/img/20201019171128.png)
 
 两个任务先后完成,共花费 3 秒钟
 
@@ -75,7 +75,7 @@ if __name__ == '__main__':
     wash_process.start()
 ```
 
-![](http://cdn.hurra.ltd/img/20201019173207.png)
+![](https://cdn.hurra.ltd/img/20201019173207.png)
 
 ## 进程执行带参任务
 
@@ -107,7 +107,7 @@ if __name__ == '__main__':
     wash_process.start()
 ```
 
-![](http://cdn.hurra.ltd/img/20201019175806.png)
+![](https://cdn.hurra.ltd/img/20201019175806.png)
 
 ### kwargs 传参
 
@@ -138,7 +138,7 @@ if __name__ == '__main__':
     wash_process.start()
 ```
 
-![](http://cdn.hurra.ltd/img/20201019180329.png)
+![](https://cdn.hurra.ltd/img/20201019180329.png)
 
 ## 获取进程编号
 
@@ -152,7 +152,7 @@ pid = os.getpid()
 print(pid)
 ```
 
-![](http://cdn.hurra.ltd/img/20201019181524.png)
+![](https://cdn.hurra.ltd/img/20201019181524.png)
 
 获取当前父进程的编号
 
@@ -185,6 +185,6 @@ if __name__ == '__main__':
     wash_process.start()
 ```
 
-![](http://cdn.hurra.ltd/img/20201019183002.png)
+![](https://cdn.hurra.ltd/img/20201019183002.png)
 
 

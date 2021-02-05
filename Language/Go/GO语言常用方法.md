@@ -39,6 +39,6 @@ func main() {
 }
 ```
 
-![](http://cdn.hurra.ltd/img/20210110230203.png)
+![](https://cdn.hurra.ltd/img/20210110230203.png)
 
 # 通道

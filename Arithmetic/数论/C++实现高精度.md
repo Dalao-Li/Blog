@@ -6,12 +6,12 @@ a = "12345" , b = "789"
 
 利用数组**逆序**存储两个数字,来求和与进位  
 图示:
-![](http://cdn.hurra.ltd/img/20200620162302.png)
+![](https://cdn.hurra.ltd/img/20200620162302.png)
 求和结果为 13134
 
 例 2 : 有进位情况
 a = "99769" , b = "231"
-![](http://cdn.hurra.ltd/img/20200620162957.png)
+![](https://cdn.hurra.ltd/img/20200620162957.png)
 
 实现代码
 
@@ -51,14 +51,14 @@ string addNum(string a, string b) {
 ```
 
 运行结果
-![](http://cdn.hurra.ltd/img/20200620163531.png)
+![](https://cdn.hurra.ltd/img/20200620163531.png)
 
 ## 2. 大数减法
 
 例 3:非负情况
 string a = "99729" , string b = "99231"
 
-![](http://cdn.hurra.ltd/img/20200620164104.png)
+![](https://cdn.hurra.ltd/img/20200620164104.png)
 
 运算时确保被减数大于减数,最后判断是否为负数
 
@@ -102,4 +102,4 @@ string subNum(string a, string b) {
 
 运行结果
 
-![](http://cdn.hurra.ltd/img/20200620192640.png)
+![](https://cdn.hurra.ltd/img/20200620192640.png)

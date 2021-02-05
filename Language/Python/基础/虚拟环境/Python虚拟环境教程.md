@@ -7,7 +7,7 @@
 pip install virtualenv
 ```
 
-![](http://cdn.hurra.ltd/img/20200312224255893.png)
+![](https://cdn.hurra.ltd/img/20200312224255893.png)
 
 ## 创建
 
@@ -17,9 +17,9 @@ pip install virtualenv
 virtualenv venv
 ```
 
-![](http://cdn.hurra.ltd/img/TIM截图20200515113058.png)
+![](https://cdn.hurra.ltd/img/TIM截图20200515113058.png)
 
-![](http://cdn.hurra.ltd/img/20200515113137.png)
+![](https://cdn.hurra.ltd/img/20200515113137.png)
 
 ## 设置解释器
 
@@ -30,7 +30,7 @@ virtualenv  -p    python.exe文件的路径  创建的虚拟环境的名字
 
 例如,这里用的是 Anaconda,指令为:virtualenv -p D:\App\anaconda\python.exe venv
 
-![](http://cdn.hurra.ltd/img/20200515113404.png)
+![](https://cdn.hurra.ltd/img/20200515113404.png)
 
 ---
 
@@ -42,7 +42,7 @@ virtualenv  -p    python.exe文件的路径  创建的虚拟环境的名字
 activate
 ```
 
-![](http://cdn.hurra.ltd/img/20200515113603.png)
+![](https://cdn.hurra.ltd/img/20200515113603.png)
 
 路径前出现了`(venv)`,表明当前处在 venv 虚拟环境下
 
@@ -54,7 +54,7 @@ activate
 deactivate
 ```
 
-![](http://cdn.hurra.ltd/img/20200515113732.png)
+![](https://cdn.hurra.ltd/img/20200515113732.png)
 
 # linux 环境
 
@@ -70,13 +70,13 @@ whereis python
 
 此处的路径为/usr/bin/python3.8
 
-![](http://cdn.hurra.ltd/img/20200515114240.png)
+![](https://cdn.hurra.ltd/img/20200515114240.png)
 
 ```sh
 virtualenv venv
 ```
 
-![](http://cdn.hurra.ltd/img/20200515114449.png)
+![](https://cdn.hurra.ltd/img/20200515114449.png)
 
 使用指定的解释器
 
@@ -84,7 +84,7 @@ virtualenv venv
 virtualenv -p /usr/bin/python3.8  venv
 ```
 
-![](http://cdn.hurra.ltd/img/20200515114605.png)
+![](https://cdn.hurra.ltd/img/20200515114605.png)
 
 ### 使用默认配置
 
@@ -99,7 +99,7 @@ python -m virtualenv venv
 source venv/bin/activate
 ```
 
-![](http://cdn.hurra.ltd/img/20200515114747.png)
+![](https://cdn.hurra.ltd/img/20200515114747.png)
 
 ---
 

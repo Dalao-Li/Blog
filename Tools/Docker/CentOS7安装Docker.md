@@ -63,7 +63,7 @@ yum install -y lvm2
 yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
 ```
 
-![](http://cdn.hurra.ltd/img/20200623102055.png)
+![](https://cdn.hurra.ltd/img/20200623102055.png)
 
 查看仓库中所有 Docker 版本
 
@@ -71,7 +71,7 @@ yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/d
 yum list docker-ce --showduplicates | sort -r
 ```
 
-![](http://cdn.hurra.ltd/img/20200623102007.png)
+![](https://cdn.hurra.ltd/img/20200623102007.png)
 
 # 安装
 
@@ -94,7 +94,7 @@ systemctl enable docker
 docker info
 ```
 
-![](http://cdn.hurra.ltd/img/20200623102258.png)
+![](https://cdn.hurra.ltd/img/20200623102258.png)
 
 # 换源
 
@@ -116,4 +116,4 @@ systemctl restart docker
 
 ---
 
-![](http://cdn.hurra.ltd/img/收款码.png)
+![](https://cdn.hurra.ltd/img/收款码.png)

@@ -1,9 +1,9 @@
-# 环境
+## 环境
 
 > - 系统 : winsows10
 > - 软件 : Docker for Desktop
 
-# 一、目的
+## 目的
 
 使用 Nginx 实现:
 
@@ -11,9 +11,9 @@
 > - 对 html 文件的反向代理配置
 > - 实现对 ip 地址的反向代理配置
 
-# 二、设计
 
-## 1.端口映射
+
+## 端口映射
 
 | `宿主机`端口 | `容器`端口 |
 | :----------: | :--------: |
@@ -24,7 +24,7 @@
 > 访问`宿主机`的`8080`端口,相当于访问 `容器*`的`80`端口(即 Nginx 的默认端口);
 > 其它以此类推.
 
-## 2.新建容器
+## 新建容器
 
 ```s
 docker run -itd -p 8080:80 -p 8081:81 -p 8082:82 nginx
@@ -42,7 +42,7 @@ docker run -itd -p 8080:80 -p 8081:81 -p 8082:82 nginx
 
 > 在配置文件最后一行的意思是使用默认的配置文件,此处将其`注释`掉,以使用自己的配置
 
-### 3.1 默认代理
+## 默认代理
 
 在 nginx.conf 文件的**http**块中添加入以下代码
 
@@ -65,7 +65,7 @@ server{
 
 > 配置容器 80 端口,实现访问宿主机 **http://127.0.0.1:8080**访问到 Nginx 的默认欢迎界面
 
-### 3.2 自定义代理
+## 自定义代理
 
 在/home 目录下新建 demo 文件夹,创建 a.html 文件,修改其内容为
 
@@ -95,7 +95,7 @@ server{
 
 > 配置容器 81 端口,实现访问宿主机 **http://127.0.0.1:8081** 而通过 Nginx 反向代理访问自定义的页面
 
-### 3.3 ip 代理
+## ip 代理
 
 即实现**127.0.0.1:8082**通过 Nginx 被**反向代理**到**127.0.0.1:5000**
 
@@ -145,7 +145,7 @@ nginx -s reload
 
 ![](https://imgconvert.csdnimg.cn/aHR0cDovL2Nkbi5odXJyYS5sdGQvaW1nLzIwMjAwNTE0MTAxMzQxMTM5LnBuZw?x-oss-process=image/format,png)
 
-# 三、结果
+## 结果
 
 ![](https://imgconvert.csdnimg.cn/aHR0cDovL2Nkbi5odXJyYS5sdGQvaW1nLzIwMjAwNTE0MTAyNTMxMjAzLnBuZw?x-oss-process=image/format,png)
 
@@ -159,15 +159,15 @@ nginx -s reload
 
 <center>出现了问题,反向代理失败</center>
 
-# 四、问题
+## 问题
 
-1.  分析
+- 分析
 
 ![](https://imgconvert.csdnimg.cn/aHR0cDovL2Nkbi5odXJyYS5sdGQvaW1nLzIwMjAwNTE0MTAzMTI4ODE3LnBuZw?x-oss-process=image/format,png)
 
 这路本意是将**http://127.0.0.1:82**转发到宿主机的**http://127.0.0.1:5000**,但 Nginx 处于 Linux 环境中,所以此处 localhost 实际上指的是`容器`内的 localhost 而并非`宿主机`内的 localhost,因此出现错误情况.
 
-2. 解决
+- 解决
 
 在 windows 环境下可使用`host.docker.internal`指代宿主机的 localhost 地址
 
@@ -191,4 +191,4 @@ server{
 
 ---
 
-![](http://cdn.hurra.ltd/img/收款码.png)
+![](https://cdn.hurra.ltd/img/收款码.png)

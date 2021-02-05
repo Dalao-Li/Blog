@@ -1,15 +1,13 @@
-# 1. 目的
 
-使用 Bootstrap 框架编制一个选项卡页面
 
-# 2. 效果
+## 效果
 
-![](http://cdn.hurra.ltd/img/20200524194114.png)
-![](http://cdn.hurra.ltd/img/20200524194134.png)
+![](https://cdn.hurra.ltd/img/20200524194114.png)
+![](https://cdn.hurra.ltd/img/20200524194134.png)
 
-# 3. 代码
+## 代码
 
-## 3.1. head 部分
+### head 部分
 
 ```javascript
 <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
@@ -20,7 +18,7 @@
 
 引入相关的库
 
-## 3.2. 选项卡部分
+### 选项卡部分
 
 ```html
 <nav class="navbar nav-tabs" role="navigation">
@@ -42,7 +40,7 @@
 > - href 后跟选项卡对应页面的 id
 > - data-toggle="tab" 用以绑定触发事件,即点击不同选项卡时切换页面
 
-## 3.3. 页面部分
+### 页面部分
 
 ```html
 <div class="tab-content">
@@ -160,7 +158,7 @@
 </div>
 ```
 
-# 4. 全部代码
+## 全部代码
 
 ```html
 <!DOCTYPE html>
@@ -321,4 +319,4 @@
 </html>
 ```
 
-![](http://cdn.hurra.ltd/img/收款码.png)
+![](https://cdn.hurra.ltd/img/收款码.png)

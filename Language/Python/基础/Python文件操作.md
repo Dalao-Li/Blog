@@ -37,7 +37,7 @@ def create_file(file_name):
 
 ```
 
-![](http://cdn.hurra.ltd/img/20200628230114.png)
+![](https://cdn.hurra.ltd/img/20200628230114.png)
 
 ## 指定路径
 
@@ -59,7 +59,7 @@ def write_file(file_name):
     f.close()
 ```
 
-![](http://cdn.hurra.ltd/img/20200628231431.png)
+![](https://cdn.hurra.ltd/img/20200628231431.png)
 
 ## 追加
 
@@ -79,7 +79,7 @@ def add_file_data(file_name):
 > - with open 中的参数 a 代表追加内容
 > - '\r\n'实现换行
 
-![](http://cdn.hurra.ltd/img/20200628232636.png)
+![](https://cdn.hurra.ltd/img/20200628232636.png)
 
 ## 覆盖
 
@@ -97,7 +97,7 @@ def rename_file(old_name,new_name):
     os.rename(old_path, new_path)
 ```
 
-![](http://cdn.hurra.ltd/img/20200628233529.png)
+![](https://cdn.hurra.ltd/img/20200628233529.png)
 
 # 读取文件
 
@@ -115,7 +115,7 @@ def read_file(file_name):
     f.close()
 ```
 
-![](http://cdn.hurra.ltd/img/20200628234541.png)
+![](https://cdn.hurra.ltd/img/20200628234541.png)
 
 ## 逐行读取
 
@@ -152,7 +152,7 @@ if __name__ == '__main__':
     move_file(source_path, target_path)
 ```
 
-![](http://cdn.hurra.ltd/img/20200629001956.png)
+![](https://cdn.hurra.ltd/img/20200629001956.png)
 
 - 复制文件  
 将 shutil.move()换为 shutil.copyfile()即可
@@ -182,7 +182,7 @@ def display_all_files(folder_path):
             print(path)
 ```
 
-![](http://cdn.hurra.ltd/img/20200629221116.png)
+![](https://cdn.hurra.ltd/img/20200629221116.png)
 
 ### 递归显示
 
@@ -196,8 +196,8 @@ def display_all_folders(folder_path):
             display_all_files(path)
 ```
 
-![](http://cdn.hurra.ltd/img/20200629221628.png)
+![](https://cdn.hurra.ltd/img/20200629221628.png)
 
 ---
 
-![](http://cdn.hurra.ltd/img/收款码.png)
+![](https://cdn.hurra.ltd/img/收款码.png)

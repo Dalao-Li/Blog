@@ -1,6 +1,6 @@
 # Git 命令流程
 
-![](http://cdn.hurra.ltd/img/20200720231600.png)
+![](https://cdn.hurra.ltd/img/20200720231600.png)
 
 ## 配置
 
@@ -28,9 +28,9 @@ ssh-keygen -t rsa -C "<邮箱>"
 git init
 ```
 
-![](http://cdn.hurra.ltd/img/20200717225442.png)
+![](https://cdn.hurra.ltd/img/20200717225442.png)
 
-![](http://cdn.hurra.ltd/img/20200717225520.png)
+![](https://cdn.hurra.ltd/img/20200717225520.png)
 
 ## 查看状态
 
@@ -38,15 +38,15 @@ git init
 git status
 ```
 
-![](http://cdn.hurra.ltd/img/20200717225623.png)
+![](https://cdn.hurra.ltd/img/20200717225623.png)
 
 新建文件 new.txt,写入:"master 第一次提交"
 
-![](http://cdn.hurra.ltd/img/20200717225752.png)
+![](https://cdn.hurra.ltd/img/20200717225752.png)
 
 再次 git status
 
-![](http://cdn.hurra.ltd/img/20200717225908.png)
+![](https://cdn.hurra.ltd/img/20200717225908.png)
 
 ## 添加到暂存区
 
@@ -56,7 +56,7 @@ git add .
 
 > - 此处 `.` 指所有文件,也可具体指定文件
 
-![](http://cdn.hurra.ltd/img/20200717230210.png)
+![](https://cdn.hurra.ltd/img/20200717230210.png)
 
 ## 撤销暂存区修改
 
@@ -70,7 +70,7 @@ git reset HEAD
 git reset HEAD <filename>
 ```
 
-![](http://cdn.hurra.ltd/img/20200717231751.png)
+![](https://cdn.hurra.ltd/img/20200717231751.png)
 
 ## 提交操作
 
@@ -80,7 +80,7 @@ git reset HEAD <filename>
 git commit -m "提交的注释信息"
 ```
 
-![](http://cdn.hurra.ltd/img/20200717230921.png)
+![](https://cdn.hurra.ltd/img/20200717230921.png)
 
 ## 修改提交
 
@@ -102,15 +102,15 @@ git rebase -i HEAD~3
 git log
 ```
 
-![](http://cdn.hurra.ltd/img/20200717232555.png)
+![](https://cdn.hurra.ltd/img/20200717232555.png)
 
 ## 撤销提交
 
 修改 new.txt 文件内容,并 commit
 
-![](http://cdn.hurra.ltd/img/20200717232121.png)
+![](https://cdn.hurra.ltd/img/20200717232121.png)
 
-![](http://cdn.hurra.ltd/img/20200717232223.png)
+![](https://cdn.hurra.ltd/img/20200717232223.png)
 
 - 现在回到上一次提交,可执行
 
@@ -120,9 +120,9 @@ git reset --hard HEAD^
 
 > - `删除工作空间改动代码,撤销commit,撤销git add .`
 
-![](http://cdn.hurra.ltd/img/20200717233342.png)
+![](https://cdn.hurra.ltd/img/20200717233342.png)
 
-![](http://cdn.hurra.ltd/img/20200717233417.png)
+![](https://cdn.hurra.ltd/img/20200717233417.png)
 
 ---
 
@@ -134,15 +134,15 @@ git reset --soft HEAD^
 
 > - `不删除工作空间改动代码,撤销commit,不撤销git add . `
 
-![](http://cdn.hurra.ltd/img/20200717233725.png)
+![](https://cdn.hurra.ltd/img/20200717233725.png)
 
 可发现 commit 已经撤回
 
-![](http://cdn.hurra.ltd/img/20200717233745.png)
+![](https://cdn.hurra.ltd/img/20200717233745.png)
 
 并且改动的代码未变
 
-![](http://cdn.hurra.ltd/img/20200717233820.png)
+![](https://cdn.hurra.ltd/img/20200717233820.png)
 
 ---
 
@@ -166,7 +166,7 @@ git branch -a
 git branch
 ```
 
-![](http://cdn.hurra.ltd/img/20200718111415.png)
+![](https://cdn.hurra.ltd/img/20200718111415.png)
 
 ## 建立分支
 
@@ -176,7 +176,7 @@ git branch <branch name>
 
 建立名为 first 的分支
 
-![](http://cdn.hurra.ltd/img/20200718111645.png)
+![](https://cdn.hurra.ltd/img/20200718111645.png)
 
 ## 切换分支
 
@@ -186,7 +186,7 @@ git checkout <branch name>
 
 切换到 first 分支
 
-![](http://cdn.hurra.ltd/img/20200718111734.png)
+![](https://cdn.hurra.ltd/img/20200718111734.png)
 
 > - 创建新分支并切换到新分支
 
@@ -196,7 +196,7 @@ git checkout -b <branch name>
 
 创建 second 分支并切换
 
-![](http://cdn.hurra.ltd/img/20200718112028.png)
+![](https://cdn.hurra.ltd/img/20200718112028.png)
 
 ## 删除分支
 
@@ -206,7 +206,7 @@ git branch -d <branch name>
 
 删除 second 分支
 
-![](http://cdn.hurra.ltd/img/20200718112414.png)
+![](https://cdn.hurra.ltd/img/20200718112414.png)
 
 ##合并分支
 
@@ -220,15 +220,15 @@ git merge <branch name>
 
 master 分支下新建 master.txt 文件;commit
 
-![](http://cdn.hurra.ltd/img/20200720210124.png)
+![](https://cdn.hurra.ltd/img/20200720210124.png)
 
-![](http://cdn.hurra.ltd/img/20200720214732.png)
+![](https://cdn.hurra.ltd/img/20200720214732.png)
 
 新建 second 分支,切换,再新建 second.txt 文件;commit
 
-![](http://cdn.hurra.ltd/img/20200720213807.png)
+![](https://cdn.hurra.ltd/img/20200720213807.png)
 
-![](http://cdn.hurra.ltd/img/20200720214816.png)
+![](https://cdn.hurra.ltd/img/20200720214816.png)
 
 合并 second 分支到 master 分支
 
@@ -236,7 +236,7 @@ master 分支下新建 master.txt 文件;commit
 git merge second
 ```
 
-![](http://cdn.hurra.ltd/img/20200720215610.png)
+![](https://cdn.hurra.ltd/img/20200720215610.png)
 可以看到 master 分支下已经出现了 second.txt
 
 ## 查看远程仓库地址
@@ -257,4 +257,4 @@ git remote rm <origin-name>
 git remote add <origin-name> <origin-url>
 ```
 
-![](http://cdn.hurra.ltd/img/收款码.png)
+![](https://cdn.hurra.ltd/img/收款码.png)

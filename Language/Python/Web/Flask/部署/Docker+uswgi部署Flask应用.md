@@ -83,7 +83,7 @@ docker build -t mydemo .
 > - -t : 指定镜像名称,此处为 mydemo
 > - `.` 指定创建时的目录
 
-![](http://cdn.hurra.ltd/img/20200712113859.png)
+![](https://cdn.hurra.ltd/img/20200712113859.png)
 
 # 建立容器
 
@@ -93,7 +93,7 @@ docker run -itd -p 80:8080 --name test mydemo
 
 访问http://192.168.3.20
 
-![](http://cdn.hurra.ltd/img/20200712114018.png)
+![](https://cdn.hurra.ltd/img/20200712114018.png)
 
 # 总结
 
@@ -101,4 +101,4 @@ docker run -itd -p 80:8080 --name test mydemo
 
 -  `目前 windows平台 尚不支持 uwsgi 包的使用`
 
-![](http://cdn.hurra.ltd/img/收款码.png)
+![](https://cdn.hurra.ltd/img/收款码.png)

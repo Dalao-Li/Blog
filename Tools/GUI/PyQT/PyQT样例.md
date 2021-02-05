@@ -1,14 +1,23 @@
-# 环境搭建
+<!--
+ * @Description: 
+ * @Version: 1.0
+ * @Author: Li Yuanhao
+ * @Email: dalao_li@163.com
+ * @Date: 2021-01-17 18:20:42
+ * @LastEditors: Li Yuanhao
+ * @LastEditTime: 2021-02-05 11:25:13
+-->
 
-# UI 设计
+
+## UI 设计
 
 运行 design 软件,建立 main.ui 文件
 
-# PY 代码转换
+## PY 代码转换
 
 使用 PyUIC 转换为 main.py
 
-# 运行
+## 运行
 
 新建 run.py 文件,内容为
 

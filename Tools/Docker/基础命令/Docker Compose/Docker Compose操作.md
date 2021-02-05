@@ -6,18 +6,16 @@
  * @QQ: 1061299112
  * @Date: 2021-01-24 18:40:12
  * @LastEditors: Li Yuanhao
- * @LastEditTime: 2021-01-28 22:23:50
+ * @LastEditTime: 2021-02-05 11:18:30
 -->
 
-
-# 概述
+# Docker Compose
+## 概述
 
 - 前面我们使用 Docker 的时候,定义 Dockerfile 文件,然后使用 docker build、docker run 等命令操作容器.然而微服务架构的应用系统一般包含若干个微服务,每个微服务一般都会部署多个实例,如果每个微服务都要手动启停,那么效率之低,维护量之大可想而知
 - 使用 Docker Compose 可以轻松、高效的管理容器,它是一个用于定义和运行多容器 Docker 的应用程序工具
 
-# 样例
-
-## 例 1
+## 例1
 
 启动一个 MySQL 容器,再启动一个 Ubuntu 容器,完成在 Ubuntu 容器内访问 MySQL 容器内的服务
 
@@ -56,7 +54,6 @@ services:
   新建文件夹,在该目录中编写 app.py 文件
 
 ```py
-
 from flask import Flask
 from redis import Redis
 
@@ -102,16 +99,16 @@ services:
     image: "redis:alpine"
 ```
 
-![](http://cdn.hurra.ltd/img/20210125130118.png)
+![](https://cdn.hurra.ltd/img/20210125130118.png)
 
 - 运行 compose 项目
 
-```sh
+```docker
 docker-compose up -d
 ```
 
-![](http://cdn.hurra.ltd/img/20210125130250.png)
+![](https://cdn.hurra.ltd/img/20210125130250.png)
 
-![](http://cdn.hurra.ltd/img/20210125130344.png)
+![](https://cdn.hurra.ltd/img/20210125130344.png)
 
-![](http://cdn.hurra.ltd/img/20210125130458.png)
+![](https://cdn.hurra.ltd/img/20210125130458.png)

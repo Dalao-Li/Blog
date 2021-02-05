@@ -37,4 +37,4 @@ var data = { name: "dalao", pwd: 123456 };
 - JSON 对象转 JSON 字符串  
   var data =JSON.stringify(data)
 
-![](http://cdn.hurra.ltd/img/收款码.png)
+![](https://cdn.hurra.ltd/img/收款码.png)

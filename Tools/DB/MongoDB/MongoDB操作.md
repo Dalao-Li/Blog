@@ -16,7 +16,7 @@ db.createUser({ user:'admin',pwd:'123456',roles:[ { role:'userAdminAnyDatabase',
 db.auth('admin', '123456')
 ```
 
-![](http://cdn.hurra.ltd/img/20201014175200.png)
+![](https://cdn.hurra.ltd/img/20201014175200.png)
 
 
 ## 创建数据库
@@ -27,7 +27,7 @@ use <db_name>
 
 例:创建 test 数据库
 
-![](http://cdn.hurra.ltd/img/20201014142358.png)
+![](https://cdn.hurra.ltd/img/20201014142358.png)
 
 这里暂不会显示新建的数据库,因为其中还未插入数据
 
@@ -40,7 +40,7 @@ db.createCollection("<collect_name>")
 
 例:创建 stu 集合
 
-![](http://cdn.hurra.ltd/img/20201014171656.png)
+![](https://cdn.hurra.ltd/img/20201014171656.png)
 
 
 ## 插入
@@ -54,7 +54,7 @@ db.<collect_name>.insert(<JSON数据>)
 ```
 
 例:向 stu 集合中插入数据
-![](http://cdn.hurra.ltd/img/20201014174718.png)
+![](https://cdn.hurra.ltd/img/20201014174718.png)
 
 - 多条插入
 
@@ -62,7 +62,7 @@ db.<collect_name>.insert(<JSON数据>)
 db.<collect_name>.insert([<JSON数据1>,<JSON数据2>,<JSON数据3>.....])
 ```
 
-![](http://cdn.hurra.ltd/img/20201014175739.png)
+![](https://cdn.hurra.ltd/img/20201014175739.png)
 
 ## 查询
 
@@ -76,7 +76,7 @@ db.<collect_name>.find()
 
 例:显示 stu 集合内所有数据
 
-![](http://cdn.hurra.ltd/img/20201014174834.png)
+![](https://cdn.hurra.ltd/img/20201014174834.png)
 
 格式化显示集合内所有文档
 
@@ -84,7 +84,7 @@ db.<collect_name>.find()
 db.<collect_name>.find().pretty()
 ```
 
-![](http://cdn.hurra.ltd/img/20201014180104.png)
+![](https://cdn.hurra.ltd/img/20201014180104.png)
 
 - 条件查询
 
@@ -94,11 +94,11 @@ db.<collec_name>.find({<key>:<value>}).pretty()
 
 例:查询 stu 集合中 name 为 LILI 的文档
 
-![](http://cdn.hurra.ltd/img/20201014190333.png)
+![](https://cdn.hurra.ltd/img/20201014190333.png)
 
 例:查询年龄大于等于 19 的文档
 
-![](http://cdn.hurra.ltd/img/20201014191820.png)
+![](https://cdn.hurra.ltd/img/20201014191820.png)
 
 条件查询语言表
 
@@ -121,7 +121,7 @@ db.<collect_name>.update({<key1>:<value>},{$set:{<key2>:<new_value>}})
 
 例:将 name 为 LILI 的文档中 age 值改为 22
 
-![](http://cdn.hurra.ltd/img/20201014195214.png)
+![](https://cdn.hurra.ltd/img/20201014195214.png)
 
 ## 删除
 
@@ -133,6 +133,6 @@ db.<collect_name>.remove({<key>:<value>})
 
 例:删除 name=LILI 的文档
 
-![](http://cdn.hurra.ltd/img/20201014204226.png)
+![](https://cdn.hurra.ltd/img/20201014204226.png)
 
-![](http://cdn.hurra.ltd/img/收款码.png)
+![](https://cdn.hurra.ltd/img/收款码.png)

@@ -6,7 +6,7 @@
 
 ## 硬件
 
-![](http://cdn.hurra.ltd/img/IMG_20200531_163807.jpg)
+![](https://cdn.hurra.ltd/img/IMG_20200531_163807.jpg)
 
 从废品站里 20 大洋淘来了一台 2007 年的电脑,配置如下
 
@@ -26,25 +26,25 @@
 
 配置了静态 IP 为 192.168.3.15
 
-![](http://cdn.hurra.ltd/img/20200531165606.png)
+![](https://cdn.hurra.ltd/img/20200531165606.png)
 
 <center>SSH登录</center>
 
 ---
 
-![](http://cdn.hurra.ltd/img/20200531165639.png)
+![](https://cdn.hurra.ltd/img/20200531165639.png)
 
 <center>查看主板信息</center>
 
 ---
 
-![](http://cdn.hurra.ltd/img/20200531165807.png)
+![](https://cdn.hurra.ltd/img/20200531165807.png)
 
 <center>查看BIOS信息</center>
 
 ---
 
-![](http://cdn.hurra.ltd/img/20200531170105.png)
+![](https://cdn.hurra.ltd/img/20200531170105.png)
 
 <center>最大支持4GB内存....</center>
 
@@ -60,7 +60,7 @@
 
 [下载地址--阿里源](http://mirrors.aliyun.com/centos/7/isos/x86_64/)
 
-![](http://cdn.hurra.ltd/img/20200531165035.png)
+![](https://cdn.hurra.ltd/img/20200531165035.png)
 
 - 制作启动盘
 
@@ -70,27 +70,27 @@
 
 **注意! 此处为了演示方便,使用了虚拟机再现了安装过程**
 
-![](http://cdn.hurra.ltd/img/20200531172003.png)
+![](https://cdn.hurra.ltd/img/20200531172003.png)
 
 网络选择桥接模式,毕竟服务器是直接连接网络的
-![](http://cdn.hurra.ltd/img/20200531172103.png)
+![](https://cdn.hurra.ltd/img/20200531172103.png)
 
 安装页面
-![](http://cdn.hurra.ltd/img/20200531172225.png)
+![](https://cdn.hurra.ltd/img/20200531172225.png)
 
-![](http://cdn.hurra.ltd/img/20200531172335.png)
+![](https://cdn.hurra.ltd/img/20200531172335.png)
 设置下网络和硬盘
-![](http://cdn.hurra.ltd/img/20200531172403.png)
+![](https://cdn.hurra.ltd/img/20200531172403.png)
 
-![](http://cdn.hurra.ltd/img/20200531172302.png)
+![](https://cdn.hurra.ltd/img/20200531172302.png)
 
-![](http://cdn.hurra.ltd/img/20200531172448.png)
+![](https://cdn.hurra.ltd/img/20200531172448.png)
 
 然后重启等待进入系统即可
 
 开机进行登录,无图形界面
 
-![](http://cdn.hurra.ltd/img/20200531172943.png)
+![](https://cdn.hurra.ltd/img/20200531172943.png)
 
 ## 系统设置
 
@@ -107,7 +107,7 @@ vi /etc/yum.repos.d/CentOS-Base.repo
 %s/mirror.centos.org/mirrors.aliyun.com/g
 ```
 
-![](http://cdn.hurra.ltd/img/20200531180352.png)
+![](https://cdn.hurra.ltd/img/20200531180352.png)
 
 - 配置 SSH
 
@@ -127,7 +127,7 @@ systemctl start sshd.service
 
 记下宿主机配置
 
-![](http://cdn.hurra.ltd/img/20200531180759.png)
+![](https://cdn.hurra.ltd/img/20200531180759.png)
 服务器的 IP 地址,子网掩码,默认网关,服务器的 ip 应该设置为**192.168.3.XXX**,`必须和宿主机在一个网段`
 
 - 查看服务器的网卡
@@ -136,7 +136,7 @@ systemctl start sshd.service
 ifconfig
 ```
 
-![](http://cdn.hurra.ltd/img/20200531181036.png)
+![](https://cdn.hurra.ltd/img/20200531181036.png)
 
 这里的网卡名为 ens33,各位操作时请以实际网卡名为准
 
@@ -173,7 +173,7 @@ DNS2=8.8.8.8
 
 - 修改示意图
 
-![](http://cdn.hurra.ltd/img/20200531183752.png)
+![](https://cdn.hurra.ltd/img/20200531183752.png)
 
 - 重启网络
 
@@ -188,7 +188,7 @@ service network restart
 >  进入虚拟机的虚拟网络编辑器,选择电脑的外部网卡,我这里选择的是连接以太网的网卡
 > 搭建物理服务器的时候并没有出现这种情况
 
-![](http://cdn.hurra.ltd/img/20200531194956.png)
+![](https://cdn.hurra.ltd/img/20200531194956.png)
 
 ---
 
@@ -198,15 +198,15 @@ service network restart
 
 1. 宿主机 ping 服务器
 
-![](http://cdn.hurra.ltd/img/20200531195148.png)
+![](https://cdn.hurra.ltd/img/20200531195148.png)
 
 2. 服务器 ping 宿主机
 
-![](http://cdn.hurra.ltd/img/20200531195246.png)
+![](https://cdn.hurra.ltd/img/20200531195246.png)
 
 3. 服务器 ping 百度
 
-![](http://cdn.hurra.ltd/img/20200531195515.png)
+![](https://cdn.hurra.ltd/img/20200531195515.png)
 
 # 优化
 
@@ -242,12 +242,12 @@ reboot
 
 # 成果
 
-![](http://cdn.hurra.ltd/img/20200531200411.png)
+![](https://cdn.hurra.ltd/img/20200531200411.png)
 
-![](http://cdn.hurra.ltd/img/IMG_20200531_200526.jpg)
+![](https://cdn.hurra.ltd/img/IMG_20200531_200526.jpg)
 
 接下来就可以愉快的玩耍了,嘿嘿！
 
 作者 QQ: **1061299112** 有什么问题欢迎来讨论
 
-![](http://cdn.hurra.ltd/img/收款码.png)
+![](https://cdn.hurra.ltd/img/收款码.png)

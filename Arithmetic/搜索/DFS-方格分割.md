@@ -13,7 +13,7 @@
 >
 > 请提交该整数,不要填写任何多余的内容或说明文字.
 
-![](http://cdn.hurra.ltd/img/20201013131304.png)
+![](https://cdn.hurra.ltd/img/20201013131304.png)
 
 # 分析
 
@@ -61,4 +61,4 @@ int main(){
 }
 ```
 
-![](http://cdn.hurra.ltd/img/收款码.png)
+![](https://cdn.hurra.ltd/img/收款码.png)

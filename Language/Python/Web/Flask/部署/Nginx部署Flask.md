@@ -108,4 +108,4 @@ nginx -s reload
 service nginx start
 ```
 
-![](http://cdn.hurra.ltd/img/20210202232938.png)
+![](https://cdn.hurra.ltd/img/20210202232938.png)

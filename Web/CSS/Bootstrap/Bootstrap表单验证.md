@@ -15,13 +15,13 @@ git@code.aliyun.com:dalao/BootstrapvalidatorDemo.git
 
 ## 效果
 
-![](http://cdn.hurra.ltd/img/20200526231712.png)
-![](http://cdn.hurra.ltd/img/20200526231734.png)
-![](http://cdn.hurra.ltd/img/20200526231855.png)
+![](https://cdn.hurra.ltd/img/20200526231712.png)
+![](https://cdn.hurra.ltd/img/20200526231734.png)
+![](https://cdn.hurra.ltd/img/20200526231855.png)
 
 ## 项目结构
 
-![](http://cdn.hurra.ltd/img/20200526233425.png)
+![](https://cdn.hurra.ltd/img/20200526233425.png)
 
 ## head 部分
 
@@ -274,4 +274,4 @@ git@code.aliyun.com:dalao/BootstrapvalidatorDemo.git
     </script>
 ```
 
-![](http://cdn.hurra.ltd/img/收款码.png)
+![](https://cdn.hurra.ltd/img/收款码.png)

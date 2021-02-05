@@ -5,14 +5,14 @@
  * @Email: dalao_li@163.com
  * @Date: 2021-01-16 17:59:34
  * @LastEditors: Li Yuanhao
- * @LastEditTime: 2021-01-31 21:51:52
+ * @LastEditTime: 2021-02-05 11:15:36
 -->
 
 
-# 目录挂载
+# Docker目录挂载
 
 
-## 命令
+- 指令
 
 > -v 宿主机目录：容器目录
 
@@ -24,12 +24,12 @@
 
 将宿主机 当前目录下的/myapp目录映射到容器内/usr/src/myapp 目录
 
-![](http://cdn.hurra.ltd/img/20210109220453.png)
+![](https://cdn.hurra.ltd/img/20210109220453.png)
 
 - 宿主机目录若不存在会自动生成
 
 将宿主机 demo 目录(不存在) 映射到容器内/demo 目录
 
-![](http://cdn.hurra.ltd/img/20210109223115.png)
+![](https://cdn.hurra.ltd/img/20210109223115.png)
 
 # 内容修改

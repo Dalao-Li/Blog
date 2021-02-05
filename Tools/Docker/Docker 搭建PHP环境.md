@@ -1,34 +1,37 @@
-## 目录
-
-- [目录](#目录)
-- [环境](#环境)
-- [1.1 拉取 PHP 镜像](#11-拉取php镜像)
-- [1.2 拉取 Nginx 镜像](#12-拉取nginx镜像)
-- [1.3 文件夹映射](#13-文件夹映射)
-- [1.4 实例化容器](#14-实例化容器)
+<!--
+ * @Description: 
+ * @Version: 1.0
+ * @Author: Li Yuanhao
+ * @Email: dalao_li@163.com
+ * @Date: 2021-01-16 17:59:34
+ * @LastEditors: Li Yuanhao
+ * @LastEditTime: 2021-02-05 12:36:37
+-->
+# Docker搭建PHP
 
 ## 环境
 
 > - 系统 : CentOS7
 > - Docker 版本 : 18.03.1.ce
 
-## 1.1 拉取 PHP 镜像
+## 拉取镜像
+- 拉取 PHP 镜像
 
-```s
+```docker
 docker pull php:7.1.30-fpm
 ```
 
-## 1.2 拉取 Nginx 镜像
+ 拉取 Nginx 镜像
 
-```
+```docker
 docker pull nginx
 ```
 
-## 1.3 文件夹映射
+## 文件夹映射
 
 新建文件夹,用来映射网站根目录、Nginx 配置文件与日志文件
 
-```s
+```docker
 mkdir -p ~/nginx/www ~/nginx/logs ~/nginx/conf
 ```
 
@@ -42,9 +45,9 @@ mkdir -p ~/nginx/www ~/nginx/logs ~/nginx/conf
 
 进入/nginx/conf,新建 test-php.conf
 
-```s
+```docker
 server {
-    listen       80;
+    listen  80;
     server_name  localhost;
 
     location / {
@@ -66,26 +69,26 @@ server {
 }
 ```
 
-## 1.4 实例化容器
+## 实例化容器
 
-PHP 容器
+- PHP 容器
 
-```s
+```docker
 docker run -itd --name demo_php -v ~/nginx/www:/www php:7.1.30-fpm
 ```
 
-Nginx 容器
+- Nginx 容器
 
-```s
+```docker
 docker run -itd -p 80:80 -v ~/nginx/www:/usr/share/nginx/html -v ~/nginx/conf:/etc/nginx/conf.d --link demo_php:php nginx
 ```
 
-![](http://cdn.hurra.ltd/img/20200710113713.png)
+![](https://cdn.hurra.ltd/img/20200710113713.png)
 
 访问本机 IP 地址
 
-![](http://cdn.hurra.ltd/img/20200710113759.png)
+![](https://cdn.hurra.ltd/img/20200710113759.png)
 
 ---
 
-![](http://cdn.hurra.ltd/img/收款码.png)
+![](https://cdn.hurra.ltd/img/收款码.png)

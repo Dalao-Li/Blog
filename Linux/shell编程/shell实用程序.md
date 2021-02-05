@@ -53,7 +53,7 @@ else
     echo "文件已经存在"
 fi
 ```
-![](http://cdn.hurra.ltd/img/20200801225712.png)
+![](https://cdn.hurra.ltd/img/20200801225712.png)
 
 
 

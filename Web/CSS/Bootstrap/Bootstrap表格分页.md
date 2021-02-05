@@ -11,17 +11,17 @@
 
 # 效果
 
-![](http://cdn.hurra.ltd/img/20200708224302.png)
+![](https://cdn.hurra.ltd/img/20200708224302.png)
 
 <center>每页显示一定量数据</center>
 
-![](http://cdn.hurra.ltd/img/20200708224344.png)
+![](https://cdn.hurra.ltd/img/20200708224344.png)
 
-![](http://cdn.hurra.ltd/img/20200708224537.png)
+![](https://cdn.hurra.ltd/img/20200708224537.png)
 
 <center>按关键字显示数据</center>
 
-![](http://cdn.hurra.ltd/img/20200708234616.png)
+![](https://cdn.hurra.ltd/img/20200708234616.png)
 
 <center>点击表格后显示被点击行的信息</center>
 
@@ -184,4 +184,4 @@ if __name__ == '__main__':
     app.run()
 ```
 
-![](http://cdn.hurra.ltd/img/收款码.png)
+![](https://cdn.hurra.ltd/img/收款码.png)

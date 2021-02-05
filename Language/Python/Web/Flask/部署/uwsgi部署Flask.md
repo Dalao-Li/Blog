@@ -29,8 +29,8 @@ if __name__ == '__main__':
 python app.py
 ```
 
-![](http://cdn.hurra.ltd/img/20200711112554.png)
-![](http://cdn.hurra.ltd/img/20200711112626.png)
+![](https://cdn.hurra.ltd/img/20200711112554.png)
+![](https://cdn.hurra.ltd/img/20200711112626.png)
 
 # uswgi.ini文件
 
@@ -39,7 +39,7 @@ python app.py
 pip install uwsgi
 ```
 
-![](http://cdn.hurra.ltd/img/20200711123350.png)
+![](https://cdn.hurra.ltd/img/20200711123350.png)
 
 新建 test.py文件:
 
@@ -59,8 +59,8 @@ uwsgi --http :8080 --plugin python --wsgi-file test.py
 
 访问http://127.0.0.1:8080
 
-![](http://cdn.hurra.ltd/img/20200711123744.png)
-![](http://cdn.hurra.ltd/img/20200711123908.png)
+![](https://cdn.hurra.ltd/img/20200711123744.png)
+![](https://cdn.hurra.ltd/img/20200711123908.png)
 
 # uwsgi部署Flask
 
@@ -96,9 +96,9 @@ buffer-size = 32768
 uwsgi config.ini
 ```
 
-![](http://cdn.hurra.ltd/img/20200711130654.png)
-![](http://cdn.hurra.ltd/img/20200711135506.png)
+![](https://cdn.hurra.ltd/img/20200711130654.png)
+![](https://cdn.hurra.ltd/img/20200711135506.png)
 
 ---
 
-![](http://cdn.hurra.ltd/img/收款码.png)
+![](https://cdn.hurra.ltd/img/收款码.png)

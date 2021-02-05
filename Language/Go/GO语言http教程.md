@@ -18,7 +18,7 @@ func main() {
 
 ```
 
-![](http://cdn.hurra.ltd/img/20210110181933.png)
+![](https://cdn.hurra.ltd/img/20210110181933.png)
 
 # 并发 Hello World
 
@@ -43,4 +43,4 @@ func printHello(i int) {
 
 ```
 
-![](http://cdn.hurra.ltd/img/20210110194117.png)
+![](https://cdn.hurra.ltd/img/20210110194117.png)

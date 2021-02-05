@@ -2,7 +2,7 @@
 
 ## 创建项目
 
-![](http://cdn.hurra.ltd/img/20200801113226.png)
+![](https://cdn.hurra.ltd/img/20200801113226.png)
 创建名为 demo 的 Django 项目
 项目目录
 
@@ -19,7 +19,7 @@
 python manage.py startapp app
 ```
 
-![](http://cdn.hurra.ltd/img/20200801112336.png)
+![](https://cdn.hurra.ltd/img/20200801112336.png)
 
 应用目录结构:
 
@@ -33,7 +33,7 @@ python manage.py startapp app
 
 新建应用需在 settings.py文件中的 INSTALLED_APPS 列表中注册,使程序找到该服务
 
-![](http://cdn.hurra.ltd/img/20200801112631.png)
+![](https://cdn.hurra.ltd/img/20200801112631.png)
 
 setting.py 默认内容:
 
@@ -173,10 +173,10 @@ urlpatterns = [
 
 运行,访问http://127.0.0.1:8000/hello
 
-![](http://cdn.hurra.ltd/img/20200801113106.png)
+![](https://cdn.hurra.ltd/img/20200801113106.png)
 
-![](http://cdn.hurra.ltd/img/20200801113140.png)
+![](https://cdn.hurra.ltd/img/20200801113140.png)
 
 ---
 
-![](http://cdn.hurra.ltd/img/收款码.png)
+![](https://cdn.hurra.ltd/img/收款码.png)

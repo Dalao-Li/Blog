@@ -41,7 +41,7 @@ sudo apt install -y docker-ce
 
 使用 docker info 命令出现问题
 
-![](http://cdn.hurra.ltd/img/20200721210505.png)
+![](https://cdn.hurra.ltd/img/20200721210505.png)
 
 这是权限不足的原因,可使用以下命令解决
 
@@ -62,11 +62,11 @@ newgrp docker
 sudo service docker start
 ```
 
-![](http://cdn.hurra.ltd/img/20200721210744.png)
+![](https://cdn.hurra.ltd/img/20200721210744.png)
 
 ## 关闭 WSL
 
-![](http://cdn.hurra.ltd/img/20200721211633.png)
+![](https://cdn.hurra.ltd/img/20200721211633.png)
 
 该进程是 WSL 的进程.它比较占内存,不使用 WSL2 的时候可关闭,方法如下,使用管理员打开 CMD,运行：
 
@@ -74,4 +74,4 @@ sudo service docker start
 wsl --shutdown
 ```
 
-![](http://cdn.hurra.ltd/img/收款码.png)
+![](https://cdn.hurra.ltd/img/收款码.png)

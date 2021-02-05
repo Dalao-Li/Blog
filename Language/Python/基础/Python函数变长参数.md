@@ -14,7 +14,7 @@ if __name__ == "__main__":
     fun(1, 'A')
 ```
 
-![](http://cdn.hurra.ltd/img/20200905193323.png)
+![](https://cdn.hurra.ltd/img/20200905193323.png)
 
 ```py
 def fun(x, *args):
@@ -28,7 +28,7 @@ if __name__ == "__main__":
     fun('B', 'A', 'MMM')
 ```
 
-![](http://cdn.hurra.ltd/img/20200905193601.png)
+![](https://cdn.hurra.ltd/img/20200905193601.png)
 
 # \*\*kwargs
 
@@ -46,8 +46,8 @@ if __name__ == "__main__":
     fun(num='20209902', name='wang', age=18)
 ```
 
-![](http://cdn.hurra.ltd/img/20200905193946.png)
+![](https://cdn.hurra.ltd/img/20200905193946.png)
 
 > `注意:参数 arg、\*args、\*\*kwargs 三个参数的位置必须是(\*args,**kwargs)顺序,否则程序报错`
 
-![](http://cdn.hurra.ltd/img/收款码.png)
+![](https://cdn.hurra.ltd/img/收款码.png)

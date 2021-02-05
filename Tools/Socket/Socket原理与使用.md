@@ -1,3 +1,12 @@
+<!--
+ * @Description: 
+ * @Version: 1.0
+ * @Author: Li Yuanhao
+ * @Email: dalao_li@163.com
+ * @Date: 2021-01-23 14:51:38
+ * @LastEditors: Li Yuanhao
+ * @LastEditTime: 2021-02-05 12:36:59
+-->
 # 网络通信
 
 ## 本地进程通信
@@ -19,5 +28,6 @@
 - 网络层的`ip地址`可以唯一标识网络中的主机
 - 传输层"协议+端口"可以唯一标识主机中的应用程序（进程）,因此利用`ip地址,协议,端口`就可标识网络的进程,网络中的进程通信就可利用此标志与其它进程进行交互
 
-![](http://cdn.hurra.ltd/img/收款码.png)
-![](http://cdn.hurra.ltd/img/赞赏码.png)
+
+![](https://cdn.hurra.ltd/img/收款码.png)
+![](https://cdn.hurra.ltd/img/赞赏码.png)

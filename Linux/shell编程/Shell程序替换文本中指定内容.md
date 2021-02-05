@@ -35,4 +35,4 @@ sed -i "s#$oldStr#$newStr#g" /home/dalao/demo.txt
 
 # 运行
 
-![](http://cdn.hurra.ltd/img/收款码.png)
+![](https://cdn.hurra.ltd/img/收款码.png)

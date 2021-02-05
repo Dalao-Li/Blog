@@ -52,4 +52,4 @@ js 中为 ()=>
 
 jQuery 中为 function(){}
 
-![](http://cdn.hurra.ltd/img/收款码.png)
+![](https://cdn.hurra.ltd/img/收款码.png)

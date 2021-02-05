@@ -1,14 +1,14 @@
 
 ## Navicat 连接
 
-![](http://cdn.hurra.ltd/img/20201012105710.png)
+![](https://cdn.hurra.ltd/img/20201012105710.png)
 
 > 注意:反人类的SQLServer的主机地址需写为: `<ip>,<端口>`,注意是`逗号`
 
 
 ## python 交互
 
-![](http://cdn.hurra.ltd/img/20201012130100.png)
+![](https://cdn.hurra.ltd/img/20201012130100.png)
 
 ```py
 import pymssql
@@ -35,4 +35,4 @@ except:
 conn.close()
 ```
 
-![](http://cdn.hurra.ltd/img/20201012180210.png)
+![](https://cdn.hurra.ltd/img/20201012180210.png)

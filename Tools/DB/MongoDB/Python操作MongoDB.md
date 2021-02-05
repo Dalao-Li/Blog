@@ -22,7 +22,7 @@ db_list = client.list_database_names()
 print(db_list)
 ```
 
-![](http://cdn.hurra.ltd/img/20201014211648.png)
+![](https://cdn.hurra.ltd/img/20201014211648.png)
 
 ## 获取集合
 
@@ -36,7 +36,7 @@ collect_list = db.list_collection_names()
 print(collect_list)
 ```
 
-![](http://cdn.hurra.ltd/img/20201014212147.png)
+![](https://cdn.hurra.ltd/img/20201014212147.png)
 
 ## 获取文档
 
@@ -51,7 +51,7 @@ for i in collect.find():
     print(i)
 ```
 
-![](http://cdn.hurra.ltd/img/20201014213434.png)
+![](https://cdn.hurra.ltd/img/20201014213434.png)
 
 - 按条件获取
 
@@ -68,7 +68,7 @@ data = collect.find({"name":"new_name2"})[0]
 print(data)
 ```
 
-![](http://cdn.hurra.ltd/img/20201029161327.png)
+![](https://cdn.hurra.ltd/img/20201029161327.png)
 
 ## 插入文档
 
@@ -95,10 +95,10 @@ for i in collect.find():
     print(i)
 ```
 
-![](http://cdn.hurra.ltd/img/20201015093600.png)
+![](https://cdn.hurra.ltd/img/20201015093600.png)
 
-![](http://cdn.hurra.ltd/img/20201015093938.png)
+![](https://cdn.hurra.ltd/img/20201015093938.png)
 
 ## 修改文档
 
-![](http://cdn.hurra.ltd/img/收款码.png)
+![](https://cdn.hurra.ltd/img/收款码.png)

@@ -5,11 +5,11 @@
 > - AVL 树是特殊的二叉搜索树
 > - AVL 树的旋转操作是指在平衡因子大于 1 时, 会通过旋转来调整树的结构, 以重新满足平衡因子不Markdown Preview Enhanced超过 1
 
-![](http://cdn.hurra.ltd/img/20200715102437.png)
+![](https://cdn.hurra.ltd/img/20200715102437.png)
 
 标记平衡因子
 
-![](http://cdn.hurra.ltd/img/20200715102536.png)
+![](https://cdn.hurra.ltd/img/20200715102536.png)
 
 该树为 AVL 树
 
@@ -80,7 +80,7 @@ bool isBalance(AVLNode<T> *root){
 
 图示
 
-![](http://cdn.hurra.ltd/img/20200715151943.png)
+![](https://cdn.hurra.ltd/img/20200715151943.png)
 
 原本平衡的 AVL 树插入节点 7 后导致不平衡;最小失衡子树的根节点为节点 5
 
@@ -102,7 +102,7 @@ AVLNode<T> *leftRotation(AVLNode<T> *root){
 
 代码过程图示:
 
-![](http://cdn.hurra.ltd/img/20200715222000.png)
+![](https://cdn.hurra.ltd/img/20200715222000.png)
 
 ---
 
@@ -113,7 +113,7 @@ AVLNode<T> *leftRotation(AVLNode<T> *root){
 
 图示
 
-![](http://cdn.hurra.ltd/img/20200715154814.png)
+![](https://cdn.hurra.ltd/img/20200715154814.png)
 
 实现代码:
 
@@ -131,7 +131,7 @@ AVLNode<T>* rightRotation(AVLNode<T>* root){
 
 代码过程图示:
 
-![](http://cdn.hurra.ltd/img/20200715212605.png)
+![](https://cdn.hurra.ltd/img/20200715212605.png)
 
 ### 先右旋后左旋
 
@@ -147,7 +147,7 @@ AVLNode<T>* rightLeftRotation(AVLNode<T> *root){
 
 图示:
 
-![](http://cdn.hurra.ltd/img/20200715220529.png)
+![](https://cdn.hurra.ltd/img/20200715220529.png)
 
 其中,红色为插入节点;绿色为最小失衡子树的根节点
 
@@ -167,8 +167,8 @@ AVLNode<T>* leftRightRotation(AVLNode<T> *root){
 
 图示:
 
-![](http://cdn.hurra.ltd/img/20200715221154.png)
+![](https://cdn.hurra.ltd/img/20200715221154.png)
 
 其中,红色为插入节点;绿色为最小失衡子树的根节点
 
-![](http://cdn.hurra.ltd/img/收款码.png)
+![](https://cdn.hurra.ltd/img/收款码.png)

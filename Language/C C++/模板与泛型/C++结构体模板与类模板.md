@@ -36,7 +36,7 @@ int main() {
 
 运行结果
 
-![](http://cdn.hurra.ltd/img/20200625230350.png)
+![](https://cdn.hurra.ltd/img/20200625230350.png)
 
 ## 结构体模板
 
@@ -102,7 +102,7 @@ int main() {
 
 运行结果
 
-![](http://cdn.hurra.ltd/img/20200625224721.png)
+![](https://cdn.hurra.ltd/img/20200625224721.png)
 
 ## 类模板
 
@@ -175,6 +175,6 @@ int main() {
 
 运行结果
 
-![](http://cdn.hurra.ltd/img/20200625230433.png)
+![](https://cdn.hurra.ltd/img/20200625230433.png)
 
-![](http://cdn.hurra.ltd/img/收款码.png)
+![](https://cdn.hurra.ltd/img/收款码.png)

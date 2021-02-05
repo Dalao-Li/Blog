@@ -24,7 +24,7 @@
 
 - 建立 Django 项目
 
-![](http://cdn.hurra.ltd/img/20200805181844.png)
+![](https://cdn.hurra.ltd/img/20200805181844.png)
 
 建立一个应用 app
 
@@ -34,21 +34,21 @@ python manage.py startapp app
 
 项目结构
 
-![](http://cdn.hurra.ltd/img/20200805182327.png)
+![](https://cdn.hurra.ltd/img/20200805182327.png)
 
 - 修改 settings.py文件
 
 在 INSTALLED_APPS 中添加刚创建的应用
 
-![](http://cdn.hurra.ltd/img/20200805182554.png)
+![](https://cdn.hurra.ltd/img/20200805182554.png)
 
 在 MIDDLEWARE 中注释 django.middleware.csrf.CsrfViewMiddleware
 
-![](http://cdn.hurra.ltd/img/20200805182720.png)
+![](https://cdn.hurra.ltd/img/20200805182720.png)
 
 修改语言与时区
 
-![](http://cdn.hurra.ltd/img/20200805182830.png)
+![](https://cdn.hurra.ltd/img/20200805182830.png)
 
 ## 数据库设计
 
@@ -99,7 +99,7 @@ python manage.py createsuperuser
 
 输入用户名和密码,邮箱地址可选
 
-![](http://cdn.hurra.ltd/img/20200802153640.png)
+![](https://cdn.hurra.ltd/img/20200802153640.png)
 
 ## 视图 
 
@@ -107,7 +107,7 @@ python manage.py createsuperuser
 
 编辑 settings.py文件,找到 TEMPLATES,将新增模板的路径添加至 DIRS 项中:
 
-![](http://cdn.hurra.ltd/img/20200805185510.png)
+![](https://cdn.hurra.ltd/img/20200805185510.png)
 
 在 app/templates 下新建 index.html
 
@@ -363,7 +363,7 @@ function delCallback(value) {
 
 项目最终结构
 
-![](http://cdn.hurra.ltd/img/20200805190123.png)
+![](https://cdn.hurra.ltd/img/20200805190123.png)
 
 `完整代码请访问博主的Github`
 
@@ -441,7 +441,7 @@ urlpatterns = [
 
 运行项目,访问http://127.0.0.1/app/,查看
 
-![](http://cdn.hurra.ltd/img/20200806160425.png)
+![](https://cdn.hurra.ltd/img/20200806160425.png)
 
 ## 部署
 
@@ -531,7 +531,7 @@ CMD ["gunicorn", "demo.wsgi", "-c", "gunicorn_config.py"]
 docker build -t mydemo .
 ```
 
-![](http://cdn.hurra.ltd/img/20200806185516.png)
+![](https://cdn.hurra.ltd/img/20200806185516.png)
 
 运行容器,查看结果
 
@@ -539,8 +539,8 @@ docker build -t mydemo .
 docker run -itd -p 80:8000 --name django_test mydemo
 ```
 
-![](http://cdn.hurra.ltd/img/20200806190407.png)
+![](https://cdn.hurra.ltd/img/20200806190407.png)
 
 ---
 
-![](http://cdn.hurra.ltd/img/收款码.png)
+![](https://cdn.hurra.ltd/img/收款码.png)

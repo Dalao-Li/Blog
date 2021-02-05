@@ -32,11 +32,11 @@ urlpatterns = [
   此时可以匹配`127.0.0.1:8000/dis/<字符>`这类 url,并且<字符>部分的值将作为 dis 函数的第二个参数
 
 
-![](http://cdn.hurra.ltd/img/20200903085713.png)
+![](https://cdn.hurra.ltd/img/20200903085713.png)
 
-![](http://cdn.hurra.ltd/img/20200903085600.png)
+![](https://cdn.hurra.ltd/img/20200903085600.png)
 
-![](http://cdn.hurra.ltd/img/20200903091232.png)
+![](https://cdn.hurra.ltd/img/20200903091232.png)
 
 ## 多关键字
 
@@ -90,7 +90,7 @@ def goodbye_world(request):
 
 此时输入`http:127.0.0.1:8000/dis/hello_world`时,会自动调用 hello_world()函数
 
-![](http://cdn.hurra.ltd/img/20200903103754.png)
+![](https://cdn.hurra.ltd/img/20200903103754.png)
 
 # 删除模板中硬编码的URLs
 
@@ -118,4 +118,4 @@ path('<int:question_id>/', views.detail, name='detail'),
 path('specifics/<int:question_id>/', views.detail, name='detail'),
 ```
 
-![](http://cdn.hurra.ltd/img/收款码.png)
+![](https://cdn.hurra.ltd/img/收款码.png)
