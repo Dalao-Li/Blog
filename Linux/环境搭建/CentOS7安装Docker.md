@@ -5,57 +5,26 @@
  * @Email: dalao_li@163.com
  * @Date: 2021-01-16 17:59:34
  * @LastEditors: Li Yuanhao
- * @LastEditTime: 2021-01-31 21:57:00
+ * @LastEditTime: 2021-02-07 16:17:04
 -->
 
 # Centos7 安装Docker
 
+## 准备
 
-# 一键脚本
-
-```c
-#!/bin/sh
-echo "------更新源与安装依赖------"
-
-yum update -y
-
-yum install -y yum-utils device-mapper-persistent-data lvm2
-
-yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
-
-echo "------更新源与安装依赖------"
-
-yum install -y docker-ce-19.03.1.ce
-
-systemctl enable docker
-
-echo "------Docker安装成功------"
-
-# 换源
-echo -e "{\n \"registry-mirrors\": [\"https://docker.mirrors.ustc.edu.cn\"] \n}" > /etc/docker/daemon.json
-
-systemctl restart docker
-
-echo "------已经换源至中科大的docker源------"
-```
-
-# 更新 yum 源
+- 更新 yum 源
 
 ```shell
 yum update
 ```
 
-# 安装依赖
+- 安装依赖
 
-```shell
-yum install -y yum-utils
-
-yum install -y device-mapper-persistent-data
-
-yum install -y lvm2
+```sh
+yum install -y yum-utils device-mapper-persistent-data lvm2
 ```
 
-# 设置 yum 源
+## 设置 yum 源
 
 此处使用阿里源
 
@@ -73,13 +42,13 @@ yum list docker-ce --showduplicates | sort -r
 
 ![](https://cdn.hurra.ltd/img/20200623102007.png)
 
-# 安装
+- 安装
 
 ```shell
 yum install docker-ce-18.03.1.ce
 ```
 
-# 启动
+- 启动
 
 ```shell
 systemctl start docker
@@ -94,9 +63,24 @@ systemctl enable docker
 docker info
 ```
 
+## 注意
+
+若在root权限,则可直接输入docker命令;否则需添加用户组,这样就不必在加sudo进行操作了.
+
+```shell
+# 添加docker用户组
+sudo groupadd docker
+
+# 将登陆用户加入到docker用户组中
+sudo gpasswd -a $USER docker
+
+# 更新用户组
+newgrp docker
+```
+
 ![](https://cdn.hurra.ltd/img/20200623102258.png)
 
-# 换源
+## 换源
 
 编辑/etc/docker/daemon.json文件
 

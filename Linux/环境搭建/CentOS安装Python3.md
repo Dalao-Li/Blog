@@ -87,12 +87,13 @@ python3 -V
 cd /usr/bin/python3/bin
 ```
 
-- 创建 `~/.pip` 文件夹,编辑 `~/.pip/pip.conf`
+- 创建 `~/.pip` 文件夹,编辑 `~/.pip/pip.conf`文件
 
 ```sh
 [global]
-
-index-url = https://pypi.tuna.tsinghua.edu.cn/simple
+index-url=http://mirrors.aliyun.com/pypi/simple/
+[install]
+trusted-host=mirrors.aliyun.com
 ```
 
 测试

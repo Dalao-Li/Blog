@@ -1,31 +1,13 @@
-# 目的
-
-> - 设置**密码**通过 SSH 登录
->
-> - 设置**密钥**通过 SSH 登录
-
-# 环境
-
-> - 客户端 : Windows
-> - 服务端 : Ubuntu16.04
-> - SSH 工具 : Xshell;Xftp
-
 # 密码登录
-
-首先直接登录 Linux 主机进行配置
 
 ## 配置文件
 
-```shell
+```sh
 vim /etc/ssh/sshd_config
 ```
 
 ![](https://imgconvert.csdnimg.cn/aHR0cDovL2Nkbi5odXJyYS5sdGQvaW1nLzIwMjAwNTE4MDkyNjU0LnBuZw?x-oss-process=image/format,png)
 ![](https://imgconvert.csdnimg.cn/aHR0cDovL2Nkbi5odXJyYS5sdGQvaW1nLzIwMjAwNTE4MDkyOTI1LnBuZw?x-oss-process=image/format,png)
-
-```shell
-编辑完成后按Esc键,输入 wq! 敲回车,保存退出
-```
 
 ## 添加密码
 
@@ -44,13 +26,13 @@ useradd -m 用户名
 
 设置密码
 
-```shell
+```sh
 passwd 用户名
 ```
 
 ## 重启服务
 
-```shell
+```sh
 service ssh restart
 ```
 
@@ -91,17 +73,19 @@ ssh-keygen
 ![](https://imgconvert.csdnimg.cn/aHR0cDovL2Nkbi5odXJyYS5sdGQvaW1nLzIwMjAwNTE4MDk0OTQzLnBuZw?x-oss-process=image/format,png)
 成功生成了公钥和私钥,其保存地址为
 
-```shell
-公钥 : /root/.ssh/id_rsa.pub
+```sh
+# 公钥 
+/root/.ssh/id_rsa.pub
 
-私钥 : /root/.ssh/id_rsa
+# 私钥
+/root/.ssh/id_rsa
 ```
 
 ## 安装公钥
 
 在服务端安装公钥并完成授权
 
-```shell
+```sh
 cd .ssh
 
 cat id_rsa.pub >> authorized_keys
@@ -146,6 +130,5 @@ service ssh restart
 输入登录的用户名
 ![](https://imgconvert.csdnimg.cn/aHR0cDovL2Nkbi5odXJyYS5sdGQvaW1nLzIwMjAwNTE4MTAwNzA5LnBuZw?x-oss-process=image/format,png)
 
-<center>登录成功</center>
 
-![](https://imgconvert.csdnimg.cn/aHR0cDovL2Nkbi5odXJyYS5sdGQvaW1nLyVFOCVCNSU5RSVFOCVCNSU4RiVFNyVBMCU4MS5wbmc?x-oss-process=image/format,png)
+![](https://cdn.hurra.ltd/img/收款码.png)

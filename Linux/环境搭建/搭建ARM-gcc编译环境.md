@@ -1,3 +1,12 @@
+<!--
+ * @Description: 
+ * @Version: 1.0
+ * @Author: Li Yuanhao
+ * @Email: dalao_li@163.com
+ * @Date: 2021-01-16 17:59:34
+ * @LastEditors: Li Yuanhao
+ * @LastEditTime: 2021-02-08 11:48:56
+-->
 ## 环境
 
 > 宿主机环境 : WSL2 Ubuntu18.04
@@ -15,7 +24,7 @@
 
 > tar -zxvf <包名> -C < 路径 >
 
-```s
+```sh
 tar -zxvf arm-linux-gcc-4.4.3-20100728.tar.gz -C /home
 ```
 
@@ -25,7 +34,7 @@ tar -zxvf arm-linux-gcc-4.4.3-20100728.tar.gz -C /home
 
 > cp -r <源路径> <目标路径>
 
-```s
+```sh
 cp -r /home/opt/FriendlyARM/toolschain/4.4.3 /usr/local/bin
 ```
 
@@ -33,7 +42,7 @@ cp -r /home/opt/FriendlyARM/toolschain/4.4.3 /usr/local/bin
 
 - 安装相关依赖
 
-```shell
+```sh
 yum install -y epel-release
 yum install -y glibc.i686
 ```
@@ -42,7 +51,7 @@ yum install -y glibc.i686
 
 编辑/etc/profile,末尾添加
 
-```shell
+```sh
 export PATH=$PATH:/usr/local/arm/bin
 source /etc/profile
 ```
@@ -51,7 +60,7 @@ source /etc/profile
 
 编辑 ~/.bashrc,末尾添加
 
-```shell
+```sh
 if [ -f /etc/profile ]; then
 . /etc/profile
 fi
@@ -59,13 +68,13 @@ fi
 
 - 刷新环境变量
 
-```shell
+```sh
 source /etc/profile
 ```
 
 - 查看 arm-linux-gcc 版本
 
-```shell
+```sh
 arm-linux-gcc -v
 ```
 
