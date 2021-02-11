@@ -1,0 +1,123 @@
+<!--
+ * @Description: 
+ * @Version: 1.0
+ * @Author: Li Yuanhao
+ * @Email: dalao_li@163.com
+ * @Date: 2021-02-11 13:34:42
+ * @LastEditors: Li Yuanhao
+ * @LastEditTime: 2021-02-11 21:45:02
+-->
+
+# Linux环境下gcc编译C语言源代码
+
+建立文件main.c
+
+```c
+#include <stdio.h>
+ 
+int main(void){
+    printf("hello,world\n");
+	return 0;
+}
+```
+
+一步命令,注意参数是**字符o**
+```sh
+gcc main.c -o main
+
+./main
+```
+
+
+## 预处理(Preprocessing)
+
+- 工具 : 预处理器cpp
+- 生成文件 : main.i
+
+预处理器cpp将所有的#include头文件以及宏定义替换成其真正的内容.例如预处理器会读C库中stdio.h的内容并插入到main.c中生成一个新的文件main.i;
+ 
+- 单步命令:
+```sh
+gcc -E -I./inc main.c -o main.i
+```
+
+> -E是让编译器在预处理之后就退出，不进行后续编译过程   
+> -I指定头文件目录，这里指定的是我们自定义的头文件目录  
+> -o指定输出文件名
+
+![](https://cdn.hurra.ltd/img/20210211161743.png)
+
+经过预处理之后代码体积会大很多：
+
+## 编译(Compilation)
+
+- 工具:编译器ccl
+- 生成文件:main.s
+
+编译器ccl将hello.i翻译汇编程序储存在文件hello.s中,其中的main作为一个函数给出了机器语言的输出指令
+
+- 单步命令:
+```sh
+gcc -S -I./inc main.c -o main.s
+```
+main.s文件
+```arm
+	.file	"main.c"
+	.section	.rodata
+.LC0:
+	.string	"hello,world"
+	.text
+	.globl	main
+	.type	main, @function
+main:
+.LFB0:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	movl	$.LC0, %edi
+	call	puts
+	movl	$0, %eax
+	popq	%rbp
+	.cfi_def_cfa 7, 8
+	ret
+	.cfi_endproc
+.LFE0:
+	.size	main, .-main
+	.ident	"GCC: (GNU) 4.8.5 20150623 (Red Hat 4.8.5-44)"
+	.section	.note.GNU-stack,"",@progbits
+
+```
+
+## 汇编(Assemble)
+
+- 工具:汇编器as
+- 生成文件:main.o
+
+汇编器将main.s中的汇编语言翻译成计算机可以识别的机器语言存为hello.o二进制文件.
+
+- 单步命令:
+```sh
+gcc -c main.s -o main.o
+```
+
+这一步会为每一个源文件产生一个目标文件
+
+## 链接(Linking)
+
+- 文件:可执行文件main
+- 工具:链接器ld
+
+链接过程将多个目标文以及所需的库文件(.so,Windows平台下的lib)链接成最终的可执行文件(executable file)
+
+链接分为两种
+- a)静态链接　  
+函数的代码将从其所在地静态链接库中被拷贝到最终的可执行程序中.该程序被执行时这些代码将被装入到该进程的虚拟地址空间中。静态链接库实际上是一个目标文件
+的集合，其中的每个文件含有库中的一个或者一组相关函数的代码。
+- b)动态链接
+函数的代码被放到称作是动态链接库或共享对象的某个目标文件中。
+链接程序此时所作的只是在最终的可执行程序中记录下共享对象的名字以及其它少量的登记信息。
+在此可执行文件被执行时，动态链接库的全部内容将被映射到运行时相应进程的虚地址空间。
+动态链接程序将根据可执行程序中记录的信息找到相应的函数代码。

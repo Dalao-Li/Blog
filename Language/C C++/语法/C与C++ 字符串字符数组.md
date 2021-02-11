@@ -5,7 +5,7 @@
  * @Email: dalao_li@163.com
  * @Date: 2021-01-16 17:59:34
  * @LastEditors: Li Yuanhao
- * @LastEditTime: 2021-02-05 15:51:39
+ * @LastEditTime: 2021-02-10 20:53:36
 -->
 ## 字符型 char
 
@@ -37,7 +37,7 @@ printf("%s",a);
 
 ## 字符指针 char \*
 
-char *s 定义了一个 char 型指针,它只知道所指向的内存单元,并不知道这个内存单元有多大.所以当 char *s = "hello";后,不能使用 s[0]='a';语句进行赋值
+char *s 定义了一个 char 型指针,它只知道所指向的内存单元,并不知道这个内存单元有多大.所以当 char *s = "hello";后,不能使用 s[0]='a'这样的语句进行赋值
 
 - 定义一个 char \* 后不能对其进行下标操作
 
