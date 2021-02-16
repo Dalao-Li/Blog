@@ -1,0 +1,60 @@
+<!--
+ * @Description: 
+ * @Version: 1.0
+ * @Author: Li Yuanhao
+ * @Email: dalao_li@163.com
+ * @Date: 2021-02-15 22:02:32
+ * @LastEditors: Li Yuanhao
+ * @LastEditTime: 2021-02-15 23:16:49
+-->
+
+# 动态内存
+
+## malloc 和 free
+
+在 C 语言,malloc 和 free 是系统提供的函数,成对使用,用于从堆中分配和释放内存。malloc 的全称是 memory allocation 译为"动态内存分配".
+
+申请空间使用malloc函数
+
+```c
+void *malloc(size_t size);
+```
+在 malloc 函数中,size 是表示需要申请的内存空间大小,申请成功将会返回该内存空间的地址；申请失败则会返回 NULL,并且申请成功也不会自动进行初始化.  
+该函数的返回值为 void *,在这里并不指代某一种特定的类型,而是说明该类型不确定,通过接收的指针变量从而进行类型的转换。在分配内存时需要注意,即时在程序关闭时系统会自动回收该手动申请的内存 ,但也要进行手动的释放,保证内存能够在不需要时返回至堆空间,使内存能够合理的分配使用
+
+释放空间使用 free 函数
+
+```c
+void free(void *ptr);
+```
+
+示例程序
+
+```c
+#include <stdio.h>
+#include <malloc.h>
+
+int main(void){
+	char *p1 = (char *)malloc(4);
+    int *p2 = (int *)malloc(4);
+    char *p3 = (char *)malloc(4);
+    
+    printf("p1 = %d\n",p1);
+    printf("p2 = %d\n",p2);
+    printf("p3 = %d\n",p3);
+    
+    free(p1);
+    p1 = NULL;
+    free(p2);
+    p2 = NULL;
+    free(p3);
+    p3 = NULL;
+}
+
+```
+![](https://cdn.hurra.ltd/img/20210215223412.png)
+
+动态分配的内存位于堆区中**堆地址向上增长**
+
+
+最后使用了 free 释放了内存，并且将 p 赋值 NULL，这是因为不能使指针指向未知的地址，而要置于 NULL,否则在之后的开发者会误以为是个正常的指针，就有可能再通过指针去访问一些操作，但是在这时该指针已经无用，指向的内存也不知此时被如何使用，这时若出现意外将会造成无法预估的后果，甚至导致系统崩溃，在 malloc 的使用中更需要
