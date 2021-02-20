@@ -1,3 +1,13 @@
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Author: Li Yuanhao
+ * @Email: dalao_li@163.com
+ * @Date: 2021-01-16 17:59:38
+ * @LastEditors: Li Yuanhao
+ * @LastEditTime: 2021-02-20 20:48:40
+ */
+ 
 #include<iostream>
 #include<thread>
 #include<stdlib.h>
@@ -12,18 +22,18 @@ void playThread01()
 }
 void playThread02()
 {
-	//ÉèÖÃÊ±¼ä±äÁ¿ 
+	//è®¾ç½®æ—¶é—´å˜é‡ 
     int hour;  
     int mintue;  
     int second; 
     
-	//ÊäÈëÊ±¼ä 
-    cout<<"ÇëÊäÈëµ¹¼ÆÊ±µÄÊ±¼ä(Ğ¡Ê±£º·ÖÖÓ£ºÃë)£º"; 
+	//è¾“å…¥æ—¶é—´ 
+    cout<<"è¯·è¾“å…¥å€’è®¡æ—¶çš„æ—¶é—´(å°æ—¶ï¼šåˆ†é’Ÿï¼šç§’)ï¼š"; 
     cin>>hour>>mintue>>second;  
     
-    //Ö»ÒªÊ±¼äÎ´½áÊø¾ÍÒ»Ö±Ö´ĞĞÑ­»·
+    //åªè¦æ—¶é—´æœªç»“æŸå°±ä¸€ç›´æ‰§è¡Œå¾ªç¯
     while(hour!=0||mintue!=0||second!=0){ 
-	    //È¡µÃµ±Ç°Ê±¼ä    
+	    //å–å¾—å½“å‰æ—¶é—´    
         time_t t=time(NULL);   
         while(time(NULL)==t);  
         if(--second<0){  
@@ -33,7 +43,7 @@ void playThread02()
                 --hour<0;  
             }  
         } 
-		//Êä³öÊ±¼ä  
+		//è¾“å‡ºæ—¶é—´  
         cout<<'\r';  
         if(hour<10){
             cout<<0;	

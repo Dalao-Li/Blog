@@ -1,3 +1,13 @@
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Author: Li Yuanhao
+ * @Email: dalao_li@163.com
+ * @Date: 2021-01-16 17:59:37
+ * @LastEditors: Li Yuanhao
+ * @LastEditTime: 2021-02-20 20:47:34
+ */
+ 
 #include<iostream>
 #include<windows.h>
 using namespace std;
@@ -6,7 +16,7 @@ int main()
 	void inputArray(int (*p)[10]);
 	void outputArray(int (*p)[10]);
 	int array[10][10];
-	//Ö¸Õë±äÁ¿pÖ¸Ïò°üÀ¨10¸öÕûĞÎÔªËØµÄÒ»Î¬Êı×é 
+	//æŒ‡é’ˆå˜é‡pæŒ‡å‘åŒ…æ‹¬10ä¸ªæ•´å½¢å…ƒç´ çš„ä¸€ç»´æ•°ç»„ 
 	int (*p)[10];
 	p=array;
 	inputArray(p);

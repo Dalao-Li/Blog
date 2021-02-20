@@ -5,7 +5,7 @@
  * @Email: dalao_li@163.com
  * @Date: 2021-01-16 17:59:34
  * @LastEditors: Li Yuanhao
- * @LastEditTime: 2021-02-07 16:17:04
+ * @LastEditTime: 2021-02-19 15:46:11
 -->
 
 # Centos7 安装Docker
@@ -45,7 +45,7 @@ yum list docker-ce --showduplicates | sort -r
 - 安装
 
 ```shell
-yum install docker-ce-18.03.1.ce
+yum install -y docker-ce
 ```
 
 - 启动
@@ -86,7 +86,7 @@ newgrp docker
 
 添加以下内容
 
-```shell
+```sh
 {
   "registry-mirrors": ["https://docker.mirrors.ustc.edu.cn"]
 }

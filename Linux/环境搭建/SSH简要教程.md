@@ -1,3 +1,9 @@
+## 清除密钥
+
+```sh
+ssh-keygen -R <ip>
+```
+
 # 密码登录
 
 ## 配置文件
@@ -50,7 +56,7 @@ ssh (-p 端口) <用户名>@<ip地址>
 
 ![](https://imgconvert.csdnimg.cn/aHR0cDovL2Nkbi5odXJyYS5sdGQvaW1nLzIwMjAwNTE4MDkzNzUwLnBuZw?x-oss-process=image/format,png)
 
-> - -p 指定端口连接；容器的 22 端口映射到了宿主机的 2222 端口,所以此处的 ssh 应指定端口
+> - -p 指定端口连接;容器的 22 端口映射到了宿主机的 2222 端口,所以此处的 ssh 应指定端口
 > - root 即连接的用户名
 > - ip 地址,连接的地址,此处指宿主机地址
 

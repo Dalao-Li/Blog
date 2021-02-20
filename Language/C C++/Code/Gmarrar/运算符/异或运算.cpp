@@ -1,3 +1,13 @@
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Author: Li Yuanhao
+ * @Email: dalao_li@163.com
+ * @Date: 2021-01-16 17:59:39
+ * @LastEditors: Li Yuanhao
+ * @LastEditTime: 2021-02-20 20:46:38
+ */
+ 
 #include<iostream>
 using namespace std;
 int add(int a, int b) {
@@ -7,15 +17,15 @@ int add(int a, int b) {
 	if (b == 0) {
 		return a;
 	}
-	//Œª”Î
+	//‰Ωç‰∏é
 	int p1 = a&b;
 	//cout<<"a&b="<<p1<<endl;
-	//’‚¡Ωæ‰÷ªøº¬«Ω¯Œª
+	//Ëøô‰∏§Âè•Âè™ËÄÉËôëËøõ‰Ωç
 	p1 = p1 << 1;
 	//cout<<"p1<<1="<<p1<<endl;
-	//Œª“ÏªÚ°£≤ªøº¬«Ω¯Œª
+	//‰ΩçÂºÇÊàñ„ÄÇ‰∏çËÄÉËôëËøõ‰Ωç
 	int p2 = a^b;
-	//Ω· ¯µƒ±Í÷æ «aŒ™0¡À£¨ªÚ’ﬂbŒ™0¡À
+	//ÁªìÊùüÁöÑÊ†áÂøóÊòØa‰∏∫0‰∫ÜÔºåÊàñËÄÖb‰∏∫0‰∫Ü
 	//cout<<"p1="<<p1<<" "<<"P2="<<p2<<endl; 
 	return add(p2, p1);
 }

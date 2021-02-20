@@ -1,12 +1,23 @@
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Author: Li Yuanhao
+ * @Email: dalao_li@163.com
+ * @Date: 2021-01-16 17:59:38
+ * @LastEditors: Li Yuanhao
+ * @LastEditTime: 2021-02-20 20:49:07
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
-#include <iostream> // std::cout
-#include <thread>   // std::thread
+#include <iostream> 
+#include <thread>
+
 int main() {
 	int num_threads;
 	std::thread t[num_threads];
 	std::cin>>num_threads;
-	//Launch a group of threads Æô¶¯Ò»×éÏß³Ì
+	//Launch a group of threads å¯åŠ¨ä¸€ç»„çº¿ç¨‹
 	for (int i = 0; i < num_threads; ++i) {
 		t[i] = std::thread(call_from_thread);
 	}

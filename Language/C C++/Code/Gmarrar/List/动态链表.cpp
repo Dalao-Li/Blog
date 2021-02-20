@@ -26,7 +26,7 @@ int main() {
 	}
 	p2->next=NULL;
 	//输出学生信息
-	cout<<"学生的信息为；"<<endl;
+	cout<<"学生的信息为;"<<endl;
 	p=head;
 	if(head!=NULL) {
 		do {
