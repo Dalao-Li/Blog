@@ -5,15 +5,15 @@
  * @Email: dalao_li@163.com
  * @Date: 2021-01-16 17:59:34
  * @LastEditors: Li Yuanhao
- * @LastEditTime: 2021-01-28 22:15:19
+ * @LastEditTime: 2021-02-22 22:51:42
 -->
 `更新 Win10 到 2004 版本`
 
-# 启用 Linux 子系统
+## 启用 Linux 子系统
 
 打开 控制面板 -> 程序 -> 启用或关闭 Windows 功能.找到"适用于 Linux 的 Windows 子系统"和"虚拟机平台",勾选这两项,并重新启动计算机.
 
-# 切换到 WSL2
+## 切换到 WSL2
 
 使用管理员用户打开 CMD,运行:
 
@@ -21,7 +21,7 @@
 wsl --set-default-version 2
 ```
 
-# 添加 Docker 源
+## 添加 Docker 源
 
 ```shell
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -

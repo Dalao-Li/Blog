@@ -1,8 +1,3 @@
-## 环境
-
-> - 系统 : winsows10
-> - 软件 : Docker for Desktop
-
 ## 目的
 
 使用 Nginx 实现:

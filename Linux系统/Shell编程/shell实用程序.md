@@ -1,8 +1,15 @@
-```shell
-vim demo.sh
-```
+<!--
+ * @Description: 
+ * @Version: 1.0
+ * @Author: Li Yuanhao
+ * @Email: dalao_li@163.com
+ * @Date: 2021-01-16 17:59:34
+ * @LastEditors: Li Yuanhao
+ * @LastEditTime: 2021-02-22 22:44:47
+-->
 
-# 1. 配置定时任务
+
+## 配置定时任务
 
 ```sh
 #!/bin/bash
@@ -37,7 +44,6 @@ echo "$mintue $hour $date $month $weak $program" >> /etc/crontab
 
 ```
 
-# 2.创建
 
 ## 创建文件
 ```sh

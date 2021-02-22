@@ -5,25 +5,18 @@
  * @Email: dalao_li@163.com
  * @Date: 2021-01-16 17:59:34
  * @LastEditors: Li Yuanhao
- * @LastEditTime: 2021-02-05 12:36:37
+ * @LastEditTime: 2021-02-22 22:51:10
 -->
 # Docker搭建PHP
 
-## 环境
-
-> - 系统 : CentOS7
-> - Docker 版本 : 18.03.1.ce
 
 ## 拉取镜像
-- 拉取 PHP 镜像
+
+拉取 PHP 镜像,Nginx 镜像
 
 ```docker
 docker pull php:7.1.30-fpm
-```
 
- 拉取 Nginx 镜像
-
-```docker
 docker pull nginx
 ```
 
@@ -71,13 +64,13 @@ server {
 
 ## 实例化容器
 
-- PHP 容器
+PHP 容器
 
 ```docker
 docker run -itd --name demo_php -v ~/nginx/www:/www php:7.1.30-fpm
 ```
 
-- Nginx 容器
+Nginx 容器
 
 ```docker
 docker run -itd -p 80:80 -v ~/nginx/www:/usr/share/nginx/html -v ~/nginx/conf:/etc/nginx/conf.d --link demo_php:php nginx
@@ -89,6 +82,5 @@ docker run -itd -p 80:80 -v ~/nginx/www:/usr/share/nginx/html -v ~/nginx/conf:/e
 
 ![](https://cdn.hurra.ltd/img/20200710113759.png)
 
----
 
 ![](https://cdn.hurra.ltd/img/收款码.png)

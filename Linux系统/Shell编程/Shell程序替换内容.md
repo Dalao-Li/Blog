@@ -5,11 +5,11 @@
  * @Email: dalao_li@163.com
  * @Date: 2021-01-16 17:59:34
  * @LastEditors: Li Yuanhao
- * @LastEditTime: 2021-02-19 19:16:39
+ * @LastEditTime: 2021-02-22 22:44:08
 -->
-# 问题
+## 问题
 
-通过 shell 程序将/home/dalao 目录下的 demo.txt 中的
+通过 shell 程序将/home/dalao 目录下的 demo.txt 中的:
 
 ```sh
 PATH:/usr/bin
@@ -21,7 +21,7 @@ PATH:/usr/bin
 PATH:/usr/bin/python3/bin
 ```
 
-# 程序
+## 代码
 
 ```sh
 sed -i "s/\<oldStr>/\<newStr>/g" \<filePath>
@@ -42,6 +42,6 @@ newStr='/usr/bin/python3/bin'
 sed -i "s#$oldStr#$newStr#g" /home/dalao/demo.txt
 ```
 
-# 运行
+
 
 ![](https://cdn.hurra.ltd/img/收款码.png)
