@@ -5,19 +5,19 @@
  * @Email: dalao_li@163.com
  * @Date: 2021-02-04 23:46:06
  * @LastEditors: Li Yuanhao
- * @LastEditTime: 2021-02-04 23:46:24
+ * @LastEditTime: 2021-02-25 19:59:33
 -->
 # Docker建立Redis
 
 ## 建立
 
-- Docker 拉取 Redis 镜像
+Docker 拉取 Redis 镜像 
 
 ```docker
 docker run -itd --name redis-test -p 6379:6379 redis
 ```
 
-- 连接
+连接
 
 ```docker
 docker exec -it redis-test /bin/bash
@@ -28,7 +28,7 @@ redis-cli
 ## Docker部署允许远程访问
 
 
-- 建立redis.conf
+建立redis.conf
 
 ```c
 //关闭保护模式

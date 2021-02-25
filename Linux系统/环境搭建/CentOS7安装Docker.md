@@ -5,50 +5,50 @@
  * @Email: dalao_li@163.com
  * @Date: 2021-01-16 17:59:34
  * @LastEditors: Li Yuanhao
- * @LastEditTime: 2021-02-19 15:46:11
+ * @LastEditTime: 2021-02-23 19:31:00
 -->
 
 # Centos7 安装Docker
 
-## 准备
+## 卸载旧版本
 
-- 更新 yum 源
+旧版本的 Docker 称为 docker 或者 docker-engine，使用以下命令卸载旧版本：
 
-```shell
-yum update
+```sh
+sudo yum remove docker \
+                  docker-client \
+                  docker-client-latest \
+                  docker-common \
+                  docker-latest \
+                  docker-latest-logrotate \
+                  docker-logrotate \
+                  docker-selinux \
+                  docker-engine-selinux \
+                  docker-engine
 ```
 
-- 安装依赖
+
+## 安装
+
+安装依赖
 
 ```sh
 yum install -y yum-utils device-mapper-persistent-data lvm2
 ```
+添加 yum 软件源
 
-## 设置 yum 源
+```sh
+sudo yum-config-manager --add-repo https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
 
-此处使用阿里源
+sudo sed -i 's/download.docker.com/mirrors.aliyun.com\/docker-ce/g' /etc/yum.repos.d/docker-ce.repo
+```
+更新 yum 软件源缓存，并安装 docker-ce
 
-```shell
-yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+```sh
+sudo yum install docker-ce docker-ce-cli containerd.io
 ```
 
-![](https://cdn.hurra.ltd/img/20200623102055.png)
-
-查看仓库中所有 Docker 版本
-
-```shell
-yum list docker-ce --showduplicates | sort -r
-```
-
-![](https://cdn.hurra.ltd/img/20200623102007.png)
-
-- 安装
-
-```shell
-yum install -y docker-ce
-```
-
-- 启动
+启动
 
 ```shell
 systemctl start docker

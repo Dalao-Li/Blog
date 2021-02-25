@@ -5,32 +5,39 @@
  * @Email: dalao_li@163.com
  * @Date: 2021-02-04 23:48:41
  * @LastEditors: Li Yuanhao
- * @LastEditTime: 2021-02-04 23:49:54
+ * @LastEditTime: 2021-02-25 19:56:40
 -->
 ## 搭建 SQLServer
 
 ```docker
-docker run -itd -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Dalao@13546!" -p 1433:1433  --name sqlserver2019   registry.cn-hangzhou.aliyuncs.com/vex/sqlserver:v1
+docker run -itd \
+    -e "ACCEPT_EULA=Y" \
+    -e "SA_PASSWORD=Dalao@13546!" \
+    -p 1433:1433  \
+    --name sqlserver2019 \
+    registry.cn-hangzhou.aliyuncs.com/vex/sqlserver:v1
 ```
+| 属性   | 值           |
+| ------ | ------------ |
+| 用户名 | SA           |
+| 密码   | Dalao@13546! |
 
-- 用户名 : SA
-- 密码 : Dalao@13546!
 
 
 
 ## 命令行交互
 
-- 进入容器
+进入容器
 
 ```docker
 /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "Lyh@199913!"
 ```
 
-- 显示所有数据库
+显示所有数据库
 
 ![](https://cdn.hurra.ltd/img/20201012110513.png)
 
-- 显示表
+显示表
 
 ![](https://cdn.hurra.ltd/img/20201012130931.png)
 

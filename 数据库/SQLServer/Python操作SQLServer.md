@@ -1,3 +1,12 @@
+<!--
+ * @Description: 
+ * @Version: 1.0
+ * @Author: Li Yuanhao
+ * @Email: dalao_li@163.com
+ * @Date: 2021-01-16 17:59:35
+ * @LastEditors: Li Yuanhao
+ * @LastEditTime: 2021-02-25 19:59:12
+-->
 
 ## Navicat 连接
 
@@ -24,6 +33,7 @@ conn = pymssql.connect(
 cursor = conn.cursor()
 
 sql = "SELECT * FROM 表"
+
 try:
     # 执行SQL语句
     cursor.execute(sql)

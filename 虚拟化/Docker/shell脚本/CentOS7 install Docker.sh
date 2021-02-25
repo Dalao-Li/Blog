@@ -5,27 +5,20 @@
  # @Autor: Li Yuanhao
  # @Date: 2021-01-16 17:59:34
  # @LastEditors: Li Yuanhao
- # @LastEditTime: 2021-01-25 21:37:57
+ # @LastEditTime: 2021-02-23 19:26:34
 ### 
 
 #!/bin/sh
-echo "------更新源与安装依赖------" 
 
 sudo yum update -y 
 
 sudo yum install -y yum-utils device-mapper-persistent-data lvm2
 
-sudo yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+sudo yum-config-manager --add-repo https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
 
-echo "------更新源与安装依赖------" 
+sudo sed -i 's/download.docker.com/mirrors.aliyun.com\/docker-ce/g' /etc/yum.repos.d/docker-ce.repo
 
-sudo yum install -y docker-ce-19.03.1.ce 
-
-systemctl enable docker 
-
-echo "------Docker安装成功------" 
-
-echo "------开始添加用户组------" 
+sudo yum install docker-ce docker-ce-cli containerd.io
 
 # 添加docker用户组
 sudo groupadd docker 
@@ -36,12 +29,10 @@ sudo gpasswd -a $USER docker
 # 更新用户组
 newgrp docker 
 
-echo "--------添加用户组完成------" 
-
 # 换源
 echo -e "{\n \"registry-mirrors\": [\"https://docker.mirrors.ustc.edu.cn\"] \n}" >> /etc/docker/daemon.json 
 
 systemctl restart docker
 
-echo "------已经换源至中科大的docker源------" 
+
 
