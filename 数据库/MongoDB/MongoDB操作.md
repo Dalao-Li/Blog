@@ -1,9 +1,8 @@
-
 # MongodDB操作
 
-- 创建 MongoDB 容器
+创建 MongoDB 容器
 
-```shell
+```sh
 # 创建容器 --auth：需要密码才能访问容器服务
 docker run -itd --name mongo -p 27017:27017 mongo --auth
 
@@ -21,7 +20,7 @@ db.auth('admin', '123456')
 
 ## 创建数据库
 
-```shell
+```sh
 use <db_name>
 ```
 
@@ -34,7 +33,7 @@ use <db_name>
 
 ## 创建集合
 
-```shell
+```sh
 db.createCollection("<collect_name>")
 ```
 
@@ -43,34 +42,29 @@ db.createCollection("<collect_name>")
 ![](https://cdn.hurra.ltd/img/20201014171656.png)
 
 
-## 插入
+## 单条插入
 
-### 插入文档
-
-- 单条插入
-
-```shell
+```sh
 db.<collect_name>.insert(<JSON数据>)
 ```
 
 例:向 stu 集合中插入数据
+
 ![](https://cdn.hurra.ltd/img/20201014174718.png)
 
-- 多条插入
+## 多条插入
 
-```shell
+```sh
 db.<collect_name>.insert([<JSON数据1>,<JSON数据2>,<JSON数据3>.....])
 ```
 
 ![](https://cdn.hurra.ltd/img/20201014175739.png)
 
-## 查询
-
-- 全部查询
+## 全部查询
 
 显示集合内所有文档
 
-```shell
+```sh
 db.<collect_name>.find()
 ```
 
@@ -80,23 +74,23 @@ db.<collect_name>.find()
 
 格式化显示集合内所有文档
 
-```shell
+```sh
 db.<collect_name>.find().pretty()
 ```
 
 ![](https://cdn.hurra.ltd/img/20201014180104.png)
 
-- 条件查询
+## 条件查询
 
-```shell
+```sh
 db.<collec_name>.find({<key>:<value>}).pretty()
 ```
 
-例:查询 stu 集合中 name 为 LILI 的文档
+例 : 查询 stu 集合中 name 为 LILI 的文档
 
 ![](https://cdn.hurra.ltd/img/20201014190333.png)
 
-例:查询年龄大于等于 19 的文档
+例 : 查询年龄大于等于 19 的文档
 
 ![](https://cdn.hurra.ltd/img/20201014191820.png)
 
@@ -111,11 +105,10 @@ db.<collec_name>.find({<key>:<value>}).pretty()
 | 大于或等于 | {\<key>:{`$gte`:\<value>}} |
 | 不等于     | {\<key>:{`$ne`:\<value>}}  |
 
-## 修改
 
-- 修改文档
+## 修改文档
 
-```shell
+```sh
 db.<collect_name>.update({<key1>:<value>},{$set:{<key2>:<new_value>}})
 ```
 
@@ -123,11 +116,10 @@ db.<collect_name>.update({<key1>:<value>},{$set:{<key2>:<new_value>}})
 
 ![](https://cdn.hurra.ltd/img/20201014195214.png)
 
-## 删除
 
-- 删除文档
+## 删除文档
 
-```shell
+```sh
 db.<collect_name>.remove({<key>:<value>})
 ```
 

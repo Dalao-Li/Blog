@@ -2,24 +2,27 @@
  * @Description: 
  * @Version: 
  * @Autor: Li Yuanhao
- * @Email: dalao-li@163.com
+ * @Email: dalao_li@163.com
  * @QQ: 1061299112
  * @Date: 2021-01-24 18:40:12
  * @LastEditors: Li Yuanhao
- * @LastEditTime: 2021-02-05 11:18:30
+ * @LastEditTime: 2021-02-26 00:18:34
 -->
 
 # Docker Compose
+
+
 ## 概述
 
-- 前面我们使用 Docker 的时候,定义 Dockerfile 文件,然后使用 docker build、docker run 等命令操作容器.然而微服务架构的应用系统一般包含若干个微服务,每个微服务一般都会部署多个实例,如果每个微服务都要手动启停,那么效率之低,维护量之大可想而知
-- 使用 Docker Compose 可以轻松、高效的管理容器,它是一个用于定义和运行多容器 Docker 的应用程序工具
+前面我们使用 Docker 的时候,定义 Dockerfile 文件,然后使用 docker build、docker run 等命令操作容器.然而微服务架构的应用系统一般包含若干个微服务,每个微服务一般都会部署多个实例,如果每个微服务都要手动启停,那么效率之低,维护量之大可想而知
+
+使用 Docker Compose 可以轻松、高效的管理容器,它是一个用于定义和运行多容器 Docker 的应用程序工具
 
 ## 例1
 
 启动一个 MySQL 容器,再启动一个 Ubuntu 容器,完成在 Ubuntu 容器内访问 MySQL 容器内的服务
 
-- 建立目录 demo,建立 Dockerfile 文件
+建立目录 demo,建立 Dockerfile 文件
 
 ```docker
 FROM ubuntu
@@ -27,7 +30,7 @@ FROM ubuntu
 RUN apt-get update && apt-get install -y mysql-client
 ```
 
-- 建立 docker-compose.yml 文件
+建立 docker-compose.yml 文件
 
 ```yml
 version:'3'
@@ -51,7 +54,8 @@ services:
 建立一个能够记录页面访问次数的 web 网站
 
 - web 应用  
-  新建文件夹,在该目录中编写 app.py 文件
+
+新建文件夹,在该目录中编写 app.py 文件
 
 ```py
 from flask import Flask

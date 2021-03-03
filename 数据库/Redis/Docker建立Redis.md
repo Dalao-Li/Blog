@@ -5,7 +5,7 @@
  * @Email: dalao_li@163.com
  * @Date: 2021-02-04 23:46:06
  * @LastEditors: Li Yuanhao
- * @LastEditTime: 2021-02-25 19:59:33
+ * @LastEditTime: 2021-02-26 00:01:50
 -->
 # Docker建立Redis
 
@@ -13,13 +13,13 @@
 
 Docker 拉取 Redis 镜像 
 
-```docker
+```sh
 docker run -itd --name redis-test -p 6379:6379 redis
 ```
 
 连接
 
-```docker
+```sh
 docker exec -it redis-test /bin/bash
 
 redis-cli
@@ -38,6 +38,6 @@ protected-mode no
 requirepass 123456   
 ```
 
-```docker
+```sh
 docker run -itd -p 6379:6379 -v $PWD/redis.conf:/etc/redis/redis.conf --privileged=true --name redis redis redis-server /etc/redis/redis.conf
 ```
