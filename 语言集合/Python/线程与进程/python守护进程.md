@@ -18,9 +18,9 @@
 
 > - 守护进程会在主进程代码执行结束后就终止
 >
-> - 守护进程内无法再开启子进程,否则抛出异常：AssertionError: daemonic processes are not allowed to have children
+> - 守护进程内无法再开启子进程,否则抛出异常:AssertionError: daemonic processes are not allowed to have children
 >
-> - 注意：进程之间是互相独立的,主进程代码运行结束,守护进程随即终止
+> - 注意:进程之间是互相独立的,主进程代码运行结束,守护进程随即终止
 
 ```py
 import time

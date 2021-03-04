@@ -3,7 +3,7 @@
 创建 MongoDB 容器
 
 ```sh
-# 创建容器 --auth：需要密码才能访问容器服务
+# 创建容器 --auth:需要密码才能访问容器服务
 docker run -itd --name mongo -p 27017:27017 mongo --auth
 
 docker exec -it mongo mongo admin

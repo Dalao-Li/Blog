@@ -18,7 +18,7 @@
 
 Python的标准库提供threading,_thread是低级模块
 
-启动一个线程就是把一个函数传入并创建Thread实例,然后调用start()开始执行：
+启动一个线程就是把一个函数传入并创建Thread实例,然后调用start()开始执行:
 
 ```py
 '''

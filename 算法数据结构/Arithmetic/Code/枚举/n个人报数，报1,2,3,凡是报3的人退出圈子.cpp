@@ -5,7 +5,7 @@ int main()
 {
 	/*i表示循环计数变量,j表示报号循环变量,m表示退出人数*/
 	int i = 0, j = 0, m = 0, n, num[50], *p;
-	cout << "输入人数：";
+	cout << "输入人数:";
 	cin >> n;
 	p = num;
 	for (i = 0; i < n; i++)
@@ -42,6 +42,6 @@ int main()
 	{
 		p++;
 	}
-	cout << "最后一个人是：" << *p << "号" << endl;
+	cout << "最后一个人是:" << *p << "号" << endl;
 	return 0;
 }

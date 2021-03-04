@@ -9,7 +9,7 @@
 -->
 ## 问题
 
-在Vmware中创建虚拟机的时候，VVmware提示：VMware Workstation和Hyper-V不兼容.请先从系统中移除Hyper-V角色，然后再运行VMware Workstation
+在Vmware中创建虚拟机的时候，VVmware提示:VMware Workstation和Hyper-V不兼容.请先从系统中移除Hyper-V角色，然后再运行VMware Workstation
 
 ## 原因
 

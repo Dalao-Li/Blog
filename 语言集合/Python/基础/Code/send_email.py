@@ -38,7 +38,7 @@ class CompanyEmail():
                 <div style="text-align: center;"><font size="4"><br>
                     </font>
                 </div>
-                <div style="text-align: center;"><font size="4">这是一封注册认证邮件,请在网页中输入如下验证码：&nbsp;</font></div>
+                <div style="text-align: center;"><font size="4">这是一封注册认证邮件,请在网页中输入如下验证码:&nbsp;</font></div>
                 <div style="text-align: center;"><font size="4"><br>
                     </font>
                 </div>

@@ -1,8 +1,8 @@
 # CentOS安装Python3
 
-## 安装
+## 安装设置
 
-安装编译 Python 所需依赖
+安装编译 Python 所需的依赖
 
 ```sh
 yum -y install gcc zlib* libffi-devel
@@ -43,7 +43,7 @@ make && make install
 
 ![](https://cdn.hurra.ltd/img/20200628170422.png)
 
-## 设置
+
 
 查看 python 的默认版本
 

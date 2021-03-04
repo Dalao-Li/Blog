@@ -90,7 +90,7 @@ git commit -m "提交的注释信息"
 git commit --amend
 ```
 
-- 比如要修改的 commit 是倒数第三条,使用下述命令：
+- 比如要修改的 commit 是倒数第三条,使用下述命令:
 
 ```shell
 git rebase -i HEAD~3

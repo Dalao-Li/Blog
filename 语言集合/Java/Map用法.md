@@ -3,7 +3,7 @@
 - Map 是一种键-值对(key-value)集合,其中键对象不允许重复.
 - 基本操作有:添加 key-value 键值对"、“获取 key"、“获取 value"、“获取 map 大小"、“清空 map"等基本的 key-value 键值对操作.
 - Map 是一个接口不能实例化.
-- Map 接口主要有两个实现类：HashMap 类和 TreeMap 类.
+- Map 接口主要有两个实现类:HashMap 类和 TreeMap 类.
 - HashMap 类按哈希算法来存取键对象;TreeMap 类可以对键对象进行排序.
 
 # 二、示例

@@ -45,7 +45,7 @@ gcc main.c -o main
 
 ![](https://cdn.hurra.ltd/img/20210211161743.png)
 
-经过预处理之后代码体积会大很多：
+经过预处理之后代码体积会大很多:
 
 ## 编译(Compilation)
 

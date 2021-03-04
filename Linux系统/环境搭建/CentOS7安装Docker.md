@@ -5,26 +5,27 @@
  * @Email: dalao_li@163.com
  * @Date: 2021-01-16 17:59:34
  * @LastEditors: Li Yuanhao
- * @LastEditTime: 2021-02-23 19:31:00
+ * @LastEditTime: 2021-03-04 17:40:55
 -->
 
 # Centos7 安装Docker
 
 ## 卸载旧版本
 
-旧版本的 Docker 称为 docker 或者 docker-engine，使用以下命令卸载旧版本：
+使用以下命令卸载旧版本Docker:
 
 ```sh
-sudo yum remove docker \
-                  docker-client \
-                  docker-client-latest \
-                  docker-common \
-                  docker-latest \
-                  docker-latest-logrotate \
-                  docker-logrotate \
-                  docker-selinux \
-                  docker-engine-selinux \
-                  docker-engine
+sudo yum remove \
+                docker \
+                docker-client \
+                docker-client-latest \
+                docker-common \
+                docker-latest \
+                docker-latest-logrotate \
+                docker-logrotate \
+                docker-selinux \
+                docker-engine-selinux \
+                docker-engine
 ```
 
 
@@ -65,7 +66,7 @@ docker info
 
 ## 注意
 
-若在root权限,则可直接输入docker命令;否则需添加用户组,这样就不必在加sudo进行操作了.
+若在root权限,则可直接输入docker命令;否则需添加用户组,这样就不必在加sudo进行操作.
 
 ```shell
 # 添加docker用户组
@@ -98,6 +99,5 @@ newgrp docker
 systemctl restart docker
 ```
 
----
 
 ![](https://cdn.hurra.ltd/img/收款码.png)

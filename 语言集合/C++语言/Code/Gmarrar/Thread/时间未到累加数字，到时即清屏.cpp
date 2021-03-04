@@ -28,7 +28,7 @@ void playThread02()
     int second; 
     
 	//输入时间 
-    cout<<"请输入倒计时的时间(小时：分钟：秒)："; 
+    cout<<"请输入倒计时的时间(小时:分钟:秒):"; 
     cin>>hour>>mintue>>second;  
     
     //只要时间未结束就一直执行循环

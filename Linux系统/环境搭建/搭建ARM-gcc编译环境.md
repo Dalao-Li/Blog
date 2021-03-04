@@ -5,14 +5,16 @@
  * @Email: dalao_li@163.com
  * @Date: 2021-01-16 17:59:34
  * @LastEditors: Li Yuanhao
- * @LastEditTime: 2021-02-19 19:15:57
+ * @LastEditTime: 2021-03-04 17:39:03
 -->
 ## 环境
 
-> 宿主机环境 : WSL2 Ubuntu18.04
+> 宿主机环境 : WSL2 Ubuntu18.04  
 > 基础容器 : CentOS7
 
-下载 arm-linux-gcc.tar  [地址](http://112.124.9.243/arm9net/mini2440/linux/arm-linux-gcc-4.4.3-20100728.tar.gz)
+下载 arm-linux-gcc.tar  
+
+[地址](http://112.124.9.243/arm9net/mini2440/linux/arm-linux-gcc-4.4.3-20100728.tar.gz)
 
 将 tar 包复制到新建的 CentOS7 容器
 

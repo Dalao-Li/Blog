@@ -75,7 +75,7 @@ python_version = "3.8"
 
 - 部分安装
 
-安装开发环境下的包： 通常有一些 Python 包只在你的开发环境中需要,而不是在生产环境中,例如单元测试包. Pipenv 使用--dev 标志区分两个环境. 加 --dev 表示包括 Pipfile dev-packages 中的依赖
+安装开发环境下的包: 通常有一些 Python 包只在你的开发环境中需要,而不是在生产环境中,例如单元测试包. Pipenv 使用--dev 标志区分两个环境. 加 --dev 表示包括 Pipfile dev-packages 中的依赖
 
 > - 安装包记录是在[dev-packages] 部分,或是[packages] 部分.  
 > - 在安装时指定`--dev`参数,则安装全部的模块.

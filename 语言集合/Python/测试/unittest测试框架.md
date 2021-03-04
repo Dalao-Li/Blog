@@ -15,17 +15,17 @@
 
 ## unittest框架及原理
 
-- test case：测试用例，unittest中提供了一个基本类TestCase，可以用来创建新的测试用例，调用run()方法，会依次调用setUp方法、执行用例的方法、tearDown方法.
+- test case:测试用例，unittest中提供了一个基本类TestCase，可以用来创建新的测试用例，调用run()方法，会依次调用setUp方法、执行用例的方法、tearDown方法.
 
--  test fixure：测试夹具，用于测试用例环境的搭建和销毁.即用例测试前准备环境的搭建（SetUp前置条件），测试后环境的还原（TearDown后置条件），比如测试前需要登录获取token等就是测试用例需要的环境，运行完后执行下一个用例前需要还原环境.
+-  test fixure:测试夹具，用于测试用例环境的搭建和销毁.即用例测试前准备环境的搭建（SetUp前置条件），测试后环境的还原（TearDown后置条件），比如测试前需要登录获取token等就是测试用例需要的环境，运行完后执行下一个用例前需要还原环境.
 
-- test suite：测试套件，用来把需要一起执行的测试用例集中放到一块执行，可以通过addTest()方法手动增加Test Case，也可以通过TestLoader自动添加Test Case，TestLoader在添加用例时会没有顺序.
+- test suite:测试套件，用来把需要一起执行的测试用例集中放到一块执行，可以通过addTest()方法手动增加Test Case，也可以通过TestLoader自动添加Test Case，TestLoader在添加用例时会没有顺序.
 
-- test runner：执行测试用例，并返回测试用例的执行结果.它还可以用图形或者文本接口，把返回的测试结果更形象的展现出来，如：HTMLTestRunner.
+- test runner:执行测试用例，并返回测试用例的执行结果.它还可以用图形或者文本接口，把返回的测试结果更形象的展现出来，如:HTMLTestRunner.
 
 ## TestCase测试用例
 
-编写测试用例前，需建一个测试类继承unittest里的TestCase类，编写测试用例的步骤如下：
+编写测试用例前，需建一个测试类继承unittest里的TestCase类，编写测试用例的步骤如下:
 
 - 导入unittest模块
 - 创建一个测试类，并继承unittest.TestCase()
@@ -54,7 +54,7 @@ def register(namr, pwd1, pwd2):
             return {"code": 1, "msg": "注册成功"}
         return {"code": 0, "msg": "用户名和密码必须在6-18位之间"}
 ```
-下面是编写测试用例例子：
+下面是编写测试用例例子:
 ```py
 import unittest
 

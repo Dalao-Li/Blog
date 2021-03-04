@@ -32,7 +32,7 @@ var data = {
 var data = '{"name":"dalao", "pwd":123}';
 ```
 
-- JSON 对象：
+- JSON 对象:
 
 ```js
 var data = { name: "dalao", pwd: 123456 };

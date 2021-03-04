@@ -89,9 +89,9 @@ int main() {
 	creatTree(root);
 	inOrderTree(root);
 	printf("\n");
-	printf("树叶总个数为：%d\n",sumOfLeaves(root));
+	printf("树叶总个数为:%d\n",sumOfLeaves(root));
 	distanceFromRoot(root,0);
-	printf("节点总个数为：%d\n",sumOfNode(root));
-	printf("树的深度为：%d\n",deepOfTree(root));
+	printf("节点总个数为:%d\n",sumOfNode(root));
+	printf("树的深度为:%d\n",deepOfTree(root));
 	return 0;
 }
