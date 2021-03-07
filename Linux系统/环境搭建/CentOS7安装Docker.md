@@ -5,7 +5,7 @@
  * @Email: dalao_li@163.com
  * @Date: 2021-01-16 17:59:34
  * @LastEditors: Li Yuanhao
- * @LastEditTime: 2021-03-04 17:40:55
+ * @LastEditTime: 2021-03-05 19:13:58
 -->
 
 # Centos7 安装Docker
@@ -83,9 +83,7 @@ newgrp docker
 
 ## 换源
 
-编辑/etc/docker/daemon.json文件
-
-添加以下内容
+编辑/etc/docker/daemon.json文件,添加以下内容
 
 ```sh
 {

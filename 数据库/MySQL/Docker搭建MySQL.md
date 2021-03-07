@@ -5,14 +5,14 @@
  * @Email: dalao_li@163.com
  * @Date: 2021-01-16 17:59:34
  * @LastEditors: Li Yuanhao
- * @LastEditTime: 2021-02-26 00:08:11
+ * @LastEditTime: 2021-03-07 22:37:21
 -->
 
 # Docker 搭建 MySQL
 
-## 获取镜像
+## 获取镜像 
 
-```shell
+```sh
 docker pull mysql:5.7
 ```
 

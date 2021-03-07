@@ -1,6 +1,5 @@
 # CentOS安装Python3
 
-## 安装设置
 
 安装编译 Python 所需的依赖
 

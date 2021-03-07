@@ -5,7 +5,7 @@
  * @Email: dalao_li@163.com
  * @Date: 2021-01-25 22:38:32
  * @LastEditors: Li Yuanhao
- * @LastEditTime: 2021-02-22 23:25:10
+ * @LastEditTime: 2021-03-07 22:34:59
 -->
 # 标题
 
@@ -13,11 +13,13 @@
 
 # 提醒
 
-若有勘误,请速与本人联系,万分感谢！
+若有勘误,望速与本人联系,万分感谢！
 
 > - QQ : 1061299112
 >
-> - email : dalao_li@163.com / 1061299112@qq.com
+> - 微信号 : DALAO_CASPER
+>
+> - Email : dalao_li@163.com / 1061299112@qq.com
 
 # 赞赏
 ![](https://cdn.hurra.ltd/img/收款码.png)

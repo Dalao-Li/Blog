@@ -5,14 +5,14 @@
  * @Email: dalao_li@163.com
  * @Date: 2021-01-16 17:59:35
  * @LastEditors: Li Yuanhao
- * @LastEditTime: 2021-02-25 19:59:12
+ * @LastEditTime: 2021-03-07 22:39:44
 -->
 
 ## Navicat 连接
 
 ![](https://cdn.hurra.ltd/img/20201012105710.png)
 
-> 注意:反人类的SQLServer的主机地址需写为: `<ip>,<端口>`,注意是`逗号`
+> 注意:反人类的SQLServer的主机地址需写为: `ip,端口`,注意是`逗号`
 
 
 ## python 交互

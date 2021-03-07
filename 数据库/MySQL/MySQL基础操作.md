@@ -3,7 +3,7 @@
 ## 新建用户
 
 ```sql
-CEEATE user '用户名'@'host' identified by '密码';
+CEEATE user '[用户名]'@'host' identified by '[密码]';
 ```
 
 > - host = localhost 为本地登录用户
@@ -35,7 +35,7 @@ mysql -u <用户名> -p
 > 注意:`授权操作只有root用户才有权限操作`
 
 ```sql
-GRANT ALL PRIVILEGES ON *.* TO '用户名'@'%' identified BY '密码';
+GRANT ALL PRIVILEGES ON *.* TO '[用户名]'@'%' identified BY '[密码]';
 ```
 
 
@@ -63,7 +63,7 @@ SHOW grant;
 查看指定用户权限
 
 ```sql
-SHOW grant FOR '<用户名>'@'%';
+SHOW grant FOR '[用户名]'@'%';
 ```
 
 ![](https://cdn.hurra.ltd/img/20200516003557.png)
