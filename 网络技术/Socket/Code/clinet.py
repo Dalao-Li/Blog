@@ -10,7 +10,7 @@ host = socket.gethostname()
 # 设置端口号
 port = 9999
 
-# 连接服务，指定主机和端口
+# 连接服务,指定主机和端口
 s.connect((host, port))
 
 # 接收小于 1024 字节的数据

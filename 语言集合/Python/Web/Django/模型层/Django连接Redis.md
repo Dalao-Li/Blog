@@ -20,7 +20,7 @@ CACHES = {
             "CONNECTION_POOL_KWARGS": {
                 # 最大连接数
                 "max_connections": 10,
-                # 以字符串的形式写入Redis，为False的话写入字节类型
+                # 以字符串的形式写入Redis,为False的话写入字节类型
                 "decode_responses": True
             },
             "PASSWORD": "123"

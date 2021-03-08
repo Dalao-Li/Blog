@@ -70,7 +70,7 @@ server_address = ('127.0.0.1', 31500)
 s.bind(server_address)
 
 while True:
-    # 返回数据和接入连接的（客户端）地址
+    # 返回数据和接入连接的(客户端)地址
     data, client_address = s.recvfrom(1024)
 
     print(client_address + '[Received]:' + data.decode())
@@ -93,7 +93,7 @@ server_address = ('127.0.0.1', 31500)
 while True:
     send = input('输入: ')
     s.sendto(send.encode(), server_address)
-    # 返回数据和接入连接的（服务端）地址
+    # 返回数据和接入连接的(服务端)地址
     data, server_address = s.recvfrom(1024)
     print('[回复]', data.decode())
 s.close()

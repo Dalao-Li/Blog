@@ -16,7 +16,7 @@ egrep -o 'vmx | svm' /proc/cpuinfo | wc -l
 ```
 ![](https://cdn.hurra.ltd/img/20210207193309.png)
 
-如果显示数值是 0，则表示该 CPU 不支持虚拟化
+如果显示数值是 0,则表示该 CPU 不支持虚拟化
 
 关闭 iptables
 

@@ -43,7 +43,7 @@ sudo yum-config-manager --add-repo https://mirrors.aliyun.com/docker-ce/linux/ce
 
 sudo sed -i 's/download.docker.com/mirrors.aliyun.com\/docker-ce/g' /etc/yum.repos.d/docker-ce.repo
 ```
-更新 yum 软件源缓存，并安装 docker-ce
+更新 yum 软件源缓存,并安装 docker-ce
 
 ```sh
 sudo yum install docker-ce docker-ce-cli containerd.io

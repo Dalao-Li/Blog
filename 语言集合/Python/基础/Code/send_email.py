@@ -20,7 +20,7 @@ class CompanyEmail():
         docstring
         """
         self.from_addr = 'cloud_and_bubble@163.com'  # 邮件发送账号
-        self.code_163_email = 'ZADEQKQHZVBXJBSN'  # 授权码（这个要填自己获取到的）
+        self.code_163_email = 'ZADEQKQHZVBXJBSN'  # 授权码(这个要填自己获取到的)
         smtp_server = 'smtp.163.com'  # 固定写死
         smtp_port = 465  # 固定端口
         # 配置服务器
