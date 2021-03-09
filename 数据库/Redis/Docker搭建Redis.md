@@ -5,8 +5,9 @@
  * @Email: dalao_li@163.com
  * @Date: 2021-02-04 23:46:06
  * @LastEditors: Li Yuanhao
- * @LastEditTime: 2021-03-07 22:39:19
+ * @LastEditTime: 2021-03-09 14:05:43
 -->
+
 # Docker建立Redis 
 
 ## 建立
@@ -38,6 +39,11 @@ protected-mode no
 requirepass 123456   
 ```
 
+建立容器时挂载
 ```sh
-docker run -itd -p 6379:6379 -v $PWD/redis.conf:/etc/redis/redis.conf --privileged=true --name redis redis redis-server /etc/redis/redis.conf
+docker run -itd \
+    -p 6379:6379 \
+    -v $PWD/redis.conf:/etc/redis/redis.conf \
+    --name redis-server \
+    redis 
 ```

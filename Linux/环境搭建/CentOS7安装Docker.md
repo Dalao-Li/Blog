@@ -5,9 +5,9 @@
  * @Email: dalao_li@163.com
  * @Date: 2021-01-16 17:59:34
  * @LastEditors: Li Yuanhao
- * @LastEditTime: 2021-03-05 19:13:58
+ * @LastEditTime: 2021-03-09 14:11:36
 -->
-
+ 
 # Centos7 安装Docker
 
 ## 卸载旧版本
@@ -43,7 +43,7 @@ sudo yum-config-manager --add-repo https://mirrors.aliyun.com/docker-ce/linux/ce
 
 sudo sed -i 's/download.docker.com/mirrors.aliyun.com\/docker-ce/g' /etc/yum.repos.d/docker-ce.repo
 ```
-更新 yum 软件源缓存,并安装 docker-ce
+更新 yum 软件源缓存并安装 docker-ce
 
 ```sh
 sudo yum install docker-ce docker-ce-cli containerd.io
@@ -51,7 +51,7 @@ sudo yum install docker-ce docker-ce-cli containerd.io
 
 启动
 
-```shell
+```sh
 systemctl start docker
 
 # 设置开机自启
@@ -60,7 +60,7 @@ systemctl enable docker
 
 查看 Docker 版本
 
-```shell
+```sh
 docker info
 ```
 

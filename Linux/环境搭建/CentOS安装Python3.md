@@ -15,7 +15,7 @@ wget https://www.python.org/ftp/python/3.8.0/Python-3.8.0.tar.xz
 
 ![](https://cdn.hurra.ltd/img/20200628164902.png)
 
-解压文件到指定路径
+解压文件
 
 ```sh
 tar -xvf Python-3.8.0.tar.xz -C /usr/bin
@@ -88,9 +88,10 @@ cd /usr/bin/python3/bin
 
 创建 `~/.pip` 目录,在其中编辑 `~/.pip/pip.conf`文件
 
-```sh
+```ini
 [global]
 index-url=http://mirrors.aliyun.com/pypi/simple/
+
 [install]
 trusted-host=mirrors.aliyun.com
 ```
@@ -103,6 +104,5 @@ pip3 install --upgrade pip
 
 ![](https://cdn.hurra.ltd/img/20200628190234.png)
 
----
 
 ![](https://cdn.hurra.ltd/img/收款码.png)

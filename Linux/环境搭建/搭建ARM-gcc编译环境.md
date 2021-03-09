@@ -5,12 +5,9 @@
  * @Email: dalao_li@163.com
  * @Date: 2021-01-16 17:59:34
  * @LastEditors: Li Yuanhao
- * @LastEditTime: 2021-03-08 17:26:56
+ * @LastEditTime: 2021-03-09 14:37:59
 -->
-## 环境
 
-> 宿主机环境 : WSL2 Ubuntu18.04  
-> 基础容器 : CentOS7
 
 下载 arm-linux-gcc.tar  
 
