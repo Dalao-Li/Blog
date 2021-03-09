@@ -1,21 +1,31 @@
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Author: Li Yuanhao
+ * @Email: dalao_li@163.com
+ * @Date: 2021-01-16 17:59:38
+ * @LastEditors: Li Yuanhao
+ * @LastEditTime: 2021-03-08 16:14:37
+ */
+
 #include<iostream>
 #include<stdlib.h>
 using namespace std;
 double fun(double x,double y) {
 	if(y==0) {
-		throw y;        //³ýÊýÎª0,Å×³öÒì³£
+		throw y;        //é™¤æ•°ä¸º0,æŠ›å‡ºå¼‚å¸¸
 	}
 	return x/y;
 }
 
 int main() {
 	double res;
-	try {               //¶¨ÒåÒì³£
+	try {               //å®šä¹‰å¼‚å¸¸
 		res=fun(2,3);
 		cout<<"The result of x/y is:"<<res<<endl;
-		res=fun(4,0);   //³öÏÖÒì³£ 
+		res=fun(4,0);   //å‡ºçŽ°å¼‚å¸¸ 
 	}
-	catch(double){      //²¶»ñ²¢´¦ÀíÒì³£ 
+	catch(double){      //æ•èŽ·å¹¶å¤„ç†å¼‚å¸¸ 
 		cerr<<"Error of dividing zero."<<endl;
 		exit(1);          
 	} 

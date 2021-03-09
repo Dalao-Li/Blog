@@ -1,14 +1,18 @@
 /*
-        Name:通讯录
-        Copyright:
-        Author:
-        Date: 15/04/18 09:09
-        Description:
+    Name:通讯录
+    Copyright:
+    Author:
+    Date: 15/04/18 09:09
+    Description:
 */
+
+  
 #include <iostream>
 #include <string>
 #define N 1
 using namespace std;
+
+/*建立结构体数组mes[N]*/
 struct Info
 {
     string num;
@@ -17,11 +21,11 @@ struct Info
     string address;
     string phone;
     string email;
-    float score
-        [4]; /*score[0]到score[3]分别指代数学、英语、政治、专业课的成绩,sum_score表示总成绩*/
+    /*score[0]到score[3]分别指代数学、英语、政治、专业课的成绩,sum_score表示总成绩*/
+    float score[4]; 
     float sum_score = 0;
     struct Info *next;
-} mes[N]; /*建立结构体数组mes[N]*/
+} mes[N]; 
 
 int main()
 {
@@ -113,14 +117,11 @@ void ouput(struct Info mes[])
     p = mes;
     /*建立链表*/
     head = p; /*将第一个元素的地址放入头指针中*/
-    for (i = 0; i < N - 1;
-         i++)
-    { /*依次将后一个元素的地址放入前一个元素的next成员中*/
+    for (i = 0; i < N - 1;i++){ /*依次将后一个元素的地址放入前一个元素的next成员中*/
         (p + i)->next = (p + i + 1);
     }
     (p + N - 1)->next = NULL; /*最后一个元素的next中放入NULL*/
-    cout << "                                                          "
-         << endl;
+    cout << "                                                          "<< endl;
     while (sign)
     {
         cout << "--------------------------------------------------------------"
@@ -232,8 +233,7 @@ void ouput(struct Info mes[])
                         cout << "第" << i + 1 << "位成员的英语成绩为:"
                              << p->score[1] << "分" << endl;
                         cout << "                                      "
-                                "            "
-                             << endl;
+                                "            "<< endl;
                     }
                     break;
                 case 3:

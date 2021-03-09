@@ -5,7 +5,7 @@
  * @Email: dalao_li@163.com
  * @Date: 2021-01-16 17:59:34
  * @LastEditors: Li Yuanhao
- * @LastEditTime: 2021-03-04 17:39:03
+ * @LastEditTime: 2021-03-08 17:26:56
 -->
 ## 环境
 
@@ -22,7 +22,7 @@
 
 解包到/home 路径
 
-> tar -zxvf <包名> -C < 路径 >
+> tar -zxvf [包名] -C [路径]
 
 ```sh
 tar -zxvf arm-linux-gcc-4.4.3-20100728.tar.gz -C /home
@@ -32,7 +32,7 @@ tar -zxvf arm-linux-gcc-4.4.3-20100728.tar.gz -C /home
 
 移动包中内容
 
-> cp -r <源路径> <目标路径>
+> cp -r [源路径] [目标路径]
 
 ```sh
 cp -r /home/opt/FriendlyARM/toolschain/4.4.3 /usr/local/bin
