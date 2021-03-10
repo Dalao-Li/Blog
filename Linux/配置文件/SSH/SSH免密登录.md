@@ -5,14 +5,14 @@
  * @Email: dalao_li@163.com
  * @Date: 2021-03-09 17:54:44
  * @LastEditors: Li Yuanhao
- * @LastEditTime: 2021-03-10 11:18:15
+ * @LastEditTime: 2021-03-10 17:22:04
 -->
 
 ## 密钥登录原理
 
 ![](https://cdn.hurra.ltd/img/20210310111808.png)
 
-利用密钥生成器制作一对密钥:公钥和私钥,将公钥添加到服务器的某个账户上,然后在客户端利用私钥即可完成认证并登录。这样一来，没有私钥，任何人都无法通过 SSH 暴力破解你的密码来远程登录到系统。此外，如果将公钥复制到其他账户甚至主机，利用私钥也可以登录。
+利用密钥生成器制作一对密钥:公钥和私钥,将公钥添加到服务器的某个账户上,然后在客户端利用私钥即可完成认证并登录.这样一来,没有私钥,任何人都无法通过 SSH 暴力破解你的密码来远程登录到系统.此外,如果将公钥复制到其他账户甚至主机,利用私钥也可以登录.
 
 
 
@@ -72,7 +72,8 @@ ssh-copy-id -i ~/.ssh/id_rsa.pub <远程主机IP>
 
 - 手动操作
 
-可手动将本地主机的id_ras.pub文件内容复制到远程主机的authorized_keys文件中;同理也可设置为主机自己对自己免密
+可手动将本地主机的id_ras.pub文件内容复制到远程主机的authorized_keys文件中;同理也可设置为本地主机自己对自己免密
+
 
 - 服务器上安装公钥
 
@@ -80,13 +81,18 @@ ssh-copy-id -i ~/.ssh/id_rsa.pub <远程主机IP>
 cd .ssh
 
 cat id_rsa.pub >> authorized_keys
+
+chmod 600 authorized_keys
+
+chmod 700 ~/.ssh
 ```
 
-- 修改ssh配置文件
+- ssh配置文件修改
 
 ```sh
 # 允许密钥登录
 RSAAuthentication yes
+
 PubkeyAuthentication yes
 
 # 禁止密码登录

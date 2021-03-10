@@ -5,19 +5,19 @@
  * @Email: dalao_li@163.com
  * @Date: 2021-03-10 09:33:44
  * @LastEditors: Li Yuanhao
- * @LastEditTime: 2021-03-10 12:02:18
+ * @LastEditTime: 2021-03-10 13:14:41
 -->
 
 
 
 通过ansible批量给多台远程主机设置SSH免密
 
-| 主机       | IP             | 登录用户 |
-| ---------- | -------------- | -------- |
-| 宿主机     | 192.168.43.231 |          |
-| 远程主机_1 | 172.17.0.2     | docker   |
-| 远程主机_2 | 172.17.0.3     | docker   |
-| 远程主机_3 | 172.17.0.4     | docker   |
+| 主机       | IP             | 远程登录用户 |
+| ---------- | -------------- | ------------ |
+| 宿主机     | 192.168.43.231 |              |
+| 远程主机_1 | 172.17.0.2     | docker       |
+| 远程主机_2 | 172.17.0.3     | docker       |
+| 远程主机_3 | 172.17.0.4     | docker       |
 
 
 - 修改宿主机/etc/ansible/host
@@ -58,11 +58,10 @@ host_key_checking = True
 ansible all -m authorized_key -a "user=[远程用户名] key='{{ lookup('file','[本地id_rsa.pub路径]') }}'" -k
 ```
 
-
 输入宿主机的SSH密码
 
 ![](https://cdn.hurra.ltd/img/20210310115926.png)
 
-尝试控制所有主机
+尝试控制所有远程主机
 
 ![](https://cdn.hurra.ltd/img/20210310100850.png)

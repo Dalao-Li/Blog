@@ -13,7 +13,7 @@
 > /var/log/secure
 
 
-很多linux的新发行版已经不再使用，改为使用rsyslog.配置目录 /etc/rsyslog.d
+很多linux的新发行版已经不再使用,改为使用rsyslog.配置目录 /etc/rsyslog.d
 
 ## 含义
 
