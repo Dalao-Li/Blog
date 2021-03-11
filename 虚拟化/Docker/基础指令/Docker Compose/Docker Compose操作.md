@@ -6,7 +6,7 @@
  * @QQ: 1061299112
  * @Date: 2021-01-24 18:40:12
  * @LastEditors: Li Yuanhao
- * @LastEditTime: 2021-02-26 00:18:34
+ * @LastEditTime: 2021-03-11 09:41:14
 -->
 
 # Docker Compose
@@ -20,7 +20,7 @@
 
 ## 例1
 
-启动一个 MySQL 容器,再启动一个 Ubuntu 容器,完成在 Ubuntu 容器内访问 MySQL 容器内的服务
+启动一个 MySQL 容器与 Ubuntu 容器,完成在 Ubuntu 容器内访问 MySQL 容器内的服务
 
 建立目录 demo,建立 Dockerfile 文件
 
