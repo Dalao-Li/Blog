@@ -5,7 +5,7 @@
  * @Email: dalao_li@163.com
  * @Date: 2021-03-10 17:35:54
  * @LastEditors: Li Yuanhao
- * @LastEditTime: 2021-03-11 08:57:36
+ * @LastEditTime: 2021-03-11 14:01:46
 -->
 
 ## grep指令参数
@@ -21,12 +21,14 @@
 | v    | 显示不包含匹配文本的所有行             |
 
 
-## 匹配
 
-- 单查询
+## 单查询
 
 ```sh
 grep pattern filepath
+
+# 匹配以关键词开头的文本
+grep ^pattern filepath
 ```
  
 查询3月10日16点30时间段内的ssh登录情况
@@ -36,7 +38,7 @@ grep -n 'Mar 10 16:3' /var/log/secure
 ```
 ![](https://cdn.hurra.ltd/img/20210310173920.png)
 
-- 与查询
+## 与查询
 
 ```sh
 grep 'pattern1' filepath | grep 'pattern2'
@@ -49,7 +51,7 @@ grep 'Mar 10 16:3' /var/log/secure | grep Accepted
 
 ![](https://cdn.hurra.ltd/img/20210310175209.png)
 
-- 或查询
+## 或查询
 
 ```sh
 # 方法1
@@ -59,8 +61,20 @@ grep 'pattern1\|pattern2' filepath
 grep -E 'pattern1|pattern2' filepath
 ```
 
-- 非查询
+## 非查询
 
 ```sh
 grep -v pattern filepath
 ```
+
+## 示例
+
+
+查找/root/test.txt文件中含有human的句子
+
+![](https://cdn.hurra.ltd/img/20210310151418.png)
+
+
+查找/root/test.txt文件中以The开头的句子
+
+![](https://cdn.hurra.ltd/img/20210310151535.png)
