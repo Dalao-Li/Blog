@@ -5,32 +5,51 @@
  * @Email: dalao_li@163.com
  * @Date: 2021-03-09 17:54:44
  * @LastEditors: Li Yuanhao
- * @LastEditTime: 2021-03-10 17:22:04
+ * @LastEditTime: 2021-03-12 10:40:52
 -->
 
-## 密钥登录原理
+## 原理
 
-![](https://cdn.hurra.ltd/img/20210310111808.png)
+![](https://cdn.hurra.ltd/img/20210312095204.png)
 
-利用密钥生成器制作一对密钥:公钥和私钥,将公钥添加到服务器的某个账户上,然后在客户端利用私钥即可完成认证并登录.这样一来,没有私钥,任何人都无法通过 SSH 暴力破解你的密码来远程登录到系统.此外,如果将公钥复制到其他账户甚至主机,利用私钥也可以登录.
-
-
+利用密钥生成器制作一对密钥:公钥和私钥,将公钥添加到Server的某个账户上,然后在客户端利用私钥即可完成认证并登录.这样一来,没有私钥,任何人都无法通过 SSH 暴力破解你的密码来远程登录到系统.此外,如果将公钥复制到其他账户甚至主机,利用私钥也可以登录.
 
 ## .ssh目录
 
-在根目录下生成ssh目录
+在当前用户的根目录(/root/或者/home/[用户名])下生成 .ssh目录
 ```sh
 ssh-keygen -t rsa
 ```
+包含的文件:
 
-之后会在根目录(/root/或者/home/[用户名])下生成 .ssh目录,包含的文件如下表
+| 文件            | 作用                         |
+| --------------- | ---------------------------- |
+| authorized_keys | 存放多台机器免密登录的公钥   |
+| id_rsa          | 本机私钥文件                 |
+| id_rsa.pub      | 本机公钥文件                 |
+| know_hosts      | 存储已认证的远程主机host key |
 
-| 文件            | 作用                       |
-| --------------- | -------------------------- |
-| authorized_keys | 存放多台机器免密登录的公钥 |
-| id_rsa          | 生成的私钥文件             |
-| id_rsa.pub      | 生成的公钥文件             |
-| know_hosts      | 已知的主机公钥清单         |
+- host key加入known_hosts的时间
+
+首次SSH登录远程主机的时Client端会有如下提示：
+
+```sh
+Host key not found from the list of known hosts.
+Are you sure you want to continue connecting (yes/no)?
+```
+
+若选择yes那么该host key就会被加入到Client的known_hosts中,格式如下：
+
+```sh
+# domain name+encryption algorithm+host key
+example.hostname.com ssh-rsa AAAAB4NzaC1yc2EAAAABIwAAAQEA...
+```
+- known_hosts的作用
+
+文件主要是通过Client和Server的双向认证，从而避免中间人（(man-in-the-middle attack)攻击.每次Client向Server发起连接的时候，不仅仅Server要验证Client的合法性，Client也会通过known_hosts中的host key来验证Server的身份.
+
+
+## 免密登录
 
 ssh公钥生效需满足至少下面两个条件:
 
@@ -38,17 +57,19 @@ ssh公钥生效需满足至少下面两个条件:
 
 - .ssh/authorized_keys文件权限必须是600
 
-## 免密登录
 
 | 主机     | IP             | 备注         |
 | -------- | -------------- | ------------ |
 | 本地主机 | 192.168.43.96  |              |
 | 远程主机 | 192.168.43.208 | root用户登录 |
 
-在本地主机上生成.ssh目录及其文件,并将其中id_isa.pub内容拷贝到远程主机的./ssh/authorized_keys中
+在本地主机上生成.ssh目录及其文件,并将id_isa.pub内容拷贝到远程主机的./ssh/authorized_keys中
 
 ```sh
-ssh-copy-id -i ~/.ssh/id_rsa.pub <远程主机IP>
+# 复制本地主机公钥
+ssh-copy-id -i ~/.ssh/id_rsa.pub [远程主机IP]
+
+# 输入对应远程用户的连接密码
 ```
 
 ![](https://cdn.hurra.ltd/img/20210310091446.png)
@@ -75,7 +96,7 @@ ssh-copy-id -i ~/.ssh/id_rsa.pub <远程主机IP>
 可手动将本地主机的id_ras.pub文件内容复制到远程主机的authorized_keys文件中;同理也可设置为本地主机自己对自己免密
 
 
-- 服务器上安装公钥
+- Server上安装公钥
 
 ```sh
 cd .ssh
