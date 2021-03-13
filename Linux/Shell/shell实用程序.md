@@ -5,9 +5,23 @@
  * @Email: dalao_li@163.com
  * @Date: 2021-01-16 17:59:34
  * @LastEditors: Li Yuanhao
- * @LastEditTime: 2021-03-09 14:12:29
+ * @LastEditTime: 2021-03-12 13:31:19
 --> 
 
+## 搜索当前网络下的所有主机
+```sh
+#!/bin/bash
+
+for i in {1..254}
+
+do
+    ip="192.168.43.$i"
+    ping -c 2 $ip &> /dev/null && echo $ip is up &
+done
+
+wait
+
+```
 
 ## 配置定时任务
 
@@ -46,6 +60,7 @@ echo "$mintue $hour $date $month $weak $program" >> /etc/crontab
 
 
 ## 创建文件
+
 ```sh
 #!/bin/bash
 

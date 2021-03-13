@@ -5,11 +5,14 @@
  * @Email: dalao_li@163.com
  * @Date: 2021-03-10 17:35:54
  * @LastEditors: Li Yuanhao
- * @LastEditTime: 2021-03-11 14:01:46
+ * @LastEditTime: 2021-03-12 13:26:50
 -->
 
 ## grep指令参数
 
+```sh
+grep -[参数]
+```
 | 参数 | 说明                                   |
 | ---- | -------------------------------------- |
 | c    | 只输出匹配行的计数                     |
@@ -26,9 +29,6 @@
 
 ```sh
 grep pattern filepath
-
-# 匹配以关键词开头的文本
-grep ^pattern filepath
 ```
  
 查询3月10日16点30时间段内的ssh登录情况
@@ -67,6 +67,15 @@ grep -E 'pattern1|pattern2' filepath
 grep -v pattern filepath
 ```
 
+## 正则
+
+```sh
+# 查看以pattern开头的行
+grep ^pattern filepath
+
+# 查找以pattern结尾的行
+grep pattern$ filepath
+```
 ## 示例
 
 

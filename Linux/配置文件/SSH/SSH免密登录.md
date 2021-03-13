@@ -5,7 +5,7 @@
  * @Email: dalao_li@163.com
  * @Date: 2021-03-09 17:54:44
  * @LastEditors: Li Yuanhao
- * @LastEditTime: 2021-03-12 10:40:52
+ * @LastEditTime: 2021-03-12 11:17:52
 -->
 
 ## 原理
@@ -20,7 +20,8 @@
 ```sh
 ssh-keygen -t rsa
 ```
-包含的文件:
+
+![](https://cdn.hurra.ltd/img/20210312104415.png)
 
 | 文件            | 作用                         |
 | --------------- | ---------------------------- |
@@ -66,11 +67,12 @@ ssh公钥生效需满足至少下面两个条件:
 在本地主机上生成.ssh目录及其文件,并将id_isa.pub内容拷贝到远程主机的./ssh/authorized_keys中
 
 ```sh
-# 复制本地主机公钥
-ssh-copy-id -i ~/.ssh/id_rsa.pub [远程主机IP]
+# 复制本地到id_rsa.pub对应远程用户的authorized_keys文件
+ssh-copy-id -i ~/.ssh/id_rsa.pub [远程用户]@[远程主机IP]
 
 # 输入对应远程用户的连接密码
 ```
+免密以root用户登录远程主机
 
 ![](https://cdn.hurra.ltd/img/20210310091446.png)
 
@@ -89,7 +91,6 @@ ssh-copy-id -i ~/.ssh/id_rsa.pub [远程主机IP]
 - 免密多用户登录
 
 实现多用户免密登录远程主机需将本地公钥拷贝到远程主机对应用户的authorized_keys文件中
-
 
 - 手动操作
 
@@ -114,6 +115,7 @@ chmod 700 ~/.ssh
 # 允许密钥登录
 RSAAuthentication yes
 
+#允许公钥验证 
 PubkeyAuthentication yes
 
 # 禁止密码登录
