@@ -5,13 +5,14 @@
  * @Email: dalao_li@163.com
  * @Date: 2021-03-12 17:02:33
  * @LastEditors: Li Yuanhao
- * @LastEditTime: 2021-03-14 20:35:18
+ * @LastEditTime: 2021-03-15 18:10:37
 -->
 ## 关闭防火墙
 
 ```sh
 systemctl stop firewalld
 
+# 永久关闭
 systemctl disable firewalld
 
 sed -i -e  's/^SELINUX=.*/SELINUX=disabled/g' /etc/selinux/config
@@ -19,6 +20,7 @@ setenforce 0
 ```
 
 ## 配置源
+
 ```sh
 rm -rf /etc/yum.repos.d/*
 
