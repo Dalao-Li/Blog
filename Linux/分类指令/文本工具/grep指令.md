@@ -5,7 +5,7 @@
  * @Email: dalao_li@163.com
  * @Date: 2021-03-10 17:35:54
  * @LastEditors: Li Yuanhao
- * @LastEditTime: 2021-03-12 13:26:50
+ * @LastEditTime: 2021-03-16 15:30:38
 -->
 
 ## grep指令参数
@@ -24,8 +24,8 @@ grep -[参数]
 | v    | 显示不包含匹配文本的所有行             |
 
 
-
-## 单查询
+## 指令
+- 单查询
 
 ```sh
 grep pattern filepath
@@ -38,7 +38,7 @@ grep -n 'Mar 10 16:3' /var/log/secure
 ```
 ![](https://cdn.hurra.ltd/img/20210310173920.png)
 
-## 与查询
+- 与查询
 
 ```sh
 grep 'pattern1' filepath | grep 'pattern2'
@@ -51,7 +51,7 @@ grep 'Mar 10 16:3' /var/log/secure | grep Accepted
 
 ![](https://cdn.hurra.ltd/img/20210310175209.png)
 
-## 或查询
+- 或查询
 
 ```sh
 # 方法1
@@ -61,13 +61,19 @@ grep 'pattern1\|pattern2' filepath
 grep -E 'pattern1|pattern2' filepath
 ```
 
-## 非查询
+- 非查询
 
 ```sh
 grep -v pattern filepath
 ```
 
-## 正则
+特殊用法:
+```sh
+# 去除包含grep的进程行,避免影响最终数据的正确性
+grep -v grep
+```
+
+- 正则
 
 ```sh
 # 查看以pattern开头的行
@@ -78,12 +84,11 @@ grep pattern$ filepath
 ```
 ## 示例
 
-
-查找/root/test.txt文件中含有human的句子
+- 查找/root/test.txt文件中含有human的句子
 
 ![](https://cdn.hurra.ltd/img/20210310151418.png)
 
 
-查找/root/test.txt文件中以The开头的句子
+- 查找/root/test.txt文件中以The开头的句子
 
 ![](https://cdn.hurra.ltd/img/20210310151535.png)
