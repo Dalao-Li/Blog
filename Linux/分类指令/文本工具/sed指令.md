@@ -5,7 +5,7 @@
  * @Email: dalao_li@163.com
  * @Date: 2021-03-12 13:55:49
  * @LastEditors: Li Yuanhao
- * @LastEditTime: 2021-03-16 15:31:32
+ * @LastEditTime: 2021-03-16 18:48:15
 -->
 
 ## 概念
@@ -41,3 +41,11 @@ sed -n '1,5 p' file.txt
 | p    | 对匹配内容进行打印                  |
 | d    | 对匹配内容进行删除,此时要去掉-n参数 |
 | w    | 将匹配内容写入其他地方              |
+
+## 示例
+
+- Ubuntu换源
+
+```sh
+sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list
+```

@@ -1,7 +1,7 @@
 # CentOS安装Python3
 
 
-安装编译 Python 所需的依赖
+安装编译所需依赖
 
 ```sh
 yum -y install gcc zlib* libffi-devel
@@ -52,7 +52,7 @@ python -V
 
 ![](https://cdn.hurra.ltd/img/20200628170509.png)
 
-设置环境变量,修改~/.bash_profile中对应内容:
+设置环境变量,修改`~/.bash_profile`中对应内容:
 
 ```sh
 # python3的安装路径
