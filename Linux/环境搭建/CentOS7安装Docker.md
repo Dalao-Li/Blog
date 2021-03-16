@@ -5,7 +5,7 @@
  * @Email: dalao_li@163.com
  * @Date: 2021-01-16 17:59:34
  * @LastEditors: Li Yuanhao
- * @LastEditTime: 2021-03-09 14:11:36
+ * @LastEditTime: 2021-03-16 10:38:22
 -->
  
 # Centos7 安装Docker
@@ -46,7 +46,7 @@ sudo sed -i 's/download.docker.com/mirrors.aliyun.com\/docker-ce/g' /etc/yum.rep
 更新 yum 软件源缓存并安装 docker-ce
 
 ```sh
-sudo yum install docker-ce docker-ce-cli containerd.io
+sudo yum install -y docker-ce docker-ce-cli containerd.io
 ```
 
 启动
@@ -66,7 +66,9 @@ docker info
 
 ## 注意
 
-若在root权限,则可直接输入docker命令;否则需添加用户组,这样就不必在加sudo进行操作.
+若在root权限,则可直接输入docker命令
+
+若是其他用户则需添加用户组,否则指令前需加sudo.
 
 ```shell
 # 添加docker用户组
@@ -83,7 +85,7 @@ newgrp docker
 
 ## 换源
 
-编辑/etc/docker/daemon.json文件,添加以下内容
+编辑/etc/docker/daemon.json文件:
 
 ```sh
 {

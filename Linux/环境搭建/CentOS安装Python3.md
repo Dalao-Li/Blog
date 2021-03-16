@@ -52,14 +52,12 @@ python -V
 
 ![](https://cdn.hurra.ltd/img/20200628170509.png)
 
-设置环境变量,修改~/.bash_profile 内容为
+设置环境变量,修改~/.bash_profile中对应内容:
 
 ```sh
 # python3的安装路径
 
 PATH=$PATH:$HOME/bin:/usr/bin/python3/bin
-
-export PATH
 ```
 
 ![](https://cdn.hurra.ltd/img/20200628173314.png)
@@ -80,13 +78,9 @@ python3 -V
 
 ## pip3 换源
 
-进入 python3 的 bin 目录
 
-```sh
-cd /usr/bin/python3/bin
-```
 
-创建 `~/.pip` 目录,在其中编辑 `~/.pip/pip.conf`文件
+创建 `~/.pip` 目录,编辑 `pip.conf`文件
 
 ```ini
 [global]
