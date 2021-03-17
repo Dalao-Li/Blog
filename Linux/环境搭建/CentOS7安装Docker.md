@@ -5,7 +5,7 @@
  * @Email: dalao_li@163.com
  * @Date: 2021-01-16 17:59:34
  * @LastEditors: Li Yuanhao
- * @LastEditTime: 2021-03-16 10:38:22
+ * @LastEditTime: 2021-03-17 00:12:09
 -->
  
 # Centos7 安装Docker
@@ -39,8 +39,9 @@ yum install -y yum-utils device-mapper-persistent-data lvm2
 添加 yum 软件源
 
 ```sh
-sudo yum-config-manager --add-repo https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+yum-config-manager --add-repo https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
 
+# 更换为aliyun源
 sudo sed -i 's/download.docker.com/mirrors.aliyun.com\/docker-ce/g' /etc/yum.repos.d/docker-ce.repo
 ```
 更新 yum 软件源缓存并安装 docker-ce

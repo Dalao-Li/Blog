@@ -2,29 +2,10 @@
 
 ![](https://cdn.hurra.ltd/img/20200720231600.png)
 
-## 配置
-
-```sh
-# 配置用户名
-git config --global user.name "<name>"
-
-# 配置邮箱
-git config --global user.email "<email>"
-```
-
-- 建立公钥
-
-```shell
-ssh-keygen -t rsa -C "<邮箱>"
-```
-
-> 公钥位置 : `.ssh/id_rsa.pub`
 
 ## 建立本地仓库
 
-- 初始化一个文件夹为本地仓库
-
-```shell
+```sh
 git init
 ```
 
@@ -67,12 +48,12 @@ git add .
 git reset HEAD
 
 # 撤回暂存区指定的文件
-git reset HEAD <filename>
+git reset HEAD [filename]
 ```
 
 ![](https://cdn.hurra.ltd/img/20200717231751.png)
 
-## 提交操作
+## 提交
 
 - 将暂存区里的改动给提交到本地的版本库
 
@@ -82,23 +63,23 @@ git commit -m "提交的注释信息"
 
 ![](https://cdn.hurra.ltd/img/20200717230921.png)
 
-## 修改提交
+## 修改之前的提交
 
 - 修改最近一次的 commit 信息
 
-```shell
+```sh
 git commit --amend
 ```
 
 - 比如要修改的 commit 是倒数第三条,使用下述命令:
 
-```shell
+```sh
 git rebase -i HEAD~3
 ```
 
 ## 查看提交记录
 
-```shell
+```sh
 git log
 ```
 
@@ -144,8 +125,6 @@ git reset --soft HEAD^
 
 ![](https://cdn.hurra.ltd/img/20200717233820.png)
 
----
-
 - 若想回退到指定 commit,可执行
 
 ```shell
@@ -154,15 +133,15 @@ git reset --<soft/hard> <commit id>
 
 ## 查看分支
 
-> - 所有分支
+- 所有分支
 
-```shell
+```sh
 git branch -a
 ```
 
-> - 当前使用分支
+- 当前使用分支
 
-```shell
+```sh
 git branch
 ```
 
@@ -170,8 +149,8 @@ git branch
 
 ## 建立分支
 
-```shell
-git branch <branch name>
+```sh
+git branch [branch name]
 ```
 
 建立名为 first 的分支
@@ -181,17 +160,17 @@ git branch <branch name>
 ## 切换分支
 
 ```shell
-git checkout <branch name>
+git checkout [branch name]
 ```
 
 切换到 first 分支
 
 ![](https://cdn.hurra.ltd/img/20200718111734.png)
 
-> - 创建新分支并切换到新分支
+- 创建新分支并切换到新分支
 
-```shell
-git checkout -b <branch name>
+```sh
+git checkout -b [branch name]
 ```
 
 创建 second 分支并切换
@@ -200,23 +179,23 @@ git checkout -b <branch name>
 
 ## 删除分支
 
-```shell
-git branch -d <branch name>
+```sh
+git branch -d [branch name]
 ```
 
 删除 second 分支
 
 ![](https://cdn.hurra.ltd/img/20200718112414.png)
 
-##合并分支
+## 合并分支
 
 合并某分支到当前分支
 
-```shell
-git merge <branch name>
+```sh
+git merge branch name>
 ```
 
-### 无冲突
+- 无冲突情况
 
 master 分支下新建 master.txt 文件;commit
 
@@ -237,24 +216,8 @@ git merge second
 ```
 
 ![](https://cdn.hurra.ltd/img/20200720215610.png)
+
 可以看到 master 分支下已经出现了 second.txt
 
-## 查看远程仓库地址
-
-```shell
-git remote -v
-```
-
-## 删除远程仓库地址
-
-```shell
-git remote rm <origin-name>
-```
-
-## 添加新地址
-
-```shell
-git remote add <origin-name> <origin-url>
-```
 
 ![](https://cdn.hurra.ltd/img/收款码.png)
